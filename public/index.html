@@ -26,6 +26,14 @@
     width:80px;height:80px;background:rgba(43,127,255,.35)}
   .hide{display:none!important}
   @media (hover:hover) and (pointer:fine){.btn{display:none}}
+  /* Gsm rechtop: vraag om te draaien, want de game is gemaakt voor liggend */
+  #draai{display:none;position:fixed;inset:0;z-index:20;background:#07260f;color:#fff;
+    flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;font-weight:800}
+  #draai .gsm{width:54px;height:92px;border:4px solid #fff;border-radius:12px;animation:draai 1.8s ease-in-out infinite}
+  #draai p{margin:0;font-size:20px;letter-spacing:.5px}
+  #draai small{font-weight:600;font-size:14px;opacity:.75}
+  @keyframes draai{0%,25%{transform:rotate(0)}55%,100%{transform:rotate(-90deg)}}
+  @media (orientation:portrait) and (pointer:coarse){#draai{display:flex}}
 </style>
 </head>
 <body>
@@ -35,8 +43,22 @@
 <button class="btn" id="bPass">PASS</button>
 <button id="install" style="display:none;position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px">Installeer app</button>
 <div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm". <b id="iosx" style="float:right;padding-left:12px">X</b></div>
-<script src="game.js"></script>
+<div id="draai"><div class="gsm"></div><p>DRAAI JE GSM</p><small>EAWG Mobile speel je liggend</small></div>
+<script src="game.js?v=23"></script>
 <script>
+// Eerste tik op een gsm: volledig scherm en liggend vastzetten (werkt op Android, iPhone negeert het)
+(function () {
+  if (!matchMedia('(pointer:coarse)').matches) return;
+  function vol() {
+    removeEventListener('pointerdown', vol, true);
+    var el = document.documentElement, rf = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!rf || document.fullscreenElement) return;
+    Promise.resolve(rf.call(el, { navigationUI: 'hide' })).then(function () {
+      if (screen.orientation && screen.orientation.lock) return screen.orientation.lock('landscape');
+    }).catch(function () {});
+  }
+  addEventListener('pointerdown', vol, true);
+})();
 (function () {
   var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
   if (standalone) return;

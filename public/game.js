@@ -1782,6 +1782,38 @@
       (e.lineWidth = 1.5),
       U(l, h, d, u, 6),
       e.stroke();
+    // Clubkaart in het glazen vak: jouw club, munten en stand van het seizoen
+    {
+      const club = H[it] || {},
+        sz = S && S.season;
+      (e.fillStyle = club.shirt || "#7b3fc4"),
+        e.beginPath(),
+        e.arc(l + 34, h + 38, 16, 0, 6.2832),
+        e.fill(),
+        (e.strokeStyle = club.trim || "#fff"),
+        (e.lineWidth = 3),
+        e.stroke(),
+        g("JOUW CLUB", l + 60, h + 34, 11, "#8fb0ff", "left", "800"),
+        g(club.code || "", l + 60, h + 50, 15, "#fff", "left", "900"),
+        g(club.name || "", l + 18, h + 88, (club.name || "").length > 16 ? 13 : 16, "#fff", "left", "900"),
+        g(
+          "sterkte " +
+            (club.ts ||
+              ((J || []).flatMap((cp) => cp.teams || []).find((tm) => tm.name === club.name) || {}).ts ||
+              "-"),
+          l + 18,
+          h + 108,
+          13,
+          "#ffd54a",
+          "left",
+          "800",
+        ),
+        g("MUNTEN", l + 18, h + 196, 11, "#8fb0ff", "left", "800"),
+        g(String(S ? S.coins : 0), l + 18, h + 222, 24, "#fff", "left", "900"),
+        g("SEIZOEN", l + 124, h + 196, 11, "#8fb0ff", "left", "800"),
+        g(sz ? "DAG " + Math.min(7, sz.round + 1) + "/7" : "START", l + 124, h + 222, 20, "#fff", "left", "900"),
+        Xt(l + 18, h + u - 50, d - 36, 32, "WISSEL CLUB", () => Ye("set"), !1);
+    }
     const p = i + n + (l - i - n) / 2,
       M = 432,
       R = 6.4;
@@ -1861,7 +1893,7 @@
         (X += x + 8 * pt);
     }),
       g(
-        "Tik op een tegel  |  Toetsenbord: pijltjes en Enter",
+        matchMedia("(pointer:coarse)").matches ? "Tik op een tegel" : "Tik op een tegel  |  Toetsenbord: pijltjes en Enter",
         24,
         578,
         13,
