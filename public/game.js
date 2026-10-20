@@ -2837,6 +2837,127 @@
         });
     });
   }
+  function buste(x, y, s, sp, shirt, trim) {
+    const sk = n0[sp && void 0 !== sp.sk ? sp.sk % n0.length : 1],
+      hr = s0[sp && void 0 !== sp.hr ? sp.hr % s0.length : 0],
+      hs = sp && void 0 !== sp.hs ? sp.hs % 4 : 0,
+      kop = 7.5 * s,
+      zak =
+        sp && sp.name
+          ? (String(sp.name).length * 7 + (sp.n || 0) * 3) % 3
+          : 0,
+      skD = rt(sk, 0.22);
+    // romp: shirt met collar en afwerking
+    const romp = e.createLinearGradient(x - 11 * s, 0, x + 11 * s, 0);
+    romp.addColorStop(0, rt(shirt, 0.18)),
+      romp.addColorStop(0.45, shirt),
+      romp.addColorStop(1, rt(shirt, 0.3)),
+      (e.fillStyle = romp),
+      e.beginPath(),
+      e.moveTo(x - 11.5 * s, y + 12 * s),
+      e.quadraticCurveTo(x - 12 * s, y + 1 * s, x - 4.5 * s, y - 1.5 * s),
+      e.lineTo(x + 4.5 * s, y - 1.5 * s),
+      e.quadraticCurveTo(x + 12 * s, y + 1 * s, x + 11.5 * s, y + 12 * s),
+      e.closePath(),
+      e.fill(),
+      (e.strokeStyle = trim),
+      (e.lineWidth = 1 * s),
+      e.stroke(),
+      (e.fillStyle = trim),
+      e.beginPath(),
+      e.moveTo(x - 4.5 * s, y - 1.5 * s),
+      e.lineTo(x, y + 2.2 * s),
+      e.lineTo(x + 4.5 * s, y - 1.5 * s),
+      e.closePath(),
+      e.fill();
+    sp && sp.n && g(String(sp.n), x, y + 9 * s, 6.5 * s, trim, "center", "900");
+    // nek
+    (e.fillStyle = skD), e.fillRect(x - 2 * s, y - kop * 1.4, 4 * s, kop * 1.1);
+    // hoofd met zachte belichting
+    const gezicht = e.createRadialGradient(x - kop * 0.35, y - kop * 1.25, kop * 0.15, x, y - kop * 0.95, kop * 1.15);
+    gezicht.addColorStop(0, Mf(sk, 0.12)), gezicht.addColorStop(1, skD),
+      (e.fillStyle = gezicht),
+      e.beginPath(),
+      e.ellipse(x, y - kop * 0.95, kop * 0.82, kop, 0, 0, 6.2832),
+      e.fill();
+    // oren
+    (e.fillStyle = skD),
+      e.beginPath(),
+      e.ellipse(x - kop * 0.82, y - kop * 0.9, kop * 0.18, kop * 0.28, 0, 0, 6.2832),
+      e.fill(),
+      e.beginPath(),
+      e.ellipse(x + kop * 0.82, y - kop * 0.9, kop * 0.18, kop * 0.28, 0, 0, 6.2832),
+      e.fill();
+    // baardstubbels bij 1 op 3 spelers
+    if (zak === 0) {
+      (e.fillStyle = "rgba(30,20,12,.28)"),
+        e.beginPath(),
+        e.ellipse(x, y - kop * 0.55, kop * 0.6, kop * 0.42, 0, 0.35, 2.79),
+        e.fill();
+    }
+    // wenkbrauwen, ogen, neus, mond
+    (e.strokeStyle = hr),
+      (e.lineWidth = 0.9 * s),
+      e.beginPath(),
+      e.moveTo(x - kop * 0.42, y - kop * 1.25),
+      e.lineTo(x - kop * 0.14, y - kop * 1.3),
+      e.moveTo(x + kop * 0.14, y - kop * 1.3),
+      e.lineTo(x + kop * 0.42, y - kop * 1.25),
+      e.stroke(),
+      (e.fillStyle = "#20242e"),
+      e.beginPath(),
+      e.arc(x - kop * 0.3, y - kop * 1.05, kop * 0.11, 0, 6.2832),
+      e.fill(),
+      e.beginPath(),
+      e.arc(x + kop * 0.3, y - kop * 1.05, kop * 0.11, 0, 6.2832),
+      e.fill(),
+      (e.fillStyle = "rgba(255,255,255,.85)"),
+      e.beginPath(),
+      e.arc(x - kop * 0.33, y - kop * 1.08, kop * 0.035, 0, 6.2832),
+      e.fill(),
+      e.beginPath(),
+      e.arc(x + kop * 0.27, y - kop * 1.08, kop * 0.035, 0, 6.2832),
+      e.fill(),
+      (e.strokeStyle = skD),
+      (e.lineWidth = 0.8 * s),
+      e.beginPath(),
+      e.moveTo(x, y - kop * 1),
+      e.lineTo(x - kop * 0.08, y - kop * 0.68),
+      e.stroke(),
+      (e.strokeStyle = "rgba(60,25,20,.65)"),
+      e.beginPath(),
+      e.moveTo(x - kop * 0.2, y - kop * 0.45),
+      e.lineTo(x + kop * 0.2, y - kop * 0.45),
+      e.stroke();
+    // haar
+    (e.fillStyle = hr),
+      hs === 1
+        ? (e.beginPath(), e.arc(x, y - kop * 1.08, kop * 0.84, 3.3, 6.12), e.fill())
+        : hs === 2
+          ? (e.beginPath(),
+            e.ellipse(x, y - kop * 1, kop * 1.02, kop * 0.92, 0, 3.05, 6.38),
+            e.fill(),
+            e.fillRect(x - kop * 1.02, y - kop * 1.15, 2.1 * s, kop * 1.25),
+            e.fillRect(x + kop * 0.92, y - kop * 1.15, 2.1 * s, kop * 1.25))
+          : hs === 3
+            ? ((e.beginPath(),
+              e.ellipse(x, y - kop * 1.05, kop * 0.9, kop * 0.68, 0, 3.14, 6.2832),
+              e.fill()),
+              [[-0.45, -0.1], [0, -0.28], [0.45, -0.1]].forEach(([ox, oy]) => {
+                e.beginPath(),
+                  e.moveTo(x + ox * kop - 1.7 * s, y - kop * 1.3 + oy * kop),
+                  e.quadraticCurveTo(
+                    x + ox * kop,
+                    y - kop * 2.05 + oy * kop,
+                    x + ox * kop + 1.7 * s,
+                    y - kop * 1.3 + oy * kop,
+                  ),
+                  e.fill();
+              }))
+            : (e.beginPath(),
+              e.ellipse(x, y - kop * 0.98, kop * 0.96, kop * 0.78, 0, 3.14, 6.2832),
+              e.fill());
+  }
   function q0() {
     const t = [],
       o = {};
@@ -3011,6 +3132,12 @@
         g(r.kit.name, n + 165, 275, 21, "#fff", "center", "900"),
         g(r.comp, n + 165, 298, 13, "rgba(255,255,255,.65)", "center", "700"),
         g("sterkte " + r.ts, n + 165, 324, 16, "#ffd400", "center", "800"),
+        PJ &&
+          PJ[r.kit.name] &&
+          [0, 1, 2, 3, 4].forEach((q) => {
+            PJ[r.kit.name][q] &&
+              buste(n + 101 + q * 32, 352, 0.85, PJ[r.kit.name][q], r.kit.shirt, r.kit.trim);
+          }),
         I(
           n + 12,
           330,

@@ -112,6 +112,15 @@ def build(name, code, shirt, shorts, trim):
     d.ellipse([bx - r * 1.6, by - r * 1.6, bx + r * 1.6, by + r * 1.6], fill=ball)
     d.arc([bx - r * 1.6, by - r * 1.6, bx + r * 1.6, by + r * 1.6], 0, 360, fill=mix(ball, (0, 0, 0), 0.4), width=max(2, S // 400))
 
+    # glans (diagonale lichtreflectie, binnen het schild)
+    from PIL import ImageChops
+
+    glans = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glans)
+    gd.polygon([(0, 0), (int(S * 0.62), 0), (int(S * 0.12), int(S * 0.55))], fill=(255, 255, 255, 44))
+    ga = ImageChops.multiply(glans.split()[3], mask)
+    img.paste(glans, (0, 0), ga)
+
     return img.resize((192, 192), Image.LANCZOS)
 
 
