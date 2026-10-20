@@ -1,0 +1,5415 @@
+{
+ "KAA GENT": [
+  {
+   "n": 33,
+   "name": "ROEF",
+   "pos": 0,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 44,
+   "name": "VAN DER HEYDEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "HASHIOKA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 15,
+   "name": "ITO",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 7,
+   "name": "KANGA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 1,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "SONKO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 10,
+   "name": "OMGBA",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 18,
+   "name": "SAMOISE",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "CLUB BRUGGE": [
+  {
+   "n": 22,
+   "name": "MIGNOLET",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 44,
+   "name": "MECHELE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "ORDONEZ",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "VANAKEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "TZOLIS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 15,
+   "name": "ONYEDIKA",
+   "pos": 2,
+   "sk": 4,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 9,
+   "name": "FORBS",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 65,
+   "name": "SEYS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "SPORTING CHARLEROI": [
+  {
+   "n": 1,
+   "name": "DELAVALLEE",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "OUSOU",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 3,
+   "name": "VAN DEN KERKHOF",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "PFLUCKE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "BOJANG",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 17,
+   "name": "BERNIER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "BOUKAMIR",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 21,
+   "name": "SCHEIDLER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "ROYALE UNION SG": [
+  {
+   "n": 1,
+   "name": "CHAMBAERE",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "MAC ALLISTER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "SYKES",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ZORGANE",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 30,
+   "name": "FLORUCZ",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "AIT EL HADJ",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 27,
+   "name": "PATRIS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 13,
+   "name": "RODRIGUEZ",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "RSC ANDERLECHT": [
+  {
+   "n": 26,
+   "name": "COOSEMANS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 54,
+   "name": "SARDELLA",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "AUGUSTINSSON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 29,
+   "name": "STROEYKENS",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 9,
+   "name": "CVETKOVIC",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "LLANSANA",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "BIANCONE",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 14,
+   "name": "SIKAN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "KVC WESTERLO": [
+  {
+   "n": 1,
+   "name": "LATHOUWERS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "KIMURA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 40,
+   "name": "BALOGH",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 34,
+   "name": "HASPOLAT",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 9,
+   "name": "BASSETTE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "STORM",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "SYDORCHUK",
+   "pos": 2,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "LAAAOUI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "KRC GENK": [
+  {
+   "n": 1,
+   "name": "LEYSEN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "SMETS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "KAYEMBE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 8,
+   "name": "HEYNEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "DUROSINMI",
+   "pos": 3,
+   "sk": 4,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 10,
+   "name": "ITO",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 4,
+   "name": "TAHIROVIC",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "NKUBA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "SV ZULTE-WAREGEM": [
+  {
+   "n": 1,
+   "name": "BOSTYN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "LEMOINE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "KIILERICH",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "CLAES",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "AKE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 10,
+   "name": "MBAYE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 19,
+   "name": "HORVAT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "PAUGAIN",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "STANDARD LUIK": [
+  {
+   "n": 1,
+   "name": "EPOLO",
+   "pos": 0,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 4,
+   "name": "LAVALEE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 13,
+   "name": "FOSSEY",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 23,
+   "name": "ILAIMAHARITRA",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 10,
+   "name": "ECKERT",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "MOHR",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "ZEQIRI",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 77,
+   "name": "NSIMBA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "LOMMEL SK": [
+  {
+   "n": 1,
+   "name": "IVEZIC",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "EYOMA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 5,
+   "name": "WOUTERS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "PELUPESSY",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 9,
+   "name": "KONADU",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 8,
+   "name": "ROMMENS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "TOLINSSON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "TALVITIE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "WAASLAND-BEVEREN": [
+  {
+   "n": 1,
+   "name": "SCHENK",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "JANS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 31,
+   "name": "GODEAU",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "DEWAELE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "KABORE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 22,
+   "name": "BRULS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "MARGARITHA",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 2,
+   "name": "THOMPSON",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "STVV": [
+  {
+   "n": 16,
+   "name": "KOKUBO",
+   "pos": 0,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 5,
+   "name": "TANIGUCHI",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 22,
+   "name": "JANSSENS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "SISSAKO",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 7,
+   "name": "MUJA",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "SEBAOUI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 23,
+   "name": "PUPE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "BAZDAR",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "ROYAL ANTWERP FC": [
+  {
+   "n": 15,
+   "name": "THOELEN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "ENGELS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "FOULON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "PRAET",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "JANSSON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "KERK",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "BABADI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 23,
+   "name": "BIJL",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "KV MECHELEN": [
+  {
+   "n": 1,
+   "name": "DE WOLF",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 33,
+   "name": "ST. JAGO",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 4,
+   "name": "DIOUF",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 8,
+   "name": "KONATE",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 14,
+   "name": "RAMAN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "HAMMAR",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "BANDE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 19,
+   "name": "MRABTI",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "OH LEUVEN": [
+  {
+   "n": 1,
+   "name": "VAN DEN HEUVEL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "DUSSENNE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 28,
+   "name": "PLETINCKX",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "SCHRIJVERS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "IKWUEMESI",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 21,
+   "name": "BALIKWISHA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 4,
+   "name": "VERSTRAETE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 77,
+   "name": "VLIETINCK",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "RAAL LA LOUVIERE": [
+  {
+   "n": 21,
+   "name": "PEANO",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "FAYE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 5,
+   "name": "LUTONDA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 10,
+   "name": "WADE",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 9,
+   "name": "FILET",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "GILLOT",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "KERCKHOFS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "BELKHEIR",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "KV KORTRIJK": [
+  {
+   "n": 1,
+   "name": "GUNNARSSON",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "RUISSEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "ANDERSON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "DEJAEGERE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 68,
+   "name": "AMBROSE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 8,
+   "name": "MEHSSATOU",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 20,
+   "name": "DEWAELE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "KOYALIPOU",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "CERCLE BRUGGE": [
+  {
+   "n": 1,
+   "name": "COUCKE",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "DIAKITE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 3,
+   "name": "LINCOLN",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 10,
+   "name": "AMANI",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 13,
+   "name": "VANZEIR",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 28,
+   "name": "VAN DER BRUGGEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "LE ROUX",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 15,
+   "name": "MAGNEE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "FEYENOORD": [
+  {
+   "n": 22,
+   "name": "WELLENREUTHER",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "READ",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 0
+  },
+  {
+   "n": 18,
+   "name": "TRAUNER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "HWANG",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 9,
+   "name": "UEDA",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "AHMEDHODZIC",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 23,
+   "name": "HADJ MOUSSA",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 14,
+   "name": "STEUYN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "AZ ALKMAAR": [
+  {
+   "n": 1,
+   "name": "OWUSU-ODURO",
+   "pos": 0,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "MAIKUMA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "GOES",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 8,
+   "name": "CLASIE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "PARROTT",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 0
+  },
+  {
+   "n": 10,
+   "name": "MIJNANS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "PENETRA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 26,
+   "name": "SMIT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "PSV": [
+  {
+   "n": 1,
+   "name": "OLIJ",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "OBISPO",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 6,
+   "name": "FLAMINGO",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "SCHOUTEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "PEPI",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 8,
+   "name": "DEST",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 34,
+   "name": "SAIBARI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "DRIOUECH",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 0
+  }
+ ],
+ "AJAX": [
+  {
+   "n": 1,
+   "name": "JAROS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "ITAKURA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 15,
+   "name": "BAAS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 18,
+   "name": "KLAASSEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "WEGHORST",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "GODTS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 2,
+   "bt": 2
+  },
+  {
+   "n": 37,
+   "name": "SUTALO",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "GLOUKH",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  }
+ ],
+ "FC TWENTE": [
+  {
+   "n": 1,
+   "name": "UNNERSTALL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 1,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "PROPPER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "HILGERS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 8,
+   "name": "BOOTH",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "LAMMERS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "ROTS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 0
+  },
+  {
+   "n": 14,
+   "name": "HLYNSSON",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 2,
+   "bt": 5
+  },
+  {
+   "n": 37,
+   "name": "UNUVAR",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  }
+ ],
+ "FORTUNA SITTARD": [
+  {
+   "n": 1,
+   "name": "KOOPMANS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "PINTO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "VAN OTTELE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "DAHLHAUS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "ROMENY",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 7,
+   "name": "PETERSON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "SINKGRAVEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 2,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "MICHUT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  }
+ ],
+ "FC GRONINGEN": [
+  {
+   "n": 1,
+   "name": "VAESSEN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "BLOKZIJL",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "RENTE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 24,
+   "name": "CLEMENT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "WILLUMSSON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "ONDREJKA",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 26,
+   "name": "VAN BERGEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "DE JONGE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "SC HEERENVEEN": [
+  {
+   "n": 44,
+   "name": "NOPPERT",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "KERSTEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "ZAGARITIS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "PROPER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "VENTE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "SMANS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 20,
+   "name": "TRENSKOW",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "ULDRIKIS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "GO AHEAD EAGLES": [
+  {
+   "n": 1,
+   "name": "HAUG",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "JAMES",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "KRAMER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "LINTHORST",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "SIGURDARSON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "MARGARET",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 10,
+   "name": "TENGSTEDT",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "GALVEZ",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  }
+ ],
+ "EXCELSIOR": [
+  {
+   "n": 1,
+   "name": "VAN GASSEL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "WIDELL",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "MEISSEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "VAN VIANEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "NAUJOKS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "YEGOIAN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "DOMINGUEZ",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 24,
+   "name": "CAIRO",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "FC UTRECHT": [
+  {
+   "n": 1,
+   "name": "BARKAS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "VAN DER HOORN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "EL KAROUANI",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "DE WIT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "MIN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "VIERGEVER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "CATHLINE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 21,
+   "name": "ZECHIEL",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  }
+ ],
+ "NEC NIJMEGEN": [
+  {
+   "n": 1,
+   "name": "CRETTAZ",
+   "pos": 0,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "SCHUURS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "NUYTINCK",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "NEJASMIC",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "SIERHUIS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 35,
+   "name": "MONTEIRO",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 30,
+   "name": "LINNSSEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 66,
+   "name": "KABAR",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "SPARTA ROTTERDAM": [
+  {
+   "n": 1,
+   "name": "BROUWER",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "MARTINS INDI",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "YOUNG",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  },
+  {
+   "n": 8,
+   "name": "BAAS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "THORISSON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "MITO",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "TERHO",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "VAN BERGEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "SC CAMBUUR": [
+  {
+   "n": 1,
+   "name": "JANSEN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "BOUAH",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "AMOFA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "SOUREN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "VINK",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "HAMACHE",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 13,
+   "name": "BINDER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 33,
+   "name": "MAERTENS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "PEC ZWOLLE": [
+  {
+   "n": 1,
+   "name": "SCHENDELAAR",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "FLORANUS",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "AERTSSEN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 30,
+   "name": "THOMAS",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 9,
+   "name": "SORENSEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "VELTHUIS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "OOSTING",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "MBAYO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 4
+  }
+ ],
+ "TELSTAR": [
+  {
+   "n": 1,
+   "name": "KOEMAN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "HARDEVELD",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "ANING",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "OWUSU",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "SEEDORF",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 42,
+   "name": "MARTHA",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "BROUWER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 15,
+   "name": "OGIDI NWANKWO",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "ADO DEN HAAG": [
+  {
+   "n": 1,
+   "name": "NIKIEMA",
+   "pos": 0,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "WAEM",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "JENSEN-ABBEW",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ZAMBUREK",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "VAN MIEGHEM",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "HAWKINS",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "JIMENEZ",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "DE RUIJTER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 3
+  }
+ ],
+ "WILLEM II": [
+  {
+   "n": 1,
+   "name": "DIDILLON-HODL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "HOOGMA",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "STAM",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "TWIGT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "HAEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "SCHUURMAN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 52,
+   "name": "VILHENA",
+   "pos": 2,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "CIRANNI",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "MANCHESTER CITY": [
+  {
+   "n": 25,
+   "name": "DONNARUMMA",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "DIAS",
+   "pos": 1,
+   "sk": 1,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "GVARDIOL",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "RODRI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "HAALAND",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 1
+  },
+  {
+   "n": 20,
+   "name": "BERNARDO SILVA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 47,
+   "name": "FODEN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "CHERKI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "ARSENAL": [
+  {
+   "n": 22,
+   "name": "RAYA",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "SALIBA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "TIMBER",
+   "pos": 1,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 41,
+   "name": "RICE",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "GYOKERES",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "SAKA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ODEGAARD",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "GABRIEL",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BRIGHTON": [
+  {
+   "n": 1,
+   "name": "VERBRUGGEN",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "DUNK",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "VAN HECKE",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "BALEBA",
+   "pos": 2,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "WELBECK",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "MITOMA",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "MINTEH",
+   "pos": 2,
+   "sk": 4,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 34,
+   "name": "VELTMAN",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "CHELSEA": [
+  {
+   "n": 1,
+   "name": "ROBERT SANCHEZ",
+   "pos": 0,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "CUCURELLA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 2,
+   "bt": 2
+  },
+  {
+   "n": 24,
+   "name": "JAMES",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ENZO",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "JOAO PEDRO",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "PALMER",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "CAICEDO",
+   "pos": 2,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "PEDRO NETO",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "LIVERPOOL": [
+  {
+   "n": 1,
+   "name": "ALISSON",
+   "pos": 0,
+   "sk": 2,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "VAN DIJK",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "KONATE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "SZOBOSZLAI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "SALAH",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "WIRTZ",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "GAKPO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "MAC ALLISTER",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BRENTFORD": [
+  {
+   "n": 1,
+   "name": "KELLEHER",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "COLLINS",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "VAN DEN BERG",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "HENDERSON",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "IGOR THIAGO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "SCHADE",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "OUATTARA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "DAMSGAARD",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "LEEDS UNITED": [
+  {
+   "n": 1,
+   "name": "PERRI",
+   "pos": 0,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "RODON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "STRUIJK",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "AMPADU",
+   "pos": 2,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "PIROE",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "CALVERT-LEWIN",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "JAMES",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "STACH",
+   "pos": 2,
+   "sk": 1,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "EVERTON": [
+  {
+   "n": 1,
+   "name": "PICKFORD",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "TARKOWSKI",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 32,
+   "name": "BRANTHWAITE",
+   "pos": 1,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "GUEYE",
+   "pos": 2,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "NDIAYE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "MCNEIL",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "BETO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "MYKOLENKO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "HULL CITY": [
+  {
+   "n": 1,
+   "name": "PANDUR",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "COYLE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "HUGHES",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "LUNDSTRAM",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "MCBURNIE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "GELHARDT",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "BELLOUMI",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 15,
+   "name": "EGAN",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "IPSWICH TOWN": [
+  {
+   "n": 1,
+   "name": "PALMER",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "DAVIS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "O'SHEA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "CAJUSTE",
+   "pos": 2,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 29,
+   "name": "AKPOM",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 47,
+   "name": "CLARKE",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "PHILOGENE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "BURNS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "NEWCASTLE UNITED": [
+  {
+   "n": 1,
+   "name": "POPE",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "BOTMAN",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "TRIPPIER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "TONALI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "WOLTEMADE",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "GORDON",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 39,
+   "name": "BRUNO GUIMARAES",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "BARNES",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "ASTON VILLA": [
+  {
+   "n": 23,
+   "name": "EMILIANO MARTINEZ",
+   "pos": 0,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "KONSA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "PAU TORRES",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "TIELEMANS",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "WATKINS",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "MCGINN",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "ROGERS",
+   "pos": 2,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 44,
+   "name": "KAMARA",
+   "pos": 2,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "MANCHESTER UNITED": [
+  {
+   "n": 31,
+   "name": "LAMMENS",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "DE LIGT",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "MAGUIRE",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "BRUNO FERNANDES",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 30,
+   "name": "SESKO",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "CASIMIRO",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "MBEUMO",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "CUNHA",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "CRYSTAL PALACE": [
+  {
+   "n": 1,
+   "name": "HENDERSON",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "LACROIX",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "RICHARDS",
+   "pos": 1,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "WHARTON",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "MATETA",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "ISMAILA SARR",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "KAMADA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "MUNOZ",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BOURNEMOUTH": [
+  {
+   "n": 1,
+   "name": "PETROVIC",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "DIAKITE",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "TRUFFERT",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ALEX SCOTT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "EVANILSON",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "KLUIVERT",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "TAVERNIER",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "KROUPI",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "TOTTENHAM": [
+  {
+   "n": 1,
+   "name": "VICARIO",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "ROMERO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 37,
+   "name": "VAN DE VEN",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "PALHINHA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "RICHARLISON",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "KUDUS",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "XAVI SIMONS",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 23,
+   "name": "PORRO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "COVENTRY CITY": [
+  {
+   "n": 1,
+   "name": "DOVIN",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "THOMAS",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "VAN EWJK",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "GRIMES",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "SIMMS",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "RUDONI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "WRIGHT",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "SAKAMOTO",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "FULHAM": [
+  {
+   "n": 1,
+   "name": "LENO",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "ANDERSEN",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "BASSEY",
+   "pos": 1,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "BERGE",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "MUNIZ",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "IWOBI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "HARRY WILSON",
+   "pos": 3,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 33,
+   "name": "ROBINSON",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "NOTTINGHAM FOREST": [
+  {
+   "n": 26,
+   "name": "SELS",
+   "pos": 0,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "MURILLO",
+   "pos": 1,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 31,
+   "name": "MILENKOVIC",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "GIBBS-WHITE",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "WOOD",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "HUDSON-ODOI",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ANDERSON",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "NDOYE",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "SUNDERLAND": [
+  {
+   "n": 1,
+   "name": "PATTERSON",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "BALLARD",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 32,
+   "name": "HUME",
+   "pos": 1,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 34,
+   "name": "XHAKA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "ISIDOR",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "SADIKI",
+   "pos": 2,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "RIGG",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "ADINGRA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BAYERN MUNCHEN": [
+  {
+   "n": 1,
+   "name": "NEUER",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 1,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "UPAMECANO",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 4,
+   "name": "TAH",
+   "pos": 1,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "KIMMICH",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "KANE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "OLISE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 2
+  },
+  {
+   "n": 14,
+   "name": "DIAZ",
+   "pos": 3,
+   "sk": 2,
+   "hr": 0,
+   "hs": 0,
+   "bt": 3
+  },
+  {
+   "n": 44,
+   "name": "STANISIC",
+   "pos": 1,
+   "sk": 1,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BORUSSIA DORTMUND": [
+  {
+   "n": 1,
+   "name": "KOBEL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "SCHLOTTERBECK",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "ANTON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "BRANDT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "GUIRASSY",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "ADEYEMI",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 2
+  },
+  {
+   "n": 20,
+   "name": "SABITZER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "RYERSON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "SC FREIBURG": [
+  {
+   "n": 26,
+   "name": "ATUBOLU",
+   "pos": 0,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "GINTER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 30,
+   "name": "GUNTER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "EGGESTEIN",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 32,
+   "name": "GRIFO",
+   "pos": 2,
+   "sk": 1,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "HOLER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "SUZUKI",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 34,
+   "name": "SILDILLIA",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "BAYER LEVERKUSEN": [
+  {
+   "n": 1,
+   "name": "HRADECKY",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 1,
+   "bt": 5
+  },
+  {
+   "n": 12,
+   "name": "TAPSOBA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "GRIMALDO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "ANDRICH",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "SCHICK",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "TILLMAN",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "QUANSAH",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 18,
+   "name": "GARCIA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "MAINZ 05": [
+  {
+   "n": 1,
+   "name": "ZENTNER",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "VAN DEN BERG",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "BELL",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "KOHR",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "AMIRI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "NEBEL",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "SIEB",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "KRAUSS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "ELVERSBERG": [
+  {
+   "n": 20,
+   "name": "KRISTOF",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "PINCKERT",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "LE JONCOUR",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "PHERAI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "CONTE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "PFEIFFER",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "POREBA",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "MICKELSON",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "RB LEIPZIG": [
+  {
+   "n": 1,
+   "name": "GULACSI",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "ORBAN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 1,
+   "bt": 5
+  },
+  {
+   "n": 39,
+   "name": "HENRICHS",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "SCHLAGER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "SEIWALD",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "NUSA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 2
+  },
+  {
+   "n": 9,
+   "name": "BAUMGARTNER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "BITSHIABU",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "WERDER BREMEN": [
+  {
+   "n": 1,
+   "name": "CHRISTENSEN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 32,
+   "name": "FRIEDL",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "STARK",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "STAGE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 2,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "SCHMID",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "WEISER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "NJINMAH",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "GRULL",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "HAMBURGER SV": [
+  {
+   "n": 1,
+   "name": "HEUER-FERNANDES",
+   "pos": 0,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "SCHONLAU",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "MUHEIM",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 23,
+   "name": "MEFFERT",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "GLATZEL",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "DOMPE",
+   "pos": 3,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 2
+  },
+  {
+   "n": 7,
+   "name": "PHILIPPE",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "RANSCH",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "FC AUGSBURG": [
+  {
+   "n": 1,
+   "name": "LABROVIC",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "GOUWELEEUW",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "ZANOLI",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 20,
+   "name": "WOLF",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "CLAUDE-MAURICE",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "ESSENDE",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "KRISTIANSEN",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "REXHBECAJ",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "EINTRACHT FRANKFURT": [
+  {
+   "n": 1,
+   "name": "TRAPP",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 35,
+   "name": "KOCH",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "THEATE",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "SKHIRI",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "BURKARDT",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "UZUN",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 7,
+   "name": "DOAN",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "CHAIBI",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "FC KOLN": [
+  {
+   "n": 1,
+   "name": "SCHWABE",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "HUBERS",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 2,
+   "name": "SCHINDLER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "HUSEINBASIC",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 23,
+   "name": "JOHANNESON",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "DOWNS",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "KAINZ",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "PAUL JACOBS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "VFB STUTTGART": [
+  {
+   "n": 1,
+   "name": "NUBEL",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "CHABOT",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "MITTELSTADT",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "STILLER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 16,
+   "name": "KARAZOR",
+   "pos": 2,
+   "sk": 0,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "UNDAV",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 17,
+   "name": "LEWELING",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "FENDER",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "HOFFENHEIM": [
+  {
+   "n": 1,
+   "name": "BAUMANN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "AKPOGUMA",
+   "pos": 1,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 22,
+   "name": "BERNARDO",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "KRAMARIC",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "LEMPERLE",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 14,
+   "name": "ASLLANI",
+   "pos": 3,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "PRASS",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "VOGT",
+   "pos": 1,
+   "sk": 0,
+   "hr": 2,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "SCHALKE 04": [
+  {
+   "n": 1,
+   "name": "KARIUS",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "BECKER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 25,
+   "name": "KATIC",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "SCHALLENBERG",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 19,
+   "name": "KARAMAN",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 9,
+   "name": "SYLLA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "DZEKO",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 21,
+   "name": "LJUBICIC",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "SC PADERBORN": [
+  {
+   "n": 1,
+   "name": "SCHUBERT",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 4,
+   "name": "BRACKELMANN",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 33,
+   "name": "HOFFMEIER",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "CASTANEDA",
+   "pos": 2,
+   "sk": 2,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 24,
+   "name": "MOHR",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 11,
+   "name": "MICHEL",
+   "pos": 3,
+   "sk": 0,
+   "hr": 2,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 27,
+   "name": "TIGGES",
+   "pos": 3,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 10,
+   "name": "OKPALA",
+   "pos": 3,
+   "sk": 3,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  }
+ ],
+ "UNION BERLIN": [
+  {
+   "n": 1,
+   "name": "RONNOW",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 5,
+   "name": "DOEKHI",
+   "pos": 1,
+   "sk": 2,
+   "hr": 3,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 31,
+   "name": "ROBIN KNOCH",
+   "pos": 1,
+   "sk": 0,
+   "hr": 0,
+   "hs": 3,
+   "bt": 5
+  },
+  {
+   "n": 8,
+   "name": "KHEDIRA",
+   "pos": 2,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 26,
+   "name": "VIDOVIC",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ],
+ "BORUSSIA MONCHENGLADBACH": [
+  {
+   "n": 1,
+   "name": "OMLIN",
+   "pos": 0,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 3,
+   "name": "ITAKURA",
+   "pos": 1,
+   "sk": 1,
+   "hr": 3,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 29,
+   "name": "SCALLY",
+   "pos": 1,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  },
+  {
+   "n": 6,
+   "name": "WEIGL",
+   "pos": 2,
+   "sk": 0,
+   "hr": 1,
+   "hs": 0,
+   "bt": 5
+  }
+ ]
+}

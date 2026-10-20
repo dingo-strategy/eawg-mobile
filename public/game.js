@@ -2457,6 +2457,10 @@
         const f = pj[o.t][o.i];
         (o.name = String(f.name).trim().split(" ").slice(-1)[0].toUpperCase()),
           f.n && (o.num = f.n),
+          void 0 !== f.sk && n0[f.sk] && (o.skin = n0[f.sk]),
+          void 0 !== f.hr && s0[f.hr] && (o.hair = s0[f.hr]),
+          void 0 !== f.hs && (o.hs = f.hs % 4),
+          void 0 !== f.bt && a0[f.bt % a0.length] && (o.boot = a0[f.bt % a0.length]),
           (o.rate = Math.min(95, Math.max(58, (yt ? (o.t ? yt.tb : yt.ta) : o.t ? St[K ? K.opp : it] : tt(Ze(o.i))) + 2 - ((o.i * 5) % 5))));
         continue;
       }
@@ -3663,6 +3667,18 @@
     },
     get st() {
       return S && S.st && Object.keys(S.st).length;
+    },
+    names() {
+      return N.map((o) => o.t + ":" + o.i + ":" + o.name);
+    },
+    get pj() {
+      return PJ ? Object.keys(PJ).length : 0;
+    },
+    vriendelijk(a, b) {
+      const L = q0(),
+        A = L[a],
+        B = L[b];
+      se({ kind: "friendly", a: A.kit, b: B.kit, ta: A.ts, tb: B.ts });
     },
     tik(x, y2) {
       const c = F;
