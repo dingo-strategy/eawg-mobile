@@ -19,7 +19,7 @@ def icon(size):
     ihdr = struct.pack('>IIBBBBB', size, size, 8, 2, 0, 0, 0)
     return b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', ihdr) + chunk(b'IDAT', zlib.compress(bytes(raw), 9)) + chunk(b'IEND', b'')
 
-root = pathlib.Path(__file__).resolve().parent.parent
+root = pathlib.Path(__file__).resolve().parent.parent / 'public'
 for s in (192, 512):
     (root / f'icon-{s}.png').write_bytes(icon(s))
     print(f'icon-{s}.png gemaakt')
