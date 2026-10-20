@@ -237,7 +237,7 @@
         : y !== "play" && y !== "goal"
           ? t.repeat || v0(t.code)
           : t.code === "Space" && y === "play" && !t.repeat && Sf(),
-      t.code === "KeyX" && Ef();
+      t.code === "KeyX" && Ef(), t.code === "KeyC" && Tk();
   }),
     addEventListener("keyup", (t) => {
       (gt[t.code] = 0), t.code === "Space" && Ue();
@@ -249,15 +249,21 @@
         if (x0((t.clientX * o) / ut, (t.clientY * o - ce) / ut)) return;
       }
       y === "play" &&
-        t.clientX < innerWidth * 0.55 &&
-        T.id === null &&
-        ((T.id = t.pointerId),
-        (T.ox = T.x = t.clientX),
-        (T.oy = T.y = t.clientY),
-        (T.vx = T.vy = 0),
-        F.setPointerCapture(t.pointerId));
-    }),
+      t.clientX < innerWidth * 0.55 &&
+      T.id === null &&
+      ((T.id = t.pointerId),
+      (T.ox = T.x = t.clientX),
+      (T.oy = T.y = t.clientY),
+      (T.vx = T.vy = 0),
+      F.setPointerCapture(t.pointerId));
+    if (y === "train" && pn && !pn.anim && pn.r < 5 && !pn.msg)
+      (pn.dr = !0), (pn.aim = [(t.clientX * He) / ut, (t.clientY * He - ce) / ut]);
+  }),
     F.addEventListener("pointermove", (t) => {
+      if (pn && pn.dr) {
+        pn.aim = [(t.clientX * He) / ut, (t.clientY * He - ce) / ut];
+        return;
+      }
       if (t.pointerId !== T.id) return;
       let o = t.clientX - T.ox,
         f = t.clientY - T.oy;
@@ -271,6 +277,7 @@
     });
   const lf = (t) => {
     t.pointerId === T.id && ((T.id = null), (T.vx = T.vy = 0));
+    pn && pn.dr && ((pn.dr = !1), pns());
   };
   F.addEventListener("pointerup", lf), F.addEventListener("pointercancel", lf);
   const Ee = document.getElementById("bShoot"),
@@ -286,6 +293,11 @@
       t.preventDefault(), ge(), Ef();
     }),
     document.addEventListener("contextmenu", (t) => t.preventDefault());
+  const bg = document.getElementById("bTackle");
+  bg &&
+    bg.addEventListener("pointerdown", (t) => {
+      t.preventDefault(), ge(), Tk();
+    });
   function hf() {
     let t = T.vx,
       o = T.vy;
@@ -371,6 +383,7 @@
           ph: Math.random() * 6,
           face: t ? -1 : 1,
           kk: 0,
+          sl: 0,
           name: f0[t][o],
           num: o0[t][o],
           rate: 62 + ((n * 7) % 30),
@@ -481,6 +494,11 @@
   function Sf() {
     y === "play" && c.owner === G && G && ((Rt = !0), (be = 0));
   }
+  function Tk() {
+    if (y !== "play" || !G || (G.sl || 0) > 0) return;
+    if (!c.owner || c.owner.t !== 1) return;
+    (G.sl = 0.38), (G.kk = 0.25), ee(0.2);
+  }
   function Ue() {
     if (Rt && y === "play" && c.owner === G && G) {
       const [t, o] = r0(G);
@@ -586,7 +604,12 @@
       (y = "goal"),
       (ye = t),
       (Ve = 0),
-      (df = "GOAL!" + (Ge ? "  " + Ge.name : "")),
+      (df =
+        "GOAL!" +
+        (Ge ? "  " + Ge.name : "") +
+        "  " +
+        Math.max(1, Math.ceil((Pt - fe) / 60)) +
+        "'"),
       (We = 2.2),
       (c.vx = c.vy = 0),
       (c.owner = null),
@@ -605,6 +628,19 @@
       return;
     }
     if (y !== "play") return;
+    if (y === "train" && pn) {
+      if (pn.anim) {
+        pn.anim.t += t * 2.2;
+        if (pn.anim.t >= 1) {
+          pn.msg = { txt: pn.anim.res, s: pn.anim.res === "GOAL!" ? 1 : 0, t: 1.1 };
+          pn.r++;
+          pn.anim.res === "GOAL!" && pn.s++;
+          pn.anim = null;
+        }
+      }
+      pn.msg && ((pn.msg.t -= t), pn.msg.t <= 0 && ((pn.msg = null), (pn.aim = null)));
+      return;
+    }
     if (((fe -= t), fe <= 0)) {
       (fe = 0), (y = "end"), ee(1.1), rf(0.5, 3), z0();
       return;
@@ -624,7 +660,21 @@
       if (((n.cd = Math.max(0, n.cd - t)), (n.kk = Math.max(0, n.kk - t)), n === G)) {
         const [a, i] = hf(),
           s = (c.owner === n ? 185 : 200) * _e(n);
-        ke(n, a * s, i * s, t);
+        if ((n.sl || 0) > 0) {
+          n.sl -= t;
+          const d = c.owner;
+          if (d && d.t === 1) {
+            const dx = d.x - n.x,
+              dy = d.y - n.y,
+              dl = Math.hypot(dx, dy) || 1;
+            ke(n, (dx / dl) * 330, (dy / dl) * 330, t);
+            Math.hypot(n.x - d.x, n.y - d.y) < 26 &&
+              ((n.sl = 0),
+              Math.random() < P0[Zt] * 1.8
+                ? ((n.cd = 1), Y0(n, d))
+                : ((c.owner = n), (n.hold = 0), (d.cd = 0.7), ee(0.3)));
+          } else n.sl = 0;
+        } else ke(n, a * s, i * s, t);
       } else l0(n, t, o[n.t]);
     for (const n of N) {
       (n.x = Math.max(10, Math.min(990, n.x + n.vx * t))),
@@ -661,25 +711,25 @@
         (c.vz -= 900 * t),
         (c.z += c.vz * t),
         c.z < 0 && ((c.z = 0), (c.vz = Math.abs(c.vz) * 0.45), c.vz < 25 && (c.vz = 0));
-      const n = Math.pow(0.4, t);
+      const n = Math.pow(ko ? 0.55 : 0.4, t);
       (c.vx *= n),
         (c.vy *= n),
-        c.y < 8 && ((c.y = 8), (c.vy = Math.abs(c.vy) * 0.7)),
-        c.y > 592 && ((c.y = 592), (c.vy = -Math.abs(c.vy) * 0.7));
+        c.y < 8 && ((c.y = 8), (c.vy = Math.abs(c.vy) * (ko ? 0.95 : 0.7))),
+        c.y > 592 && ((c.y = 592), (c.vy = -Math.abs(c.vy) * (ko ? 0.95 : 0.7)));
       const a = Math.abs(c.y - 600 / 2) < 180 / 2;
       if (c.x < 0) {
         if (a) {
           yf(1);
           return;
         }
-        (c.x = 0), (c.vx = Math.abs(c.vx) * 0.7);
+        (c.x = 0), (c.vx = Math.abs(c.vx) * (ko ? 0.95 : 0.7));
       }
       if (c.x > 1e3) {
         if (a) {
           yf(0);
           return;
         }
-        (c.x = 1e3), (c.vx = -Math.abs(c.vx) * 0.7);
+        (c.x = 1e3), (c.vx = -Math.abs(c.vx) * (ko ? 0.95 : 0.7));
       }
       const i = Math.hypot(c.vx, c.vy);
       for (const s of N) {
@@ -1367,7 +1417,7 @@
       (e.fillStyle = "#06130a"),
       e.fillRect(0, 0, F.width, F.height),
       e.setTransform(ut, 0, 0, ut, 0, ce),
-      y === "menu" || y === "help" || y === "comp" || y === "club" || y === "settings" || y === "pick")
+      y === "menu" || y === "help" || y === "comp" || y === "club" || y === "settings" || y === "pick" || y === "train")
     ) {
       e.save(),
         e.beginPath(),
@@ -1381,7 +1431,9 @@
               ? $0()
               : y === "pick"
                 ? Q0()
-                : (C0(), y === "help" && L0()),
+                : y === "train"
+                  ? pnn()
+                  : (C0(), y === "help" && L0()),
         e.restore();
       return;
     }
@@ -1541,7 +1593,7 @@
   }
   function Af() {
     try {
-      localStorage.setItem("goalrush", JSON.stringify({ k: it, m: Tt, d: At, s: ct ? 1 : 0, r: Zt, c: bt }));
+      localStorage.setItem("goalrush", JSON.stringify({ k: it, m: Tt, d: At, s: ct ? 1 : 0, r: Zt, c: bt, g: ko }));
     } catch {}
   }
   function A0() {
@@ -1552,7 +1604,8 @@
         t.d >= 0 && t.d < 3 && (At = t.d),
         (ct = !!t.s),
         t.r >= 0 && t.r < 4 && (Zt = t.r),
-        t.c >= 0 && (bt = t.c);
+        t.c >= 0 && (bt = t.c),
+        t.g >= 0 && t.g < 2 && (ko = t.g);
     } catch {}
     Pt = ze[Tt];
   }
@@ -1577,6 +1630,7 @@
   const Gt = [
     { k: "logo", w: 90 },
     { k: "kick", w: 190, t: "KICK OFF", s: () => "SNELLE MATCH" },
+    { k: "train", w: 150, t: "OEFENEN", s: () => "PENALTY'S" },
     {
       k: "seas",
       w: 190,
@@ -1591,10 +1645,12 @@
   function Ye(t) {
     t === "kick" || t === "logo"
       ? ((y = "pick"), et === ft && (ft = (et + 1) % 2))
-      : t === "seas"
+      : t === "train"
+        ? ((y = "train"), (pn = { r: 0, s: 0, aim: null, dr: !1, anim: null, msg: null, kd: 0 }))
+        : t === "seas"
         ? ((y = "comp"), (xt = 0), (Dt = !1))
-        : t === "club"
-          ? ((y = "club"), (xt = 0), (ae = 0))
+              : t === "club"
+                ? ((y = "club"), (xt = 0), (ae = 0), (alb = 0), (albc = -1), (albp = null))
           : t === "set"
             ? (y = "settings")
             : t === "team"
@@ -1621,7 +1677,7 @@
           : (t === "Enter" || t === "Space") && Ye(Gt[Vt].k)
       : y === "help"
         ? (y = "menu")
-        : y === "comp" || y === "club" || y === "settings" || y === "pick"
+        : y === "comp" || y === "club" || y === "settings" || y === "pick" || y === "train"
           ? t === "Escape" && (y = "menu")
           : y === "pause"
             ? t === "Space" || t === "Enter" || t === "Escape"
@@ -1786,12 +1842,23 @@
     {
       const club = H[it] || {},
         sz = S && S.season;
-      (e.fillStyle = club.shirt || "#7b3fc4"),
+      const cr = Z0(club.logo);
+      if (cr) {
+        e.save(),
+          e.beginPath(),
+          e.arc(l + 34, h + 38, 16, 0, 6.2832),
+          e.clip(),
+          e.drawImage(cr, l + 18, h + 22, 32, 32),
+          e.restore();
+      } else
+        (e.fillStyle = club.shirt || "#7b3fc4"),
+          e.beginPath(),
+          e.arc(l + 34, h + 38, 16, 0, 6.2832),
+          e.fill();
+      (e.strokeStyle = club.trim || "#fff"),
+        (e.lineWidth = 3),
         e.beginPath(),
         e.arc(l + 34, h + 38, 16, 0, 6.2832),
-        e.fill(),
-        (e.strokeStyle = club.trim || "#fff"),
-        (e.lineWidth = 3),
         e.stroke(),
         g("JOUW CLUB", l + 60, h + 34, 11, "#8fb0ff", "left", "800"),
         g(club.code || "", l + 60, h + 50, 15, "#fff", "left", "900"),
@@ -1918,6 +1985,7 @@
         "Links op het scherm: sleep om te sturen.",
         "SCHIET: hou ingedrukt voor meer kracht, laat los om te schieten.",
         "PASS: tik om naar een teamgenoot te passen.",
+        "TAKEL (of C): glijdende tackle als de tegenstander de bal heeft.",
         "Zonder bal volgt je dichtstbijzijnde speler de bal automatisch.",
         "Toetsenbord: pijltjes of WASD, spatie = schieten, X = passen,",
         "Esc = pauze.",
@@ -2046,6 +2114,8 @@
     Ae = null,
     nt = null,
     Zt = 2,
+    ko = 0,
+    pn = null,
     ie = {},
     Dt = !1;
   const V0 = () => {
@@ -2084,7 +2154,7 @@
     let f = 1;
     return (
       [0, 1, 1, 2, 3, 1, 3].forEach((n) => o.push(Xe(t, n, 59 + ((t() * 5) | 0), f++))),
-      { coins: 300, cards: o, lineup: [1, 2, 3, 4, 5], nid: f, bought: {}, season: null, obj: null, mine: 0 }
+      { coins: 300, cards: o, lineup: [1, 2, 3, 4, 5], nid: f, bought: {}, st: {}, season: null, obj: null, mine: 0 }
     );
   }
   function K0() {
@@ -2139,6 +2209,69 @@
       a = Math.min(88, n + 4),
       i = Xe(re("ruil" + qt() + t + n), t, a, 0);
     return { give: f, card: i };
+  }
+  const slugOf = (t) =>
+      t.logo ? t.logo.slice(6, -4) : String(t.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    allTeams = () => {
+      const o = {},
+        r = [];
+      for (const s of of || J || [])
+        for (const m of s.teams) o[m.name] || ((o[m.name] = 1), r.push(m));
+      return r.sort((s, m) => (s.name < m.name ? -1 : 1));
+    },
+    squadOf = (t) => {
+      const o = re("sq" + t.name),
+        r = [];
+      for (let m = 0; m < 12; m++)
+        r.push({
+          num: 1 + ((o() * 34) | 0),
+          name: Cf[(o() * Cf.length) | 0][0] + ". " + Lf[(o() * Lf.length) | 0],
+          pos: O0[(o() * 5) | 0],
+        });
+      return r;
+    };
+  let alb = 0,
+    albc = -1,
+    albp = null,
+    albPity = 0;
+  function openPack() {
+    if (S.coins < 120) return;
+    S.coins -= 120;
+    const o = allTeams(),
+      r = [];
+    let m = 0;
+    for (let u = 0; u < 5; u++) {
+      const b = o[(Math.random() * o.length) | 0],
+        d = slugOf(b);
+      let p, y2, h;
+      if (Math.random() < 0.25) (y2 = "wapen"), (p = "b:" + d), (h = b.code);
+      else {
+        const g = (Math.random() * 12) | 0;
+        (y2 = "speler"), (p = "p:" + d + ":" + g), (h = squadOf(b)[g]);
+      }
+      const c = S.st[p];
+      (S.st[p] = 1),
+        c ? ((m += 20), r.push({ club: b, kind: y2, dup: 1, info: h })) : r.push({ club: b, kind: y2, dup: 0, info: h });
+    }
+    r.some((u) => !u.dup) ? (albPity = 0) : albPity++;
+    albPity >= 3 &&
+      (albPity = 0,
+      (() => {
+        const b = o[(Math.random() * o.length) | 0],
+          d = slugOf(b),
+          w = [];
+        for (let g = 0; g < 13; g++) w.push(g ? "p:" + d + ":" + (g - 1) : "b:" + d);
+        const k = w.find((g) => !S.st[g]);
+        if (k) {
+          S.st[k] = 1;
+          const u = k[0] === "b" ? { club: b, kind: "wapen", dup: 0, info: b.code, pity: 1 } : { club: b, kind: "speler", dup: 0, info: squadOf(b)[+k.split(":")[2]], pity: 1 };
+          r.push(u);
+        }
+      })()),
+      (S.coins += m),
+      (albp = { items: r, back: m }),
+      (alb = 2),
+      Ct();
   }
   function Hf() {
     const t = (S.mine = it),
@@ -2314,7 +2447,19 @@
     (Ae = n), Ct();
   }
   function J0(t) {
+    let pj = null;
+    if (PJ) {
+      const o = yt ? [yt.a.name, yt.b.name] : K ? [H[K.mine].name, H[K.opp].name] : [H[it].name, H[(it + 1) % H.length].name];
+      pj = [PJ[o[0]], PJ[o[1]]];
+    }
     for (const o of N) {
+      if (pj && Array.isArray(pj[o.t]) && pj[o.t][o.i] && pj[o.t][o.i].name) {
+        const f = pj[o.t][o.i];
+        (o.name = String(f.name).trim().split(" ").slice(-1)[0].toUpperCase()),
+          f.n && (o.num = f.n),
+          (o.rate = Math.min(95, Math.max(58, (yt ? (o.t ? yt.tb : yt.ta) : o.t ? St[K ? K.opp : it] : tt(Ze(o.i))) + 2 - ((o.i * 5) % 5))));
+        continue;
+      }
       if (yt) {
         o.rate = Math.min(95, (o.t ? yt.tb : yt.ta) + ((o.i * 7 + o.t * 3) % 5) - 2);
         continue;
@@ -2445,6 +2590,249 @@
     let o = Uf[t];
     return o || ((o = Uf[t] = new Image()), (o.src = t)), o.complete && o.naturalWidth ? o : null;
   }
+  function pns() {
+    if (!pn.aim || pn.anim) return;
+    const [x, y2] = pn.aim,
+      cx = E / 2;
+    if (x < cx - 195 || x > cx + 195 || y2 < 156 || y2 > 376) {
+      (pn.kd = cx), (pn.msg = { txt: "MISS!", s: 0, t: 1.1 }), pn.r++, (pn.aim = null);
+      return;
+    }
+    pn.kd = cx + (Math.random() < 0.5 ? -1 : 1) * (80 + Math.random() * 150);
+    const reach = y2 < 205 ? 48 : 80;
+    const res = Math.abs(x - pn.kd) < reach ? "GEKEERD!" : "GOAL!";
+    pn.anim = { t: 0, to: [x, y2], res };
+    ee(0.4);
+  }
+  function pnn() {
+    Wt = [];
+    const cx = E / 2,
+      gx0 = cx - 200,
+      gx1 = cx + 200;
+    const bg = e.createLinearGradient(0, 0, 0, 600);
+    bg.addColorStop(0, "#0a1030"), bg.addColorStop(0.45, "#123a1c"), bg.addColorStop(1, "#0d5423"),
+      (e.fillStyle = bg),
+      e.fillRect(0, 0, E, 600);
+    e.fillStyle = "rgba(255,255,255,.10)", e.fillRect(gx0, 150, 400, 230);
+    (e.strokeStyle = "rgba(255,255,255,.22)"), (e.lineWidth = 1);
+    for (let t = gx0 + 25; t < gx1; t += 25)
+      e.beginPath(), e.moveTo(t, 150), e.lineTo(t, 380), e.stroke();
+    for (let t = 175; t < 380; t += 25)
+      e.beginPath(), e.moveTo(gx0, t), e.lineTo(gx1, t), e.stroke();
+    (e.strokeStyle = "#fff"), (e.lineWidth = 7), e.lineCap = "round";
+    e.beginPath(), e.moveTo(gx0, 384), e.lineTo(gx0, 150), e.lineTo(gx1, 150), e.lineTo(gx1, 384), e.stroke();
+    e.lineCap = "butt";
+    const kx = pn.anim ? cx + (pn.kd - cx) * Math.min(1, pn.anim.t * 1.7) : cx + (pn.kd - cx) * 0;
+    (e.fillStyle = "#d8ff2a"),
+      U(kx - 26, 300, 52, 84, 10),
+      e.fill(),
+      (e.strokeStyle = "rgba(0,0,0,.35)"),
+      (e.lineWidth = 2),
+      e.stroke(),
+      (e.fillStyle = "#f1c9a5"),
+      e.beginPath(),
+      e.arc(kx, 292, 16, 0, 6.2832),
+      e.fill();
+    let bx = cx,
+      by = 470,
+      br = 20;
+    pn.anim &&
+      ((bx = cx + (pn.anim.to[0] - cx) * pn.anim.t),
+      (by = 470 + (pn.anim.to[1] - 470) * pn.anim.t),
+      (br = 20 - 11 * pn.anim.t));
+    e.fillStyle = "rgba(0,0,0,.3)", e.beginPath(), e.ellipse(bx, Math.min(478, by + br + 6), br * 0.9, br * 0.3, 0, 0, 6.2832), e.fill();
+    const bl = e.createRadialGradient(bx - br * 0.35, by - br * 0.4, br * 0.1, bx, by, br);
+    bl.addColorStop(0, "#fff"), bl.addColorStop(1, "#9aa1ad"),
+      (e.fillStyle = bl),
+      e.beginPath(),
+      e.arc(bx, by, br, 0, 6.2832),
+      e.fill(),
+      (e.fillStyle = "#232832");
+    for (let t = 0; t < 3; t++) {
+      const a = t * 2.09 + 0.4;
+      e.beginPath(),
+        e.arc(bx + Math.cos(a) * br * 0.5, by + Math.sin(a) * br * 0.5, br * 0.18, 0, 6.2832),
+        e.fill();
+    }
+    pn.dr && pn.aim && !pn.anim &&
+      ((e.strokeStyle = "#ffd400"),
+      (e.lineWidth = 3),
+      e.beginPath(),
+      e.arc(pn.aim[0], pn.aim[1], 22, 0, 6.2832),
+      e.stroke(),
+      e.beginPath(),
+      e.moveTo(pn.aim[0] - 32, pn.aim[1]),
+      e.lineTo(pn.aim[0] + 32, pn.aim[1]),
+      e.moveTo(pn.aim[0], pn.aim[1] - 32),
+      e.lineTo(pn.aim[0], pn.aim[1] + 32),
+      e.stroke());
+    g("PENALTY'S", cx, 56, 30, "#fff", "center", "900"),
+      g("Ronde " + Math.min(5, pn.r + 1) + " / 5      gescoord " + pn.s, cx, 92, 19, "#ffd400", "center", "800"),
+      g(
+        pn.r >= 5 ? "" : pn.anim ? "" : pn.dr ? "Laat los om te schieten!" : "Sleep naar een hoek en laat los",
+        cx,
+        545,
+        16,
+        "rgba(255,255,255,.85)",
+        "center",
+        "700",
+      );
+    pn.msg &&
+      g(pn.msg.txt, cx, 120, 46, pn.msg.s ? "#4cd964" : "#ff5050", "center", "900");
+    if (pn.r >= 5 && !pn.anim && !pn.msg) {
+      (e.fillStyle = "rgba(2,8,24,.72)"), e.fillRect(0, 0, E, 600);
+      g(pn.s >= 4 ? "TOPPER!" : pn.s >= 2 ? "GOED BEZIG" : "NOG EENS!", cx, 200, 44, "#fff", "center", "900"),
+        g(pn.s + " / 5 gescoord", cx, 250, 26, "#ffd400", "center", "900"),
+        I(cx - 130, 300, 260, 52, "OPNIEUW", () => Ye("train"), !0, 17),
+        I(
+          cx - 130,
+          368,
+          260,
+          52,
+          "< MENU",
+          () => {
+            y = "menu";
+          },
+          !1,
+          17,
+        );
+    } else
+      I(
+        E - 130,
+        14,
+        110,
+        34,
+        "< MENU",
+        () => {
+          y = "menu";
+        },
+        !1,
+        14,
+      );
+  }
+  function alb0(t) {
+    const o = allTeams(),
+      total = o.length * 13,
+      heb = Object.keys(S.st).length;
+    g("STICKERALBUM", t + 400, 118, 20, "#fff", "center", "900"),
+      g(heb + " / " + total + " stickers", t + 400, 140, 15, "#ffd400", "center", "800");
+    if (alb === 2 && albp) {
+      albp.back && g("Dubbele stickers: +" + albp.back + " munten terug", t + 400, 162, 13, "#8fb0ff", "center", "700");
+      albp.items.forEach((n, a) => {
+        const i = t + 20 + a * 152,
+          s = 160;
+        (e.fillStyle = "rgba(255,255,255,.14)"),
+          U(i, s, 142, 190, 8),
+          e.fill(),
+          (e.strokeStyle = n.kind === "wapen" ? "#e7c24a" : "rgba(255,255,255,.3)"),
+          (e.lineWidth = n.kind === "wapen" ? 3 : 1.5),
+          e.stroke();
+        const r = Z0(n.club.logo);
+        r
+          ? e.drawImage(r, i + 23, s + 12, 96, 96)
+          : ((e.fillStyle = n.club.shirt), U(i + 23, s + 12, 96, 96, 8), e.fill());
+        n.dup &&
+          ((e.fillStyle = "#8a1f2a"), U(i + 94, s + 6, 42, 18, 3), e.fill(),
+          g("DUBBEL", i + 115, s + 19, 10, "#fff", "center", "900"));
+        g(n.kind === "wapen" ? "WAPEN" : String(n.info.num), i + 71, s + 130, n.kind === "wapen" ? 15 : 18, "#fff", "center", "900");
+        g(n.kind === "wapen" ? n.club.name.slice(0, 16) : n.info.name, i + 71, s + 152, 12, "#ffd400", "center", "800");
+        g(n.kind === "speler" ? Nf[n.info.pos] : "", i + 71, s + 172, 11, "rgba(255,255,255,.6)", "center", "700");
+        n.pity && g("GARANTIE", i + 71, s + 186, 10, "#4cd964", "center", "900");
+      }),
+        I(t + 250, 420, 300, 44, "TERUG NAAR ALBUM", () => ((alb = 0), (albp = null)), !0, 15);
+      return;
+    }
+    if (alb === 1 && albc >= 0 && o[albc]) {
+      const n = o[albc],
+        a = slugOf(n),
+        i = squadOf(n);
+      let u = S.st["b:" + a] ? 1 : 0;
+      i.forEach((r, m) => S.st["p:" + a + ":" + m] && u++);
+      (e.fillStyle = "rgba(255,255,255,.07)"), U(t + 20, 112, 760, 40, 8), e.fill();
+      const r = Z0(n.logo);
+      r
+        ? e.drawImage(r, t + 26, 114, 36, 36)
+        : ((e.fillStyle = n.shirt), U(t + 26, 114, 36, 36, 6), e.fill()),
+        g(n.name, t + 74, 132, 17, "#fff", "left", "900"),
+        g(u + " / 13", t + 740, 138, 17, "#ffd400", "right", "900"),
+        I(
+          t + 620,
+          60,
+          120,
+          30,
+          "< ALBUM",
+          () => {
+            alb = 0;
+          },
+          !1,
+          13,
+        );
+      const m = S.st["b:" + a];
+      (e.fillStyle = m ? "rgba(231,194,74,.18)" : "rgba(255,255,255,.05)"),
+        U(t + 20, 168, 150, 150, 10),
+        e.fill(),
+        (e.strokeStyle = m ? "#e7c24a" : "rgba(255,255,255,.2)"),
+        (e.lineWidth = m ? 3 : 1.5),
+        e.stroke(),
+        m && r
+          ? e.drawImage(r, t + 35, 183, 120, 120)
+          : g(m ? "WAPEN" : "?", t + 95, 250, 26, m ? "#e7c24a" : "rgba(255,255,255,.3)", "center", "900"),
+        g("WAPEN", t + 95, 336, 12, m ? "#e7c24a" : "rgba(255,255,255,.4)", "center", "800");
+      i.forEach((r2, m2) => {
+        const b = t + 190 + (m2 % 4) * 152,
+          p = 168 + ((m2 / 4) | 0) * 66,
+          w = S.st["p:" + a + ":" + m2];
+        (e.fillStyle = w ? "rgba(255,255,255,.14)" : "rgba(255,255,255,.05)"),
+          U(b, p, 142, 56, 6),
+          e.fill(),
+          (e.strokeStyle = w ? "rgba(255,255,255,.4)" : "rgba(255,255,255,.12)"),
+          (e.lineWidth = 1),
+          e.stroke(),
+        w
+          ? (g(String(r2.num), b + 16, p + 35, 20, "#ffd400", "center", "900"),
+            g(r2.name.slice(0, 14), b + 34, p + 25, 13, "#fff", "left", "800"),
+            g(Nf[r2.pos], b + 34, p + 42, 11, "rgba(255,255,255,.6)", "left", "700"))
+          : g("?", b + 71, p + 37, 24, "rgba(255,255,255,.25)", "center", "900");
+      }),
+        g(
+          u >= 13 ? "CLUB VOLTOOID! Vermeld in je album." : "Nog " + (13 - u) + " stickers voor deze club.",
+          t + 400,
+          396,
+          14,
+          u >= 13 ? "#4cd964" : "#8fb0ff",
+          "center",
+          "800",
+        );
+      return;
+    }
+    I(t + 580, 104, 200, 40, "PAK: 5 STICKERS - 120", openPack, S.coins >= 120, 13);
+    albPity > 0 && g("Garantie: dit pak bevat zeker " + albPity + " nieuwe na het volgende!", t + 580, 156, 11, "#4cd964", "left", "700");
+    o.forEach((n, a) => {
+      const i = t + 12 + (a % 12) * 64,
+        s = 170 + ((a / 12) | 0) * 52;
+      if (s > 570) return;
+      const r = S.st["b:" + slugOf(n)],
+        m = Z0(n.logo);
+      (e.fillStyle = r ? "rgba(231,194,74,.15)" : "rgba(255,255,255,.05)"),
+        U(i, s, 60, 48, 6),
+        e.fill(),
+        (e.strokeStyle = r ? "#e7c24a" : "rgba(255,255,255,.12)"),
+        (e.lineWidth = r ? 2 : 1),
+        e.stroke(),
+      r && m
+        ? e.drawImage(m, i + 6, s + 5, 38, 38)
+        : g(r ? n.code : "?", i + 30, s + 30, 13, r ? "#fff" : "rgba(255,255,255,.25)", "center", "900"),
+        Wt.push({
+          x: i,
+          y: s,
+          w: 60,
+          h: 48,
+          fn: () => {
+            (alb = 1), (albc = a);
+          },
+        });
+    });
+  }
   function q0() {
     const t = [],
       o = {};
@@ -2518,14 +2906,27 @@
             },
             !1,
             14,
-          ),
-          (e.fillStyle = b.kit.shirt),
-          e.beginPath(),
-          e.arc(d + 26, u + 26, 14, 0, 6.2832),
-          e.fill(),
+          );
+        {
+          const cm = Z0(b.logo);
+          if (cm)
+            e.save(),
+              e.beginPath(),
+              e.arc(d + 26, u + 26, 14, 0, 6.2832),
+              e.clip(),
+              e.drawImage(cm, d + 12, u + 12, 28, 28),
+              e.restore();
+          else
+            (e.fillStyle = b.kit.shirt),
+              e.beginPath(),
+              e.arc(d + 26, u + 26, 14, 0, 6.2832),
+              e.fill();
           (e.strokeStyle = b.kit.trim),
-          (e.lineWidth = 2),
-          e.stroke(),
+            (e.lineWidth = 2),
+            e.beginPath(),
+            e.arc(d + 26, u + 26, 14, 0, 6.2832),
+            e.stroke();
+        }
           g(b.kit.name.slice(0, 20), d + 50, u + 22, 14, "#fff", "left", "800"),
           g(b.comp, d + 50, u + 40, 11, "rgba(255,255,255,.6)", "left", "700");
       }
@@ -2718,6 +3119,13 @@
           Zt = (Zt + 1) % 4;
         },
       ],
+      [
+        "SPELVORM",
+        () => (ko ? "KOOI (muren)" : "VELD"),
+        () => {
+          ko = 1 - ko;
+        },
+      ],
       ["GELUID", () => (ct ? "UIT" : "AAN"), () => Ye("snd")],
     ].forEach((f, n) => {
       const a = 84 + n * 64;
@@ -2739,9 +3147,9 @@
         );
     }),
       g(
-        "Scheidsrechter: kans op overtreding bij een tackle. Gele kaart, bij de tweede een rode.",
+        "Scheidsrechter: kans op overtreding bij een tackle. KOOI: de bal kaatst van de muren, nooit bal uit.",
         t + 60,
-        490,
+        536,
         13,
         "rgba(255,255,255,.65)",
         "left",
@@ -2750,7 +3158,7 @@
       g(
         "Tik op een waarde om te wisselen. Competitie wisselen kan niet tijdens een lopend seizoen.",
         t + 60,
-        512,
+        558,
         13,
         "rgba(255,255,255,.65)",
         "left",
@@ -2888,7 +3296,7 @@
   }
   function to() {
     const t = xe("CLUB");
-    if ((Kf(t, ["OPSTELLING", "TRANSFERMARKT", "INRUILEN", "OPDRACHTEN"]), xt === 0)) {
+    if ((Kf(t, ["OPSTELLING", "TRANSFERMARKT", "INRUILEN", "OPDRACHTEN", "STICKERS"]), xt === 0)) {
       g("Teamsterkte " + $e().toFixed(1), t + 400, 118, 16, "#ffd400", "center", "800");
       for (let o = 0; o < 5; o++) {
         const f = Ze(o),
@@ -3081,6 +3489,7 @@
               15,
             );
         });
+    else if (xt === 4) alb0(t);
     else {
       const o = Of(),
         f = S.obj;
@@ -3114,930 +3523,9 @@
         });
     }
   }
-  const ef = {
-    version: 6,
-    competitions: [
-      {
-        name: "WEST-VLAANDEREN A",
-        teams: [
-          {
-            name: "KVK IEPER B",
-            code: "IEP",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 74,
-          },
-          {
-            name: "SK ROESELARE B",
-            code: "ROE",
-            shirt: "#17191f",
-            shorts: "#17191f",
-            sock: "#17191f",
-            trim: "#ffffff",
-            ts: 72,
-          },
-          {
-            name: "VV KOEKELARE",
-            code: "KOE",
-            shirt: "#f4f4f4",
-            shorts: "#17191f",
-            sock: "#f4f4f4",
-            trim: "#ffffff",
-            ts: 70,
-          },
-          {
-            name: "KM TORHOUT B",
-            code: "TOR",
-            shirt: "#1f9d55",
-            shorts: "#ffffff",
-            sock: "#1f9d55",
-            trim: "#ffffff",
-            ts: 66,
-          },
-          {
-            name: "KSV DE RUITER A",
-            code: "DRU",
-            shirt: "#63b6f2",
-            shorts: "#f3f3f3",
-            sock: "#63b6f2",
-            trim: "#ffffff",
-            ts: 63,
-          },
-          {
-            name: "KFC POPERINGE B",
-            code: "POP",
-            shirt: "#f2c230",
-            shorts: "#c0262d",
-            sock: "#f2c230",
-            trim: "#ffffff",
-            ts: 63,
-          },
-          {
-            name: "KSV VEURNE A",
-            code: "VEU",
-            shirt: "#1b3f8f",
-            shorts: "#1b3f8f",
-            sock: "#1b3f8f",
-            trim: "#ffffff",
-            ts: 62,
-          },
-          {
-            name: "EAWG FC",
-            code: "EAW",
-            shirt: "#7b3fc4",
-            shorts: "#f3f3f3",
-            sock: "#7b3fc4",
-            trim: "#ffffff",
-            ts: 60,
-          },
-        ],
-      },
-      {
-        name: "WEST-VLAANDEREN B",
-        teams: [
-          {
-            name: "KVC WINGENE",
-            code: "WIN",
-            shirt: "#1f4aa8",
-            shorts: "#ffffff",
-            sock: "#1f4aa8",
-            trim: "#ffffff",
-            ts: 74,
-          },
-          {
-            name: "KSV BREDENE",
-            code: "BRE",
-            shirt: "#4aa3e6",
-            shorts: "#ffffff",
-            sock: "#4aa3e6",
-            trim: "#ffffff",
-            ts: 70,
-          },
-          {
-            name: "K DOSKO ST-KRUIS",
-            code: "DOS",
-            shirt: "#f2d21c",
-            shorts: "#1f4aa8",
-            sock: "#f2d21c",
-            trim: "#1f4aa8",
-            ts: 69,
-          },
-          {
-            name: "KSC BLANKENBERGE",
-            code: "BLA",
-            shirt: "#8a1f2a",
-            shorts: "#17191f",
-            sock: "#8a1f2a",
-            trim: "#ffffff",
-            ts: 66,
-          },
-          {
-            name: "VC VAMOS ZANDVOORDE",
-            code: "VAM",
-            shirt: "#2b78b8",
-            shorts: "#ffffff",
-            sock: "#2b78b8",
-            trim: "#ffffff",
-            ts: 64,
-          },
-          {
-            name: "KFC MEULEBEKE",
-            code: "MEU",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 62,
-          },
-          {
-            name: "KWS CLUB LAUWE",
-            code: "LAU",
-            shirt: "#f2c230",
-            shorts: "#17191f",
-            sock: "#f2c230",
-            trim: "#17191f",
-            ts: 62,
-          },
-          {
-            name: "FUSION OOSTENDE",
-            code: "FUS",
-            shirt: "#17191f",
-            shorts: "#17191f",
-            sock: "#17191f",
-            trim: "#f2c230",
-            ts: 58,
-          },
-        ],
-      },
-      {
-        name: "WESTHOEK",
-        teams: [
-          {
-            name: "KV KOKSIJDE OOSTDUINKE",
-            code: "KVK",
-            shirt: "#37a9e0",
-            shorts: "#ffffff",
-            sock: "#37a9e0",
-            trim: "#ffffff",
-            ts: 72,
-          },
-          {
-            name: "KV EENDRACHT AALTER",
-            code: "AAL",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 69,
-          },
-          {
-            name: "SCT MENEN",
-            code: "MEN",
-            shirt: "#f2c230",
-            shorts: "#17191f",
-            sock: "#f2c230",
-            trim: "#17191f",
-            ts: 66,
-          },
-          {
-            name: "KV DIKSMUIDE OOSTENDE",
-            code: "DIK",
-            shirt: "#2aa84a",
-            shorts: "#ffffff",
-            sock: "#2aa84a",
-            trim: "#f2c230",
-            ts: 62,
-          },
-          {
-            name: "ZWEVEGEM SPORT",
-            code: "ZWE",
-            shirt: "#17191f",
-            shorts: "#17191f",
-            sock: "#17191f",
-            trim: "#d62828",
-            ts: 60,
-          },
-          {
-            name: "EAWG FC",
-            code: "EAW",
-            shirt: "#7b3fc4",
-            shorts: "#f3f3f3",
-            sock: "#7b3fc4",
-            trim: "#f2c230",
-            ts: 60,
-          },
-          {
-            name: "SC ZONNEBEKE",
-            code: "ZON",
-            shirt: "#1b6fb0",
-            shorts: "#ffffff",
-            sock: "#1b6fb0",
-            trim: "#ffffff",
-            ts: 58,
-          },
-          {
-            name: "SV ZULTE-WAREGEM",
-            code: "ZUL",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#2a9d4a",
-            trim: "#ffffff",
-            ts: 56,
-          },
-        ],
-      },
-      {
-        name: "PRO LEAGUE",
-        teams: [
-          {
-            name: "KAA GENT",
-            code: "GNT",
-            shirt: "#0b4ea2",
-            shorts: "#ffffff",
-            sock: "#0b4ea2",
-            trim: "#ffffff",
-            ts: 86,
-          },
-          {
-            name: "CLUB BRUGGE",
-            code: "CLU",
-            shirt: "#0a5aa8",
-            shorts: "#ffffff",
-            sock: "#0a5aa8",
-            trim: "#17191f",
-            ts: 85,
-          },
-          {
-            name: "SPORTING CHARLEROI",
-            code: "CHA",
-            shirt: "#17191f",
-            shorts: "#17191f",
-            sock: "#17191f",
-            trim: "#ffffff",
-            ts: 84,
-          },
-          {
-            name: "ROYALE UNION SG",
-            code: "USG",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1c3f94",
-            ts: 83,
-          },
-          {
-            name: "RSC ANDERLECHT",
-            code: "AND",
-            shirt: "#4b2a8a",
-            shorts: "#ffffff",
-            sock: "#4b2a8a",
-            trim: "#ffffff",
-            ts: 82,
-          },
-          {
-            name: "KVC WESTERLO",
-            code: "WES",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1c3f94",
-            ts: 81,
-          },
-          {
-            name: "KRC GENK",
-            code: "GNK",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#ffffff",
-            ts: 80,
-          },
-          {
-            name: "SV ZULTE-WAREGEM",
-            code: "ZUL",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#2a9d4a",
-            ts: 79,
-          },
-          {
-            name: "STANDARD LUIK",
-            code: "STA",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 78,
-          },
-          {
-            name: "LOMMEL SK",
-            code: "LOM",
-            shirt: "#1f7a3a",
-            shorts: "#ffffff",
-            sock: "#1f7a3a",
-            trim: "#ffffff",
-            ts: 77,
-          },
-          {
-            name: "WAASLAND-BEVEREN",
-            code: "WAA",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1c3f94",
-            ts: 76,
-          },
-          {
-            name: "STVV",
-            code: "STV",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1c3f94",
-            ts: 75,
-          },
-          {
-            name: "ROYAL ANTWERP FC",
-            code: "ANT",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 74,
-          },
-          {
-            name: "KV MECHELEN",
-            code: "MEC",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#d62828",
-            ts: 73,
-          },
-          {
-            name: "OH LEUVEN",
-            code: "OHL",
-            shirt: "#f2f2f2",
-            shorts: "#ffffff",
-            sock: "#f2f2f2",
-            trim: "#2a9d4a",
-            ts: 72,
-          },
-          {
-            name: "RAAL LA LOUVIERE",
-            code: "RAA",
-            shirt: "#2a9d4a",
-            shorts: "#ffffff",
-            sock: "#2a9d4a",
-            trim: "#ffffff",
-            ts: 71,
-          },
-          {
-            name: "KV KORTRIJK",
-            code: "KOR",
-            shirt: "#c8102e",
-            shorts: "#ffffff",
-            sock: "#c8102e",
-            trim: "#ffffff",
-            ts: 70,
-          },
-          {
-            name: "CERCLE BRUGGE",
-            code: "CER",
-            shirt: "#1f9d4a",
-            shorts: "#ffffff",
-            sock: "#1f9d4a",
-            trim: "#17191f",
-            ts: 69,
-          },
-        ],
-      },
-      {
-        name: "EREDIVISIE",
-        teams: [
-          {
-            name: "FEYENOORD",
-            code: "FEY",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 80,
-          },
-          {
-            name: "AZ ALKMAAR",
-            code: "AZ",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 79,
-          },
-          {
-            name: "PSV",
-            code: "PSV",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 78,
-          },
-          {
-            name: "AJAX",
-            code: "AJA",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#d62828",
-            ts: 77,
-          },
-          {
-            name: "FC TWENTE",
-            code: "TWE",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 76,
-          },
-          {
-            name: "FORTUNA SITTARD",
-            code: "FOR",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1f9d4a",
-            ts: 74,
-          },
-          {
-            name: "FC GRONINGEN",
-            code: "GRO",
-            shirt: "#1f9d4a",
-            shorts: "#ffffff",
-            sock: "#1f9d4a",
-            trim: "#ffffff",
-            ts: 73,
-          },
-          {
-            name: "SC HEERENVEEN",
-            code: "HEE",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#ffffff",
-            ts: 72,
-          },
-          {
-            name: "GO AHEAD EAGLES",
-            code: "GAE",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#f4d21f",
-            ts: 71,
-          },
-          {
-            name: "EXCELSIOR",
-            code: "EXC",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#17191f",
-            ts: 70,
-          },
-          {
-            name: "FC UTRECHT",
-            code: "UTR",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 68,
-          },
-          {
-            name: "NEC NIJMEGEN",
-            code: "NEC",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#1f9d4a",
-            ts: 67,
-          },
-          {
-            name: "SPARTA ROTTERDAM",
-            code: "SPA",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 66,
-          },
-          {
-            name: "SC CAMBUUR",
-            code: "CAM",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#17191f",
-            ts: 65,
-          },
-          {
-            name: "PEC ZWOLLE",
-            code: "PEC",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#ffffff",
-            ts: 64,
-          },
-          {
-            name: "TELSTAR",
-            code: "TEL",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#1d5fb8",
-            ts: 62,
-          },
-          {
-            name: "ADO DEN HAAG",
-            code: "ADO",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#1f9d4a",
-            ts: 61,
-          },
-          {
-            name: "WILLEM II",
-            code: "WIL",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#1d5fb8",
-            ts: 60,
-          },
-        ],
-      },
-      {
-        name: "PREMIER LEAGUE",
-        teams: [
-          {
-            name: "MANCHESTER CITY",
-            code: "MCI",
-            shirt: "#6cabdd",
-            shorts: "#ffffff",
-            sock: "#6cabdd",
-            trim: "#ffffff",
-            ts: 86,
-          },
-          {
-            name: "ARSENAL",
-            code: "ARS",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 85,
-          },
-          {
-            name: "BRIGHTON",
-            code: "BHA",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#ffffff",
-            ts: 84,
-          },
-          {
-            name: "CHELSEA",
-            code: "CHE",
-            shirt: "#0a3a8c",
-            shorts: "#ffffff",
-            sock: "#0a3a8c",
-            trim: "#ffffff",
-            ts: 83,
-          },
-          {
-            name: "LIVERPOOL",
-            code: "LIV",
-            shirt: "#c8102e",
-            shorts: "#ffffff",
-            sock: "#c8102e",
-            trim: "#ffffff",
-            ts: 81,
-          },
-          {
-            name: "BRENTFORD",
-            code: "BRE",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 80,
-          },
-          {
-            name: "LEEDS UNITED",
-            code: "LEE",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#f4d21f",
-            ts: 79,
-          },
-          {
-            name: "EVERTON",
-            code: "EVE",
-            shirt: "#1b4ea0",
-            shorts: "#ffffff",
-            sock: "#1b4ea0",
-            trim: "#ffffff",
-            ts: 77,
-          },
-          {
-            name: "HULL CITY",
-            code: "HUL",
-            shirt: "#f0a020",
-            shorts: "#ffffff",
-            sock: "#f0a020",
-            trim: "#17191f",
-            ts: 76,
-          },
-          {
-            name: "IPSWICH TOWN",
-            code: "IPS",
-            shirt: "#1b4ea0",
-            shorts: "#ffffff",
-            sock: "#1b4ea0",
-            trim: "#ffffff",
-            ts: 75,
-          },
-          {
-            name: "NEWCASTLE UNITED",
-            code: "NEW",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#17191f",
-            ts: 73,
-          },
-          {
-            name: "ASTON VILLA",
-            code: "AVL",
-            shirt: "#7a1f3d",
-            shorts: "#ffffff",
-            sock: "#7a1f3d",
-            trim: "#9ad0f0",
-            ts: 72,
-          },
-          {
-            name: "MANCHESTER UNITED",
-            code: "MUN",
-            shirt: "#c8102e",
-            shorts: "#ffffff",
-            sock: "#c8102e",
-            trim: "#ffffff",
-            ts: 71,
-          },
-          {
-            name: "CRYSTAL PALACE",
-            code: "CRY",
-            shirt: "#1b4ea0",
-            shorts: "#ffffff",
-            sock: "#1b4ea0",
-            trim: "#d62828",
-            ts: 70,
-          },
-          {
-            name: "BOURNEMOUTH",
-            code: "BOU",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#17191f",
-            ts: 68,
-          },
-          {
-            name: "TOTTENHAM",
-            code: "TOT",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#0a1f44",
-            ts: 67,
-          },
-          {
-            name: "COVENTRY CITY",
-            code: "COV",
-            shirt: "#6cc4f0",
-            shorts: "#ffffff",
-            sock: "#6cc4f0",
-            trim: "#ffffff",
-            ts: 66,
-          },
-          {
-            name: "FULHAM",
-            code: "FUL",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#17191f",
-            ts: 64,
-          },
-          {
-            name: "NOTTINGHAM FOREST",
-            code: "NFO",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 63,
-          },
-          {
-            name: "SUNDERLAND",
-            code: "SUN",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 62,
-          },
-        ],
-      },
-      {
-        name: "BUNDESLIGA",
-        teams: [
-          {
-            name: "BAYERN MUNCHEN",
-            code: "FCB",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 86,
-          },
-          {
-            name: "BORUSSIA DORTMUND",
-            code: "BVB",
-            shirt: "#f4d21f",
-            shorts: "#ffffff",
-            sock: "#f4d21f",
-            trim: "#17191f",
-            ts: 85,
-          },
-          {
-            name: "SC FREIBURG",
-            code: "SCF",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 84,
-          },
-          {
-            name: "BAYER LEVERKUSEN",
-            code: "B04",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#17191f",
-            ts: 83,
-          },
-          {
-            name: "MAINZ 05",
-            code: "M05",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#ffffff",
-            ts: 81,
-          },
-          {
-            name: "ELVERSBERG",
-            code: "ELV",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#17191f",
-            ts: 80,
-          },
-          {
-            name: "RB LEIPZIG",
-            code: "RBL",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#d62828",
-            ts: 79,
-          },
-          {
-            name: "WERDER BREMEN",
-            code: "SVW",
-            shirt: "#1f9d4a",
-            shorts: "#ffffff",
-            sock: "#1f9d4a",
-            trim: "#ffffff",
-            ts: 77,
-          },
-          {
-            name: "HAMBURGER SV",
-            code: "HSV",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#1d5fb8",
-            ts: 76,
-          },
-          {
-            name: "FC AUGSBURG",
-            code: "FCA",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#1f9d4a",
-            ts: 75,
-          },
-          {
-            name: "EINTRACHT FRANKFURT",
-            code: "SGE",
-            shirt: "#17191f",
-            shorts: "#17191f",
-            sock: "#17191f",
-            trim: "#d62828",
-            ts: 73,
-          },
-          {
-            name: "FC KOLN",
-            code: "KOE",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#d62828",
-            ts: 72,
-          },
-          {
-            name: "VFB STUTTGART",
-            code: "VFB",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#d62828",
-            ts: 71,
-          },
-          {
-            name: "HOFFENHEIM",
-            code: "TSG",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#ffffff",
-            ts: 70,
-          },
-          {
-            name: "SCHALKE 04",
-            code: "S04",
-            shirt: "#0a4ea2",
-            shorts: "#ffffff",
-            sock: "#0a4ea2",
-            trim: "#ffffff",
-            ts: 68,
-          },
-          {
-            name: "SC PADERBORN",
-            code: "SCP",
-            shirt: "#1d5fb8",
-            shorts: "#ffffff",
-            sock: "#1d5fb8",
-            trim: "#17191f",
-            ts: 67,
-          },
-          {
-            name: "UNION BERLIN",
-            code: "FCU",
-            shirt: "#d62828",
-            shorts: "#ffffff",
-            sock: "#d62828",
-            trim: "#f4d21f",
-            ts: 66,
-          },
-          {
-            name: "BORUSSIA MONCHENGLADBACH",
-            code: "BMG",
-            shirt: "#ffffff",
-            shorts: "#ffffff",
-            sock: "#ffffff",
-            trim: "#1f9d4a",
-            ts: 64,
-          },
-        ],
-      },
-    ],
-  };
+  const ef = {"version": 7, "competitions": [{"name": "WEST-VLAANDEREN A", "teams": [{"name": "KVK IEPER B", "code": "IEP", "shirt": "#D62828", "shorts": "#D62828", "sock": "#D62828", "trim": "#FFFFFF", "ts": 74, "logo": "logos/kvk-ieper-b.png"}, {"name": "SK ROESELARE B", "code": "ROE", "shirt": "#FFFFFF", "shorts": "#17191F", "sock": "#FFFFFF", "trim": "#17191F", "ts": 72, "logo": "logos/sk-roeselare-b.png"}, {"name": "VV KOEKELARE", "code": "KOE", "shirt": "#17191F", "shorts": "#17191F", "sock": "#17191F", "trim": "#D61111", "ts": 70, "logo": "logos/vv-koekelare.png"}, {"name": "KM TORHOUT B", "code": "TOR", "shirt": "#1F9D55", "shorts": "#17191F", "sock": "#1F9D55", "trim": "#FFFFFF", "ts": 66, "logo": "logos/km-torhout-b.png"}, {"name": "KSV DE RUITER A", "code": "DRU", "shirt": "#63B6F2", "shorts": "#FFFFFF", "sock": "#63B6F2", "trim": "#FFFFFF", "ts": 63, "logo": "logos/ksv-de-ruiter-a.png"}, {"name": "KFC POPERINGE B", "code": "POP", "shirt": "#F2C230", "shorts": "#17191F", "sock": "#F2C230", "trim": "#D62828", "ts": 63, "logo": "logos/kfc-poperinge-b.png"}, {"name": "KSV VEURNE A", "code": "VEU", "shirt": "#1F9D55", "shorts": "#17191F", "sock": "#1F9D55", "trim": "#F2E230", "ts": 62, "logo": "logos/ksv-veurne-a.png"}, {"name": "EAWG FC", "code": "EAW", "shirt": "#7b3fc4", "shorts": "#f3f3f3", "sock": "#7b3fc4", "trim": "#ffffff", "ts": 60, "logo": "logos/eawg-fc.png"}]}, {"name": "WEST-VLAANDEREN B", "teams": [{"name": "KVC WINGENE", "code": "WIN", "shirt": "#065488", "shorts": "#FFFFFF", "sock": "#065488", "trim": "#FFFFFF", "ts": 74, "logo": "logos/kvc-wingene.png"}, {"name": "KSV BREDENE", "code": "BRE", "shirt": "#5F76A8", "shorts": "#FFFFFF", "sock": "#5F76A8", "trim": "#FFFFFF", "ts": 70, "logo": "logos/ksv-bredene.png"}, {"name": "K DOSKO ST-KRUIS", "code": "DOS", "shirt": "#F2D21C", "shorts": "#1B3F8F", "sock": "#F2D21C", "trim": "#1B3F8F", "ts": 69, "logo": "logos/k-dosko-st-kruis.png"}, {"name": "KSC BLANKENBERGE", "code": "BLA", "shirt": "#D62828", "shorts": "#D62828", "sock": "#D62828", "trim": "#FFFFFF", "ts": 66, "logo": "logos/ksc-blankenberge.png"}, {"name": "VC VAMOS ZANDVOORDE", "code": "VAM", "shirt": "#63B6F2", "shorts": "#FFFFFF", "sock": "#63B6F2", "trim": "#FFFFFF", "ts": 64, "logo": "logos/vc-vamos-zandvoorde.png"}, {"name": "KFC MEULEBEKE", "code": "MEU", "shirt": "#FFFFFF", "shorts": "#D62828", "sock": "#D62828", "trim": "#D62828", "ts": 62, "logo": "logos/kfc-meulebeke.png"}, {"name": "KWS CLUB LAUWE", "code": "LAU", "shirt": "#F2C230", "shorts": "#17191F", "sock": "#F2C230", "trim": "#17191F", "ts": 62, "logo": "logos/kws-club-lauwe.png"}, {"name": "FUSION OOSTENDE", "code": "FUS", "shirt": "#17191F", "shorts": "#17191F", "sock": "#17191F", "trim": "#F2C230", "ts": 58, "logo": "logos/fusion-oostende.png"}]}, {"name": "WESTHOEK", "teams": [{"name": "KV KOKSIJDE OOSTDUINKE", "code": "KVK", "shirt": "#37A9E0", "shorts": "#37A9E0", "sock": "#37A9E0", "trim": "#FFFFFF", "ts": 72, "logo": "logos/kv-koksijde-oostduinke.png"}, {"name": "KV EENDRACHT AALTER", "code": "AAL", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 69, "logo": "logos/kv-eendracht-aalter.png"}, {"name": "SCT MENEN", "code": "MEN", "shirt": "#F2C230", "shorts": "#17191F", "sock": "#F2C230", "trim": "#17191F", "ts": 66, "logo": "logos/sct-menen.png"}, {"name": "KV DIKSMUIDE OOSTENDE", "code": "DIK", "shirt": "#F2C230", "shorts": "#1B3F8F", "sock": "#1B3F8F", "trim": "#1B3F8F", "ts": 62, "logo": "logos/kv-diksmuide-oostende.png"}, {"name": "ZWEVEGEM SPORT", "code": "ZWE", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 60, "logo": "logos/zwevegem-sport.png"}, {"name": "EAWG FC", "code": "EAW", "shirt": "#7b3fc4", "shorts": "#f3f3f3", "sock": "#7b3fc4", "trim": "#f2c230", "ts": 60}, {"name": "SC ZONNEBEKE", "code": "ZON", "shirt": "#1B6FB0", "shorts": "#FFFFFF", "sock": "#1B6FB0", "trim": "#FFFFFF", "ts": 58, "logo": "logos/sc-zonnebeke.png"}, {"name": "SV ZULTE-WAREGEM", "code": "ZUL", "shirt": "#d62828", "shorts": "#ffffff", "sock": "#2a9d4a", "trim": "#ffffff", "ts": 56, "logo": "logos/sv-zulte-waregem.png"}]}, {"name": "PRO LEAGUE", "teams": [{"name": "KAA GENT", "code": "GNT", "shirt": "#0023DD", "shorts": "#0023DD", "sock": "#0023DD", "trim": "#FFFFFF", "ts": 86, "logo": "logos/kaa-gent.png"}, {"name": "CLUB BRUGGE", "code": "CLU", "shirt": "#005CA9", "shorts": "#17191F", "sock": "#005CA9", "trim": "#FFFFFF", "ts": 85, "logo": "logos/club-brugge.png"}, {"name": "SPORTING CHARLEROI", "code": "CHA", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#17191F", "ts": 84, "logo": "logos/sporting-charleroi.png"}, {"name": "ROYALE UNION SG", "code": "USG", "shirt": "#FFE000", "shorts": "#000055", "sock": "#000055", "trim": "#000055", "ts": 83, "logo": "logos/royale-union-sg.png"}, {"name": "RSC ANDERLECHT", "code": "AND", "shirt": "#5C2195", "shorts": "#5C2195", "sock": "#5C2195", "trim": "#FFFFFF", "ts": 82, "logo": "logos/rsc-anderlecht.png"}, {"name": "KVC WESTERLO", "code": "WES", "shirt": "#FFFF00", "shorts": "#0000FF", "sock": "#FFFF00", "trim": "#0000FF", "ts": 81, "logo": "logos/kvc-westerlo.png"}, {"name": "KRC GENK", "code": "GNK", "shirt": "#007AFF", "shorts": "#FFFFFF", "sock": "#0000FF", "trim": "#FFFFFF", "ts": 80, "logo": "logos/krc-genk.png"}, {"name": "SV ZULTE-WAREGEM", "code": "ZUL", "shirt": "#FF0026", "shorts": "#FF0026", "sock": "#FF0026", "trim": "#1B5B39", "ts": 79}, {"name": "STANDARD LUIK", "code": "STA", "shirt": "#DD0000", "shorts": "#DD0000", "sock": "#DD0000", "trim": "#FFFFFF", "ts": 78, "logo": "logos/standard-luik.png"}, {"name": "LOMMEL SK", "code": "LOM", "shirt": "#009150", "shorts": "#FFFFFF", "sock": "#009150", "trim": "#FFFFFF", "ts": 77, "logo": "logos/lommel-sk.png"}, {"name": "WAASLAND-BEVEREN", "code": "WAA", "shirt": "#FFFF00", "shorts": "#0000FF", "sock": "#FFFF00", "trim": "#0000FF", "ts": 76, "logo": "logos/waasland-beveren.png"}, {"name": "STVV", "code": "STV", "shirt": "#FFFF00", "shorts": "#0000FF", "sock": "#FFFF00", "trim": "#0000FF", "ts": 75, "logo": "logos/stvv.png"}, {"name": "ROYAL ANTWERP FC", "code": "ANT", "shirt": "#FF0000", "shorts": "#FFFFFF", "sock": "#FF0000", "trim": "#FFFFFF", "ts": 74, "logo": "logos/royal-antwerp-fc.png"}, {"name": "KV MECHELEN", "code": "MEC", "shirt": "#FFD700", "shorts": "#17191F", "sock": "#FF0000", "trim": "#FF0000", "ts": 73, "logo": "logos/kv-mechelen.png"}, {"name": "OH LEUVEN", "code": "OHL", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#009150", "ts": 72, "logo": "logos/oh-leuven.png"}, {"name": "RAAL LA LOUVIERE", "code": "RAA", "shirt": "#009150", "shorts": "#009150", "sock": "#009150", "trim": "#FFFFFF", "ts": 71, "logo": "logos/raal-la-louviere.png"}, {"name": "KV KORTRIJK", "code": "KOR", "shirt": "#FF0000", "shorts": "#FF0000", "sock": "#FF0000", "trim": "#FFFFFF", "ts": 70, "logo": "logos/kv-kortrijk.png"}, {"name": "CERCLE BRUGGE", "code": "CER", "shirt": "#00852D", "shorts": "#17191F", "sock": "#17191F", "trim": "#17191F", "ts": 69, "logo": "logos/cercle-brugge.png"}]}, {"name": "EREDIVISIE", "teams": [{"name": "FEYENOORD", "code": "FEY", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 80, "logo": "logos/feyenoord.png"}, {"name": "AZ ALKMAAR", "code": "AZ", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 79, "logo": "logos/az-alkmaar.png"}, {"name": "PSV", "code": "PSV", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 78, "logo": "logos/psv.png"}, {"name": "AJAX", "code": "AJA", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#D62828", "ts": 77, "logo": "logos/ajax.png"}, {"name": "FC TWENTE", "code": "TWE", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#D62828", "trim": "#FFFFFF", "ts": 76, "logo": "logos/fc-twente.png"}, {"name": "FORTUNA SITTARD", "code": "FOR", "shirt": "#F4D21F", "shorts": "#1F9D4A", "sock": "#F4D21F", "trim": "#1F9D4A", "ts": 74, "logo": "logos/fortuna-sittard.png"}, {"name": "FC GRONINGEN", "code": "GRO", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#1F9D4A", "ts": 73, "logo": "logos/fc-groningen.png"}, {"name": "SC HEERENVEEN", "code": "HEE", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#1D5FB8", "trim": "#1D5FB8", "ts": 72, "logo": "logos/sc-heerenveen.png"}, {"name": "GO AHEAD EAGLES", "code": "GAE", "shirt": "#D62828", "shorts": "#FFFFFF", "sock": "#17191F", "trim": "#F4D21F", "ts": 71, "logo": "logos/go-ahead-eagles.png"}, {"name": "EXCELSIOR", "code": "EXC", "shirt": "#D62828", "shorts": "#D62828", "sock": "#17191F", "trim": "#17191F", "ts": 70, "logo": "logos/excelsior.png"}, {"name": "FC UTRECHT", "code": "UTR", "shirt": "#D62828", "shorts": "#D62828", "sock": "#D62828", "trim": "#FFFFFF", "ts": 68, "logo": "logos/fc-utrecht.png"}, {"name": "NEC NIJMEGEN", "code": "NEC", "shirt": "#D62828", "shorts": "#17191F", "sock": "#17191F", "trim": "#1F9D4A", "ts": 67, "logo": "logos/nec-nijmegen.png"}, {"name": "SPARTA ROTTERDAM", "code": "SPA", "shirt": "#FFFFFF", "shorts": "#17191F", "sock": "#FFFFFF", "trim": "#D62828", "ts": 66, "logo": "logos/sparta-rotterdam.png"}, {"name": "SC CAMBUUR", "code": "CAM", "shirt": "#F4D21F", "shorts": "#1D5FB8", "sock": "#F4D21F", "trim": "#1D5FB8", "ts": 65, "logo": "logos/sc-cambuur.png"}, {"name": "PEC ZWOLLE", "code": "PEC", "shirt": "#1D5FB8", "shorts": "#FFFFFF", "sock": "#1D5FB8", "trim": "#FFFFFF", "ts": 64, "logo": "logos/pec-zwolle.png"}, {"name": "TELSTAR", "code": "TEL", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#17191F", "ts": 62, "logo": "logos/telstar.png"}, {"name": "ADO DEN HAAG", "code": "ADO", "shirt": "#F4D21F", "shorts": "#1F9D4A", "sock": "#F4D21F", "trim": "#1F9D4A", "ts": 61, "logo": "logos/ado-den-haag.png"}, {"name": "WILLEM II", "code": "WIL", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#D62828", "ts": 60, "logo": "logos/willem-ii.png"}]}, {"name": "PREMIER LEAGUE", "teams": [{"name": "MANCHESTER CITY", "code": "MCI", "shirt": "#98C6EB", "shorts": "#FFFFFF", "sock": "#1C214F", "trim": "#FFFFFF", "ts": 86, "logo": "logos/manchester-city.png"}, {"name": "ARSENAL", "code": "ARS", "shirt": "#EF0107", "shorts": "#FFFFFF", "sock": "#EF0107", "trim": "#FFFFFF", "ts": 85, "logo": "logos/arsenal.png"}, {"name": "BRIGHTON", "code": "BHA", "shirt": "#1144DD", "shorts": "#1144DD", "sock": "#1144DD", "trim": "#FFFFFF", "ts": 84, "logo": "logos/brighton.png"}, {"name": "CHELSEA", "code": "CHE", "shirt": "#2054CC", "shorts": "#2054CC", "sock": "#2054CC", "trim": "#FFFFFF", "ts": 83, "logo": "logos/chelsea.png"}, {"name": "LIVERPOOL", "code": "LIV", "shirt": "#C8102E", "shorts": "#C8102E", "sock": "#C8102E", "trim": "#FFFFFF", "ts": 81, "logo": "logos/liverpool.png"}, {"name": "BRENTFORD", "code": "BRE", "shirt": "#E30613", "shorts": "#17191F", "sock": "#17191F", "trim": "#FFFFFF", "ts": 80, "logo": "logos/brentford.png"}, {"name": "LEEDS UNITED", "code": "LEE", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#FFCD00", "ts": 79, "logo": "logos/leeds-united.png"}, {"name": "EVERTON", "code": "EVE", "shirt": "#003399", "shorts": "#FFFFFF", "sock": "#003399", "trim": "#FFFFFF", "ts": 77, "logo": "logos/everton.png"}, {"name": "HULL CITY", "code": "HUL", "shirt": "#F18A1D", "shorts": "#17191F", "sock": "#F18A1D", "trim": "#17191F", "ts": 76, "logo": "logos/hull-city.png"}, {"name": "IPSWICH TOWN", "code": "IPS", "shirt": "#3A64A3", "shorts": "#FFFFFF", "sock": "#3A64A3", "trim": "#FFFFFF", "ts": 75, "logo": "logos/ipswich-town.png"}, {"name": "NEWCASTLE UNITED", "code": "NEW", "shirt": "#FFFFFF", "shorts": "#17191F", "sock": "#17191F", "trim": "#17191F", "ts": 73, "logo": "logos/newcastle-united.png"}, {"name": "ASTON VILLA", "code": "AVL", "shirt": "#670E36", "shorts": "#FFFFFF", "sock": "#95BFE5", "trim": "#95BFE5", "ts": 72, "logo": "logos/aston-villa.png"}, {"name": "MANCHESTER UNITED", "code": "MUN", "shirt": "#DA291C", "shorts": "#FFFFFF", "sock": "#17191F", "trim": "#FFFFFF", "ts": 71, "logo": "logos/manchester-united.png"}, {"name": "CRYSTAL PALACE", "code": "CRY", "shirt": "#1B458F", "shorts": "#1B458F", "sock": "#1B458F", "trim": "#C4122E", "ts": 70, "logo": "logos/crystal-palace.png"}, {"name": "BOURNEMOUTH", "code": "BOU", "shirt": "#17191F", "shorts": "#17191F", "sock": "#17191F", "trim": "#D71920", "ts": 68, "logo": "logos/bournemouth.png"}, {"name": "TOTTENHAM", "code": "TOT", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#132257", "ts": 67, "logo": "logos/tottenham.png"}, {"name": "COVENTRY CITY", "code": "COV", "shirt": "#6CC4F0", "shorts": "#FFFFFF", "sock": "#6CC4F0", "trim": "#17191F", "ts": 66, "logo": "logos/coventry-city.png"}, {"name": "FULHAM", "code": "FUL", "shirt": "#FFFFFF", "shorts": "#17191F", "sock": "#FFFFFF", "trim": "#17191F", "ts": 64, "logo": "logos/fulham.png"}, {"name": "NOTTINGHAM FOREST", "code": "NFO", "shirt": "#D70926", "shorts": "#FFFFFF", "sock": "#D70926", "trim": "#FFFFFF", "ts": 63, "logo": "logos/nottingham-forest.png"}, {"name": "SUNDERLAND", "code": "SUN", "shirt": "#EB172B", "shorts": "#17191F", "sock": "#EB172B", "trim": "#FFFFFF", "ts": 62, "logo": "logos/sunderland.png"}]}, {"name": "BUNDESLIGA", "teams": [{"name": "BAYERN MUNCHEN", "code": "FCB", "shirt": "#DC052D", "shorts": "#DC052D", "sock": "#DC052D", "trim": "#FFFFFF", "ts": 86, "logo": "logos/bayern-munchen.png"}, {"name": "BORUSSIA DORTMUND", "code": "BVB", "shirt": "#FDE100", "shorts": "#17191F", "sock": "#FDE100", "trim": "#17191F", "ts": 85, "logo": "logos/borussia-dortmund.png"}, {"name": "SC FREIBURG", "code": "SCF", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#FE0000", "ts": 84, "logo": "logos/sc-freiburg.png"}, {"name": "BAYER LEVERKUSEN", "code": "B04", "shirt": "#17191F", "shorts": "#17191F", "sock": "#17191F", "trim": "#6C0000", "ts": 83, "logo": "logos/bayer-leverkusen.png"}, {"name": "MAINZ 05", "code": "M05", "shirt": "#ED2834", "shorts": "#FFFFFF", "sock": "#ED2834", "trim": "#FFFFFF", "ts": 81, "logo": "logos/mainz-05.png"}, {"name": "ELVERSBERG", "code": "ELV", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#17191F", "ts": 80, "logo": "logos/elversberg.png"}, {"name": "RB LEIPZIG", "code": "RBL", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#D2003C", "trim": "#D2003C", "ts": 79, "logo": "logos/rb-leipzig.png"}, {"name": "WERDER BREMEN", "code": "SVW", "shirt": "#007E56", "shorts": "#FFFFFF", "sock": "#007E56", "trim": "#FFFFFF", "ts": 77, "logo": "logos/werder-bremen.png"}, {"name": "HAMBURGER SV", "code": "HSV", "shirt": "#FFFFFF", "shorts": "#DD0000", "sock": "#005CA9", "trim": "#005CA9", "ts": 76, "logo": "logos/hamburger-sv.png"}, {"name": "FC AUGSBURG", "code": "FCA", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#FF0000", "ts": 75, "logo": "logos/fc-augsburg.png"}, {"name": "EINTRACHT FRANKFURT", "code": "SGE", "shirt": "#17191F", "shorts": "#17191F", "sock": "#17191F", "trim": "#E1001A", "ts": 73, "logo": "logos/eintracht-frankfurt.png"}, {"name": "FC KOLN", "code": "KOE", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#FF0000", "ts": 72, "logo": "logos/fc-koln.png"}, {"name": "VFB STUTTGART", "code": "VFB", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#E32219", "ts": 71, "logo": "logos/vfb-stuttgart.png"}, {"name": "HOFFENHEIM", "code": "TSG", "shirt": "#00004F", "shorts": "#FFFFFF", "sock": "#00004F", "trim": "#FFFFFF", "ts": 70, "logo": "logos/hoffenheim.png"}, {"name": "SCHALKE 04", "code": "S04", "shirt": "#004B9C", "shorts": "#FFFFFF", "sock": "#004B9C", "trim": "#FFFFFF", "ts": 68, "logo": "logos/schalke-04.png"}, {"name": "SC PADERBORN", "code": "SCP", "shirt": "#004F9F", "shorts": "#FFFFFF", "sock": "#004F9F", "trim": "#17191F", "ts": 67, "logo": "logos/sc-paderborn.png"}, {"name": "UNION BERLIN", "code": "FCU", "shirt": "#E30613", "shorts": "#E30613", "sock": "#E30613", "trim": "#FFFFFF", "ts": 66, "logo": "logos/union-berlin.png"}, {"name": "BORUSSIA MONCHENGLADBACH", "code": "BMG", "shirt": "#FFFFFF", "shorts": "#FFFFFF", "sock": "#FFFFFF", "trim": "#17191F", "ts": 64, "logo": "logos/borussia-monchengladbach.png"}]}]};
   function ff(t) {
-    if (!t || !Array.isArray(t.competitions)) return;
+    if (!t || !Array.isArray(t.competitions) || (t.version || 0) < 7) return;
     const o = /^#[0-9a-f]{6}$/i;
     if (
       t.competitions.length > 0 &&
@@ -4075,7 +3563,18 @@
   );
   let J = null,
     of = null,
-    bt = 0;
+    bt = 0,
+    PJ = null;
+  setTimeout(
+    () =>
+      fetch("players.json", { cache: "no-store" })
+        .then((t) => (t.ok ? t.json() : null))
+        .then((t) => {
+          t && typeof t === "object" && !Array.isArray(t) && (PJ = t);
+        })
+        .catch(() => {}),
+    400,
+  );
   function nf(t) {
     !J ||
       !J[t] ||
@@ -4091,6 +3590,7 @@
           shorts: o.shorts || "#ffffff",
           sock: o.sock || o.shirt,
           trim: o.trim || "#ffffff",
+          logo: typeof o.logo === "string" ? o.logo : null,
         }),
           o.ts > 40 && o.ts < 95 && (St[f] = o.ts);
       }),
@@ -4126,6 +3626,7 @@
     const i = y === "play" || y === "goal";
     Ee.classList.toggle("hide", !i),
       cf.classList.toggle("hide", !i),
+      bg && bg.classList.toggle("hide", !i),
       Bf && Bf.classList.toggle("hide", i),
       k0(),
       requestAnimationFrame(Ff);
@@ -4150,4 +3651,23 @@
       t && t.remove(), (ve = performance.now()), requestAnimationFrame(Ff);
     }, 60),
     "serviceWorker" in navigator && navigator.serviceWorker.register("sw.js").catch(() => {});
+  window.__eawg = {
+    get y() {
+      return y;
+    },
+    set y(v) {
+      y = v;
+    },
+    get coins() {
+      return S && S.coins;
+    },
+    get st() {
+      return S && S.st && Object.keys(S.st).length;
+    },
+    tik(x, y2) {
+      const c = F;
+      c.dispatchEvent(new PointerEvent("pointerdown", { clientX: x, clientY: y2, pointerId: 9, bubbles: !0 })),
+        c.dispatchEvent(new PointerEvent("pointerup", { clientX: x, clientY: y2, pointerId: 9, bubbles: !0 }));
+    },
+  };
 })();

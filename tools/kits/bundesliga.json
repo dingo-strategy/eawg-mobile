@@ -1,0 +1,20 @@
+[
+ {"name":"BAYERN MUNCHEN","shirt":"#DC052D","shorts":"#DC052D","sock":"#DC052D","trim":"#FFFFFF"},
+ {"name":"BORUSSIA DORTMUND","shirt":"#FDE100","shorts":"#17191F","sock":"#FDE100","trim":"#17191F"},
+ {"name":"SC FREIBURG","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#FE0000"},
+ {"name":"BAYER LEVERKUSEN","shirt":"#17191F","shorts":"#17191F","sock":"#17191F","trim":"#6C0000"},
+ {"name":"MAINZ 05","shirt":"#ED2834","shorts":"#FFFFFF","sock":"#ED2834","trim":"#FFFFFF"},
+ {"name":"ELVERSBERG","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#17191F"},
+ {"name":"RB LEIPZIG","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#D2003C","trim":"#D2003C"},
+ {"name":"WERDER BREMEN","shirt":"#007E56","shorts":"#FFFFFF","sock":"#007E56","trim":"#FFFFFF"},
+ {"name":"HAMBURGER SV","shirt":"#FFFFFF","shorts":"#DD0000","sock":"#005CA9","trim":"#005CA9"},
+ {"name":"FC AUGSBURG","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#FF0000"},
+ {"name":"EINTRACHT FRANKFURT","shirt":"#17191F","shorts":"#17191F","sock":"#17191F","trim":"#E1001A"},
+ {"name":"FC KOLN","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#FF0000"},
+ {"name":"VFB STUTTGART","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#E32219"},
+ {"name":"HOFFENHEIM","shirt":"#00004F","shorts":"#FFFFFF","sock":"#00004F","trim":"#FFFFFF"},
+ {"name":"SCHALKE 04","shirt":"#004B9C","shorts":"#FFFFFF","sock":"#004B9C","trim":"#FFFFFF"},
+ {"name":"SC PADERBORN","shirt":"#004F9F","shorts":"#FFFFFF","sock":"#004F9F","trim":"#17191F"},
+ {"name":"UNION BERLIN","shirt":"#E30613","shorts":"#E30613","sock":"#E30613","trim":"#FFFFFF"},
+ {"name":"BORUSSIA MONCHENGLADBACH","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#17191F"}
+]

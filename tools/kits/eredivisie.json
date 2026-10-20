@@ -1,0 +1,20 @@
+[
+ {"name":"FEYENOORD","shirt":"#D62828","shorts":"#FFFFFF","sock":"#D62828","trim":"#FFFFFF"},
+ {"name":"AZ ALKMAAR","shirt":"#D62828","shorts":"#FFFFFF","sock":"#D62828","trim":"#FFFFFF"},
+ {"name":"PSV","shirt":"#D62828","shorts":"#FFFFFF","sock":"#D62828","trim":"#FFFFFF"},
+ {"name":"AJAX","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#D62828"},
+ {"name":"FC TWENTE","shirt":"#D62828","shorts":"#FFFFFF","sock":"#D62828","trim":"#FFFFFF"},
+ {"name":"FORTUNA SITTARD","shirt":"#F4D21F","shorts":"#1F9D4A","sock":"#F4D21F","trim":"#1F9D4A"},
+ {"name":"FC GRONINGEN","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#1F9D4A"},
+ {"name":"SC HEERENVEEN","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#1D5FB8","trim":"#1D5FB8"},
+ {"name":"GO AHEAD EAGLES","shirt":"#D62828","shorts":"#FFFFFF","sock":"#17191F","trim":"#F4D21F"},
+ {"name":"EXCELSIOR","shirt":"#D62828","shorts":"#D62828","sock":"#17191F","trim":"#17191F"},
+ {"name":"FC UTRECHT","shirt":"#D62828","shorts":"#D62828","sock":"#D62828","trim":"#FFFFFF"},
+ {"name":"NEC NIJMEGEN","shirt":"#D62828","shorts":"#17191F","sock":"#17191F","trim":"#1F9D4A"},
+ {"name":"SPARTA ROTTERDAM","shirt":"#FFFFFF","shorts":"#17191F","sock":"#FFFFFF","trim":"#D62828"},
+ {"name":"SC CAMBUUR","shirt":"#F4D21F","shorts":"#1D5FB8","sock":"#F4D21F","trim":"#1D5FB8"},
+ {"name":"PEC ZWOLLE","shirt":"#1D5FB8","shorts":"#FFFFFF","sock":"#1D5FB8","trim":"#FFFFFF"},
+ {"name":"TELSTAR","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#17191F"},
+ {"name":"ADO DEN HAAG","shirt":"#F4D21F","shorts":"#1F9D4A","sock":"#F4D21F","trim":"#1F9D4A"},
+ {"name":"WILLEM II","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#D62828"}
+]

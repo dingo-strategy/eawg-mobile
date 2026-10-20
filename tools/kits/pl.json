@@ -1,0 +1,22 @@
+[
+ {"name":"MANCHESTER CITY","shirt":"#98C6EB","shorts":"#FFFFFF","sock":"#1C214F","trim":"#FFFFFF"},
+ {"name":"ARSENAL","shirt":"#EF0107","shorts":"#FFFFFF","sock":"#EF0107","trim":"#FFFFFF"},
+ {"name":"BRIGHTON","shirt":"#1144DD","shorts":"#1144DD","sock":"#1144DD","trim":"#FFFFFF"},
+ {"name":"CHELSEA","shirt":"#2054CC","shorts":"#2054CC","sock":"#2054CC","trim":"#FFFFFF"},
+ {"name":"LIVERPOOL","shirt":"#C8102E","shorts":"#C8102E","sock":"#C8102E","trim":"#FFFFFF"},
+ {"name":"BRENTFORD","shirt":"#E30613","shorts":"#17191F","sock":"#17191F","trim":"#FFFFFF"},
+ {"name":"LEEDS UNITED","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#FFCD00"},
+ {"name":"EVERTON","shirt":"#003399","shorts":"#FFFFFF","sock":"#003399","trim":"#FFFFFF"},
+ {"name":"HULL CITY","shirt":"#F18A1D","shorts":"#17191F","sock":"#F18A1D","trim":"#17191F"},
+ {"name":"IPSWICH TOWN","shirt":"#3A64A3","shorts":"#FFFFFF","sock":"#3A64A3","trim":"#FFFFFF"},
+ {"name":"NEWCASTLE UNITED","shirt":"#FFFFFF","shorts":"#17191F","sock":"#17191F","trim":"#17191F"},
+ {"name":"ASTON VILLA","shirt":"#670E36","shorts":"#FFFFFF","sock":"#95BFE5","trim":"#95BFE5"},
+ {"name":"MANCHESTER UNITED","shirt":"#DA291C","shorts":"#FFFFFF","sock":"#17191F","trim":"#FFFFFF"},
+ {"name":"CRYSTAL PALACE","shirt":"#1B458F","shorts":"#1B458F","sock":"#1B458F","trim":"#C4122E"},
+ {"name":"BOURNEMOUTH","shirt":"#17191F","shorts":"#17191F","sock":"#17191F","trim":"#D71920"},
+ {"name":"TOTTENHAM","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#132257"},
+ {"name":"COVENTRY CITY","shirt":"#6CC4F0","shorts":"#FFFFFF","sock":"#6CC4F0","trim":"#17191F"},
+ {"name":"FULHAM","shirt":"#FFFFFF","shorts":"#17191F","sock":"#FFFFFF","trim":"#17191F"},
+ {"name":"NOTTINGHAM FOREST","shirt":"#D70926","shorts":"#FFFFFF","sock":"#D70926","trim":"#FFFFFF"},
+ {"name":"SUNDERLAND","shirt":"#EB172B","shorts":"#17191F","sock":"#EB172B","trim":"#FFFFFF"}
+]

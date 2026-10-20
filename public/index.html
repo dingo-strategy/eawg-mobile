@@ -24,6 +24,7 @@
   #bShoot{right:max(24px,env(safe-area-inset-right));background:rgba(255,59,59,.35)}
   #bPass{right:calc(max(24px,env(safe-area-inset-right)) + 112px);bottom:calc(max(24px,env(safe-area-inset-bottom)) + 8px);
     width:80px;height:80px;background:rgba(43,127,255,.35)}
+  #bTackle{right:calc(max(24px,env(safe-area-inset-right)) + 112px);background:rgba(76,217,100,.4)}
   .hide{display:none!important}
   @media (hover:hover) and (pointer:fine){.btn{display:none}}
   /* Gsm rechtop: vraag om te draaien, want de game is gemaakt voor liggend */
@@ -41,10 +42,11 @@
 <div id="load" style="position:fixed;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;color:#fff;font:800 26px system-ui,sans-serif;background:#07260f;z-index:9">EAWG Mobile laden...</div>
 <button class="btn" id="bShoot">SCHIET</button>
 <button class="btn" id="bPass">PASS</button>
+<button class="btn" id="bTackle">TAKEL</button>
 <button id="install" style="display:none;position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px">Installeer app</button>
 <div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm". <b id="iosx" style="float:right;padding-left:12px">X</b></div>
 <div id="draai"><div class="gsm"></div><p>DRAAI JE GSM</p><small>EAWG Mobile speel je liggend</small></div>
-<script src="game.js?v=23"></script>
+<script src="game.js?v=24"></script>
 <script>
 // Eerste tik op een gsm: volledig scherm en liggend vastzetten (werkt op Android, iPhone negeert het)
 (function () {

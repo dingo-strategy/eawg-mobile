@@ -1,0 +1,20 @@
+[
+ {"name":"KAA GENT","shirt":"#0023DD","shorts":"#0023DD","sock":"#0023DD","trim":"#FFFFFF"},
+ {"name":"CLUB BRUGGE","shirt":"#005CA9","shorts":"#17191F","sock":"#005CA9","trim":"#FFFFFF"},
+ {"name":"SPORTING CHARLEROI","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#17191F"},
+ {"name":"ROYALE UNION SG","shirt":"#FFE000","shorts":"#000055","sock":"#000055","trim":"#000055"},
+ {"name":"RSC ANDERLECHT","shirt":"#5C2195","shorts":"#5C2195","sock":"#5C2195","trim":"#FFFFFF"},
+ {"name":"KVC WESTERLO","shirt":"#FFFF00","shorts":"#0000FF","sock":"#FFFF00","trim":"#0000FF"},
+ {"name":"KRC GENK","shirt":"#007AFF","shorts":"#FFFFFF","sock":"#0000FF","trim":"#FFFFFF"},
+ {"name":"SV ZULTE-WAREGEM","shirt":"#FF0026","shorts":"#FF0026","sock":"#FF0026","trim":"#FFFFFF"},
+ {"name":"STANDARD LUIK","shirt":"#DD0000","shorts":"#DD0000","sock":"#DD0000","trim":"#FFFFFF"},
+ {"name":"LOMMEL SK","shirt":"#009150","shorts":"#FFFFFF","sock":"#009150","trim":"#FFFFFF"},
+ {"name":"WAASLAND-BEVEREN","shirt":"#FFFF00","shorts":"#0000FF","sock":"#FFFF00","trim":"#0000FF"},
+ {"name":"STVV","shirt":"#FFFF00","shorts":"#0000FF","sock":"#FFFF00","trim":"#0000FF"},
+ {"name":"ROYAL ANTWERP FC","shirt":"#FF0000","shorts":"#FFFFFF","sock":"#FF0000","trim":"#FFFFFF"},
+ {"name":"KV MECHELEN","shirt":"#FFD700","shorts":"#17191F","sock":"#FF0000","trim":"#FF0000"},
+ {"name":"OH LEUVEN","shirt":"#FFFFFF","shorts":"#FFFFFF","sock":"#FFFFFF","trim":"#009150"},
+ {"name":"RAAL LA LOUVIERE","shirt":"#009150","shorts":"#009150","sock":"#009150","trim":"#FFFFFF"},
+ {"name":"KV KORTRIJK","shirt":"#FF0000","shorts":"#FF0000","sock":"#FF0000","trim":"#FFFFFF"},
+ {"name":"CERCLE BRUGGE","shirt":"#00852D","shorts":"#17191F","sock":"#17191F","trim":"#17191F"}
+]
