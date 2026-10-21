@@ -11,8 +11,7 @@
      "shorts": "#D62828",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 74,
-     "logo": "logos/kvk-ieper-b.png"
+     "ts": 74
     },
     {
      "name": "SK ROESELARE B",
@@ -21,8 +20,7 @@
      "shorts": "#17191F",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 72,
-     "logo": "logos/sk-roeselare-b.png"
+     "ts": 72
     },
     {
      "name": "VV KOEKELARE",
@@ -31,8 +29,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#D61111",
-     "ts": 70,
-     "logo": "logos/vv-koekelare.png"
+     "ts": 70
     },
     {
      "name": "KM TORHOUT B",
@@ -41,8 +38,7 @@
      "shorts": "#17191F",
      "sock": "#1F9D55",
      "trim": "#FFFFFF",
-     "ts": 66,
-     "logo": "logos/km-torhout-b.png"
+     "ts": 66
     },
     {
      "name": "KSV DE RUITER A",
@@ -51,8 +47,7 @@
      "shorts": "#FFFFFF",
      "sock": "#63B6F2",
      "trim": "#FFFFFF",
-     "ts": 63,
-     "logo": "logos/ksv-de-ruiter-a.png"
+     "ts": 63
     },
     {
      "name": "KFC POPERINGE B",
@@ -61,8 +56,7 @@
      "shorts": "#17191F",
      "sock": "#F2C230",
      "trim": "#D62828",
-     "ts": 63,
-     "logo": "logos/kfc-poperinge-b.png"
+     "ts": 63
     },
     {
      "name": "KSV VEURNE A",
@@ -71,8 +65,7 @@
      "shorts": "#17191F",
      "sock": "#1F9D55",
      "trim": "#F2E230",
-     "ts": 62,
-     "logo": "logos/ksv-veurne-a.png"
+     "ts": 62
     },
     {
      "name": "EAWG FC",
@@ -80,9 +73,8 @@
      "shirt": "#7b3fc4",
      "shorts": "#f3f3f3",
      "sock": "#7b3fc4",
-     "trim": "#ffffff",
-     "ts": 60,
-     "logo": "logos/eawg-fc.png"
+     "trim": "#f2c230",
+     "ts": 60
     }
    ]
   },
@@ -96,8 +88,7 @@
      "shorts": "#FFFFFF",
      "sock": "#065488",
      "trim": "#FFFFFF",
-     "ts": 74,
-     "logo": "logos/kvc-wingene.png"
+     "ts": 74
     },
     {
      "name": "KSV BREDENE",
@@ -106,8 +97,7 @@
      "shorts": "#FFFFFF",
      "sock": "#5F76A8",
      "trim": "#FFFFFF",
-     "ts": 70,
-     "logo": "logos/ksv-bredene.png"
+     "ts": 70
     },
     {
      "name": "K DOSKO ST-KRUIS",
@@ -116,8 +106,7 @@
      "shorts": "#1B3F8F",
      "sock": "#F2D21C",
      "trim": "#1B3F8F",
-     "ts": 69,
-     "logo": "logos/k-dosko-st-kruis.png"
+     "ts": 69
     },
     {
      "name": "KSC BLANKENBERGE",
@@ -126,8 +115,7 @@
      "shorts": "#D62828",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 66,
-     "logo": "logos/ksc-blankenberge.png"
+     "ts": 66
     },
     {
      "name": "VC VAMOS ZANDVOORDE",
@@ -136,8 +124,7 @@
      "shorts": "#FFFFFF",
      "sock": "#63B6F2",
      "trim": "#FFFFFF",
-     "ts": 64,
-     "logo": "logos/vc-vamos-zandvoorde.png"
+     "ts": 64
     },
     {
      "name": "KFC MEULEBEKE",
@@ -146,8 +133,7 @@
      "shorts": "#D62828",
      "sock": "#D62828",
      "trim": "#D62828",
-     "ts": 62,
-     "logo": "logos/kfc-meulebeke.png"
+     "ts": 62
     },
     {
      "name": "KWS CLUB LAUWE",
@@ -156,8 +142,7 @@
      "shorts": "#17191F",
      "sock": "#F2C230",
      "trim": "#17191F",
-     "ts": 62,
-     "logo": "logos/kws-club-lauwe.png"
+     "ts": 62
     },
     {
      "name": "FUSION OOSTENDE",
@@ -166,8 +151,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#F2C230",
-     "ts": 58,
-     "logo": "logos/fusion-oostende.png"
+     "ts": 58
     }
    ]
   },
@@ -181,8 +165,7 @@
      "shorts": "#37A9E0",
      "sock": "#37A9E0",
      "trim": "#FFFFFF",
-     "ts": 72,
-     "logo": "logos/kv-koksijde-oostduinke.png"
+     "ts": 72
     },
     {
      "name": "KV EENDRACHT AALTER",
@@ -191,8 +174,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 69,
-     "logo": "logos/kv-eendracht-aalter.png"
+     "ts": 69
     },
     {
      "name": "SCT MENEN",
@@ -201,8 +183,7 @@
      "shorts": "#17191F",
      "sock": "#F2C230",
      "trim": "#17191F",
-     "ts": 66,
-     "logo": "logos/sct-menen.png"
+     "ts": 66
     },
     {
      "name": "KV DIKSMUIDE OOSTENDE",
@@ -211,8 +192,7 @@
      "shorts": "#1B3F8F",
      "sock": "#1B3F8F",
      "trim": "#1B3F8F",
-     "ts": 62,
-     "logo": "logos/kv-diksmuide-oostende.png"
+     "ts": 62
     },
     {
      "name": "ZWEVEGEM SPORT",
@@ -221,8 +201,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 60,
-     "logo": "logos/zwevegem-sport.png"
+     "ts": 60
     },
     {
      "name": "EAWG FC",
@@ -240,18 +219,16 @@
      "shorts": "#FFFFFF",
      "sock": "#1B6FB0",
      "trim": "#FFFFFF",
-     "ts": 58,
-     "logo": "logos/sc-zonnebeke.png"
+     "ts": 58
     },
     {
      "name": "SV ZULTE-WAREGEM",
      "code": "ZUL",
-     "shirt": "#d62828",
-     "shorts": "#ffffff",
-     "sock": "#2a9d4a",
-     "trim": "#ffffff",
-     "ts": 56,
-     "logo": "logos/sv-zulte-waregem.png"
+     "shirt": "#FF0026",
+     "shorts": "#FF0026",
+     "sock": "#FF0026",
+     "trim": "#1B5B39",
+     "ts": 56
     }
    ]
   },
@@ -265,8 +242,7 @@
      "shorts": "#0023DD",
      "sock": "#0023DD",
      "trim": "#FFFFFF",
-     "ts": 86,
-     "logo": "logos/kaa-gent.png"
+     "ts": 86
     },
     {
      "name": "CLUB BRUGGE",
@@ -275,8 +251,7 @@
      "shorts": "#17191F",
      "sock": "#005CA9",
      "trim": "#FFFFFF",
-     "ts": 85,
-     "logo": "logos/club-brugge.png"
+     "ts": 85
     },
     {
      "name": "SPORTING CHARLEROI",
@@ -285,8 +260,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 84,
-     "logo": "logos/sporting-charleroi.png"
+     "ts": 84
     },
     {
      "name": "ROYALE UNION SG",
@@ -295,8 +269,7 @@
      "shorts": "#000055",
      "sock": "#000055",
      "trim": "#000055",
-     "ts": 83,
-     "logo": "logos/royale-union-sg.png"
+     "ts": 83
     },
     {
      "name": "RSC ANDERLECHT",
@@ -305,8 +278,7 @@
      "shorts": "#5C2195",
      "sock": "#5C2195",
      "trim": "#FFFFFF",
-     "ts": 82,
-     "logo": "logos/rsc-anderlecht.png"
+     "ts": 82
     },
     {
      "name": "KVC WESTERLO",
@@ -315,8 +287,7 @@
      "shorts": "#0000FF",
      "sock": "#FFFF00",
      "trim": "#0000FF",
-     "ts": 81,
-     "logo": "logos/kvc-westerlo.png"
+     "ts": 81
     },
     {
      "name": "KRC GENK",
@@ -325,8 +296,7 @@
      "shorts": "#FFFFFF",
      "sock": "#0000FF",
      "trim": "#FFFFFF",
-     "ts": 80,
-     "logo": "logos/krc-genk.png"
+     "ts": 80
     },
     {
      "name": "SV ZULTE-WAREGEM",
@@ -344,8 +314,7 @@
      "shorts": "#DD0000",
      "sock": "#DD0000",
      "trim": "#FFFFFF",
-     "ts": 78,
-     "logo": "logos/standard-luik.png"
+     "ts": 78
     },
     {
      "name": "LOMMEL SK",
@@ -354,8 +323,7 @@
      "shorts": "#FFFFFF",
      "sock": "#009150",
      "trim": "#FFFFFF",
-     "ts": 77,
-     "logo": "logos/lommel-sk.png"
+     "ts": 77
     },
     {
      "name": "WAASLAND-BEVEREN",
@@ -364,8 +332,7 @@
      "shorts": "#0000FF",
      "sock": "#FFFF00",
      "trim": "#0000FF",
-     "ts": 76,
-     "logo": "logos/waasland-beveren.png"
+     "ts": 76
     },
     {
      "name": "STVV",
@@ -374,8 +341,7 @@
      "shorts": "#0000FF",
      "sock": "#FFFF00",
      "trim": "#0000FF",
-     "ts": 75,
-     "logo": "logos/stvv.png"
+     "ts": 75
     },
     {
      "name": "ROYAL ANTWERP FC",
@@ -384,8 +350,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FF0000",
      "trim": "#FFFFFF",
-     "ts": 74,
-     "logo": "logos/royal-antwerp-fc.png"
+     "ts": 74
     },
     {
      "name": "KV MECHELEN",
@@ -394,8 +359,7 @@
      "shorts": "#17191F",
      "sock": "#FF0000",
      "trim": "#FF0000",
-     "ts": 73,
-     "logo": "logos/kv-mechelen.png"
+     "ts": 73
     },
     {
      "name": "OH LEUVEN",
@@ -404,8 +368,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#009150",
-     "ts": 72,
-     "logo": "logos/oh-leuven.png"
+     "ts": 72
     },
     {
      "name": "RAAL LA LOUVIERE",
@@ -414,8 +377,7 @@
      "shorts": "#009150",
      "sock": "#009150",
      "trim": "#FFFFFF",
-     "ts": 71,
-     "logo": "logos/raal-la-louviere.png"
+     "ts": 71
     },
     {
      "name": "KV KORTRIJK",
@@ -424,8 +386,7 @@
      "shorts": "#FF0000",
      "sock": "#FF0000",
      "trim": "#FFFFFF",
-     "ts": 70,
-     "logo": "logos/kv-kortrijk.png"
+     "ts": 70
     },
     {
      "name": "CERCLE BRUGGE",
@@ -434,8 +395,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#17191F",
-     "ts": 69,
-     "logo": "logos/cercle-brugge.png"
+     "ts": 69
     }
    ]
   },
@@ -449,8 +409,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 80,
-     "logo": "logos/feyenoord.png"
+     "ts": 80
     },
     {
      "name": "AZ ALKMAAR",
@@ -459,8 +418,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 79,
-     "logo": "logos/az-alkmaar.png"
+     "ts": 79
     },
     {
      "name": "PSV",
@@ -469,8 +427,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 78,
-     "logo": "logos/psv.png"
+     "ts": 78
     },
     {
      "name": "AJAX",
@@ -479,8 +436,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#D62828",
-     "ts": 77,
-     "logo": "logos/ajax.png"
+     "ts": 77
     },
     {
      "name": "FC TWENTE",
@@ -489,8 +445,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 76,
-     "logo": "logos/fc-twente.png"
+     "ts": 76
     },
     {
      "name": "FORTUNA SITTARD",
@@ -499,8 +454,7 @@
      "shorts": "#1F9D4A",
      "sock": "#F4D21F",
      "trim": "#1F9D4A",
-     "ts": 74,
-     "logo": "logos/fortuna-sittard.png"
+     "ts": 74
     },
     {
      "name": "FC GRONINGEN",
@@ -509,8 +463,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#1F9D4A",
-     "ts": 73,
-     "logo": "logos/fc-groningen.png"
+     "ts": 73
     },
     {
      "name": "SC HEERENVEEN",
@@ -519,8 +472,7 @@
      "shorts": "#FFFFFF",
      "sock": "#1D5FB8",
      "trim": "#1D5FB8",
-     "ts": 72,
-     "logo": "logos/sc-heerenveen.png"
+     "ts": 72
     },
     {
      "name": "GO AHEAD EAGLES",
@@ -529,8 +481,7 @@
      "shorts": "#FFFFFF",
      "sock": "#17191F",
      "trim": "#F4D21F",
-     "ts": 71,
-     "logo": "logos/go-ahead-eagles.png"
+     "ts": 71
     },
     {
      "name": "EXCELSIOR",
@@ -539,8 +490,7 @@
      "shorts": "#D62828",
      "sock": "#17191F",
      "trim": "#17191F",
-     "ts": 70,
-     "logo": "logos/excelsior.png"
+     "ts": 70
     },
     {
      "name": "FC UTRECHT",
@@ -549,8 +499,7 @@
      "shorts": "#D62828",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 68,
-     "logo": "logos/fc-utrecht.png"
+     "ts": 68
     },
     {
      "name": "NEC NIJMEGEN",
@@ -559,8 +508,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#1F9D4A",
-     "ts": 67,
-     "logo": "logos/nec-nijmegen.png"
+     "ts": 67
     },
     {
      "name": "SPARTA ROTTERDAM",
@@ -569,8 +517,7 @@
      "shorts": "#17191F",
      "sock": "#FFFFFF",
      "trim": "#D62828",
-     "ts": 66,
-     "logo": "logos/sparta-rotterdam.png"
+     "ts": 66
     },
     {
      "name": "SC CAMBUUR",
@@ -579,8 +526,7 @@
      "shorts": "#1D5FB8",
      "sock": "#F4D21F",
      "trim": "#1D5FB8",
-     "ts": 65,
-     "logo": "logos/sc-cambuur.png"
+     "ts": 65
     },
     {
      "name": "PEC ZWOLLE",
@@ -589,8 +535,7 @@
      "shorts": "#FFFFFF",
      "sock": "#1D5FB8",
      "trim": "#FFFFFF",
-     "ts": 64,
-     "logo": "logos/pec-zwolle.png"
+     "ts": 64
     },
     {
      "name": "TELSTAR",
@@ -599,8 +544,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 62,
-     "logo": "logos/telstar.png"
+     "ts": 62
     },
     {
      "name": "ADO DEN HAAG",
@@ -609,8 +553,7 @@
      "shorts": "#1F9D4A",
      "sock": "#F4D21F",
      "trim": "#1F9D4A",
-     "ts": 61,
-     "logo": "logos/ado-den-haag.png"
+     "ts": 61
     },
     {
      "name": "WILLEM II",
@@ -619,8 +562,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#D62828",
-     "ts": 60,
-     "logo": "logos/willem-ii.png"
+     "ts": 60
     }
    ]
   },
@@ -634,8 +576,7 @@
      "shorts": "#FFFFFF",
      "sock": "#1C214F",
      "trim": "#FFFFFF",
-     "ts": 86,
-     "logo": "logos/manchester-city.png"
+     "ts": 86
     },
     {
      "name": "ARSENAL",
@@ -644,8 +585,7 @@
      "shorts": "#FFFFFF",
      "sock": "#EF0107",
      "trim": "#FFFFFF",
-     "ts": 85,
-     "logo": "logos/arsenal.png"
+     "ts": 85
     },
     {
      "name": "BRIGHTON",
@@ -654,8 +594,7 @@
      "shorts": "#1144DD",
      "sock": "#1144DD",
      "trim": "#FFFFFF",
-     "ts": 84,
-     "logo": "logos/brighton.png"
+     "ts": 84
     },
     {
      "name": "CHELSEA",
@@ -664,8 +603,7 @@
      "shorts": "#2054CC",
      "sock": "#2054CC",
      "trim": "#FFFFFF",
-     "ts": 83,
-     "logo": "logos/chelsea.png"
+     "ts": 83
     },
     {
      "name": "LIVERPOOL",
@@ -674,8 +612,7 @@
      "shorts": "#C8102E",
      "sock": "#C8102E",
      "trim": "#FFFFFF",
-     "ts": 81,
-     "logo": "logos/liverpool.png"
+     "ts": 81
     },
     {
      "name": "BRENTFORD",
@@ -684,8 +621,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#FFFFFF",
-     "ts": 80,
-     "logo": "logos/brentford.png"
+     "ts": 80
     },
     {
      "name": "LEEDS UNITED",
@@ -694,8 +630,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#FFCD00",
-     "ts": 79,
-     "logo": "logos/leeds-united.png"
+     "ts": 79
     },
     {
      "name": "EVERTON",
@@ -704,8 +639,7 @@
      "shorts": "#FFFFFF",
      "sock": "#003399",
      "trim": "#FFFFFF",
-     "ts": 77,
-     "logo": "logos/everton.png"
+     "ts": 77
     },
     {
      "name": "HULL CITY",
@@ -714,8 +648,7 @@
      "shorts": "#17191F",
      "sock": "#F18A1D",
      "trim": "#17191F",
-     "ts": 76,
-     "logo": "logos/hull-city.png"
+     "ts": 76
     },
     {
      "name": "IPSWICH TOWN",
@@ -724,8 +657,7 @@
      "shorts": "#FFFFFF",
      "sock": "#3A64A3",
      "trim": "#FFFFFF",
-     "ts": 75,
-     "logo": "logos/ipswich-town.png"
+     "ts": 75
     },
     {
      "name": "NEWCASTLE UNITED",
@@ -734,8 +666,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#17191F",
-     "ts": 73,
-     "logo": "logos/newcastle-united.png"
+     "ts": 73
     },
     {
      "name": "ASTON VILLA",
@@ -744,8 +675,7 @@
      "shorts": "#FFFFFF",
      "sock": "#95BFE5",
      "trim": "#95BFE5",
-     "ts": 72,
-     "logo": "logos/aston-villa.png"
+     "ts": 72
     },
     {
      "name": "MANCHESTER UNITED",
@@ -754,8 +684,7 @@
      "shorts": "#FFFFFF",
      "sock": "#17191F",
      "trim": "#FFFFFF",
-     "ts": 71,
-     "logo": "logos/manchester-united.png"
+     "ts": 71
     },
     {
      "name": "CRYSTAL PALACE",
@@ -764,8 +693,7 @@
      "shorts": "#1B458F",
      "sock": "#1B458F",
      "trim": "#C4122E",
-     "ts": 70,
-     "logo": "logos/crystal-palace.png"
+     "ts": 70
     },
     {
      "name": "BOURNEMOUTH",
@@ -774,8 +702,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#D71920",
-     "ts": 68,
-     "logo": "logos/bournemouth.png"
+     "ts": 68
     },
     {
      "name": "TOTTENHAM",
@@ -784,8 +711,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#132257",
-     "ts": 67,
-     "logo": "logos/tottenham.png"
+     "ts": 67
     },
     {
      "name": "COVENTRY CITY",
@@ -794,8 +720,7 @@
      "shorts": "#FFFFFF",
      "sock": "#6CC4F0",
      "trim": "#17191F",
-     "ts": 66,
-     "logo": "logos/coventry-city.png"
+     "ts": 66
     },
     {
      "name": "FULHAM",
@@ -804,8 +729,7 @@
      "shorts": "#17191F",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 64,
-     "logo": "logos/fulham.png"
+     "ts": 64
     },
     {
      "name": "NOTTINGHAM FOREST",
@@ -814,8 +738,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D70926",
      "trim": "#FFFFFF",
-     "ts": 63,
-     "logo": "logos/nottingham-forest.png"
+     "ts": 63
     },
     {
      "name": "SUNDERLAND",
@@ -824,8 +747,7 @@
      "shorts": "#17191F",
      "sock": "#EB172B",
      "trim": "#FFFFFF",
-     "ts": 62,
-     "logo": "logos/sunderland.png"
+     "ts": 62
     }
    ]
   },
@@ -839,8 +761,7 @@
      "shorts": "#DC052D",
      "sock": "#DC052D",
      "trim": "#FFFFFF",
-     "ts": 86,
-     "logo": "logos/bayern-munchen.png"
+     "ts": 86
     },
     {
      "name": "BORUSSIA DORTMUND",
@@ -849,8 +770,7 @@
      "shorts": "#17191F",
      "sock": "#FDE100",
      "trim": "#17191F",
-     "ts": 85,
-     "logo": "logos/borussia-dortmund.png"
+     "ts": 85
     },
     {
      "name": "SC FREIBURG",
@@ -859,8 +779,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#FE0000",
-     "ts": 84,
-     "logo": "logos/sc-freiburg.png"
+     "ts": 84
     },
     {
      "name": "BAYER LEVERKUSEN",
@@ -869,8 +788,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#6C0000",
-     "ts": 83,
-     "logo": "logos/bayer-leverkusen.png"
+     "ts": 83
     },
     {
      "name": "MAINZ 05",
@@ -879,8 +797,7 @@
      "shorts": "#FFFFFF",
      "sock": "#ED2834",
      "trim": "#FFFFFF",
-     "ts": 81,
-     "logo": "logos/mainz-05.png"
+     "ts": 81
     },
     {
      "name": "ELVERSBERG",
@@ -889,8 +806,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 80,
-     "logo": "logos/elversberg.png"
+     "ts": 80
     },
     {
      "name": "RB LEIPZIG",
@@ -899,8 +815,7 @@
      "shorts": "#FFFFFF",
      "sock": "#D2003C",
      "trim": "#D2003C",
-     "ts": 79,
-     "logo": "logos/rb-leipzig.png"
+     "ts": 79
     },
     {
      "name": "WERDER BREMEN",
@@ -909,8 +824,7 @@
      "shorts": "#FFFFFF",
      "sock": "#007E56",
      "trim": "#FFFFFF",
-     "ts": 77,
-     "logo": "logos/werder-bremen.png"
+     "ts": 77
     },
     {
      "name": "HAMBURGER SV",
@@ -919,8 +833,7 @@
      "shorts": "#DD0000",
      "sock": "#005CA9",
      "trim": "#005CA9",
-     "ts": 76,
-     "logo": "logos/hamburger-sv.png"
+     "ts": 76
     },
     {
      "name": "FC AUGSBURG",
@@ -929,8 +842,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#FF0000",
-     "ts": 75,
-     "logo": "logos/fc-augsburg.png"
+     "ts": 75
     },
     {
      "name": "EINTRACHT FRANKFURT",
@@ -939,8 +851,7 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#E1001A",
-     "ts": 73,
-     "logo": "logos/eintracht-frankfurt.png"
+     "ts": 73
     },
     {
      "name": "FC KOLN",
@@ -949,8 +860,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#FF0000",
-     "ts": 72,
-     "logo": "logos/fc-koln.png"
+     "ts": 72
     },
     {
      "name": "VFB STUTTGART",
@@ -959,8 +869,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#E32219",
-     "ts": 71,
-     "logo": "logos/vfb-stuttgart.png"
+     "ts": 71
     },
     {
      "name": "HOFFENHEIM",
@@ -969,8 +878,7 @@
      "shorts": "#FFFFFF",
      "sock": "#00004F",
      "trim": "#FFFFFF",
-     "ts": 70,
-     "logo": "logos/hoffenheim.png"
+     "ts": 70
     },
     {
      "name": "SCHALKE 04",
@@ -979,8 +887,7 @@
      "shorts": "#FFFFFF",
      "sock": "#004B9C",
      "trim": "#FFFFFF",
-     "ts": 68,
-     "logo": "logos/schalke-04.png"
+     "ts": 68
     },
     {
      "name": "SC PADERBORN",
@@ -989,8 +896,7 @@
      "shorts": "#FFFFFF",
      "sock": "#004F9F",
      "trim": "#17191F",
-     "ts": 67,
-     "logo": "logos/sc-paderborn.png"
+     "ts": 67
     },
     {
      "name": "UNION BERLIN",
@@ -999,8 +905,7 @@
      "shorts": "#E30613",
      "sock": "#E30613",
      "trim": "#FFFFFF",
-     "ts": 66,
-     "logo": "logos/union-berlin.png"
+     "ts": 66
     },
     {
      "name": "BORUSSIA MONCHENGLADBACH",
@@ -1009,8 +914,7 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#17191F",
-     "ts": 64,
-     "logo": "logos/borussia-monchengladbach.png"
+     "ts": 64
     }
    ]
   }

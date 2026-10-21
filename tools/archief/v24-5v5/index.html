@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>EAWG Mobile</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#07260f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EAWG Mobile">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  html,body{margin:0;height:100%;background:#07260f;overflow:hidden;overscroll-behavior:none;
+    -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none;font-family:system-ui,sans-serif}
+  canvas{display:block;touch-action:none}
+  .btn{position:fixed;bottom:max(24px,env(safe-area-inset-bottom));width:96px;height:96px;border-radius:50%;
+    border:3px solid rgba(255,255,255,.7);background:rgba(255,255,255,.18);color:#fff;font-weight:800;font-size:16px;
+    letter-spacing:.5px;touch-action:none;-webkit-tap-highlight-color:transparent}
+  .btn:active{background:rgba(255,255,255,.4)}
+  #bShoot{right:max(24px,env(safe-area-inset-right));background:rgba(255,59,59,.35)}
+  #bPass{right:calc(max(24px,env(safe-area-inset-right)) + 112px);bottom:calc(max(24px,env(safe-area-inset-bottom)) + 8px);
+    width:80px;height:80px;background:rgba(43,127,255,.35)}
+  #bTackle{right:calc(max(24px,env(safe-area-inset-right)) + 112px);background:rgba(76,217,100,.4)}
+  .hide{display:none!important}
+  @media (hover:hover) and (pointer:fine){.btn{display:none}}
+  /* Gsm rechtop: vraag om te draaien, want de game is gemaakt voor liggend */
+  #draai{display:none;position:fixed;inset:0;z-index:20;background:#07260f;color:#fff;
+    flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;font-weight:800}
+  #draai .gsm{width:54px;height:92px;border:4px solid #fff;border-radius:12px;animation:draai 1.8s ease-in-out infinite}
+  #draai p{margin:0;font-size:20px;letter-spacing:.5px}
+  #draai small{font-weight:600;font-size:14px;opacity:.75}
+  @keyframes draai{0%,25%{transform:rotate(0)}55%,100%{transform:rotate(-90deg)}}
+  @media (orientation:portrait) and (pointer:coarse){#draai{display:flex}}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="load" style="position:fixed;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;color:#fff;font:800 26px system-ui,sans-serif;background:#07260f;z-index:9">EAWG Mobile laden...</div>
+<button class="btn" id="bShoot">SCHIET</button>
+<button class="btn" id="bPass">PASS</button>
+<button class="btn" id="bTackle">TAKEL</button>
+<button id="install" style="display:none;position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px">Installeer app</button>
+<div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm". <b id="iosx" style="float:right;padding-left:12px">X</b></div>
+<div id="draai"><div class="gsm"></div><p>DRAAI JE GSM</p><small>EAWG Mobile speel je liggend</small></div>
+<script src="game.js?v=24"></script>
+<script>
+// Eerste tik op een gsm: volledig scherm en liggend vastzetten (werkt op Android, iPhone negeert het)
+(function () {
+  if (!matchMedia('(pointer:coarse)').matches) return;
+  function vol() {
+    removeEventListener('pointerdown', vol, true);
+    var el = document.documentElement, rf = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!rf || document.fullscreenElement) return;
+    Promise.resolve(rf.call(el, { navigationUI: 'hide' })).then(function () {
+      if (screen.orientation && screen.orientation.lock) return screen.orientation.lock('landscape');
+    }).catch(function () {});
+  }
+  addEventListener('pointerdown', vol, true);
+})();
+(function () {
+  var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (standalone) return;
+  var btn = document.getElementById('install'), dp = null;
+  addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); dp = e; btn.style.display = 'block'; });
+  btn.addEventListener('click', function () {
+    if (!dp) return; dp.prompt();
+    dp.userChoice.then(function () { dp = null; btn.style.display = 'none'; });
+  });
+  addEventListener('appinstalled', function () { btn.style.display = 'none'; });
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent), box = document.getElementById('ios');
+  var seen = false; try { seen = localStorage.getItem('iosTip'); } catch (e) {}
+  if (ios && !seen) {
+    box.style.display = 'block';
+    document.getElementById('iosx').addEventListener('click', function () {
+      box.style.display = 'none'; try { localStorage.setItem('iosTip', '1'); } catch (e) {}
+    });
+  }
+})();
+</script>
+</body>
+</html>
