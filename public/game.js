@@ -216,8 +216,8 @@ function squadOf(name) { const q = SQUADS && SQUADS[name]; return Array.isArray(
 function lineup(name) {
   const q = squadOf(name); if (q.length < 8) return null;
   const used = new Set(), pick = f => { const p = q.find(x => !used.has(x) && f(x)); if (p) used.add(p); return p; };
-  const gk = pick(x => x.pos === 'GK') || pick(x => x.n === 1) || pick(() => true);
-  const out = q.filter(x => x !== gk && x.pos !== 'GK').sort((a, b) => (a.n || 99) - (b.n || 99));
+  const gk = pick(x => x.pos === 'GK' && x.st) || pick(x => x.pos === 'GK') || pick(x => x.n === 1) || pick(() => true);
+  const out = q.filter(x => x !== gk && x.pos !== 'GK').sort((a, b) => (b.st ? 1 : 0) - (a.st ? 1 : 0) || (a.n || 99) - (b.n || 99));
   const df = out.filter(x => x.pos === 'DF'), mf = out.filter(x => x.pos === 'MF'), fw = out.filter(x => x.pos === 'FW');
   let c;
   if (df.length || mf.length || fw.length) c = [df[0], df[1], df[2], mf[0], mf[1], fw[0], fw[1]]; else { const n = out.length, ix = [0.0, 0.12, 0.24, 0.42, 0.56, 0.72, 0.88]; c = ix.map(f => out[Math.min(n - 1, Math.floor(n * f))]); }
