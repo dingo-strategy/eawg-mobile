@@ -29,6 +29,7 @@ function buildBG() {
   const sky = g.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, court ? court.sky[0] : '#05070f'); sky.addColorStop(1, court ? court.sky[1] : '#121c38');
   g.fillStyle = sky; g.fillRect(0, 0, w, h);
   if (court && court.crowd === 'skyline') { skyline(g, w, h, rnd); return; }
+  if (court && court.crowd === 'mural') { mural(g, w, h, rnd); return; }
   const pal = ['#d9e8f5', '#8fb8e0', '#e8e8ea', '#1d2a52', '#c0392b', '#2c3e66', '#f4d03f', '#ffffff', '#3c4a6b', '#9b2d2d'];
   const skinT = ['#f1c9a5', '#d9a273', '#a8744a', '#6b4428'];
   const tmp = document.createElement('canvas'); tmp.width = Math.ceil(w * bgk); tmp.height = Math.ceil(h * bgk); const t2 = tmp.getContext('2d'); t2.scale(bgk, bgk);
@@ -532,7 +533,7 @@ let grass = null;
 
 // ---------- STRAAT: 5 tegen 5 op kleine pleinen (eigen ontwerp, geen merklogo's) ----------
 const COURTS = {
-  beton: { name: 'BETONPLEIN', sub: 'GRAFFITI EN HEKKEN', floor: '#5f6369', floor2: '#575b61', line: 'rgba(255,168,64,.95)', sky: ['#171321', '#3a2c30'], crowd: 'fans', wall: 'graffiti', tile: 80 },
+  beton: { name: 'BETONPLEIN', sub: 'GRAFFITI EN HEKKEN', floor: '#4a4d52', floor2: '#44474c', line: 'rgba(255,150,48,.86)', sky: ['#171321', '#3a2c30'], crowd: 'mural', wall: 'graffiti', tile: 80, worn: true },
   neon: { name: 'NEONHAL', sub: 'BLAUW LICHT', floor: '#1138a8', floor2: '#0e2f94', line: 'rgba(214,240,255,.97)', sky: ['#03051a', '#0b1448'], crowd: 'fans', wall: 'boards', indoor: true, tile: 60, glow: true },
   dak: { name: 'DAKTERRAS', sub: 'DE STAD BIJ SCHEMER', floor: '#8b3a2b', floor2: '#7f3326', line: 'rgba(255,255,255,.94)', sky: ['#2a1b4d', '#f0906c'], crowd: 'skyline', wall: 'parapet', tile: 100 },
   kooi: { name: 'KOOIVELD', sub: 'METALEN HEKKEN', floor: '#2a5b49', floor2: '#245140', line: 'rgba(255,214,90,.96)', sky: ['#0d1426', '#27304f'], crowd: 'fans', wall: 'cage', tile: 90 }
@@ -569,6 +570,13 @@ function buildFloor() {
   g.putImageData(id, 0, 0);
   g.strokeStyle = 'rgba(0,0,0,.22)'; g.lineWidth = 2;
   for (let i = 0; i < 26; i++) { g.beginPath(); let x = Math.random() * tw, y = Math.random() * th; g.moveTo(x, y); for (let k = 0; k < 5; k++) { x += (Math.random() - 0.5) * 120; y += (Math.random() - 0.5) * 80; g.lineTo(x, y); } g.stroke(); }
+  if (court.worn) {
+    const rw = rngOf(5);
+    for (let i = 0; i < 30; i++) { const x = rw() * tw, y = rw() * th, w = 40 + rw() * 160, h = 30 + rw() * 90; g.fillStyle = rw() < 0.5 ? 'rgba(255,255,255,.045)' : 'rgba(0,0,0,.07)'; g.fillRect(x, y, w, h); }
+    for (let i = 0; i < 9; i++) { const x = X(rw() * W), y = Y(rw() * H), r = (20 + rw() * 50) * TXL, gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(0,0,0,.28)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); }
+    for (let i = 0; i < 4000; i++) { g.fillStyle = rw() < 0.5 ? 'rgba(255,255,255,.12)' : 'rgba(0,0,0,.18)'; g.fillRect(rw() * tw, rw() * th, 1 + rw() * 2, 1 + rw() * 2); }
+    const vg = g.createRadialGradient(X(W / 2), Y(H / 2), 60 * TXL, X(W / 2), Y(H / 2), 520 * TXL); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.4)'); g.fillStyle = vg; g.fillRect(0, 0, tw, th);
+  }
   g.fillStyle = 'rgba(0,0,0,.5)'; g.fillRect(0, 0, X(0), th); g.fillRect(X(W), 0, tw - X(W), th);
 }
 function drawLinesStreet() {
@@ -577,6 +585,72 @@ function drawLinesStreet() {
   pl([[0, H / 2 - 95], [105, H / 2 - 95], [105, H / 2 + 95], [0, H / 2 + 95]]); pl([[W, H / 2 - 95], [W - 105, H / 2 - 95], [W - 105, H / 2 + 95], [W, H / 2 + 95]]);
   const q = P(W / 2, H / 2, 0); cx.save(); cx.translate(q[0], q[1]); cx.scale(1, 0.36); txt('EAWG', 0, 15 * q[2], 44 * q[2], court.line, 'center', '900'); cx.restore();
   lineCol = 'rgba(255,255,255,.9)';
+}
+
+// ---------- graffiti (eigen letters, getekend met code) ----------
+function rngOf(seed) { let q = seed >>> 0; return () => { q = (q * 1664525 + 1013904223) >>> 0; return q / 4294967296; }; }
+const GPAL = [['#ffe14a', '#ff7a1a', '#1b1b2a', '#000'], ['#37e6c8', '#2a7bff', '#12122a', '#000'], ['#ff4fa3', '#b13cff', '#1b0f2a', '#000'], ['#c6ff2a', '#1fbf5a', '#0f1d12', '#000'], ['#ffffff', '#9fb4ff', '#14183a', '#000'], ['#ff6b4a', '#ffd400', '#2a0f0f', '#000']];
+const GWORDS = ['DINGO', 'EAWG', 'SKILLZ', 'STRAAT', 'WAASLAND', 'PLEIN', 'KING', 'GOAL', 'ONE LOVE', 'NO LOOK', 'KICK', 'TIKI'];
+function gStar(g, x, y, r, col) { g.fillStyle = col; g.beginPath(); for (let i = 0; i < 10; i++) { const a = i * 0.6283 - 1.5708, rr2 = i & 1 ? r * 0.45 : r; g.lineTo(x + Math.cos(a) * rr2, y + Math.sin(a) * rr2); } g.closePath(); g.fill(); }
+function gPiece(g, rnd, word, x, y, size, rot, pal) {
+  g.save(); g.translate(x, y); g.rotate(rot); g.font = 'italic 900 ' + size + 'px "Arial Black", Impact, "Segoe UI Black", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round'; g.lineCap = 'round';
+  for (let k = Math.ceil(size * 0.13); k > 0; k--) { g.fillStyle = pal[3]; g.globalAlpha = 0.85; g.fillText(word, k * 1.1, k * 1.1); }
+  g.globalAlpha = 1; g.lineWidth = size * 0.17; g.strokeStyle = pal[2]; g.strokeText(word, 0, 0);
+  const gr = g.createLinearGradient(0, -size * 0.5, 0, size * 0.5); gr.addColorStop(0, pal[0]); gr.addColorStop(1, pal[1]); g.fillStyle = gr; g.fillText(word, 0, 0);
+  g.lineWidth = Math.max(1, size * 0.035); g.strokeStyle = 'rgba(255,255,255,.55)'; g.strokeText(word, -size * 0.025, -size * 0.025);
+  const w = g.measureText(word).width;
+  for (let i = 0; i < 4; i++) { const dx = (rnd() - 0.5) * w * 0.85, dl = size * (0.12 + rnd() * 0.4); g.strokeStyle = pal[1]; g.lineWidth = Math.max(1.5, size * 0.05); g.beginPath(); g.moveTo(dx, size * 0.4); g.lineTo(dx, size * 0.4 + dl); g.stroke(); g.fillStyle = pal[1]; g.beginPath(); g.arc(dx, size * 0.4 + dl, Math.max(1.2, size * 0.034), 0, 6.2832); g.fill(); }
+  g.restore();
+  g.fillStyle = pal[0]; g.globalAlpha = 0.5; for (let i = 0; i < 70; i++) { g.fillRect(x + (rnd() - 0.5) * size * word.length * 0.9, y + (rnd() - 0.5) * size * 1.5, 1.2, 1.2); } g.globalAlpha = 1;
+}
+function sprayTex(w, h, seed, base, blockW) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'), rnd = rngOf(seed);
+  const n = Math.max(1, Math.round(w / blockW));
+  for (let b = 0; b < n; b++) {
+    const x0 = b * w / n, bw = w / n; g.fillStyle = base[b % base.length]; g.fillRect(x0, 0, bw + 1, h);
+    for (let i = 0; i < 120; i++) { g.fillStyle = rnd() < 0.5 ? 'rgba(255,255,255,.06)' : 'rgba(0,0,0,.08)'; g.fillRect(x0 + rnd() * bw, rnd() * h, 2 + rnd() * 10, 1 + rnd() * 5); }
+    const pal = GPAL[(rnd() * GPAL.length) | 0], word = GWORDS[(rnd() * GWORDS.length) | 0];
+    gPiece(g, rnd, word, x0 + bw / 2, h * 0.48, Math.min(h * 0.62, bw / (word.length * 0.62)), (rnd() - 0.5) * 0.12, pal);
+    if (rnd() < 0.7) gStar(g, x0 + bw * (0.1 + rnd() * 0.8), h * (0.15 + rnd() * 0.15), h * 0.09, '#fff');
+    if (rnd() < 0.6) { const p2 = GPAL[(rnd() * GPAL.length) | 0]; gPiece(g, rnd, GWORDS[(rnd() * GWORDS.length) | 0], x0 + bw * (0.2 + rnd() * 0.6), h * 0.86, h * 0.18, (rnd() - 0.5) * 0.2, p2); }
+    g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(x0, 0, 2, h);
+  }
+  const dg = g.createLinearGradient(0, 0, 0, h); dg.addColorStop(0, 'rgba(255,255,255,.12)'); dg.addColorStop(0.3, 'rgba(0,0,0,0)'); dg.addColorStop(1, 'rgba(0,0,0,.5)'); g.fillStyle = dg; g.fillRect(0, 0, w, h);
+  return c;
+}
+function mural(g, w, h, rnd) {
+  g.fillStyle = '#3a2420'; g.fillRect(0, 0, w, h);
+  for (let y = 0, r = 0; y < h; y += 9, r++) for (let x = -(r & 1) * 11; x < w; x += 22) { const k = 0.7 + rnd() * 0.5; g.fillStyle = 'rgb(' + Math.round(104 * k) + ',' + Math.round(58 * k) + ',' + Math.round(46 * k) + ')'; g.fillRect(x + 1, y + 1, 20, 7); }
+  let x = 10; const rs = rngOf(77);
+  while (x < w - 60) { const pw = 200 + rs() * 180, ph = 84 + rs() * 22, py = 10 + rs() * 16; const t = sprayTex(Math.round(pw), Math.round(ph), (rs() * 99999) | 0, ['#2b2b34', '#3a3f4a', '#4a3a2e'], pw / 2); g.drawImage(t, x, py); g.strokeStyle = 'rgba(0,0,0,.5)'; g.lineWidth = 2; g.strokeRect(x, py, pw, ph); x += pw + 14 + rs() * 30; }
+  for (let i = 0; i < 6; i++) { const wx = 40 + rs() * (w - 100), wy = 6 + rs() * 12; g.fillStyle = 'rgba(15,10,14,.9)'; g.fillRect(wx, wy, 26, 34); g.fillStyle = 'rgba(255,205,120,.55)'; g.fillRect(wx + 3, wy + 3, 20, 28); g.fillStyle = 'rgba(20,12,16,.9)'; g.fillRect(wx + 12, wy + 3, 2, 28); }
+  g.strokeStyle = 'rgba(255,230,170,.7)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(0, 4); for (let xx = 0; xx <= w; xx += 40) g.lineTo(xx, 4 + Math.sin(xx * 0.05) * 6 + 6); g.stroke();
+  for (let xx = 10; xx < w; xx += 40) { g.fillStyle = '#ffe9a8'; g.beginPath(); g.arc(xx, 10 + Math.sin(xx * 0.05) * 6, 2.2, 0, 6.2832); g.fill(); }
+  const sk = ['#f1c9a5', '#d9a273', '#a8744a', '#6b4428'], cl = ['#d9e8f5', '#c0392b', '#1d2a52', '#f4d03f', '#2c3e66', '#e8e8ea', '#3c4a6b'];
+  for (let row = 0; row < 2; row++) for (let px = -6; px < w; px += 15 + rs() * 12) {
+    if (rs() < 0.18) continue; const py = h - 78 + row * 14 + rs() * 4, bh = 26 + rs() * 8;
+    g.fillStyle = cl[(rs() * cl.length) | 0]; g.fillRect(px, py + 7, 11, bh); g.fillStyle = sk[(rs() * 4) | 0]; g.beginPath(); g.arc(px + 5.5, py + 3.5, 4.4, 0, 6.2832); g.fill();
+  }
+  const sh = g.createLinearGradient(0, h - 90, 0, h); sh.addColorStop(0, 'rgba(0,0,0,0)'); sh.addColorStop(1, 'rgba(0,0,0,.55)'); g.fillStyle = sh; g.fillRect(0, h - 90, w, 90);
+  const lip = g.createLinearGradient(0, h - 26, 0, h); lip.addColorStop(0, '#16151a'); lip.addColorStop(1, '#07070a'); g.fillStyle = lip; g.fillRect(0, h - 26, w, 26);
+}
+function buildBarrier() { return sprayTex(1840, 140, 31, ['#cdab4e', '#c39f45', '#d4b358', '#bf9b42'], 230); }
+function texBack(tex, x0, x1, y, z1) { const a = P(x0, y, z1), b = P(x1, y, 0); cx.drawImage(tex, a[0], a[1], b[0] - a[0], b[1] - a[1]); }
+function texSide(tex, x, z1, fromT) {
+  const n = 30, sw = tex.width * 0.5 / n;
+  for (let i = 0; i < n; i++) {
+    const y0 = H * i / n, y1 = H * (i + 1) / n, a0 = P(x, y0, z1), b0 = P(x, y0, 0), a1 = P(x, y1, z1);
+    cx.save(); cx.transform((a1[0] - a0[0]) / sw, (a1[1] - a0[1]) / sw, (b0[0] - a0[0]) / tex.height, (b0[1] - a0[1]) / tex.height, a0[0], a0[1]);
+    cx.drawImage(tex, (fromT + i / n * 0.5) * tex.width, 0, sw + 0.8, tex.height, 0, 0, sw + 0.8, tex.height); cx.restore();
+  }
+}
+function postFence(x0, y0, x1, y1, zt, braces) {
+  const n = Math.max(2, Math.round(Math.hypot(x1 - x0, y1 - y0) / 70));
+  cx.strokeStyle = 'rgba(190,202,220,.3)'; cx.lineWidth = 1;
+  for (let i = 0; i < n; i++) { const a = i / n, b = (i + 1) / n, ax = x0 + (x1 - x0) * a, ay = y0 + (y1 - y0) * a, bx = x0 + (x1 - x0) * b, by = y0 + (y1 - y0) * b; for (let k = 0; k < 4; k++) { const t0 = k / 4, t1 = (k + 1) / 4; seg(P(ax + (bx - ax) * t0, ay + (by - ay) * t0, 0), P(ax + (bx - ax) * t1, ay + (by - ay) * t1, zt)); seg(P(ax + (bx - ax) * t0, ay + (by - ay) * t0, zt), P(ax + (bx - ax) * t1, ay + (by - ay) * t1, 0)); } }
+  cx.strokeStyle = '#15171c'; cx.lineWidth = 3.2; cx.lineCap = 'round';
+  for (let i = 0; i <= n; i++) { const t = i / n, x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t; seg(P(x, y, 0), P(x, y, zt)); if (braces && i % 2 === 0) seg(P(x, y, zt), P(x + (x1 === x0 ? 0 : 14), y + (y1 === y0 ? 0 : 14), zt + 12)); }
+  seg(P(x0, y0, zt), P(x1, y1, zt)); cx.lineWidth = 2; seg(P(x0, y0, zt * 0.5), P(x1, y1, zt * 0.5)); cx.lineCap = 'butt';
 }
 function wallP(x0, y0, x1, y1, z0, z1, f) { poly(f, [P(x0, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x0, y0, z1)]); }
 function fenceMesh(x0, y0, x1, y1, zt) {
@@ -589,9 +663,9 @@ function fenceMesh(x0, y0, x1, y1, zt) {
 function drawWalls() {
   const c = court, yb = -26;
   if (c.wall === 'graffiti') {
-    wallP(-60, yb, W + 60, yb, 0, 26, '#7c8189'); wallP(-8, 0, -8, H, 0, 20, '#6d727a'); wallP(W + 8, 0, W + 8, H, 0, 20, '#6d727a');
-    for (const t of c.tags) { wallP(t.x, yb, t.x + t.w, yb, 3, 22, t.col); const q = P(t.x + t.w / 2, yb, 12); txt(t.word, q[0], q[1] + 3 * q[2], 8 * q[2], 'rgba(255,255,255,.9)', 'center', '900'); }
-    fenceMesh(-60, yb, W + 60, yb, 70);
+    const tex = c.tex || (c.tex = buildBarrier());
+    postFence(-60, yb, W + 60, yb, 78, true); postFence(-8, 0, -8, H, 66, false); postFence(W + 8, 0, W + 8, H, 66, false);
+    texBack(tex, -60, W + 60, yb, 28); texSide(tex, -8, 22, 0.1); texSide(tex, W + 8, 22, 0.6);
   } else if (c.wall === 'boards') {
     const g = cx.createLinearGradient(0, P(0, yb, 18)[1], 0, P(0, yb, 0)[1]); g.addColorStop(0, '#2a5bff'); g.addColorStop(1, '#0a1f6a');
     wallP(-60, yb, W + 60, yb, 0, 18, g); wallP(-8, 0, -8, H, 0, 14, '#0e2a80'); wallP(W + 8, 0, W + 8, H, 0, 14, '#0e2a80');
@@ -919,7 +993,7 @@ function draw() {
   cx.save(); cx.beginPath(); cx.rect(0, 0, SW, VH); cx.clip();
   if (shakeT > 0) cx.translate((Math.random() - 0.5) * 9 * shakeT * 2, (Math.random() - 0.5) * 7 * shakeT * 2);
   cx.drawImage(bg, -180 - (camX - W / 2) * 0.12, 0, bg.width / bgk, bg.height / bgk);
-  if (Q < 2 && !(court && court.crowd === 'skyline') && (++fN & 7) === 0) { flashes = []; for (let i = 0; i < 7; i++) flashes.push([Math.random() * SW, 70 + Math.random() * (SYF - 120), 2 + Math.random() * 2]); }
+  if (Q < 2 && !(court && (court.crowd === 'skyline' || court.crowd === 'mural')) && (++fN & 7) === 0) { flashes = []; for (let i = 0; i < 7; i++) flashes.push([Math.random() * SW, 70 + Math.random() * (SYF - 120), 2 + Math.random() * 2]); }
   for (const f of flashes) { cx.fillStyle = 'rgba(255,255,255,.85)'; cx.beginPath(); cx.arc(f[0], f[1], f[2], 0, 6.2832); cx.fill(); }
   drawPitch(); drawLines(); drawBoards();
   drawGoal(0, -1); drawGoal(W, 1);
