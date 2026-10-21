@@ -1,7 +1,7 @@
 {
   "name": "EAWG Mobile",
   "short_name": "EAWG",
-  "description": "Snelle 5-tegen-5 arcade voetbalgame",
+  "description": "Arcade voetbalgame met straatvoetbal 5 tegen 5",
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",
