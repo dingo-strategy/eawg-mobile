@@ -220,7 +220,7 @@ function lineup(name) {
   const out = q.filter(x => x !== gk && x.pos !== 'GK').sort((a, b) => (b.st ? 1 : 0) - (a.st ? 1 : 0) || (a.n || 99) - (b.n || 99));
   const df = out.filter(x => x.pos === 'DF'), mf = out.filter(x => x.pos === 'MF'), fw = out.filter(x => x.pos === 'FW');
   let c;
-  if (df.length || mf.length || fw.length) c = [df[0], df[1], df[2], mf[0], mf[1], fw[0], fw[1]]; else { const n = out.length, ix = [0.0, 0.12, 0.24, 0.42, 0.56, 0.72, 0.88]; c = ix.map(f => out[Math.min(n - 1, Math.floor(n * f))]); }
+  if (df.length || mf.length || fw.length) c = [df[0], df[1], df[2], mf[0], mf[1], fw[0], fw[1]]; else if (out.some(x => x.st)) c = out.slice(0, 7); else { const n = out.length, ix = [0.0, 0.12, 0.24, 0.42, 0.56, 0.72, 0.88]; c = ix.map(f => out[Math.min(n - 1, Math.floor(n * f))]); }
   const rest = out.filter(x => !c.includes(x)); c = c.map(x => x || rest.shift()).filter(Boolean);
   out.filter(x => x.star && !c.includes(x)).forEach((x, k) => { const at = x.pos === 'FW' ? 5 : x.pos === 'DF' ? 1 : 3; c[at + k > 6 ? 6 : at + k] = x; });
   if (!gk || c.length < 7) return null;
