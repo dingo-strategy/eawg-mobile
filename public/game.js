@@ -68,13 +68,47 @@ function P(x, y, z) {
 
 // ---------- geluid ----------
 let AC = null, crowdG = null;
-// menumuziek: speelt public/menu.mp3 (als dat bestand er staat) in alle schermen behalve tijdens de match
-const MUS = new Audio('menu.mp3'); MUS.loop = true; MUS.volume = 0.55; MUS.preload = 'none'; let musOK = true;
+// menumuziek: speelt public/menu.mp3 als dat bestand er staat; anders een eigen, originele synth-loop (geen bestand, geen rechten, gratis)
+const MUS = new Audio('menu.mp3'); MUS.loop = true; MUS.volume = 0.55; MUS.preload = 'none'; let musFile = null;
+fetch('menu.mp3', { method: 'HEAD' }).then(r => { musFile = r.ok && /audio|mpeg|octet/.test(r.headers.get('content-type') || ''); }).catch(() => { musFile = false; });
+let mG = null, mNext = 0, mStep = 0, mNoise = null;
+const MS = 60 / 104 / 4, MROOT = [48, 43, 45, 41], MTRI = [[0, 4, 7], [0, 4, 7], [0, 3, 7], [0, 4, 7]];
+const MLEAD = [[76, 0, 79, 76, 74, 0, 72, 0], [74, 0, 79, 74, 71, 0, 74, 0], [72, 0, 76, 81, 79, 0, 76, 0], [77, 0, 81, 77, 76, 74, 72, 0]];
+const mf = n => 440 * Math.pow(2, (n - 69) / 12);
+function mTone(f, t, d, type, v) {
+  const o = AC.createOscillator(), g = AC.createGain(); o.type = type; o.frequency.value = f;
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+  o.connect(g); g.connect(mG); o.start(t); o.stop(t + d + 0.05);
+}
+function mNoiseHit(t, d, v, ftype, ff) {
+  const s = AC.createBufferSource(), f = AC.createBiquadFilter(), g = AC.createGain(); s.buffer = mNoise; f.type = ftype; f.frequency.value = ff;
+  g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(0.0001, t + d); s.connect(f); f.connect(g); g.connect(mG); s.start(t, Math.random() * 0.4); s.stop(t + d + 0.02);
+}
+function mStepPlay(st, t) {
+  const bar = (st >> 4) & 3, k = st & 15, root = MROOT[bar];
+  if (k % 4 === 0) { const o = AC.createOscillator(), g = AC.createGain(); o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.14); g.gain.setValueAtTime(0.9, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18); o.connect(g); g.connect(mG); o.start(t); o.stop(t + 0.2); }
+  if (k === 4 || k === 12) mNoiseHit(t, 0.14, 0.55, 'bandpass', 1600);
+  if (k % 2 === 1) mNoiseHit(t, 0.04, 0.12, 'highpass', 7500);
+  if (k === 0 || k === 6 || k === 8 || k === 14) mTone(mf(root - 12), t, MS * 2.4, 'triangle', 0.5);
+  if (k === 0 || k === 8) MTRI[bar].forEach(i => mTone(mf(root + 12 + i), t, MS * 6, 'sawtooth', 0.07));
+  if (k % 2 === 0) { const n = MLEAD[bar][k >> 1]; if (n) mTone(mf(n), t, MS * 1.8, 'square', 0.1); }
+}
+function synthTick(want) {
+  if (!mG) {
+    mG = AC.createGain(); mG.gain.value = 0; mG.connect(AC.destination); mNext = AC.currentTime + 0.1;
+    mNoise = AC.createBuffer(1, AC.sampleRate * 0.5, AC.sampleRate); const d = mNoise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  }
+  mG.gain.setTargetAtTime(want ? 0.3 : 0, AC.currentTime, 0.15);
+  if (!want) { mNext = AC.currentTime + 0.1; return; }
+  if (mNext < AC.currentTime - 0.3) mNext = AC.currentTime + 0.05;
+  while (mNext < AC.currentTime + 0.25) { mStepPlay(mStep, mNext); mNext += MS; mStep = (mStep + 1) & 63; }
+}
 function musicTick() {
-  if (!musOK || !AC) return;
+  if (!AC || musFile === null) return;
   const want = !muted && state !== 'play' && state !== 'goal' && state !== 'pause' && state !== 'end';
-  if (want && MUS.paused) { const r = MUS.play(); if (r && r.catch) r.catch(e => { if (e && e.name === 'NotSupportedError') musOK = false; }); }
-  else if (!want && !MUS.paused) MUS.pause();
+  if (musFile) {
+    if (want && MUS.paused) { const r = MUS.play(); if (r && r.catch) r.catch(() => {}); } else if (!want && !MUS.paused) MUS.pause();
+  } else synthTick(want);
 }
 function initAudio() {
   if (AC) { if (AC.state === 'suspended') AC.resume(); return; }
