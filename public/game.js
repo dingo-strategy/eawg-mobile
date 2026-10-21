@@ -6,6 +6,7 @@ let Q = 0, dprCap = 2, qN = 0, qT = 0, DPR = 1, bgk = 1, scale = 1, oy = 0, SW =
 const SYF = 190, SYN = 590, SF = 0.66, SN = 1.22;
 let camX = W / 2, zoom = 1.4, tNow = 0, shakeT = 0, goalT = 0;
 let court = null, curKey = 'veld', koiUser = 0, inStreet = false, stSel = 0;
+let kitSlot = 0, formIdx = [0, 0], FORM = [3, 2, 2], ATTFROM = 5, vSelF = -1, vSelB = -1;
 
 // ---------- scherm + achtergrond ----------
 function resize() {
@@ -220,24 +221,26 @@ function surname(n) {
   return t.slice(k).join(' ').toUpperCase().slice(0, 14);
 }
 function squadOf(name) { const q = SQUADS && SQUADS[name]; return Array.isArray(q) ? q.filter(p => p && typeof p.name === 'string') : []; }
-function lineup(name) {
-  const q = squadOf(name); if (q.length < 8) return null;
+function lineup(name, nd, nm, na) {
+  nd = nd || 3; nm = nm == null ? 2 : nm; na = na || 2; const need = nd + nm + na;
+  const q = squadOf(name); if (q.length < need + 1) return null;
   const used = new Set(), pick = f => { const p = q.find(x => !used.has(x) && f(x)); if (p) used.add(p); return p; };
   const gk = pick(x => x.pos === 'GK' && x.st) || pick(x => x.pos === 'GK') || pick(x => x.n === 1) || pick(() => true);
   const out = q.filter(x => x !== gk && x.pos !== 'GK').sort((a, b) => (b.st ? 1 : 0) - (a.st ? 1 : 0) || (a.n || 99) - (b.n || 99));
   const df = out.filter(x => x.pos === 'DF'), mf = out.filter(x => x.pos === 'MF'), fw = out.filter(x => x.pos === 'FW');
   let c;
-  if (df.length || mf.length || fw.length) c = [df[0], df[1], df[2], mf[0], mf[1], fw[0], fw[1]]; else if (out.some(x => x.st)) c = out.slice(0, 7); else { const n = out.length, ix = [0.0, 0.12, 0.24, 0.42, 0.56, 0.72, 0.88]; c = ix.map(f => out[Math.min(n - 1, Math.floor(n * f))]); }
+  if (df.length || mf.length || fw.length) { const take = (arr, n) => { const r = arr.slice(0, n); while (r.length < n) r.push(null); return r; }; c = [...take(df, nd), ...take(mf, nm), ...take(fw, na)]; }
+  else if (out.some(x => x.st)) c = out.slice(0, need);
+  else { const n = out.length; c = Array.from({ length: need }, (_, i) => out[Math.min(n - 1, Math.floor(n * (i / need) * 0.9))]); }
   const rest = out.filter(x => !c.includes(x)); c = c.map(x => x || rest.shift()).filter(Boolean);
-  out.filter(x => x.star && !c.includes(x)).forEach((x, k) => { const at = x.pos === 'FW' ? 5 : x.pos === 'DF' ? 1 : 3; c[at + k > 6 ? 6 : at + k] = x; });
-  if (!gk || c.length < 7) return null;
+  if (!gk || c.length < need) return null;
   return [gk, ...c].map(p => ({ name: surname(p.name), num: p.n || 0, sk: p.sk, hr: p.hr, hs: p.hs, bt: p.bt }));
 }
 function applyLineups() {
-  for (let t = 0; t < 2; t++) { const L = lineup(TEAMS[t] && TEAMS[t].name); if (!L) continue; players.filter(p => p.t === t).forEach(p => { const e = L[p.i]; if (e) { p.name = e.name; p.num = e.num || p.num; if (e.sk >= 0 && e.sk < SKIN.length) p.skin = SKIN[e.sk]; if (e.hr >= 0 && e.hr < HAIR.length) p.hair = HAIR[e.hr]; if (e.hs >= 0 && e.hs < 4) p.hs = e.hs; if (e.bt >= 0 && e.bt < BOOT.length) p.boot = BOOT[e.bt]; } }); }
+  for (let t = 0; t < 2; t++) { const L = lineup(TEAMS[t] && TEAMS[t].name, FORM[0], FORM[1], FORM[2]); if (!L) continue; players.filter(p => p.t === t).forEach(p => { const e = L[p.i]; if (e) { p.name = e.name; p.num = e.num || p.num; if (e.sk >= 0 && e.sk < SKIN.length) p.skin = SKIN[e.sk]; if (e.hr >= 0 && e.hr < HAIR.length) p.hair = HAIR[e.hr]; if (e.hs >= 0 && e.hs < 4) p.hs = e.hs; if (e.bt >= 0 && e.bt < BOOT.length) p.boot = BOOT[e.bt]; } }); }
 }
 function mk() {
-  players = [];
+  players = []; HOME = makeHome();
   for (let t = 0; t < 2; t++) for (let i = 0; i < NP; i++) {
     const hx = t ? W - HOME[i][0] : HOME[i][0], k = t * NP + i;
     players.push({
@@ -404,7 +407,7 @@ function ai(p, dt, chaser) {
     steer(p, tx, ty, 189 * rf(p), dt); return;
   }
   tx = p.hx + (ball.x - W / 2) * 0.35; ty = p.hy + (ball.y - H / 2) * 0.3;
-  if (mine && p.i >= (NP > 5 ? 4 : 3)) tx += (p.t ? -1 : 1) * (NP > 5 ? 190 : 110);
+  if (mine && p.i >= ATTFROM) tx += (p.t ? -1 : 1) * (NP > 5 ? 190 : 110);
   tx = Math.max(60, Math.min(W - 60, tx)); ty = Math.max(30, Math.min(H - 30, ty));
   steer(p, tx, ty, sp, dt);
 }
@@ -692,6 +695,76 @@ function skyline(g, w, h, rnd) {
     }
   }
   const lip = g.createLinearGradient(0, h - 26, 0, h); lip.addColorStop(0, '#120c20'); lip.addColorStop(1, '#05040a'); g.fillStyle = lip; g.fillRect(0, h - 26, w, 26);
+}
+
+// ---------- voor de match: tenue (thuis, uit, speciaal), opstelling en basiself ----------
+const FORMS = [[[3, 2, 2], [2, 3, 2], [3, 3, 1], [2, 2, 3]], [[2, 0, 2], [1, 2, 1], [2, 1, 1], [1, 1, 2]]];
+function loadVoor() { try { const o = JSON.parse(localStorage.getItem('eawg-voor') || '{}'); if (o.k >= 0 && o.k < 3) kitSlot = o.k; if (o.f && o.f.length === 2) formIdx = [Math.max(0, Math.min(3, o.f[0] | 0)), Math.max(0, Math.min(3, o.f[1] | 0))]; } catch (e) {} }
+function saveVoor() { try { localStorage.setItem('eawg-voor', JSON.stringify({ k: kitSlot, f: formIdx })); } catch (e) {} }
+function setForm() { const z = NP > 5 ? 0 : 1; FORM = FORMS[z][formIdx[z]]; ATTFROM = 1 + FORM[0] + FORM[1]; }
+function makeHome() {
+  const big = NP > 5, lines = FORM.filter(n => n > 0).length, xs = big ? [330, 660, 980] : (lines === 3 ? [190, 285, 380] : [200, 380]);
+  const out = [big ? [40, 300] : [34, 220]]; let li = 0;
+  for (const n of FORM) { if (!n) continue; for (let k = 0; k < n; k++) out.push([xs[li], Math.round(H * (k + 1) / (n + 1))]); li++; }
+  return out;
+}
+function cdist(a, b) { const p = hex2rgb(a), q = hex2rgb(b); return Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]); }
+function kitVariants(b) {
+  const dk = '#14171f', away = lumi(b.shirt) > 0.55 ? { shirt: dk, shorts: dk, sock: dk, trim: b.shirt } : { shirt: '#f4f4f4', shorts: '#f4f4f4', sock: '#f4f4f4', trim: b.shirt };
+  const pal = ['#ffd400', '#7b5cff', '#00c2a8', '#ff4fa3', '#ff7a1a', '#3ab0ff', '#c6ff2a', '#e03a3a'];
+  let best = pal[0], bd = -1; for (const c of pal) { const d = Math.min(cdist(c, b.shirt), cdist(c, away.shirt)); if (d > bd) { bd = d; best = c; } }
+  const light = lumi(best) > 0.55, sp = { shirt: best, shorts: light ? '#14171f' : '#f4f4f4', sock: best, trim: light ? '#14171f' : '#ffffff' };
+  return [{ shirt: b.shirt, shorts: b.shorts, sock: b.sock, trim: b.trim }, away, sp];
+}
+function applyKitChoice() {
+  for (const t of [0, 1]) if (!TEAMS[t].base) TEAMS[t].base = { shirt: TEAMS[t].shirt, shorts: TEAMS[t].shorts, sock: TEAMS[t].sock, trim: TEAMS[t].trim };
+  const mine = kitVariants(TEAMS[0].base)[kitSlot]; Object.assign(TEAMS[0], mine);
+  const opts = kitVariants(TEAMS[1].base); let best = opts[0], bd = -1;
+  if (cdist(mine.shirt, opts[0].shirt) < 120) { for (const o of opts) { const d = cdist(mine.shirt, o.shirt); if (d > bd) { bd = d; best = o; } } }
+  Object.assign(TEAMS[1], best);
+}
+function jersey(x, y, w, h, k) {
+  const m = x + w / 2, u = Math.min(w, h) / 118;
+  cx.save(); cx.translate(m, y + 8 * u); cx.scale(u, u);
+  cx.fillStyle = k.sock; cx.fillRect(-17, 76, 11, 14); cx.fillRect(6, 76, 11, 14);
+  cx.fillStyle = k.shorts; rr(-22, 52, 44, 26, 4); cx.fill();
+  cx.fillStyle = k.shirt; cx.beginPath(); cx.moveTo(-26, 4); cx.lineTo(-44, 20); cx.lineTo(-36, 34); cx.lineTo(-26, 26); cx.lineTo(-26, 56); cx.lineTo(26, 56); cx.lineTo(26, 26); cx.lineTo(36, 34); cx.lineTo(44, 20); cx.lineTo(26, 4); cx.lineTo(10, 0); cx.quadraticCurveTo(0, 10, -10, 0); cx.closePath(); cx.fill();
+  cx.strokeStyle = k.trim; cx.lineWidth = 5; cx.lineCap = 'round'; cx.beginPath(); cx.moveTo(-44, 20); cx.lineTo(-36, 34); cx.moveTo(44, 20); cx.lineTo(36, 34); cx.stroke();
+  cx.beginPath(); cx.moveTo(-10, 0); cx.quadraticCurveTo(0, 10, 10, 0); cx.stroke();
+  cx.fillStyle = k.trim; cx.fillRect(-26, 46, 52, 4);
+  cx.restore();
+}
+function drawVoor() {
+  const X0 = screenBG('VOOR DE MATCH'), vars = kitVariants(TEAMS[0].base || TEAMS[0]), z = NP > 5 ? 0 : 1, sw = 128;
+  txt(TEAMS[0].name + '  tegen  ' + TEAMS[1].name, SW / 2, 72, 15, '#8fb0ff', 'center', '800');
+  txt('TENUE', X0 + 10, 100, 13, '#8fb0ff', 'left', '800');
+  ['THUIS', 'UIT', 'SPECIAAL'].forEach((nm, i) => {
+    const x = X0 + 10 + i * sw, y = 108, w = 120, h = 128, sel = kitSlot === i;
+    cx.fillStyle = sel ? 'rgba(255,212,0,.16)' : 'rgba(255,255,255,.07)'; rr(x, y, w, h, 8); cx.fill(); cx.strokeStyle = sel ? '#ffd400' : 'rgba(255,255,255,.3)'; cx.lineWidth = sel ? 3 : 1.2; cx.stroke();
+    jersey(x, y + 4, w, 104, vars[i]); txt(nm, x + w / 2, y + h - 8, 13, sel ? '#ffd400' : '#fff', 'center', '800');
+    hits.push({ x, y, w, h, fn: () => { kitSlot = i; saveVoor(); applyKitChoice(); } });
+  });
+  txt('OPSTELLING', X0 + 10, 258, 13, '#8fb0ff', 'left', '800');
+  FORMS[z].forEach((f, i) => pill(X0 + 10 + i * 96, 266, 90, 36, f.filter(n => n > 0).join('-'), () => { formIdx[z] = i; saveVoor(); prepMatch(); }, formIdx[z] === i, 16));
+  const px = X0 + 10, py = 312, pw = 372, ph = 188;
+  cx.fillStyle = court ? court.floor : '#2f8a3c'; rr(px, py, pw, ph, 8); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.55)'; cx.lineWidth = 2; cx.strokeRect(px + 6, py + 6, pw - 12, ph - 12); cx.beginPath(); cx.arc(px + pw - 6, py + ph / 2, 30, 1.5708, 4.7124); cx.stroke();
+  players.filter(p => p.t === 0).forEach(p => {
+    const dx = px + 20 + p.hx / (Math.max(...HOME.map(h => h[0])) * 1.1) * (pw - 70), dy = py + 14 + p.hy / H * (ph - 28);
+    cx.fillStyle = p.i === 0 ? '#d8ff2a' : TEAMS[0].shirt; cx.beginPath(); cx.arc(dx, dy, 11, 0, 6.2832); cx.fill(); cx.strokeStyle = '#fff'; cx.lineWidth = 2; cx.stroke();
+    txt(String(p.num || ''), dx, dy + 4, 11, p.i === 0 ? '#111' : (lumi(TEAMS[0].shirt) > 0.55 ? '#111' : '#fff'), 'center', '900');
+  });
+  btn(X0 + 10, 512, 372, 52, 'START MATCH', () => beginMatch(), true);
+  const rx = X0 + 408, rw = 382;
+  if (!sbench) sbench = buildBench();
+  txt('BASISELF: tik een speler, dan een invaller', rx, 100, 13, '#8fb0ff', 'left', '800');
+  const role = i => i === 0 ? 'KEE' : i <= FORM[0] ? 'VER' : i <= FORM[0] + FORM[1] ? 'MID' : 'AAN';
+  for (let i = 0; i < NP; i++) {
+    const p = players.find(q => q.t === 0 && q.i === i); if (!p) continue; const y = 108 + i * 31;
+    pill(rx, y, rw, 28, (p.num || '') + '  ' + p.name + '   ' + role(i) + '  ' + Math.round(p.rate || 0), i === 0 ? null : () => { vSelF = vSelF === i ? -1 : i; if (vSelF >= 0 && vSelB >= 0) { selF = vSelF; selB = vSelB; doSub(true); vSelF = vSelB = -1; } }, vSelF === i, 14);
+  }
+  const by = 108 + NP * 31 + 8;
+  txt('BANK', rx, by + 4, 13, '#8fb0ff', 'left', '800');
+  sbench.slice(0, 6).forEach((b, k) => pill(rx, by + 12 + k * 31, rw, 28, (b.num || '') + '  ' + b.name + '   ' + Math.round(b.rate || 0), () => { vSelB = vSelB === k ? -1 : k; if (vSelF >= 0 && vSelB >= 0) { selF = vSelF; selB = vSelB; doSub(true); vSelF = vSelB = -1; } }, vSelB === k, 14));
 }
 function startStreet(id) { startMatch({ kind: 'friendly', a: KITS[kitSel], b: KITS[(kitSel + 1) % KITS.length], ta: 64 + dIdx * 3, tb: 64 + dIdx * 3, street: true, court: id || Object.keys(COURTS)[stSel] }); }
 function drawStraat() {
@@ -1064,8 +1137,10 @@ function startMatch(opts) {
   setCourt(opts && opts.street ? opts.court : null);
   fr = opts && opts.kind === 'friendly' ? opts : null; cur = fr ? null : (opts || null); yel = {}; ban = null;
   if (fr) { TEAMS[0] = Object.assign({}, GKS[0], fr.a); TEAMS[1] = Object.assign({}, GKS[1], fr.b); } else if (cur) { TEAMS[0] = Object.assign({}, GKS[0], KITS[cur.mine]); TEAMS[1] = Object.assign({}, GKS[1], KITS[cur.opp]); } else applyKits();
-  mk(); applyLineups(); applyRates(); subs = 0; sbench = null; selF = selB = -1; score = [0, 0]; timeLeft = MATCH; reset(0); state = 'play'; whistle(0.6);
+  loadVoor(); prepMatch(); state = 'voor';
 }
+function prepMatch() { setForm(); applyKitChoice(); mk(); applyLineups(); applyRates(); subs = 0; sbench = null; selF = selB = vSelF = vSelB = -1; score = [0, 0]; timeLeft = MATCH; }
+function beginMatch() { reset(0); state = 'play'; whistle(0.6); }
 let hubSel = 0;
 const TILES = [
   { k: 'spelen', t: 'SPELEN', s: () => 'MATCH EN TOERNOOI', c: '#2f6bff' },
@@ -1095,6 +1170,7 @@ const SCREENS = {
   pen: { title: 'OEFENEN', parent: 'spelen', draw: () => drawPen() },
   album: { title: 'ALBUM', parent: 'menu', draw: () => drawAlbum() },
   straat: { title: 'STRAAT', parent: 'menu', draw: () => drawStraat() },
+  voor: { title: 'MENU', parent: 'menu', draw: () => drawVoor() },
   club: { title: 'CLUB', parent: 'menu', draw: () => drawClub() },
   settings: { title: 'OPTIES', parent: 'meer', draw: () => drawSettings() },
   help: { title: 'BESTURING', parent: 'meer', draw: () => { screenBG('BESTURING'); drawHelp(); } }
@@ -1172,6 +1248,7 @@ function uiKey(code) {
     else if (code === 'Enter' || code === 'Space') { act(list[i].k); return; }
     if (state === 'menu') menuSel = i; else hubSel = i;
   }
+  else if (state === 'voor') { if (code === 'Enter' || code === 'Space') beginMatch(); else if (code === 'Escape') state = 'menu'; }
   else if (state === 'pause') { if (code === 'Space' || code === 'Enter' || code === 'Escape') state = 'play'; else if (code === 'KeyM') state = 'menu'; }
   else if (state === 'end') { if (code === 'Space' || code === 'Enter') { if (fr && fr.tour) { state = 'tour'; tab = 0; } else startMatch(); } else if (code === 'Escape') state = 'menu'; }
 }
@@ -1247,11 +1324,11 @@ function buildBench() {
   for (let k = out.length; k < 5; k++) out.push({ name: LAST[(k * 3 + 1) % LAST.length].toUpperCase(), num: 12 + k, rate: Math.max(40, base + (k % 5) - 3), skin: SKIN[(k * 3 + 2) % 5], hair: HAIR[(k * 2 + 1) % 5], hs: k % 4, boot: BOOT[k % 6] });
   return out.slice(0, 7);
 }
-function doSub() {
-  const p = players.find(q => q.t === 0 && q.i === selF), b = sbench && sbench[selB]; if (!p || !b || subs >= 5) return;
+function doSub(free) {
+  const p = players.find(q => q.t === 0 && q.i === selF), b = sbench && sbench[selB]; if (!p || !b || (!free && subs >= 5)) return;
   const o = { name: p.name, num: p.num, rate: p.rate, skin: p.skin, hair: p.hair, hs: p.hs, boot: p.boot };
   Object.assign(p, { name: b.name, num: b.num, rate: b.rate, skin: b.skin || p.skin, hair: b.hair || p.hair, hs: b.hs != null ? b.hs : p.hs, boot: b.boot || p.boot });
-  sbench[selB] = o; subs++; ban = { t: 1.8, text: 'WISSEL', sub: b.name + ' IN, ' + o.name + ' UIT', col: '#ffffff' }; selF = selB = -1;
+  sbench[selB] = o; if (!free) { subs++; ban = { t: 1.8, text: 'WISSEL', sub: b.name + ' IN, ' + o.name + ' UIT', col: '#ffffff' }; } selF = selB = -1;
 }
 function drawPause() {
   cx.fillStyle = 'rgba(2,8,24,.86)'; cx.fillRect(0, 0, SW, VH);
@@ -2127,7 +2204,7 @@ function loop(now) {
   const dt = Math.min(0.066, (now - last) / 1000); last = now; tNow += dt;
   if (state === 'play' && raw < 1) { qT += raw; if (++qN >= 40) { if (qT / qN > 1 / 30) degrade(); qN = 0; qT = 0; } }
   update(state === 'play' ? dt * SPDS[spdIdx] : dt);
-  if (court && !(state === 'play' || state === 'goal' || state === 'pause' || state === 'end')) setCourt(null);
+  if (court && !(state === 'play' || state === 'goal' || state === 'pause' || state === 'end' || state === 'voor')) setCourt(null);
   if (court) { zoom = Math.min(2.6, SW / ((W + 150) * (SF + SN) / 2)); camX = W / 2; } else {
   const vis = SW / 2 / (zoom * (SF + SN) / 2);
   const target = Math.max(vis - 70, Math.min(W - vis + 70, ball.x + ball.vx * 0.22));
@@ -2139,6 +2216,6 @@ function loop(now) {
   draw(); requestAnimationFrame(loop);
 }
 loadSet(); loadS(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(localStorage.getItem('krakRoster2'))); } catch (e) {} try { if (typeof EMB === 'object' && EMB) applyRoster(EMB); } catch (e) {} if (!COMPS) { COMPS = [{ name: 'WEST-VLAANDEREN A', teams: KITS.slice() }]; } applyComp(compIdx); applyKits(); cx.imageSmoothingQuality = 'high'; resize(); makeShadow(); mk();
-setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop); { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => goTo('straat'), 400); } }, 60);
+setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop); { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); if (/go/.test(location.hash)) beginMatch(); }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => goTo('straat'), 400); else if (/voorveld/.test(location.hash || '')) setTimeout(() => startMatch(), 400); } }, 60);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
