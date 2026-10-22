@@ -868,6 +868,176 @@ function drawVoor() {
   txt('BANK', rx, by + 4, 13, '#8fb0ff', 'left', '800');
   sbench.slice(0, 6).forEach((b, k) => pill(rx, by + 12 + k * 31, rw, 28, (b.num || '') + '  ' + b.name + '   ' + Math.round(b.rate || 0), () => { vSelB = vSelB === k ? -1 : k; if (vSelF >= 0 && vSelB >= 0) { selF = vSelF; selB = vSelB; doSub(true); vSelF = vSelB = -1; } }, vSelB === k, 14));
 }
+
+// ---------- account: aanmelden, account maken en spelvoortgang in de cloud ----------
+// De server (Worker met database) regelt de accounts. Zonder server (lokaal testen) speelt het spel gewoon zonder inlog.
+const AUTHKEYS = ['goalrush', 'goalrush2', 'goalrush3', 'goalrush4', 'eawg-voor'];
+let authUser = null, authOn = false, authTimer = 0, authMsg = '';
+const _setI = Storage.prototype.setItem, _remI = Storage.prototype.removeItem;
+const AJ = (url, opt) => fetch(url, Object.assign({ credentials: 'same-origin', headers: { 'Content-Type': 'application/json' } }, opt || {})).then(async r => { let j = null; try { j = await r.json(); } catch (e) {} return { ok: r.ok, status: r.status, j }; });
+const LOKAAL = /^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname);
+let authLast = '';
+function authSnap() { const o = {}; AUTHKEYS.forEach(k => { const v = localStorage.getItem(k); if (v !== null) o[k] = v; }); return JSON.stringify(o); }
+function authSave(now) {
+  if (!authOn) return Promise.resolve();
+  clearTimeout(authTimer);
+  const go = () => {
+    const snap = authSnap(); if (snap === authLast) return Promise.resolve();
+    const body = JSON.stringify({ data: snap });
+    return AJ('/api/save', { method: 'PUT', body, keepalive: body.length < 60000 }).then(r => { if (r.ok) { authLast = snap; if (r.j && r.j.updated) _setI.call(localStorage, 'eawg-auth-ts', String(r.j.updated)); } }).catch(() => {});
+  };
+  if (now) return go();
+  authTimer = setTimeout(go, 20000); return Promise.resolve();
+}
+function authBackup() {
+  const snap = authSnap(); if (snap === '{}') return;
+  Object.keys(localStorage).forEach(k => { if (k.indexOf('eawg-backup-') === 0) _remI.call(localStorage, k); });
+  _setI.call(localStorage, 'eawg-backup-' + new Date().toISOString().slice(0, 10), snap);
+}
+Storage.prototype.setItem = function (k, v) { _setI.call(this, k, v); if (authOn && this === localStorage && AUTHKEYS.indexOf(k) >= 0) authSave(); };
+Storage.prototype.removeItem = function (k) { _remI.call(this, k); if (authOn && this === localStorage && AUTHKEYS.indexOf(k) >= 0) authSave(); };
+addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') authSave(true); });
+function authWipe() { AUTHKEYS.forEach(k => _remI.call(localStorage, k)); _remI.call(localStorage, 'eawg-auth-ts'); }
+function authApply(data, ts) {
+  try { const o = JSON.parse(data); AUTHKEYS.forEach(k => { if (typeof o[k] === 'string') _setI.call(localStorage, k, o[k]); else _remI.call(localStorage, k); }); _setI.call(localStorage, 'eawg-auth-ts', String(ts || Date.now())); } catch (e) {}
+}
+function authOffline() {
+  const d = authOverlay(), box = document.createElement('div'); box.style.cssText = LGP; d.appendChild(box);
+  const t = document.createElement('div'); t.style.cssText = 'font:900 22px system-ui,sans-serif;text-align:center;margin-bottom:10px'; t.textContent = 'Geen verbinding'; box.appendChild(t);
+  const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.85)'; x.textContent = 'We kunnen je account nu niet bereiken. Je voortgang blijft veilig op dit toestel. Probeer het zo opnieuw.'; box.appendChild(x);
+  const b = document.createElement('button'); b.type = 'button'; b.style.cssText = LGB; b.textContent = 'OPNIEUW PROBEREN'; b.onclick = () => location.reload(); box.appendChild(b);
+}
+async function authInit() {
+  let r; try { r = await AJ('/api/me'); } catch (e) { if (!LOKAAL) authOffline(); return; }
+  if (r.status === 401 && r.j) { authLoginScreen(); return; }
+  if (r.ok && r.j && r.j.username) { authUser = r.j.username; await authSyncStart(); return; }
+  if (!LOKAAL) authOffline();
+}
+async function authSyncStart() {
+  let r; try { r = await AJ('/api/save'); } catch (e) { authOn = true; return; }
+  const lt = +localStorage.getItem('eawg-auth-ts') || 0;
+  if (r.ok && r.j && r.j.data && (r.j.updated || 0) > lt) { authBackup(); authApply(r.j.data, r.j.updated); location.reload(); return; }
+  authOn = true; if (r.ok && r.j && r.j.data) authLast = r.j.data; else authSave(true);
+}
+async function authAfterLogin() {
+  let r = null; try { r = await AJ('/api/save'); } catch (e) {}
+  if (r && r.ok && r.j && r.j.data) { authBackup(); authApply(r.j.data, r.j.updated); }
+  else { authOn = true; await authSave(true); }
+  location.reload();
+}
+function authPrivacy() {
+  authDialog('Privacy', 'We bewaren alleen je gebruikersnaam, een versleuteld wachtwoord en je spelvoortgang. Geen e-mailadres, geen leeftijd, geen echte naam nodig. Je IP-adres gebruiken we alleen om te veel aanmeldpogingen te stoppen en wissen we na 24 uur. Je gegevens staan bij Cloudflare in de EU. Je kunt je voortgang downloaden en je account altijd zelf verwijderen bij MEER, ACCOUNT. Vergeet je wachtwoord en ben je je herstelcode kwijt, dan kan niemand je account terughalen. Gebruik geen echte naam als gebruikersnaam.' + (typeof PRIVACY_CONTACT === 'string' && PRIVACY_CONTACT ? ' Vragen: ' + PRIVACY_CONTACT : ''), [], 'SLUIT', async () => '');
+}
+const PRIVACY_CONTACT = '';
+const LGI = 'width:100%;box-sizing:border-box;font:600 16px system-ui,sans-serif;padding:13px 14px;margin:5px 0;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.35);color:#fff;outline:none';
+const LGB = 'width:100%;font:800 17px system-ui,sans-serif;padding:14px;margin-top:8px;border-radius:10px;border:0;cursor:pointer;background:#f2f4f8;color:#0b1b4d';
+const LGC = 'z-index:50;position:fixed;inset:0;background:linear-gradient(#060c24,#171a48 60%,#0a0722);color:#fff;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;overflow:auto;padding:16px;box-sizing:border-box';
+const LGP = 'width:min(400px,100%);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:22px;box-sizing:border-box';
+function authOverlay() {
+  let d = document.getElementById('authov');
+  if (!d) { d = document.createElement('div'); d.id = 'authov'; d.style.cssText = LGC; document.body.appendChild(d); }
+  d.innerHTML = ''; return d;
+}
+function authShowCode(code, done, title) {
+  const d = authOverlay(), box = document.createElement('div'); box.style.cssText = LGP; d.appendChild(box);
+  const t = document.createElement('div'); t.style.cssText = 'font:900 20px system-ui,sans-serif;text-align:center;margin-bottom:10px'; t.textContent = title || 'Bewaar je herstelcode'; box.appendChild(t);
+  const c = document.createElement('div'); c.style.cssText = 'font:900 26px ui-monospace,Consolas,monospace;letter-spacing:2px;text-align:center;background:rgba(0,0,0,.4);border-radius:10px;padding:16px 8px;margin:10px 0;user-select:all'; { const raw = String(code || '').toUpperCase(); c.textContent = raw.indexOf('-') >= 0 ? raw : raw.replace(/(.{4})/g, '$1-').replace(/-$/, ''); } box.appendChild(c);
+  const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.85)'; x.textContent = 'Met deze code zet je een nieuw wachtwoord als je het vergeet. Je ziet hem maar een keer. Schrijf hem op of maak een foto.'; box.appendChild(x);
+  const b1 = document.createElement('button'); b1.type = 'button'; b1.style.cssText = LGB + ';background:rgba(255,255,255,.14);color:#fff'; b1.textContent = 'KOPIEER'; b1.onclick = () => { try { navigator.clipboard.writeText(String(code || '')); b1.textContent = 'GEKOPIEERD'; } catch (e) {} };
+  const b3 = document.createElement('button'); b3.type = 'button'; b3.style.cssText = LGB + ';background:rgba(255,255,255,.14);color:#fff'; b3.textContent = 'DOWNLOAD ALS TEKSTBESTAND';
+  b3.onclick = () => { try { const u = URL.createObjectURL(new Blob(['EAWG Mobile herstelcode: ' + String(code || '') + '\n'], { type: 'text/plain' })), a = document.createElement('a'); a.href = u; a.download = 'EAWG-herstelcode.txt'; a.click(); setTimeout(() => URL.revokeObjectURL(u), 2000); } catch (e) {} };
+  const last = String(code || '').replace(/[^A-Za-z0-9]/g, '').slice(-4).toUpperCase();
+  const chk = document.createElement('input'); chk.style.cssText = LGI; chk.placeholder = 'Typ de laatste 4 tekens van je code over'; chk.autocomplete = 'off'; chk.autocapitalize = 'characters'; chk.maxLength = 4;
+  const b2 = document.createElement('button'); b2.type = 'button'; b2.style.cssText = LGB + ';opacity:.4'; b2.textContent = 'IK HEB HEM BEWAARD, VERDER'; b2.disabled = true;
+  chk.oninput = () => { const ok = chk.value.trim().toUpperCase() === last; b2.disabled = !ok; b2.style.opacity = ok ? 1 : 0.4; };
+  b2.onclick = () => { d.remove(); done && done(); };
+  box.appendChild(b1); box.appendChild(b3); box.appendChild(chk); box.appendChild(b2);
+}
+function authLoginScreen() {
+  let mode = 'login'; const d = authOverlay();
+  d.innerHTML = '<form id="af" style="' + LGP + '"><div style="font:900 26px system-ui,sans-serif;text-align:center">EAWG MOBILE</div>'
+    + '<div style="display:flex;gap:8px;margin:16px 0 10px"><button type="button" id="atl" style="' + LGB + ';margin:0">AANMELDEN</button><button type="button" id="atr" style="' + LGB + ';margin:0">ACCOUNT MAKEN</button></div>'
+    + '<input id="au" style="' + LGI + '" placeholder="Gebruikersnaam" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="20">'
+    + '<input id="ac" style="' + LGI + ';display:none" placeholder="Herstelcode" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24">'
+    + '<input id="ap" type="password" style="' + LGI + '" placeholder="Wachtwoord" autocomplete="current-password" maxlength="128">'
+    + '<input id="ap2" type="password" style="' + LGI + ';display:none" placeholder="Wachtwoord nog een keer" autocomplete="new-password" maxlength="128">'
+    + '<div id="am" style="min-height:20px;font:600 14px system-ui,sans-serif;margin:6px 0"></div>'
+    + '<button type="submit" id="ago" style="' + LGB + '">AANMELDEN</button>'
+    + '<div style="text-align:center;margin-top:12px"><a href="#" id="afg" style="color:#8fb0ff;font:700 14px system-ui,sans-serif">Wachtwoord vergeten?</a></div>'
+    + '<div style="margin-top:14px;font:500 12px system-ui,sans-serif;color:rgba(255,255,255,.6);line-height:1.45">Wat we bewaren: je gebruikersnaam, een versleuteld wachtwoord en je spelvoortgang. Geen e-mailadres. Gebruik geen echte naam als gebruikersnaam. <a href="#" id="apv" style="color:#8fb0ff;font-weight:700">Meer over privacy</a></div></form>';
+  const $ = id => d.querySelector('#' + id), msg = (t, ok) => { $('am').style.color = ok ? '#9dffb0' : '#ff8a8a'; $('am').textContent = t || ''; };
+  const render = () => {
+    $('ap2').style.display = mode === 'reg' ? '' : 'none'; $('ac').style.display = mode === 'rec' ? '' : 'none';
+    $('ap').placeholder = mode === 'rec' ? 'Nieuw wachtwoord (minstens 8 tekens)' : mode === 'reg' ? 'Wachtwoord (minstens 8 tekens)' : 'Wachtwoord';
+    $('ap').autocomplete = mode === 'login' ? 'current-password' : 'new-password';
+    $('ago').textContent = mode === 'login' ? 'AANMELDEN' : mode === 'reg' ? 'ACCOUNT MAKEN' : 'NIEUW WACHTWOORD ZETTEN';
+    $('atl').style.opacity = mode === 'login' ? 1 : 0.5; $('atr').style.opacity = mode === 'reg' ? 1 : 0.5;
+    $('afg').textContent = mode === 'rec' ? 'Terug naar aanmelden' : 'Wachtwoord vergeten?'; msg('');
+  };
+  $('apv').onclick = e => { e.preventDefault(); authPrivacy(); };
+  $('atl').onclick = () => { mode = 'login'; render(); }; $('atr').onclick = () => { mode = 'reg'; render(); };
+  $('afg').onclick = e => { e.preventDefault(); mode = mode === 'rec' ? 'login' : 'rec'; render(); };
+  d.querySelector('form').onsubmit = async e => {
+    e.preventDefault(); const u = $('au').value.trim(), p = $('ap').value;
+    if (!u || !p) { msg('Vul je gebruikersnaam en wachtwoord in.'); return; }
+    if (mode === 'reg' && p !== $('ap2').value) { msg('De twee wachtwoorden zijn niet gelijk.'); return; }
+    $('ago').disabled = true;
+    try {
+      if (mode === 'rec') {
+        const r = await AJ('/api/recover', { method: 'POST', body: JSON.stringify({ username: u, recoveryCode: $('ac').value.trim(), newPassword: p }) });
+        if (!r.ok) { $('ago').disabled = false; msg((r.j && r.j.error) || 'Dat lukte niet.'); return; }
+        authShowCode(r.j.recoveryCode, () => authLoginScreen(), 'Wachtwoord gewijzigd. Dit is je NIEUWE herstelcode, de oude werkt niet meer.'); return;
+      }
+      const r = await AJ(mode === 'reg' ? '/api/register' : '/api/login', { method: 'POST', body: JSON.stringify({ username: u, password: p }) });
+      if (!r.ok) { $('ago').disabled = false; msg((r.j && r.j.error) || 'Dat lukte niet. Probeer het later opnieuw.'); return; }
+      authUser = (r.j && r.j.username) || u;
+      if (mode === 'reg') authShowCode(r.j.recoveryCode, () => { authOn = true; authSave(true); }, 'Account gemaakt! Bewaar deze herstelcode goed.');
+      else authAfterLogin();
+    } catch (err) { $('ago').disabled = false; msg('Geen verbinding met de server. Probeer het zo opnieuw.'); }
+  };
+  render(); $('au').focus();
+}
+function authDialog(title, info, fields, okLabel, onOk) {
+  const d = authOverlay(), f = document.createElement('form'); f.style.cssText = LGP; d.appendChild(f);
+  const t = document.createElement('div'); t.style.cssText = 'font:900 20px system-ui,sans-serif;text-align:center;margin-bottom:8px'; t.textContent = title; f.appendChild(t);
+  if (info) { const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.8);margin-bottom:6px'; x.textContent = info; f.appendChild(x); }
+  const ins = fields.map(fl => { const i = document.createElement('input'); i.type = 'password'; i.placeholder = fl[0]; i.autocomplete = fl[1]; i.maxLength = 128; i.style.cssText = LGI; f.appendChild(i); return i; });
+  const m = document.createElement('div'); m.style.cssText = 'min-height:20px;font:600 14px system-ui,sans-serif;color:#ff8a8a;margin:6px 0'; f.appendChild(m);
+  const ok = document.createElement('button'); ok.type = 'submit'; ok.style.cssText = LGB; ok.textContent = okLabel; f.appendChild(ok);
+  const no = document.createElement('button'); no.type = 'button'; no.style.cssText = LGB + ';background:rgba(255,255,255,.14);color:#fff'; no.textContent = 'ANNULEREN'; no.onclick = () => d.remove(); f.appendChild(no);
+  f.onsubmit = async e => { e.preventDefault(); ok.disabled = true; let err = ''; try { err = await onOk(ins.map(i => i.value)); } catch (x) { err = 'Geen verbinding met de server.'; } if (err) { m.textContent = err; ok.disabled = false; } else d.remove(); };
+  if (ins[0]) ins[0].focus();
+}
+async function authLogout() { await authSave(true); try { await AJ('/api/logout', { method: 'POST', body: '{}' }); } catch (e) {} authWipe(); location.reload(); }
+function authChangePw() {
+  authDialog('Wachtwoord wijzigen', '', [['Huidig wachtwoord', 'current-password'], ['Nieuw wachtwoord (minstens 8 tekens)', 'new-password'], ['Nieuw wachtwoord nog een keer', 'new-password']], 'WIJZIGEN', async v => {
+    if (v[1] !== v[2]) return 'De twee nieuwe wachtwoorden zijn niet gelijk.';
+    const r = await AJ('/api/password', { method: 'POST', body: JSON.stringify({ oldPassword: v[0], newPassword: v[1] }) });
+    if (!r.ok) return (r.j && r.j.error) || 'Dat lukte niet.'; authMsg = 'Je wachtwoord is gewijzigd.'; return '';
+  });
+}
+function authDelete() {
+  authDialog('Account verwijderen', 'Dit wist je account en al je opgeslagen voortgang voorgoed. Dat kan niet ongedaan gemaakt worden. Vul je wachtwoord in om te bevestigen.', [['Wachtwoord', 'current-password']], 'VERWIJDER MIJN ACCOUNT', async v => {
+    const r = await AJ('/api/account', { method: 'DELETE', body: JSON.stringify({ password: v[0] }) });
+    if (!r.ok) return (r.j && r.j.error) || 'Dat lukte niet.'; authOn = false; authWipe(); location.reload(); return '';
+  });
+}
+function authDownload() {
+  try { const u = URL.createObjectURL(new Blob([authSnap()], { type: 'application/json' })), a = document.createElement('a'); a.href = u; a.download = 'EAWG-voortgang.json'; a.click(); setTimeout(() => URL.revokeObjectURL(u), 2000); authMsg = 'Je voortgang is gedownload.'; } catch (e) { authMsg = 'Downloaden lukte niet.'; }
+}
+function drawAccount() {
+  const X0 = screenBG('ACCOUNT');
+  txt(authUser ? 'Aangemeld als ' + authUser : 'Je speelt lokaal, zonder account.', SW / 2, 120, 22, '#fff', 'center', '900');
+  if (authUser) {
+    txt('Je voortgang wordt automatisch bewaard in je account.', SW / 2, 152, 14, 'rgba(255,255,255,.7)', 'center', '600');
+    pill(SW / 2 - 160, 190, 320, 54, 'UITLOGGEN', () => authLogout(), true, 18);
+    pill(SW / 2 - 160, 262, 320, 46, 'WACHTWOORD WIJZIGEN', () => authChangePw(), false, 15);
+    pill(SW / 2 - 160, 322, 320, 46, 'DOWNLOAD MIJN VOORTGANG', () => authDownload(), false, 15);
+    pill(SW / 2 - 160, 382, 320, 46, 'ACCOUNT VERWIJDEREN', () => authDelete(), false, 15);
+    pill(SW / 2 - 160, 442, 320, 40, 'PRIVACY', () => authPrivacy(), false, 14);
+    if (authMsg) txt(authMsg, SW / 2, 510, 15, '#9dffb0', 'center', '700');
+  } else txt('Er is geen verbinding met de accountserver. Je voortgang blijft op dit toestel.', SW / 2, 156, 14, 'rgba(255,255,255,.7)', 'center', '600');
+}
 function startStreet(id) {
   const P = pool(), A = P.length ? P[pickA % P.length] : { kit: KITS[kitSel], ts: 64 }, B = P.length ? P[pickB % P.length] : { kit: KITS[(kitSel + 1) % KITS.length], ts: 64 };
   startMatch({ kind: 'friendly', a: A.kit, b: B.kit, ta: A.ts, tb: B.ts, street: true, court: id || Object.keys(COURTS)[stSel] });
@@ -1298,6 +1468,7 @@ const HUBS = {
   ],
   meer: [
     { k: 'set', t: 'OPTIES', s: () => 'INSTELLINGEN', c: '#7b5cff' },
+    { k: 'acc', t: 'ACCOUNT', s: () => authUser ? authUser.toUpperCase() : 'LOKAAL SPELEN', c: '#ff4fa3' },
     { k: 'help', t: 'BESTURING', s: () => 'HOE SPEEL JE', c: '#3ab0ff' }
   ]
 };
@@ -1312,6 +1483,7 @@ const SCREENS = {
   album: { title: 'ALBUM', parent: 'menu', draw: () => drawAlbum() },
   straat: { title: 'STRAAT', parent: 'menu', draw: () => stStep ? drawStraat() : drawStraatTeams() },
   voor: { title: 'MENU', parent: 'menu', draw: () => drawVoor() },
+  account: { title: 'ACCOUNT', parent: 'meer', draw: () => drawAccount() },
   club: { title: 'CLUB', parent: 'menu', draw: () => drawClub() },
   settings: { title: 'OPTIES', parent: 'meer', draw: () => drawSettings() },
   help: { title: 'BESTURING', parent: 'meer', draw: () => { screenBG('BESTURING'); drawHelp(); } }
@@ -1324,7 +1496,7 @@ function goTo(id) {
   else if (id === 'pen') penNew();
   else if (id === 'album') { albMsg = ''; albDet = null; if (!AL) loadAl(); }
 }
-const GOTO = { spelen: 'spelen', meer: 'meer', kick: 'pick', seas: 'comp', tour: 'tour', pen: 'pen', str: 'straat', alb: 'album', club: 'club', set: 'settings', help: 'help' };
+const GOTO = { spelen: 'spelen', meer: 'meer', kick: 'pick', seas: 'comp', tour: 'tour', pen: 'pen', str: 'straat', acc: 'account', alb: 'album', club: 'club', set: 'settings', help: 'help' };
 function act(k) {
   if (GOTO[k]) { goTo(GOTO[k]); return; }
   if (k === 'team') { kitSel = (kitSel + 1) % KITS.length; applyKits(); }
@@ -1338,6 +1510,7 @@ function tileGlyph(k, x, y, col) {
   if (k === 'spelen' || k === 'kick') { cx.beginPath(); cx.arc(x, y, 20, 0, 6.2832); cx.stroke(); cx.beginPath(); for (let i = 0; i < 5; i++) { const a = i * 1.2566 - 1.5708; cx.lineTo(x + Math.cos(a) * 9, y + Math.sin(a) * 9); } cx.closePath(); cx.fill(); }
   else if (k === 'club') { rr(x - 15, y - 22, 30, 44, 5); cx.stroke(); cx.fillRect(x - 8, y - 14, 16, 3); cx.fillRect(x - 8, y - 6, 16, 3); }
   else if (k === 'str') { rr(x - 22, y - 16, 44, 32, 4); cx.stroke(); for (let i = -1; i <= 1; i++) { cx.beginPath(); cx.moveTo(x + i * 14, y - 16); cx.lineTo(x + i * 14, y + 16); cx.stroke(); } cx.beginPath(); cx.moveTo(x - 22, y); cx.lineTo(x + 22, y); cx.stroke(); }
+  else if (k === 'acc') { cx.beginPath(); cx.arc(x, y - 9, 9, 0, 6.2832); cx.stroke(); cx.beginPath(); cx.arc(x, y + 21, 17, 3.4, 6.02); cx.stroke(); }
   else if (k === 'alb') { for (let i = 0; i < 4; i++) { rr(x - 20 + (i % 2) * 21, y - 21 + Math.floor(i / 2) * 22, 18, 20, 3); cx.stroke(); } }
   else if (k === 'meer' || k === 'set') { for (let i = -1; i <= 1; i++) { cx.beginPath(); cx.arc(x + i * 15, y, 4.5, 0, 6.2832); cx.fill(); } }
   else if (k === 'seas') { cx.beginPath(); cx.moveTo(x - 20, y + 16); cx.lineTo(x - 20, y - 8); cx.lineTo(x + 20, y - 8); cx.lineTo(x + 20, y + 16); cx.closePath(); cx.stroke(); cx.fillRect(x - 20, y - 8, 40, 7); }
@@ -2359,6 +2532,7 @@ function loop(now) {
 }
 loadSet(); loadS(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(localStorage.getItem('krakRoster2'))); } catch (e) {} try { if (typeof EMB === 'object' && EMB) applyRoster(EMB); } catch (e) {} if (!COMPS) { COMPS = [{ name: 'WEST-VLAANDEREN A', teams: KITS.slice() }]; } applyComp(compIdx); applyKits(); cx.imageSmoothingQuality = 'high'; resize(); makeShadow(); mk();
 setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop);
-  { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); if (/go/.test(location.hash)) beginMatch(); }, 400); else if (/straatveld/.test(location.hash || '')) setTimeout(() => { goTo('straat'); stStep = 1; }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => { goTo('straat'); const ma = /a=([^&]+)/.exec(location.hash); if (ma) { const P = pool(), i = P.findIndex(t => t.kit.name === decodeURIComponent(ma[1])); if (i >= 0) pickA = i; } }, 400); else if (/voorveld/.test(location.hash || '')) setTimeout(() => startMatch(), 400); } }, 60);
+  { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); if (/go/.test(location.hash)) beginMatch(); }, 400); else if (/goto=/.test(location.hash || '')) setTimeout(() => { const g = /goto=(\w+)/.exec(location.hash); if (g && SCREENS[g[1]]) goTo(g[1]); }, 400); else if (/straatveld/.test(location.hash || '')) setTimeout(() => { goTo('straat'); stStep = 1; }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => { goTo('straat'); const ma = /a=([^&]+)/.exec(location.hash); if (ma) { const P = pool(), i = P.findIndex(t => t.kit.name === decodeURIComponent(ma[1])); if (i >= 0) pickA = i; } }, 400); else if (/voorveld/.test(location.hash || '')) setTimeout(() => startMatch(), 400); } }, 60);
+authInit();
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();

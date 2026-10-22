@@ -1,4 +1,4 @@
-const CACHE = 'eawg-v39';
+const CACHE = 'eawg-v40';
 const FILES = ['./', 'index.html', 'game.js', 'roster.json', 'manifest.json', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
@@ -8,6 +8,7 @@ self.addEventListener('activate', e => {
 });
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+  if (new URL(e.request.url).pathname.indexOf('/api/') === 0) return;
   e.respondWith(
     fetch(e.request).then(r => {
       if (r.ok && r.type === 'basic') { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
