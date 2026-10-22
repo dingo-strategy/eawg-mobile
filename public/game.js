@@ -7,6 +7,17 @@ const SYF = 190, SYN = 590, SF = 0.66, SN = 1.22;
 let camX = W / 2, zoom = 1.4, tNow = 0, shakeT = 0, goalT = 0;
 let court = null, curKey = 'veld', koiUser = 0, inStreet = false, stSel = 0;
 let kitSlot = 0, formIdx = [0, 0], FORM = [3, 2, 2], ATTFROM = 5, vSelF = -1, vSelB = -1;
+// toeval voor de spelsimulatie: vaste seed per match (mulberry32), zodat een match herhaalbaar is (voorbereiding online spelen).
+// Tekenen, menu's en effecten gebruiken gewoon Math.random.
+let matchSeed = 20261022, simS = matchSeed;
+function simSeed(s) { simS = (s >>> 0) || 1; }
+function srnd() { simS = simS + 0x6D2B79F5 | 0; let t = Math.imul(simS ^ simS >>> 15, 1 | simS); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+// meetscherm (#debug of OPTIES, WEERGAVE): kost niets als het uit staat
+let DBG = false; try { DBG = localStorage.getItem('eawg-debug') === '1'; } catch (e) {}
+const dbgHash = () => /(^#|&)debug(&|$)/.test(location.hash || ''); if (dbgHash()) DBG = true;
+addEventListener('hashchange', () => { if (dbgHash()) DBG = true; });
+const DT = { bg: 0, vloer: 0, lijn: 0, spel: 0, hud: 0, upd: 0 }, DA = { bg: 0, vloer: 0, lijn: 0, spel: 0, hud: 0, upd: 0 }, dbgW = new Float32Array(60);
+let dbgWi = 0, dbgFps = 0, dbgFc = 0, dbgF0 = 0;
 
 // ---------- scherm + achtergrond ----------
 function resize() {
@@ -23,6 +34,7 @@ function resize() {
 }
 function buildBG() {
   const w = Math.ceil(SW + 360), h = SYF + 10; bgk = Q >= 1 ? 1 : Math.max(1, Math.min(2, scale));
+  if (bg) bg.width = bg.height = 0;
   bg = document.createElement('canvas'); bg.width = Math.ceil(w * bgk); bg.height = Math.ceil(h * bgk);
   const g = bg.getContext('2d'); g.scale(bgk, bgk);
   let seed = 7;
@@ -48,7 +60,7 @@ function buildBG() {
   }
   t2.globalAlpha = 1;
   if ('filter' in g) g.filter = 'blur(' + (0.7 * bgk) + 'px)';
-  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(tmp, 0, 0); g.restore(); g.filter = 'none';
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(tmp, 0, 0); g.restore(); g.filter = 'none'; tmp.width = tmp.height = 0;
   g.globalAlpha = 1;
   if (!court || court.indoor) {
   const roof = g.createLinearGradient(0, 0, 0, 70); roof.addColorStop(0, '#03050a'); roof.addColorStop(0.7, 'rgba(8,12,22,.92)'); roof.addColorStop(1, 'rgba(8,12,22,0)');
@@ -119,7 +131,8 @@ function musicTick() {
   } else synthTick(want);
 }
 function initAudio() {
-  if (AC) { if (AC.state === 'suspended') AC.resume(); return; }
+  // iOS: 'suspended' of 'interrupted' na scherm op slot, hervatten zonder fout in de console
+  if (AC) { if (AC.state !== 'running' && AC.state !== 'closed') { try { const r = AC.resume(); if (r && r.catch) r.catch(() => {}); } catch (e) {} } return; }
   try {
     AC = new (window.AudioContext || window.webkitAudioContext)();
     const len = AC.sampleRate * 2, buf = AC.createBuffer(1, len, AC.sampleRate), d = buf.getChannelData(0);
@@ -247,7 +260,7 @@ function mk() {
     const hx = t ? W - HOME[i][0] : HOME[i][0], k = t * NP + i;
     players.push({
       t, i, x: hx, y: HOME[i][1], vx: 0, vy: 0, hx, hy: HOME[i][1], fx: t ? -1 : 1, fy: 0, cd: 0, hold: 0,
-      ph: Math.random() * 6, face: t ? -1 : 1, kk: 0, name: NAMES[t][i], num: NUMS[t][i], rate: 62 + (k * 7) % 30,
+      ph: srnd() * 6, face: t ? -1 : 1, kk: 0, name: NAMES[t][i], num: NUMS[t][i], rate: 62 + (k * 7) % 30,
       hs: (k * 5) % 4, skin: SKIN[(k * 3 + 1) % 5], hair: HAIR[(k * 2) % 5], boot: BOOT[k % 6]
     });
   }
@@ -300,14 +313,15 @@ function pickCtrl() {
   ctrl = best;
 }
 
-function buzz(n) { try { if (navigator.vibrate) navigator.vibrate(n); } catch (e) {} }
+// trillen alleen na een echte tik (anders meldt Chrome een fout in de console)
+function buzz(n) { try { const ua = navigator.userActivation; if (navigator.vibrate && (!ua || ua.hasBeenActive)) navigator.vibrate(n); } catch (e) {} }
 function kick(p, dx, dy, pw) {
   if (p === ctrl) buzz(12);
   pw *= Math.max(0.9, Math.min(1.1, 0.94 + ((p.rate || 60) - 60) * 0.004));
   const m = Math.hypot(dx, dy) || 1;
   ball.owner = null; ball.vx = dx / m * pw; ball.vy = dy / m * pw;
   ball.x = p.x + dx / m * 20; ball.y = p.y + dy / m * 20;
-  ball.vz = pw >= 600 ? 150 + Math.random() * 90 : pw >= 420 ? 55 : 0; ball.z = 0;
+  ball.vz = pw >= 600 ? 150 + srnd() * 90 : pw >= 420 ? 55 : 0; ball.z = 0;
   p.cd = 0.4; p.hold = 0; p.kk = 0.25; lastKicker = p;
   if (Math.abs(dx) > 0.2 * m) p.face = dx > 0 ? 1 : -1;
   thud(Math.min(0.5, pw / 1400));
@@ -315,7 +329,7 @@ function kick(p, dx, dy, pw) {
 function shootDir(p) {
   const gx = p.t ? 0 : W;
   let dx = p.fx, dy = p.fy;
-  const ty = H / 2 + (Math.random() - 0.5) * GW * 0.7, gdx = gx - p.x, gdy = ty - p.y;
+  const ty = H / 2 + (srnd() - 0.5) * GW * 0.7, gdx = gx - p.x, gdy = ty - p.y;
   const a = Math.atan2(dy, dx), b = Math.atan2(gdy, gdx);
   const diff = Math.abs(((a - b + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
   if (Math.abs(gx - p.x) < 560 && diff < 0.8) { dx = gdx; dy = gdy; }
@@ -395,8 +409,8 @@ function ai(p, dt, chaser) {
     const vx = dx / d * sp + ax * 2.2, vy = dy / d * sp + ay * 2.2, m = Math.hypot(vx, vy) || 1;
     applyV(p, vx / m * sp * 0.92, vy / m * sp * 0.92, dt);
     if (p.hold > 0.3 && Math.abs(gx - p.x) < 340) {
-      const ty = H / 2 + (Math.random() - 0.5) * GW * Math.max(0.9, 1.5 - ((p.rate || 60) - 50) * 0.01);
-      kick(p, gx - p.x, ty - p.y, 560 + Math.random() * 150);
+      const ty = H / 2 + (srnd() - 0.5) * GW * Math.max(0.9, 1.5 - ((p.rate || 60) - 50) * 0.01);
+      kick(p, gx - p.x, ty - p.y, 560 + srnd() * 150);
     } else if (p.hold > 1.0 || (nearest < 42 && p.hold > 0.4)) {
       const q = bestPass(p, gx - p.x, 0); if (q) passTo(p, q);
     }
@@ -454,7 +468,7 @@ function update(dt) {
       const o = ball.owner;
       if (o && o.t !== p.t && Math.hypot(p.x - o.x, p.y - o.y) < 28) {
         p.sl = 0;
-        if (!foulCheck(p, o)) { if (Math.random() < 0.55 + ((p.rate || 60) - (o.rate || 60)) * 0.01) { o.cd = 0.8; o.hold = 0; ball.owner = p; p.hold = 0; p.cd = 0.2; } else { p.cd = 0.5; } }
+        if (!foulCheck(p, o)) { if (srnd() < 0.55 + ((p.rate || 60) - (o.rate || 60)) * 0.01) { o.cd = 0.8; o.hold = 0; ball.owner = p; p.hold = 0; p.cd = 0.2; } else { p.cd = 0.5; } }
       } else if (!o && Math.hypot(p.x - ball.x, p.y - ball.y) < 24 && ball.z < 20) { ball.owner = p; p.hold = 0; p.sl = 0; }
     } else if (p === ctrl) {
       const [ix, iy] = inputVec(), max = (ball.owner === p ? 200 : 216) * rf(p);
@@ -479,7 +493,7 @@ function update(dt) {
     ball.lt = o.t; ball.x = o.x + o.fx * 15; ball.y = o.y + o.fy * 15; ball.vx = o.vx; ball.vy = o.vy; ball.z = 0; ball.vz = 0;
     for (const p of players) {
       if (p.t === o.t || p.cd > 0) continue;
-      if (Math.hypot(p.x - ball.x, p.y - ball.y) < 22 && Math.random() < 2.8 * dt) {
+      if (Math.hypot(p.x - ball.x, p.y - ball.y) < 22 && srnd() < 2.8 * dt) {
         if (foulCheck(p, o)) break;
         o.cd = 0.6; o.hold = 0; ball.owner = p; p.hold = 0; if (charging) charging = false; break;
       }
@@ -501,8 +515,8 @@ function update(dt) {
       if (sp < 450 && d < 17) { ball.owner = p; p.hold = 0; break; }
       if (sp >= 450 && d < 20) {
         p.cd = 0.3; ball.lt = p.t;
-        if (p.i === 0 && Math.random() < 0.5) { ball.owner = p; p.hold = 0; break; }
-        ball.vx *= p.i === 0 ? -0.5 : 0.5; ball.vy = ball.vy * 0.5 + (Math.random() - 0.5) * 200; break;
+        if (p.i === 0 && srnd() < 0.5) { ball.owner = p; p.hold = 0; break; }
+        ball.vx *= p.i === 0 ? -0.5 : 0.5; ball.vy = ball.vy * 0.5 + (srnd() - 0.5) * 200; break;
       }
     }
   }
@@ -569,8 +583,33 @@ function setCourt(id) {
   }
   camX = W / 2; buildGrass(); buildBG();
 }
+// ruis als herhaaltegel in plaats van een lus over miljoenen beeldpunten (getImageData + putImageData).
+// Zelfde optelling als vroeger: positieve ruis met 'lighter' (optellen), negatieve met 'difference' (aftrekken, alle vloerkleuren zijn donkerder dan de ruis groot is).
+// kr/kg/kb: factor per kleurkanaal, amp: maximale afwijking, rnd: toevalsbron.
+function noiseOnto(g, w, h, amp, kr, kg, kb, rnd, size) {
+  size = size || 256;
+  const pos = document.createElement('canvas'), neg = document.createElement('canvas'); pos.width = neg.width = pos.height = neg.height = size;
+  const pg = pos.getContext('2d'), ng = neg.getContext('2d'), pi = pg.createImageData(size, size), ni = ng.createImageData(size, size), pd = pi.data, nd = ni.data;
+  for (let i = 0; i < pd.length; i += 4) {
+    const n = (rnd() - 0.5) * 2 * amp, a = Math.abs(n), d = n > 0 ? pd : nd;
+    d[i] = Math.round(a * kr); d[i + 1] = Math.round(a * kg); d[i + 2] = Math.round(a * kb); pd[i + 3] = nd[i + 3] = 255;
+  }
+  pg.putImageData(pi, 0, 0); ng.putImageData(ni, 0, 0);
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+  g.globalCompositeOperation = 'lighter'; g.fillStyle = g.createPattern(pos, 'repeat'); g.fillRect(0, 0, w, h);
+  g.globalCompositeOperation = 'difference'; g.fillStyle = g.createPattern(neg, 'repeat'); g.fillRect(0, 0, w, h);
+  g.restore();
+  pos.width = pos.height = neg.width = neg.height = 0;
+}
+// LCG van rngOf n stappen vooruitzetten zonder n keer te rekenen (zo blijft de rest van de vloer op exact dezelfde plek)
+function rngSkip(r, n) {
+  let A = 1, C = 0, a = 1664525, c = 1013904223;
+  while (n > 0) { if (n & 1) { A = Math.imul(a, A) >>> 0; C = (Math.imul(a, C) + c) >>> 0; } c = (Math.imul(a, c) + c) >>> 0; a = Math.imul(a, a) >>> 0; n = Math.floor(n / 2); }
+  return r.jump(A, C);
+}
 function buildFloor() {
   const c = court, tw = (GX1 - GX0) * TXL, th = (GY1 - GY0) * TXL;
+  if (grass) grass.width = grass.height = 0;
   grass = document.createElement('canvas'); grass.width = tw; grass.height = th;
   const g = grass.getContext('2d'), X = x => (x - GX0) * TXL, Y = y => (y - GY0) * TXL, cell = c.tile, rw = rngOf(5 + c.name.length * 7);
   g.fillStyle = c.floor; g.fillRect(0, 0, tw, th);
@@ -578,9 +617,7 @@ function buildFloor() {
     if (((wx / cell + wy / cell) & 1) === 0) continue; g.fillStyle = c.floor2; g.fillRect(X(wx), Y(wy), cell * TXL, cell * TXL);
   }
   if (c.glow) { const gr = g.createRadialGradient(X(W / 2), Y(H / 2), 10, X(W / 2), Y(H / 2), 460 * TXL); gr.addColorStop(0, 'rgba(120,190,255,.32)'); gr.addColorStop(1, 'rgba(120,190,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, tw, th); }
-  const id = g.getImageData(0, 0, tw, th), d = id.data;
-  for (let i = 0; i < d.length; i += 4) { const n = (rw() - 0.5) * 14; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
-  g.putImageData(id, 0, 0);
+  noiseOnto(g, tw, th, 7, 1, 1, 1, rngOf(5 + c.name.length * 13), 256); rngSkip(rw, grass.width * grass.height);
   g.strokeStyle = 'rgba(0,0,0,.22)'; g.lineWidth = 2;
   for (let i = 0; i < 26; i++) { g.beginPath(); let x = rw() * tw, y = rw() * th; g.moveTo(x, y); for (let k = 0; k < 5; k++) { x += (rw() - 0.5) * 120; y += (rw() - 0.5) * 80; g.lineTo(x, y); } g.stroke(); }
   if (c.worn) {
@@ -622,6 +659,7 @@ function bakeLines(g, X, Y, tw, th, rw) {
   for (const [px, py, r] of [[0, H / 2, 70], [W, H / 2, 70], [W / 2, H / 2, 48]]) { const gr = l.createRadialGradient(X(px), Y(py), 0, X(px), Y(py), r * TXL); gr.addColorStop(0, 'rgba(0,0,0,.8)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); l.fillStyle = gr; l.fillRect(X(px) - r * TXL, Y(py) - r * TXL, 2 * r * TXL, 2 * r * TXL); }
   for (let i = 0; i < 12; i++) { l.fillStyle = 'rgba(0,0,0,.92)'; l.beginPath(); l.arc(rw() * tw, rw() * th, (6 + rw() * 14) * TXL, 0, 6.2832); l.fill(); }
   g.drawImage(lc, 0, 0);
+  lc.width = lc.height = 0; // tijdelijk canvas meteen vrijgeven (belangrijk voor de geheugenlimiet van iOS Safari)
 }
 function drawLinesStreet() { /* de lijnen zitten in de vloertextuur (gebakken met slijtage) */ }
 // ---------- licht: gloed, flikkering en lichtkegels (kwaliteit Q0 volledig, Q1 zonder kegels, Q2 uit) ----------
@@ -648,7 +686,7 @@ function drawLights() {
   cx.restore();
 }
 // ---------- graffiti (eigen letters, getekend met code) ----------
-function rngOf(seed) { let q = seed >>> 0; return () => { q = (q * 1664525 + 1013904223) >>> 0; return q / 4294967296; }; }
+function rngOf(seed) { let q = seed >>> 0; const f = () => { q = (q * 1664525 + 1013904223) >>> 0; return q / 4294967296; }; f.jump = (A, C) => { q = (Math.imul(A, q) + C) >>> 0; return f; }; return f; }
 const GPAL = [['#ffe14a', '#ff7a1a', '#1b1b2a', '#000'], ['#37e6c8', '#2a7bff', '#12122a', '#000'], ['#ff4fa3', '#b13cff', '#1b0f2a', '#000'], ['#c6ff2a', '#1fbf5a', '#0f1d12', '#000'], ['#ffffff', '#9fb4ff', '#14183a', '#000'], ['#ff6b4a', '#ffd400', '#2a0f0f', '#000']];
 const GWORDS = ['DINGO', 'EAWG', 'SKILLZ', 'STRAAT', 'WAASLAND', 'PLEIN', 'KING', 'GOAL', 'ONE LOVE', 'NO LOOK', 'KICK', 'TIKI'];
 function gStar(g, x, y, r, col) { g.fillStyle = col; g.beginPath(); for (let i = 0; i < 10; i++) { const a = i * 0.6283 - 1.5708, rr2 = i & 1 ? r * 0.45 : r; g.lineTo(x + Math.cos(a) * rr2, y + Math.sin(a) * rr2); } g.closePath(); g.fill(); }
@@ -682,7 +720,7 @@ function mural(g, w, h, rnd) {
   g.fillStyle = '#3a2420'; g.fillRect(0, 0, w, h);
   for (let y = 0, r = 0; y < h; y += 9, r++) for (let x = -(r & 1) * 11; x < w; x += 22) { const k = 0.7 + rnd() * 0.5; g.fillStyle = 'rgb(' + Math.round(104 * k) + ',' + Math.round(58 * k) + ',' + Math.round(46 * k) + ')'; g.fillRect(x + 1, y + 1, 20, 7); }
   let x = 10; const rs = rngOf(77);
-  while (x < w - 60) { const pw = 200 + rs() * 180, ph = 84 + rs() * 22, py = 10 + rs() * 16; const t = sprayTex(Math.round(pw), Math.round(ph), (rs() * 99999) | 0, ['#2b2b34', '#3a3f4a', '#4a3a2e'], pw / 2); g.drawImage(t, x, py); g.strokeStyle = 'rgba(0,0,0,.5)'; g.lineWidth = 2; g.strokeRect(x, py, pw, ph); x += pw + 14 + rs() * 30; }
+  while (x < w - 60) { const pw = 200 + rs() * 180, ph = 84 + rs() * 22, py = 10 + rs() * 16; const t = sprayTex(Math.round(pw), Math.round(ph), (rs() * 99999) | 0, ['#2b2b34', '#3a3f4a', '#4a3a2e'], pw / 2); g.drawImage(t, x, py); t.width = t.height = 0; g.strokeStyle = 'rgba(0,0,0,.5)'; g.lineWidth = 2; g.strokeRect(x, py, pw, ph); x += pw + 14 + rs() * 30; }
   for (let i = 0; i < 6; i++) { const wx = 40 + rs() * (w - 100), wy = 6 + rs() * 12; g.fillStyle = 'rgba(15,10,14,.9)'; g.fillRect(wx, wy, 26, 34); g.fillStyle = 'rgba(255,205,120,.55)'; g.fillRect(wx + 3, wy + 3, 20, 28); g.fillStyle = 'rgba(20,12,16,.9)'; g.fillRect(wx + 12, wy + 3, 2, 28); }
   g.strokeStyle = 'rgba(255,230,170,.7)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(0, 4); for (let xx = 0; xx <= w; xx += 40) g.lineTo(xx, 4 + Math.sin(xx * 0.05) * 6 + 6); g.stroke();
   for (let xx = 10; xx < w; xx += 40) { g.fillStyle = '#ffe9a8'; g.beginPath(); g.arc(xx, 10 + Math.sin(xx * 0.05) * 6, 2.2, 0, 6.2832); g.fill(); }
@@ -706,7 +744,7 @@ function tunnelBG(g, w, h, rnd) {
     const gr = g.createLinearGradient(px, 0, px + 40, 0); gr.addColorStop(0, '#4c4f54'); gr.addColorStop(0.5, '#767980'); gr.addColorStop(1, '#484b50'); g.fillStyle = gr; g.fillRect(px, 30, 40, h - 56);
     for (let k = 0; k < 14; k++) { g.fillStyle = 'rgba(0,0,0,' + (0.06 + rs() * 0.1) + ')'; g.fillRect(px + rs() * 36, 30 + rs() * 40, 2 + rs() * 4, 20 + rs() * (h - 90)); }
     g.fillStyle = '#212328'; g.fillRect(px - 3, 28, 46, 7);
-    const t = sprayTex(150, 60, (rs() * 99999) | 0, ['#6a6d72', '#62656a'], 150); g.drawImage(t, px + 46, h - 92);
+    const t = sprayTex(150, 60, (rs() * 99999) | 0, ['#6a6d72', '#62656a'], 150); g.drawImage(t, px + 46, h - 92); t.width = t.height = 0;
   }
   const ce = g.createLinearGradient(0, 0, 0, 38); ce.addColorStop(0, '#0e0f12'); ce.addColorStop(1, '#2a2c31'); g.fillStyle = ce; g.fillRect(0, 0, w, 36);
   for (const L of court.lamps) { const x = L.fx * w; g.fillStyle = '#d8d2b8'; g.fillRect(x - 32, 11, 64, 6); g.fillStyle = '#fff6d0'; g.fillRect(x - 28, 12, 56, 3); }
@@ -1085,6 +1123,7 @@ function drawStraat() {
 function buildGrass() {
   if (court) { buildFloor(); return; }
   const tw = (GX1 - GX0) * TXL, th = (GY1 - GY0) * TXL;
+  if (grass) grass.width = grass.height = 0;
   grass = document.createElement('canvas'); grass.width = tw; grass.height = th;
   const g = grass.getContext('2d');
   const X = x => (x - GX0) * TXL, Y = y => (y - GY0) * TXL;
@@ -1100,16 +1139,20 @@ function buildGrass() {
     gr.addColorStop(0, 'rgba(125,95,45,' + a + ')'); gr.addColorStop(1, 'rgba(125,95,45,0)');
     g.fillStyle = gr; g.fillRect(X(wx) - wr * TXL, Y(wy) - wr * TXL, 2 * wr * TXL, 2 * wr * TXL);
   }
-  const id = g.getImageData(0, 0, tw, th), d = id.data;
-  for (let i = 0; i < d.length; i += 4) { const n = (Math.random() - 0.5) * 18; d[i] += n * 0.7; d[i + 1] += n; d[i + 2] += n * 0.6; }
-  g.putImageData(id, 0, 0);
+  // ruis (vroeger een lus over ~6 miljoen beeldpunten) en grassprietjes (vroeger 150000 + 14000 fillRect) als herhaaltegel van 512 bij 512.
+  // Dichtheid per beeldpunt blijft gelijk aan vroeger.
+  noiseOnto(g, grass.width, grass.height, 9, 0.7, 1, 0.6, Math.random, 512);
+  const T = 512, st = document.createElement('canvas'); st.width = st.height = T; const sg = st.getContext('2d');
+  const dens = T * T / (grass.width * grass.height), nS = Math.round(150000 * dens), nD = Math.round(14000 * dens);
   const lite = 'rgba(175,240,125,.22)', dk = 'rgba(8,55,18,.26)';
-  for (let i = 0; i < 150000; i++) {
-    g.fillStyle = i & 1 ? lite : dk;
-    g.fillRect(Math.random() * tw, Math.random() * th, 1, 3 + Math.random() * 5);
+  for (let i = 0; i < nS; i++) {
+    sg.fillStyle = i & 1 ? lite : dk; const x = Math.random() * T, y = Math.random() * T, h = 3 + Math.random() * 5;
+    sg.fillRect(x, y, 1, h); if (y + h > T) sg.fillRect(x, y - T, 1, h);
   }
-  g.fillStyle = 'rgba(30,110,40,.5)';
-  for (let i = 0; i < 14000; i++) { g.fillRect(Math.random() * tw, Math.random() * th, 1, 1); }
+  sg.fillStyle = 'rgba(30,110,40,.5)';
+  for (let i = 0; i < nD; i++) sg.fillRect(Math.random() * T, Math.random() * T, 1, 1);
+  g.fillStyle = g.createPattern(st, 'repeat'); g.fillRect(0, 0, tw, th);
+  st.width = st.height = 0;
 }
 let lineCol = 'rgba(255,255,255,.9)';
 function pl(pts, closed) {
@@ -1139,6 +1182,8 @@ function drawLines() {
 }
 // vloer rij voor rij uit de textuur; elke rij is een geschaalde drawImage met 'high' filter (duur: ~200 per beeld)
 function pitchRows(g, r0, r1, st) {
+  // 'high' zoals vroeger. Gemeten (headless, 22 okt): groot veld bij Q0 ~130 ms per beeld, met 'low' ~50 ms maar de verte
+  // wordt iets korreliger; bij Q1 is het al ~14 ms en brengt 'low' niets. Daarom ongewijzigd gelaten (keuze voor Dingo).
   g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
   for (let y = r0; y <= r1; y += st) {
     const t = (y - SYF) / (SYN - SYF), wy = t * H;
@@ -1150,7 +1195,7 @@ function pitchRows(g, r0, r1, st) {
 let pitchC = null, pitchK = '', pitchG = null;
 function drawPitch() {
   const r0 = Math.max(0, Math.floor(SYF + (SYN - SYF) * (GY0 / H))), r1 = Math.min(VH, Math.ceil(SYF + (SYN - SYF) * (GY1 / H))), st = [2, 3, 5][Q];
-  if (!court) { pitchC = pitchG = null; pitchRows(cx, r0, r1, st); }
+  if (!court) { if (pitchC) pitchC.width = pitchC.height = 0; pitchC = pitchG = null; pitchRows(cx, r0, r1, st); cx.imageSmoothingQuality = 'high'; }
   else {
     // straat: camera staat vast, dus de vloer eenmalig projecteren en per beeld met 1 drawImage tekenen
     const k = [cv.width, scale, zoom, camX, Q, r0, r1].join();
@@ -1190,7 +1235,14 @@ function drawGoal(gx, dir) {
 
 // ---------- kleurhulpjes ----------
 function hex2rgb(h) { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); const n = parseInt(h, 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
-function mixc(c, t, a) { const k = hex2rgb(c); return 'rgb(' + k.map(v => Math.round(v + (t - v) * a)).join(',') + ')'; }
+// kleurtekstjes worden per (kleur, doel, factor) maar 1 keer berekend; numerieke sleutel t + a (t is 0 of 255, a tussen 0 en 1)
+const mixC = new Map();
+function mixc(c, t, a) {
+  let m = mixC.get(c); if (!m) { if (mixC.size > 400) mixC.clear(); mixC.set(c, m = new Map()); }
+  const key = t + a; let v = m.get(key);
+  if (v === undefined) { const k = hex2rgb(c); v = 'rgb(' + k.map(x => Math.round(x + (t - x) * a)).join(',') + ')'; m.set(key, v); }
+  return v;
+}
 const lit = (c, a) => mixc(c, 255, a), dark = (c, a) => mixc(c, 0, a), lp = (a, b, t) => a + (b - a) * t;
 
 // ---------- zachte schaduw ----------
@@ -1221,6 +1273,7 @@ function limb(ax, ay, bx, by, wa, wb, col) {
     cx.strokeStyle = 'rgba(0,0,0,.13)'; cx.beginPath(); cx.moveTo(ax + nx * wa * 0.3, ay + ny * wa * 0.3); cx.lineTo(bx + nx * wb * 0.3, by + ny * wb * 0.3); cx.stroke(); }
 }
 
+const LEGS = [{ a2: 0, kx: 0, ky: 0, ax: 0, ay: 0 }, { a2: 0, kx: 0, ky: 0, ax: 0, ay: 0 }]; // hergebruikt per speler, geen nieuwe objecten per beeld
 function drawPlayer(p, ov) {
   if (ov) { p.kk = ov.kk; p.ph = ov.ph; }
   const hop = (state === 'goal' && goalBy === p.t) ? Math.abs(Math.sin(tNow * 7 + p.i * 1.3)) * 12 : 0;
@@ -1229,7 +1282,7 @@ function drawPlayer(p, ov) {
   const shirt = gk ? T.gk : T.shirt, shorts = gk ? T.gkShorts : T.shorts, sock = gk ? T.gkSock : T.sock, trim = gk ? '#111' : T.trim;
   const skin = p.skin, skinD = dark(skin, 0.28);
   const L1 = 10.5 * u, L2 = 10 * u, A1 = 6.4 * u, A2 = 6.2 * u, TOR = 15.5 * u;
-  const legs = [];
+  const legs = LEGS;
   for (let l = 0; l < 2; l++) {
     const ph = p.ph + (l ? Math.PI : 0);
     let th = Math.sin(ph) * 0.85 * run + (l ? 0.1 : -0.1) * (1 - run), kn = (0.1 + 0.95 * Math.max(0, Math.cos(ph))) * run + 0.06;
@@ -1238,7 +1291,7 @@ function drawPlayer(p, ov) {
       else { const k = p.kk / 0.13; th = 1.25 * (1 - k) + 0.1 * k; kn = 0.2; }
     }
     const kx = Math.sin(th) * f * L1, ky = Math.cos(th) * L1, a2 = th - kn;
-    legs.push({ a2, kx, ky, ax: kx + Math.sin(a2) * f * L2, ay: ky + Math.cos(a2) * L2 });
+    const lg = legs[l]; lg.a2 = a2; lg.kx = kx; lg.ky = ky; lg.ax = kx + Math.sin(a2) * f * L2; lg.ay = ky + Math.cos(a2) * L2;
   }
   const hipX = sx, hipY = sy - Math.max(legs[0].ay, legs[1].ay) - 2.3 * u;
   const lean = run * 0.17 + (p.kk > 0 ? 0.05 : 0);
@@ -1368,19 +1421,30 @@ function drawHUD() {
 }
 
 function draw() {
+  DT.bg = DT.vloer = DT.lijn = DT.spel = DT.hud = 0;
+  drawScene();
+  if (DBG) drawDbg();
+}
+function drawScene() {
   hits = []; cx.imageSmoothingQuality = 'high'; musicTick();
   cx.setTransform(1, 0, 0, 1, 0, 0);
   cx.fillStyle = '#06130a'; cx.fillRect(0, 0, cv.width, cv.height);
   cx.setTransform(scale, 0, 0, scale, 0, oy);
   if (SCREENS[state]) { cx.save(); cx.beginPath(); cx.rect(0, 0, SW, VH); cx.clip(); SCREENS[state].draw(); cx.restore(); return; }
+  let t0 = DBG ? performance.now() : 0, t1 = 0;
   cx.save(); cx.beginPath(); cx.rect(0, 0, SW, VH); cx.clip();
   if (shakeT > 0) cx.translate((Math.random() - 0.5) * 9 * shakeT * 2, (Math.random() - 0.5) * 7 * shakeT * 2);
   // achtergrond staat (bijna) 1 op 1 op het scherm: 'low' filter is hier even scherp en veel goedkoper dan 'high'
   cx.imageSmoothingQuality = 'low'; cx.drawImage(bg, -180 - (camX - W / 2) * 0.12, 0, bg.width / bgk, bg.height / bgk); cx.imageSmoothingQuality = 'high';
   if (Q < 2 && !(court && court.crowd !== 'fans') && (++fN & 7) === 0) { flashes = []; for (let i = 0; i < 7; i++) flashes.push([Math.random() * SW, 70 + Math.random() * (SYF - 120), 2 + Math.random() * 2]); }
   for (const f of flashes) { cx.fillStyle = 'rgba(255,255,255,.85)'; cx.beginPath(); cx.arc(f[0], f[1], f[2], 0, 6.2832); cx.fill(); }
-  drawLights(); drawPitch(); drawLines(); drawBoards();
+  drawLights();
+  if (DBG) { t1 = performance.now(); DT.bg = t1 - t0; t0 = t1; }
+  drawPitch();
+  if (DBG) { t1 = performance.now(); DT.vloer = t1 - t0; t0 = t1; }
+  drawLines(); drawBoards();
   drawGoal(0, -1); drawGoal(W, 1);
+  if (DBG) { t1 = performance.now(); DT.lijn = t1 - t0; t0 = t1; }
   for (const p of players) drawShadow(p.x, p.y, 8);
   drawShadow(ball.x, ball.y, 4 + ball.z * 0.02);
   const spd = Math.hypot(ball.vx, ball.vy);
@@ -1392,6 +1456,7 @@ function draw() {
   const list = players.slice(); list.push(ball); list.sort((a, b) => a.y - b.y);
   for (const e of list) { if (e === ball) drawBall(); else drawPlayer(e); }
   cx.restore();
+  if (DBG) { t1 = performance.now(); DT.spel = t1 - t0; t0 = t1; }
   if (Q < 2) { cx.fillStyle = vig; cx.fillRect(0, 0, SW, VH); }
   for (const q of parts) { cx.save(); cx.translate(q.x, q.y); cx.rotate(q.r); cx.fillStyle = q.c; cx.fillRect(-q.w / 2, -q.w / 4, q.w, q.w / 2); cx.restore(); }
   drawHUD();
@@ -1414,6 +1479,34 @@ function draw() {
   if (ban) { const a = Math.min(1, ban.t * 3); cx.globalAlpha = a; cx.fillStyle = 'rgba(8,16,50,.85)'; cx.fillRect(SW / 2 - 190, VH * 0.2, 380, 64); cx.fillStyle = ban.col; cx.fillRect(SW / 2 - 190, VH * 0.2 + 58, 380, 6); txt(ban.text, SW / 2, VH * 0.2 + 30, 28, '#fff', 'center', '900'); txt(ban.sub, SW / 2, VH * 0.2 + 52, 14, ban.col, 'center', '800'); cx.globalAlpha = 1; }
   if (state === 'pause') drawPause();
   if (state === 'end') drawEnd();
+  if (DBG) DT.hud = performance.now() - t0;
+}
+// ---------- meetscherm (linksboven, klein donker vlak) ----------
+// schatting van het canvasgeheugen: breedte x hoogte x 4 van alle canvassen die het spel bewaart
+function dbgCanvMB() {
+  let px = cv.width * cv.height; const add = c => { if (c && c.width) px += c.width * c.height; };
+  add(grass); add(bg); add(pitchC); add(shSpr); for (const k in glowCache) add(glowCache[k]); for (const k in COURTS) add(COURTS[k].tex);
+  return px * 4 / 1048576;
+}
+const dbgIOS = /iPhone|iPad|iPod/.test(navigator.userAgent || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const dbgUA = (() => { const u = navigator.userAgent || '', m = /\(([^)]*)\)/.exec(u), b = /(CriOS|FxiOS|SamsungBrowser|Edg|Chrome|Version)\/([\d.]+)/.exec(u); return ((m ? m[1] : u).replace(/; ?wv/, '').slice(0, 46) + (b ? '  ' + b[1].replace('Version', 'Safari') + ' ' + b[2].split('.')[0] : '')); })();
+function drawDbg() {
+  for (const k in DT) DA[k] += (DT[k] - DA[k]) * 0.1;
+  let s = 0, mx = 0; for (let i = 0; i < 60; i++) { s += dbgW[i]; if (dbgW[i] > mx) mx = dbgW[i]; }
+  const f = v => v.toFixed(1), L = [
+    'FPS ' + f(dbgFps) + '   beeld ' + f(s / 60) + ' ms  (slechtste ' + f(mx) + ')',
+    'achtergr ' + f(DA.bg) + '  vloer ' + f(DA.vloer) + '  lijn/muur ' + f(DA.lijn),
+    'spelers+bal ' + f(DA.spel) + '  HUD ' + f(DA.hud) + '  update/AI ' + f(DA.upd),
+    'Q ' + Q + '  dprMax ' + dprCap + '  scherm ' + innerWidth + 'x' + innerHeight + ' @' + (window.devicePixelRatio || 1) + '  canvas ' + cv.width + 'x' + cv.height,
+    'canvasgeheugen ca. ' + Math.round(dbgCanvMB()) + ' MB' + (dbgIOS ? '  (iOS)' : ''),
+    'modus ' + (court ? 'straat ' + court.name : (state === 'play' || state === 'goal' || state === 'pause' || state === 'end' || state === 'voor') ? 'groot veld' : 'menu (' + state + ')'),
+    dbgUA
+  ];
+  cx.save(); cx.setTransform(DPR, 0, 0, DPR, 0, 0); cx.globalAlpha = 1; cx.globalCompositeOperation = 'source-over';
+  cx.fillStyle = 'rgba(0,0,0,.78)'; cx.fillRect(4, 4, 360, 8 + L.length * 13);
+  cx.font = '600 11px ui-monospace,Menlo,Consolas,monospace'; cx.textAlign = 'left'; cx.textBaseline = 'top';
+  L.forEach((t, i) => { cx.fillStyle = i === 0 ? '#9dffb0' : '#fff'; cx.fillText(t, 9, 8 + i * 13); });
+  cx.restore();
 }
 
 // ---------- menu, instellingen, pauze ----------
@@ -1450,8 +1543,8 @@ function startMatch(opts) {
   if (fr) { TEAMS[0] = Object.assign({}, GKS[0], fr.a); TEAMS[1] = Object.assign({}, GKS[1], fr.b); } else if (cur) { TEAMS[0] = Object.assign({}, GKS[0], KITS[cur.mine]); TEAMS[1] = Object.assign({}, GKS[1], KITS[cur.opp]); } else applyKits();
   loadVoor(); prepMatch(); state = 'voor';
 }
-function prepMatch() { setForm(); applyKitChoice(); mk(); applyLineups(); applyRates(); subs = 0; sbench = null; selF = selB = vSelF = vSelB = -1; score = [0, 0]; timeLeft = MATCH; }
-function beginMatch() { reset(0); state = 'play'; whistle(0.6); }
+function prepMatch() { simSeed(matchSeed); setForm(); applyKitChoice(); mk(); applyLineups(); applyRates(); subs = 0; sbench = null; selF = selB = vSelF = vSelB = -1; score = [0, 0]; timeLeft = MATCH; }
+function beginMatch() { simSeed(matchSeed ^ 0x9E3779B9); simAcc = 0; reset(0); state = 'play'; whistle(0.6); }
 let hubSel = 0;
 const TILES = [
   { k: 'spelen', t: 'SPELEN', s: () => 'MATCH EN TOERNOOI', c: '#2f6bff' },
@@ -1789,8 +1882,8 @@ const rf = p => Math.max(0.88, Math.min(1.14, 0.9 + ((p.rate || 60) - 60) * 0.00
 
 // referee
 function foulCheck(tackler, victim) {
-  const pr = FOULP[strictIdx]; if (Math.random() >= pr) return false;
-  if (Math.random() < 0.7) ban = { t: 1.8, text: 'OVERTREDING', sub: (tackler.name || '') + ' - VRIJE TRAP', col: '#ffffff' };
+  const pr = FOULP[strictIdx]; if (srnd() >= pr) return false;
+  if (srnd() < 0.7) ban = { t: 1.8, text: 'OVERTREDING', sub: (tackler.name || '') + ' - VRIJE TRAP', col: '#ffffff' };
   else {
     const k = tackler.t + '_' + tackler.i; yel[k] = (yel[k] || 0) + 1;
     const card = yel[k] >= 2 ? 'ROOD' : 'GEEL'; if (card === 'ROOD') yel[k] = 0;
@@ -2359,7 +2452,8 @@ function drawSettings() {
     ['WAPENSTIJL', () => crestMode ? 'ROND' : 'SCHILD', () => { crestMode ^= 1; }, 1],
     ['GELUID', () => muted ? 'UIT' : 'AAN', () => act('snd'), 1],
     ['COMPETITIE', () => COMPS[compIdx].name, () => { if (S.season && !S.season.done) { ban = null; return; } let n = compIdx; do { n = (n + 1) % COMPS.length; } while (COMPS[n].teams.length !== 8); applyComp(n); }, 1],
-    ['TEAM (kick-off)', () => KITS[kitSel].name, () => { kitSel = (kitSel + 1) % KITS.length; applyKits(); }, 1]
+    ['TEAM (kick-off)', () => KITS[kitSel].name, () => { kitSel = (kitSel + 1) % KITS.length; applyKits(); }, 1],
+    ['MEETSCHERM', () => DBG ? 'AAN' : 'UIT', () => { DBG = !DBG; try { localStorage.setItem('eawg-debug', DBG ? '1' : '0'); } catch (e) {} }, 1]
   ].filter(r => r[3] === (tab || 0));
   rows.forEach((r, i) => {
     const y = 112 + i * 64; cx.fillStyle = 'rgba(255,255,255,.07)'; rr(X0 + 40, y, 720, 56, 10); cx.fill();
@@ -2506,19 +2600,44 @@ function applyComp(i) {
   applyKits();
 }
 const insBtn = document.getElementById('install');
+// kwaliteit: bij te trage beelden een stap lager (eerst scherpte, dan effecten); na 20 s vlot (boven 55 beelden per seconde) een stap terug omhoog.
+// krakQ is alleen het startniveau voor de volgende keer; een stap omhoog wordt ook bewaard. Wie na een stap omhoog snel weer zakt, wacht de volgende keer langer (max 160 s).
+let qUpT = 0, qUpWait = 20, qLastUp = -1e9;
+function saveQ() { try { localStorage.setItem('krakQ', JSON.stringify({ q: Q, d: dprCap, w: qUpWait })); } catch (e) {} }
 function degrade() {
   if (dprCap > 1 && (window.devicePixelRatio || 1) > 1) { dprCap = Math.max(1, dprCap - 0.5); resize(); }
   else if (Q < 2) { Q++; TXL = [2, 1.3, 1][Q]; resize(); buildGrass(); }
   else return;
-  try { localStorage.setItem('krakQ', JSON.stringify({ q: Q, d: dprCap })); } catch (e) {}
+  if (tNow - qLastUp < 15) qUpWait = Math.min(160, qUpWait * 2);
+  qUpT = 0; saveQ();
 }
-try { const o = JSON.parse(localStorage.getItem('krakQ')); if (o && o.q >= 0 && o.q <= 2) { Q = o.q; TXL = [2, 1.3, 1][Q]; dprCap = Math.max(1, Math.min(2, o.d || 2)); } } catch (e) {}
-let last = performance.now();
+function upgrade() {
+  if (Q > 0) { Q--; TXL = [2, 1.3, 1][Q]; resize(); buildGrass(); }
+  else if (dprCap < 2 && (window.devicePixelRatio || 1) > dprCap) { dprCap = Math.min(2, dprCap + 0.5); resize(); }
+  else return;
+  qLastUp = tNow; qUpT = 0; qN = 0; qT = 0; saveQ();
+}
+try { const o = JSON.parse(localStorage.getItem('krakQ')); if (o && o.q >= 0 && o.q <= 2) { Q = o.q; TXL = [2, 1.3, 1][Q]; dprCap = Math.max(1, Math.min(2, o.d || 2)); if (o.w >= 20 && o.w <= 160) qUpWait = o.w; } } catch (e) {}
+let last = performance.now(), nextT = 0, simAcc = 0;
+const STEP = 1 / 60, FRAME = 1000 / 60;
 function loop(now) {
+  // hoogstens 60 beelden per seconde: op 90 en 120 Hz schermen wordt een deel van de beelden overgeslagen
+  if (now < nextT - 1.5) { requestAnimationFrame(loop); return; }
+  nextT = Math.max(nextT + FRAME, now - FRAME);
+  const w0 = DBG ? performance.now() : 0;
+  if (DBG) { dbgFc++; if (now - dbgF0 >= 1000) { dbgFps = dbgFc * 1000 / (now - dbgF0); dbgFc = 0; dbgF0 = now; } }
   const raw = (now - last) / 1000;
-  const dt = Math.min(0.066, (now - last) / 1000); last = now; tNow += dt;
-  if (state === 'play' && raw < 1) { qT += raw; if (++qN >= 40) { if (qT / qN > 1 / 30) degrade(); qN = 0; qT = 0; } }
-  update(state === 'play' ? dt * SPDS[spdIdx] : dt);
+  const dt = Math.min(0.066, raw); last = now; tNow += dt;
+  if (state === 'play' && raw < 1) {
+    qT += raw; if (++qN >= 40) { const avg = qT / qN; if (avg > 1 / 30) degrade(); else if (avg < 1 / 55) { qUpT += qT; if (qUpT >= qUpWait) upgrade(); } else qUpT = 0; qN = 0; qT = 0; }
+  }
+  // vaste tijdstap van 1/60 s met opsparing: het spel loopt even snel op elke gsm. Hoogstens 5 stappen per beeld, de rest vervalt.
+  { const t0 = DBG ? performance.now() : 0;
+    let d = Math.min(0.25, raw); if (Math.abs(d - STEP) < 0.002) d = STEP; // kleine schommelingen van een 60 Hz-scherm gelijktrekken
+    simAcc += d * (state === 'play' ? SPDS[spdIdx] : 1);
+    let n = 0; while (simAcc >= STEP - 1e-9 && n < 5) { update(STEP); simAcc -= STEP; n++; }
+    if (simAcc >= STEP) simAcc = 0;
+    if (DBG) DT.upd = performance.now() - t0; }
   if (court && !(state === 'play' || state === 'goal' || state === 'pause' || state === 'end' || state === 'voor')) setCourt(null);
   if (court) { zoom = Math.min(2.6, SW / ((W + 150) * (SF + SN) / 2)); camX = W / 2; } else {
   const vis = SW / 2 / (zoom * (SF + SN) / 2);
@@ -2528,11 +2647,28 @@ function loop(now) {
   if (state === 'play' && document.body.classList.contains('portrait')) state = 'pause';
   { const lb = (ctrl && ball && ball.owner !== ctrl) ? 'TAKEL' : 'PASS'; if (lb !== pLab) { pLab = lb; bP.textContent = lb; } }
   { const ch = charging ? Math.min(1, charge / 0.7) : 0, v = Math.round(ch * 10); if (v !== bsV) { bsV = v; bS.style.boxShadow = v ? '0 0 0 ' + (3 + v) + 'px rgba(255,212,0,' + (0.5 + ch * 0.5) + ')' : ''; } }
-  draw(); requestAnimationFrame(loop);
+  if (updBar) updBar.classList.toggle('hide', sh);
+  draw();
+  if (DBG) { dbgW[dbgWi] = performance.now() - w0; dbgWi = (dbgWi + 1) % 60; }
+  requestAnimationFrame(loop);
 }
 loadSet(); loadS(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(localStorage.getItem('krakRoster2'))); } catch (e) {} try { if (typeof EMB === 'object' && EMB) applyRoster(EMB); } catch (e) {} if (!COMPS) { COMPS = [{ name: 'WEST-VLAANDEREN A', teams: KITS.slice() }]; } applyComp(compIdx); applyKits(); cx.imageSmoothingQuality = 'high'; resize(); makeShadow(); mk();
 setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop);
   { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); if (/go/.test(location.hash)) beginMatch(); }, 400); else if (/goto=/.test(location.hash || '')) setTimeout(() => { const g = /goto=(\w+)/.exec(location.hash); if (g && SCREENS[g[1]]) goTo(g[1]); }, 400); else if (/straatveld/.test(location.hash || '')) setTimeout(() => { goTo('straat'); stStep = 1; }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => { goTo('straat'); const ma = /a=([^&]+)/.exec(location.hash); if (ma) { const P = pool(), i = P.findIndex(t => t.kit.name === decodeURIComponent(ma[1])); if (i >= 0) pickA = i; } }, 400); else if (/voorveld/.test(location.hash || '')) setTimeout(() => startMatch(), 400); } }, 60);
 authInit();
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+// service worker + melding "Nieuwe versie beschikbaar" als er een nieuwe klaarstaat
+let updBar = null;
+function showUpdate(sw) {
+  if (updBar) return;
+  updBar = document.createElement('button'); updBar.type = 'button'; updBar.textContent = 'Nieuwe versie beschikbaar, tik om te vernieuwen';
+  updBar.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);top:max(8px,env(safe-area-inset-top));z-index:40;padding:9px 14px;border-radius:12px;border:2px solid #ffd400;background:rgba(8,16,50,.92);color:#fff;font:700 14px system-ui,sans-serif';
+  updBar.onclick = () => { updBar.textContent = 'Even geduld...'; let done = false; const go = () => { if (!done) { done = true; location.reload(); } };
+    navigator.serviceWorker.addEventListener('controllerchange', go); try { sw.postMessage('skip'); } catch (e) {} setTimeout(go, 2500); };
+  document.body.appendChild(updBar);
+}
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').then(reg => {
+  const watch = w => { if (!w) return; w.addEventListener('statechange', () => { if (w.state === 'installed' && navigator.serviceWorker.controller) showUpdate(w); }); };
+  if (reg.waiting && navigator.serviceWorker.controller) showUpdate(reg.waiting);
+  watch(reg.installing); reg.addEventListener('updatefound', () => watch(reg.installing));
+}).catch(() => {});
 })();

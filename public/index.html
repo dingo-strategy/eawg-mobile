@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8">
@@ -37,7 +37,7 @@
 <div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm". <b id="iosx" style="float:right;padding-left:12px">X</b></div>
 <div id="rot" style="display:none;position:fixed;inset:0;z-index:30;background:#06130a;color:#fff;font:800 22px system-ui,sans-serif;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:24px"><div style="font-size:64px">&#8635;</div><div>Draai je gsm naar liggend</div><div style="font-size:15px;font-weight:600;opacity:.7">EAWG Mobile speel je horizontaal</div></div>
 <script>(function(){var r=document.getElementById("rot");function f(){var p=innerHeight>innerWidth*1.1&&matchMedia("(pointer:coarse)").matches;r.style.display=p?"flex":"none";document.body.classList.toggle("portrait",p)}addEventListener("resize",f);addEventListener("orientationchange",f);f()})()</script>
-<script src="game.js?v=40"></script>
+<script src="game.js?v=41"></script>
 <script>
 // Eerste tik op een gsm: volledig scherm en liggend vastzetten (Android; iPhone negeert het)
 (function () {
@@ -46,8 +46,10 @@
     removeEventListener('pointerdown', vol, true);
     var el = document.documentElement, rf = el.requestFullscreen || el.webkitRequestFullscreen;
     if (!rf || document.fullscreenElement) return;
-    Promise.resolve(rf.call(el, { navigationUI: 'hide' })).then(function () {
-      if (screen.orientation && screen.orientation.lock) return screen.orientation.lock('landscape');
+    // iPhone Safari kent dit voor een pagina niet: een synchrone fout mag niet in de console belanden
+    var p; try { p = rf.call(el, { navigationUI: 'hide' }); } catch (e) { return; }
+    Promise.resolve(p).then(function () {
+      try { if (screen.orientation && screen.orientation.lock) return screen.orientation.lock('landscape'); } catch (e) {}
     }).catch(function () {});
   }
   addEventListener('pointerdown', vol, true);
