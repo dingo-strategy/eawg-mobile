@@ -589,34 +589,39 @@ async function joinRoom(request, env, url, rawCode) {
 }
 
 // ---------- leerapp koppeling (POST /api/leer/uitgeven) ----------
-// De leerapp vraagt hier een muntcode aan zodra een kind 3, 6, 9... dagen achter elkaar geoefend heeft.
-// Body: { leerId: "<vaste naam of id van de leerling in de leerapp>", streak: 3 }. Antwoord: { code, amount }.
-// Per (leerId, streak) bestaat maar een code (tabel leerissued). De code wissel je in via CODE INWISSELEN in de game
-// of via de link https://eawg-mobile.jordyseyssens.workers.dev/#munten=<code>. Open voor elke herkomst (CORS), daarom
-// begrensd: 10 nieuwe codes per IP per uur, streak 3 tot 60 in stappen van 3, max 500 munten.
+// De leerapp vraagt hier een muntcode aan zodra een leerling die dag minstens 2 lessen heeft gemaakt.
+// Body: { leerId: "<vaste naam of id van de leerling>", lessons: <aantal lessen vandaag>, day: "JJJJMMDD" (optioneel) }.
+// Antwoord: { code, amount }. Per (leerId, dag) bestaat maar een code (tabel leerissued, kolom streak bevat het datumgetal).
+// Meer dan 2 lessen geeft geen extra munten. De code wissel je in via CODE INWISSELEN in de game
+// of via https://eawg-mobile.jordyseyssens.workers.dev/#munten=<code>. Open voor elke herkomst (CORS), daarom
+// begrensd: 10 nieuwe codes per IP per uur, dag hoogstens 1 dag van de serverdatum (UTC), 50 munten per dag.
 const LEER_IP_PER_UUR = 10;
+const LEER_LESSEN = 2;
+const LEER_MUNTEN = 75;
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400" };
 async function leerUitgeven(request, env) {
   if (!env.REDEEM_SECRET) throw new HttpError(503, "Codes staan nog niet aan.");
   const ip = clientIp(request), now = Date.now();
   const body = await readJson(request, MAX_BODY);
-  const leerId = str(body.leerId), streak = Number(body.streak);
+  const leerId = str(body.leerId), lessons = Number(body.lessons);
   if (leerId === null || leerId.length < 3 || leerId.length > 64 || !/^[\w .@+-]+$/.test(leerId)) throw new HttpError(400, "leerId ontbreekt of klopt niet.");
-  if (!Number.isInteger(streak) || streak < 3 || streak > 60 || streak % 3 !== 0) throw new HttpError(400, "Een code krijg je bij 3, 6, 9 ... dagen achter elkaar (hoogstens 60).");
-  const id = leerId.toLowerCase();
-  const old = await env.DB.prepare("SELECT code FROM leerissued WHERE leer_id = ? AND streak = ?").bind(id, streak).first();
-  const amount = Math.min(REDEEM_MAX, 50 * streak);
-  if (old) return json(200, { code: old.code, amount, again: true }, CORS);
+  if (!Number.isInteger(lessons) || lessons < LEER_LESSEN) throw new HttpError(400, `Je krijgt munten na ${LEER_LESSEN} lessen op een dag.`);
+  const ymd = t => { const d = new Date(t); return `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, "0")}${String(d.getUTCDate()).padStart(2, "0")}`; };
+  const dayS = body.day === undefined || body.day === null ? ymd(now) : String(body.day);
+  const dayT = /^\d{8}$/.test(dayS) ? parseDay(dayS) : NaN;
+  if (!isFinite(dayT) || Math.abs(dayT - parseDay(ymd(now))) > 24 * 60 * MIN) throw new HttpError(400, "De dag klopt niet (hoogstens 1 dag van vandaag).");
+  const id = leerId.toLowerCase(), dayN = Number(dayS);
+  const old = await env.DB.prepare("SELECT code FROM leerissued WHERE leer_id = ? AND streak = ?").bind(id, dayN).first();
+  if (old) return json(200, { code: old.code, amount: LEER_MUNTEN, again: true }, CORS);
   const lim = await env.DB.prepare("SELECT COUNT(*) AS n, MIN(ts) AS first FROM attempts WHERE kind = 'leer' AND ip = ? AND ts > ?").bind(ip, now - 60 * MIN).first();
   if (lim.n >= LEER_IP_PER_UUR) throw tooMany(lim.first + 60 * MIN - now);
   await recordFail(env, "leer", ip, "leer");
-  const d = new Date(now), day = `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, "0")}${String(d.getUTCDate()).padStart(2, "0")}`;
-  const nonce = (await redeemSig(env.REDEEM_SECRET, `leer|${id}|${streak}`)).slice(0, 8);
-  const sig = await redeemSig(env.REDEEM_SECRET, `${amount}.${day}.${nonce}`);
-  const code = `${amount}.${day}.${nonce}.${sig}`;
-  await env.DB.prepare("INSERT OR IGNORE INTO leerissued (leer_id, streak, code, ts) VALUES (?, ?, ?, ?)").bind(id, streak, code, now).run();
-  const row = await env.DB.prepare("SELECT code FROM leerissued WHERE leer_id = ? AND streak = ?").bind(id, streak).first();
-  return json(200, { code: row.code, amount }, CORS);
+  const nonce = (await redeemSig(env.REDEEM_SECRET, `leer|${id}|${dayN}`)).slice(0, 8);
+  const sig = await redeemSig(env.REDEEM_SECRET, `${LEER_MUNTEN}.${ymd(now)}.${nonce}`);
+  const code = `${LEER_MUNTEN}.${ymd(now)}.${nonce}.${sig}`;
+  await env.DB.prepare("INSERT OR IGNORE INTO leerissued (leer_id, streak, code, ts) VALUES (?, ?, ?, ?)").bind(id, dayN, code, now).run();
+  const row = await env.DB.prepare("SELECT code FROM leerissued WHERE leer_id = ? AND streak = ?").bind(id, dayN).first();
+  return json(200, { code: row.code, amount: LEER_MUNTEN }, CORS);
 }
 
 const ROUTES = {

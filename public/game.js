@@ -1920,7 +1920,7 @@ function afterMatch() {
   const wb = court && court.bonus ? Math.round(coin * court.bonus) : 0; coin += wb;
   objs(); const o = S.obj; o.play++; if (win) o.win++; o.goals += score[0]; if (score[1] === 0) o.clean++;
   S.coins += coin; ln.push('+' + coin + ' munten' + (wb ? ' (wereldbonus +' + wb + ')' : ''));
-  if (econDay()) ln.push('Dagreeks: dag ' + S.streak.n + '. Haal je beloning in het menu.');
+  econDay();
   if (cur) for (const l of finishComp(score[0], score[1])) ln.push(l);
   if (fr && fr.tour && TT) for (const l of finishTour(score[0], score[1])) ln.push(l);
   { const pk = win ? 1 : dr ? 0.5 : 0; if (pk) { albAdd(pk); ln.push('+' + pk + ' pack (album)'); } }
@@ -1964,22 +1964,22 @@ const STARS = [
 // Werelden: datagedreven varianten van de straatvelden (COURTS). base = welk veld als basis dient, o = wat anders is.
 const WL = (fx, col, a, extra) => fx.map((f, i) => Object.assign({ fx: f, y: 24, r: 58, col, a, cone: true, spread: 100 }, extra ? extra(i) : {}));
 const WORLDS = [
-  { id: 'rio', base: 'beton', name: 'RIO FAVELA', sub: 'HUISJES IN KLEUR OP DE HELLING', price: 300, o: { floor: '#7a5a44', floor2: '#71533f', sky: ['#ff9a5a', '#ffe0a8'], crowd: 'world', bgk: 'favela', grade: 'rgba(255,170,90,.08)', lamps: WL([0.2, 0.5, 0.8], '255,214,150', 0.45) } },
-  { id: 'tokio', base: 'neon', name: 'TOKIO NEON', sub: 'ROZE EN CYAAN BIJ NACHT', price: 400, o: { floor: '#24103a', floor2: '#1e0d32', line: 'rgba(255,225,250,.95)', sky: ['#05010f', '#2a0838'], crowd: 'world', bgk: 'tokio', indoor: false, wc: ['#ff2fa0', '#3a0630', '#4a0838'], grade: 'rgba(255,40,180,.08)', lamps: [0, 1, 2, 3, 4, 5].map(i => ({ fx: (i + 0.5) / 6, y: 18, r: 50, col: i & 1 ? '60,230,255' : '255,47,160', a: 0.6, cone: true, spread: 70, flick: i === 2 ? 2.6 : 0 })) } },
-  { id: 'wembley', base: 'neon', name: 'WEMBLEY AVOND', sub: 'VOLLE TRIBUNES ONDER DE LAMPEN', price: 450, o: { floor: '#2f7d3a', floor2: '#2a7334', line: 'rgba(255,255,255,.95)', sky: ['#0a1030', '#24305a'], crowd: 'fans', pal: ['#ffffff', '#d8102e', '#1b2a6b', '#f4f4f4', '#c8102e', '#e8e8ea', '#22336b'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#d8102e', '#5a0612', '#7a0a1a'], tile: 100, grade: 'rgba(200,220,255,.05)', lamps: WL([0.1, 0.37, 0.63, 0.9], '235,245,255', 0.85, () => ({ y: 14, r: 64, spread: 120 })) } },
-  { id: 'campnou', base: 'neon', name: 'CAMP NOU NACHT', sub: 'BLAUW EN ROOD TOT AAN HET DAK', price: 450, o: { floor: '#2c7a38', floor2: '#286f33', line: 'rgba(255,255,255,.95)', sky: ['#020414', '#101a3c'], crowd: 'fans', pal: ['#a50044', '#004d98', '#edbb00', '#a50044', '#004d98', '#ffffff', '#7a0033'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#004d98', '#001a40', '#00285a'], tile: 100, grade: 'rgba(160,0,80,.05)', lamps: WL([0.1, 0.37, 0.63, 0.9], '235,245,255', 0.85, () => ({ y: 14, r: 64, spread: 120 })) } },
-  { id: 'maracana', base: 'neon', name: 'MARACANA', sub: 'GEEL EN GROEN IN DE ZON', price: 450, o: { floor: '#3a8f3c', floor2: '#358437', line: 'rgba(255,255,255,.97)', sky: ['#3f7fd0', '#a8d8f0'], crowd: 'fans', pal: ['#fdda24', '#1f9d55', '#1b5fbf', '#fdda24', '#ffffff', '#1f9d55', '#fdda24'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#fdda24', '#5a4a00', '#1f7a3a'], tile: 100, grade: 'rgba(255,230,120,.06)', lamps: [] } },
-  { id: 'venetie', base: 'dak', name: 'VENETIE KANAAL', sub: 'GONDELS EN OUDE GEVELS', price: 350, o: { floor: '#b9a68a', floor2: '#b09d80', line: 'rgba(255,255,255,.92)', sky: ['#3a2a5a', '#f2a07a'], crowd: 'world', bgk: 'canal', wc: ['#d8c8a8', '#c8b898'], puddle: '#6a8a9a', grade: 'rgba(255,170,120,.06)' } },
-  { id: 'dubai', base: 'dak', name: 'DUBAI DAK', sub: 'TORENS BIJ ZONSONDERGANG', price: 500, o: { floor: '#d6c7a8', floor2: '#cdbd9c', line: 'rgba(120,80,40,.85)', sky: ['#1a1040', '#ff8a3d'], crowd: 'world', bgk: 'dubai', wc: ['#e8dcc4', '#d8ccb4'], puddle: false, grade: 'rgba(255,150,60,.07)', lamps: WL([0.12, 0.37, 0.63, 0.88], '255,214,140', 0.7, () => ({ y: 26, r: 60 })) } },
-  { id: 'ijs', base: 'dak', name: 'ANTARCTICA IJS', sub: 'SNEEUW, IJS EN NOORDERLICHT', price: 450, o: { floor: '#dfeaf2', floor2: '#d3e2ec', line: 'rgba(30,80,160,.85)', sky: ['#0b1f44', '#7fb8e0'], crowd: 'world', bgk: 'ice', wc: ['#cfe6f5', '#a8c8dc'], puddle: '#a8cce4', speck: ['rgba(255,255,255,.5)', 'rgba(120,160,200,.18)'], weather: 'snow', grade: 'rgba(160,200,255,.06)', lamps: [] } },
-  { id: 'mexico', base: 'beton', name: 'MEXICO KLEUR', sub: 'FELLE MUREN EN VLAGGETJES', price: 300, o: { floor: '#c86a3a', floor2: '#bd6234', line: 'rgba(255,248,230,.92)', sky: ['#1e88d6', '#9fe0ff'], crowd: 'world', bgk: 'mexico', puddle: false, grade: 'rgba(255,190,90,.06)', lamps: [] } },
-  { id: 'medina', base: 'dak', name: 'MAROKKO MEDINA', sub: 'BOGEN, LANTAARNS EN ZANDSTEEN', price: 350, o: { floor: '#c99a62', floor2: '#bf9058', line: 'rgba(255,250,235,.92)', sky: ['#2a1a4a', '#f0a050'], crowd: 'world', bgk: 'medina', wc: ['#c87a4a', '#b86a3a'], puddle: false, grade: 'rgba(255,150,60,.07)', lamps: WL([0.15, 0.38, 0.62, 0.85], '255,170,70', 0.7, i => ({ y: 30, r: 44, flick: i === 1 ? 2.4 : 0 })) } },
-  { id: 'newyork', base: 'kooi', name: 'NEW YORK COURT', sub: 'BAKSTEEN, BRANDTRAPPEN EN HEKKEN', price: 400, o: { floor: '#2a5d9a', floor2: '#265690', line: 'rgba(255,255,255,.95)', sky: ['#0b1020', '#3a3050'], crowd: 'world', bgk: 'nyc', bare: false, puddle: '#3a5a8a', grade: 'rgba(255,190,120,.05)' } },
-  { id: 'londen', base: 'kooi', name: 'LONDEN REGEN', sub: 'GRIJZE LUCHT EN NATTE TEGELS', price: 350, o: { floor: '#3c5a46', floor2: '#365240', sky: ['#2a2f38', '#5a606a'], crowd: 'world', bgk: 'londen', weather: 'rain', puddle: '#5a6a7a', grade: 'rgba(120,140,170,.08)' } },
-  { id: 'berlijn', base: 'tunnel', name: 'BERLIJN BETON', sub: 'GRIJZE BLOKKEN EN DE TV-TOREN', price: 300, o: { floor: '#6a6a6a', floor2: '#636363', sky: ['#101014', '#3a3a44'], crowd: 'world', bgk: 'berlijn', grade: 'rgba(120,150,200,.07)', lamps: [0, 1, 2, 3, 4].map(i => ({ fx: (i + 0.5) / 5, y: 16, r: 46, col: '200,225,255', a: 0.6, flick: i === 3 ? 2.8 : 0, cone: i % 2 === 0, spread: 60 })) } },
-  { id: 'savanne', base: 'strand', name: 'SAVANNE', sub: 'ACACIA EN EEN RODE ZON', price: 350, o: { floor: '#c8a04a', floor2: '#be9642', sky: ['#ff7a2a', '#ffd27a'], crowd: 'world', bgk: 'savanne', grade: 'rgba(255,140,40,.08)' } },
-  { id: 'kasteel', base: 'beton', name: 'KASTEEL', sub: 'DONKERE MUREN EN FAKKELS', price: 500, o: { floor: '#3a3a40', floor2: '#34343a', line: 'rgba(230,210,170,.8)', sky: ['#05040a', '#1a1424'], crowd: 'world', bgk: 'kasteel', wall: 'parapet', wc: ['#3a3640', '#2e2a34'], puddle: '#2a2a3a', grade: 'rgba(255,120,40,.08)', lamps: WL([0.1, 0.3, 0.5, 0.7, 0.9], '255,140,50', 0.75, i => ({ y: 40, r: 40, cone: false, flick: 1.6 + i * 0.7 })) } },
-  { id: 'ruimte', base: 'flagship', name: 'RUIMTESTATION', sub: 'STERREN, EEN PLANEET EN METAAL', price: 600, o: { floor: '#1a1d2a', floor2: '#161926', line: 'rgba(120,230,255,.95)', sky: ['#000005', '#05051a'], crowd: 'world', bgk: 'ruimte', indoor: false, logo: null, glow: true, grade: 'rgba(60,200,255,.06)', lamps: [0, 1, 2, 3, 4].map(i => ({ fx: (i + 0.5) / 5, y: 16, r: 44, col: '90,230,255', a: 0.6, cone: true, spread: 70 })) } }
+  { id: 'rio', base: 'beton', name: 'RIO FAVELA', sub: 'HUISJES IN KLEUR OP DE HELLING', price: 1000, o: { floor: '#7a5a44', floor2: '#71533f', sky: ['#ff9a5a', '#ffe0a8'], crowd: 'world', bgk: 'favela', grade: 'rgba(255,170,90,.08)', lamps: WL([0.2, 0.5, 0.8], '255,214,150', 0.45) } },
+  { id: 'tokio', base: 'neon', name: 'TOKIO NEON', sub: 'ROZE EN CYAAN BIJ NACHT', price: 1000, o: { floor: '#24103a', floor2: '#1e0d32', line: 'rgba(255,225,250,.95)', sky: ['#05010f', '#2a0838'], crowd: 'world', bgk: 'tokio', indoor: false, wc: ['#ff2fa0', '#3a0630', '#4a0838'], grade: 'rgba(255,40,180,.08)', lamps: [0, 1, 2, 3, 4, 5].map(i => ({ fx: (i + 0.5) / 6, y: 18, r: 50, col: i & 1 ? '60,230,255' : '255,47,160', a: 0.6, cone: true, spread: 70, flick: i === 2 ? 2.6 : 0 })) } },
+  { id: 'wembley', base: 'neon', name: 'WEMBLEY AVOND', sub: 'VOLLE TRIBUNES ONDER DE LAMPEN', price: 1000, o: { floor: '#2f7d3a', floor2: '#2a7334', line: 'rgba(255,255,255,.95)', sky: ['#0a1030', '#24305a'], crowd: 'fans', pal: ['#ffffff', '#d8102e', '#1b2a6b', '#f4f4f4', '#c8102e', '#e8e8ea', '#22336b'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#d8102e', '#5a0612', '#7a0a1a'], tile: 100, grade: 'rgba(200,220,255,.05)', lamps: WL([0.1, 0.37, 0.63, 0.9], '235,245,255', 0.85, () => ({ y: 14, r: 64, spread: 120 })) } },
+  { id: 'campnou', base: 'neon', name: 'CAMP NOU NACHT', sub: 'BLAUW EN ROOD TOT AAN HET DAK', price: 1000, o: { floor: '#2c7a38', floor2: '#286f33', line: 'rgba(255,255,255,.95)', sky: ['#020414', '#101a3c'], crowd: 'fans', pal: ['#a50044', '#004d98', '#edbb00', '#a50044', '#004d98', '#ffffff', '#7a0033'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#004d98', '#001a40', '#00285a'], tile: 100, grade: 'rgba(160,0,80,.05)', lamps: WL([0.1, 0.37, 0.63, 0.9], '235,245,255', 0.85, () => ({ y: 14, r: 64, spread: 120 })) } },
+  { id: 'maracana', base: 'neon', name: 'MARACANA', sub: 'GEEL EN GROEN IN DE ZON', price: 1000, o: { floor: '#3a8f3c', floor2: '#358437', line: 'rgba(255,255,255,.97)', sky: ['#3f7fd0', '#a8d8f0'], crowd: 'fans', pal: ['#fdda24', '#1f9d55', '#1b5fbf', '#fdda24', '#ffffff', '#1f9d55', '#fdda24'], indoor: false, glow: false, streaks: false, wall: 'boards', wc: ['#fdda24', '#5a4a00', '#1f7a3a'], tile: 100, grade: 'rgba(255,230,120,.06)', lamps: [] } },
+  { id: 'venetie', base: 'dak', name: 'VENETIE KANAAL', sub: 'GONDELS EN OUDE GEVELS', price: 1000, o: { floor: '#b9a68a', floor2: '#b09d80', line: 'rgba(255,255,255,.92)', sky: ['#3a2a5a', '#f2a07a'], crowd: 'world', bgk: 'canal', wc: ['#d8c8a8', '#c8b898'], puddle: '#6a8a9a', grade: 'rgba(255,170,120,.06)' } },
+  { id: 'dubai', base: 'dak', name: 'DUBAI DAK', sub: 'TORENS BIJ ZONSONDERGANG', price: 1000, o: { floor: '#d6c7a8', floor2: '#cdbd9c', line: 'rgba(120,80,40,.85)', sky: ['#1a1040', '#ff8a3d'], crowd: 'world', bgk: 'dubai', wc: ['#e8dcc4', '#d8ccb4'], puddle: false, grade: 'rgba(255,150,60,.07)', lamps: WL([0.12, 0.37, 0.63, 0.88], '255,214,140', 0.7, () => ({ y: 26, r: 60 })) } },
+  { id: 'ijs', base: 'dak', name: 'ANTARCTICA IJS', sub: 'SNEEUW, IJS EN NOORDERLICHT', price: 1000, o: { floor: '#dfeaf2', floor2: '#d3e2ec', line: 'rgba(30,80,160,.85)', sky: ['#0b1f44', '#7fb8e0'], crowd: 'world', bgk: 'ice', wc: ['#cfe6f5', '#a8c8dc'], puddle: '#a8cce4', speck: ['rgba(255,255,255,.5)', 'rgba(120,160,200,.18)'], weather: 'snow', grade: 'rgba(160,200,255,.06)', lamps: [] } },
+  { id: 'mexico', base: 'beton', name: 'MEXICO KLEUR', sub: 'FELLE MUREN EN VLAGGETJES', price: 1000, o: { floor: '#c86a3a', floor2: '#bd6234', line: 'rgba(255,248,230,.92)', sky: ['#1e88d6', '#9fe0ff'], crowd: 'world', bgk: 'mexico', puddle: false, grade: 'rgba(255,190,90,.06)', lamps: [] } },
+  { id: 'medina', base: 'dak', name: 'MAROKKO MEDINA', sub: 'BOGEN, LANTAARNS EN ZANDSTEEN', price: 1000, o: { floor: '#c99a62', floor2: '#bf9058', line: 'rgba(255,250,235,.92)', sky: ['#2a1a4a', '#f0a050'], crowd: 'world', bgk: 'medina', wc: ['#c87a4a', '#b86a3a'], puddle: false, grade: 'rgba(255,150,60,.07)', lamps: WL([0.15, 0.38, 0.62, 0.85], '255,170,70', 0.7, i => ({ y: 30, r: 44, flick: i === 1 ? 2.4 : 0 })) } },
+  { id: 'newyork', base: 'kooi', name: 'NEW YORK COURT', sub: 'BAKSTEEN, BRANDTRAPPEN EN HEKKEN', price: 1000, o: { floor: '#2a5d9a', floor2: '#265690', line: 'rgba(255,255,255,.95)', sky: ['#0b1020', '#3a3050'], crowd: 'world', bgk: 'nyc', bare: false, puddle: '#3a5a8a', grade: 'rgba(255,190,120,.05)' } },
+  { id: 'londen', base: 'kooi', name: 'LONDEN REGEN', sub: 'GRIJZE LUCHT EN NATTE TEGELS', price: 1000, o: { floor: '#3c5a46', floor2: '#365240', sky: ['#2a2f38', '#5a606a'], crowd: 'world', bgk: 'londen', weather: 'rain', puddle: '#5a6a7a', grade: 'rgba(120,140,170,.08)' } },
+  { id: 'berlijn', base: 'tunnel', name: 'BERLIJN BETON', sub: 'GRIJZE BLOKKEN EN DE TV-TOREN', price: 1000, o: { floor: '#6a6a6a', floor2: '#636363', sky: ['#101014', '#3a3a44'], crowd: 'world', bgk: 'berlijn', grade: 'rgba(120,150,200,.07)', lamps: [0, 1, 2, 3, 4].map(i => ({ fx: (i + 0.5) / 5, y: 16, r: 46, col: '200,225,255', a: 0.6, flick: i === 3 ? 2.8 : 0, cone: i % 2 === 0, spread: 60 })) } },
+  { id: 'savanne', base: 'strand', name: 'SAVANNE', sub: 'ACACIA EN EEN RODE ZON', price: 1000, o: { floor: '#c8a04a', floor2: '#be9642', sky: ['#ff7a2a', '#ffd27a'], crowd: 'world', bgk: 'savanne', grade: 'rgba(255,140,40,.08)' } },
+  { id: 'kasteel', base: 'beton', name: 'KASTEEL', sub: 'DONKERE MUREN EN FAKKELS', price: 1000, o: { floor: '#3a3a40', floor2: '#34343a', line: 'rgba(230,210,170,.8)', sky: ['#05040a', '#1a1424'], crowd: 'world', bgk: 'kasteel', wall: 'parapet', wc: ['#3a3640', '#2e2a34'], puddle: '#2a2a3a', grade: 'rgba(255,120,40,.08)', lamps: WL([0.1, 0.3, 0.5, 0.7, 0.9], '255,140,50', 0.75, i => ({ y: 40, r: 40, cone: false, flick: 1.6 + i * 0.7 })) } },
+  { id: 'ruimte', base: 'flagship', name: 'RUIMTESTATION', sub: 'STERREN, EEN PLANEET EN METAAL', price: 1000, o: { floor: '#1a1d2a', floor2: '#161926', line: 'rgba(120,230,255,.95)', sky: ['#000005', '#05051a'], crowd: 'world', bgk: 'ruimte', indoor: false, logo: null, glow: true, grade: 'rgba(60,200,255,.06)', lamps: [0, 1, 2, 3, 4].map(i => ({ fx: (i + 0.5) / 5, y: 16, r: 44, col: '90,230,255', a: 0.6, cone: true, spread: 70 })) } }
 ];
 WORLDS.forEach(wd => { COURTS[wd.id] = Object.assign({}, COURTS[wd.base], { tex: null, tags: null, logo: null, logoImg: null, logoTry: 0 }, wd.o, { name: wd.name, sub: wd.sub, world: wd.id, price: wd.price, bonus: 0.1 }); });
 const owned = id => !!COURTS[id] && (!COURTS[id].world || (S && S.worlds || []).indexOf(id) >= 0);
@@ -2034,7 +2034,7 @@ function econDay() {
   else { const gap = dayDiff(R.last, d); if (gap === 1) R.n++; else if (gap > 1) R.n = Math.max(1, R.n - (gap - 1)); }
   R.last = d; R.best = Math.max(R.best || 0, R.n); saveS(); return true;
 }
-const canClaim = () => !!S && S.streak.last === today() && S.streak.claim !== today();
+const canClaim = () => false; // dagelijkse munten komen nu uit de leerapp (code inwisselen), niet meer uit de game zelf
 function streakClaim() {
   if (!canClaim()) return false; const now = performance.now(); if (now - buyT < 400) return false; buyT = now;
   const v = streakRw(S.streak.n); S.streak.claim = today(); S.coins += v; econMsg = '+' + v + ' munten voor dag ' + S.streak.n + '!'; econMsgT = tNow; saveS(); return true;
@@ -2238,40 +2238,31 @@ function flame(x, y, s, on) {
   cx.fillStyle = g; cx.beginPath(); cx.moveTo(0, -24); cx.bezierCurveTo(14, -8, 18, 4, 14, 12); cx.quadraticCurveTo(8, 20, 0, 20); cx.quadraticCurveTo(-8, 20, -14, 12); cx.bezierCurveTo(-18, 2, -8, -6, -4, -14); cx.quadraticCurveTo(-2, -4, 2, -2); cx.quadraticCurveTo(4, -12, 0, -24); cx.fill();
   cx.fillStyle = on ? 'rgba(255,250,200,.9)' : 'rgba(255,255,255,.35)'; cx.beginPath(); cx.ellipse(0, 10, 5, 8, 0, 0, 6.2832); cx.fill(); cx.restore();
 }
-// dagreeks-tegel in het hoofdmenu
+// dagreeks-tegel in het hoofdmenu: de dagelijkse munten komen uit de leerapp
 function drawReeksBanner(x, y, w) {
-  const R = S.streak, cl = canClaim(), played = R.last === today(), h = 62;
-  cx.fillStyle = cl ? 'rgba(255,140,40,.24)' : 'rgba(255,255,255,.1)'; rr(x, y, w, h, 12); cx.fill(); cx.strokeStyle = cl ? '#ffb040' : 'rgba(255,255,255,.22)'; cx.lineWidth = cl ? 3 : 1.5; cx.stroke();
-  flame(x + 34, y + 33, 1, R.n > 0);
-  txt(R.n > 0 ? 'DAGREEKS  DAG ' + R.n : 'DAGREEKS', x + 64, y + 27, 20, '#fff', 'left', '900');
-  txt(cl ? 'Beloning klaar: +' + streakRw(R.n) + ' munten' : played ? 'Opgehaald. Morgen: +' + streakRw(R.n + 1) + ' munten' : R.n > 0 ? 'Speel vandaag om je reeks te houden' : 'Speel een wedstrijd of oefening om te starten', x + 64, y + 50, 14, '#b8c6ff', 'left', '700');
-  pill(x + w - 186, y + 11, 172, 40, cl ? 'PAK BELONING' : 'BEKIJK', () => { if (cl) streakClaim(); else goTo('reeks'); }, cl, 15);
+  const h = 62;
+  cx.fillStyle = 'rgba(255,255,255,.1)'; rr(x, y, w, h, 12); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.22)'; cx.lineWidth = 1.5; cx.stroke();
+  flame(x + 34, y + 33, 1, true);
+  txt('DAGREEKS IN DE LEERAPP', x + 64, y + 27, 20, '#fff', 'left', '900');
+  txt('Maak elke dag 2 lessen en krijg ' + LEERMUNTEN + ' munten', x + 64, y + 50, 14, '#b8c6ff', 'left', '700');
+  pill(x + w - 186, y + 11, 172, 40, 'HOE WERKT HET', () => goTo('reeks'), false, 15);
   hits.push({ x, y, w: w - 190, h, fn: () => goTo('reeks') });
   if (econMsg && tNow - econMsgT < 3) txt(econMsg, x + w / 2, y - 6, 15, '#ffd400', 'center', '900');
 }
+const LEERMUNTEN = 75;
 function drawReeks() {
-  const X0 = screenBG('DAGREEKS EN MUNTEN'), R = S.streak, cl = canClaim(), played = R.last === today(), pos = R.n > 0 ? (R.n - 1) % 7 : -1;
-  flame(X0 + 44, 92, 0.9, R.n > 0);
-  txt(R.n > 0 ? 'Je reeks: dag ' + R.n + (R.best > R.n ? '   (record ' + R.best + ')' : '') : 'Nog geen reeks. Speel een wedstrijd of oefening.', X0 + 72, 100, 18, '#fff', 'left', '900');
-  for (let i = 0; i < 7; i++) {
-    const x = X0 + 30 + i * 106, y = 118, done = i < pos || (i === pos && R.claim === R.last && played), now = i === pos, big = i === 2 || i === 6;
-    cx.fillStyle = done ? 'rgba(76,217,100,.22)' : big ? 'rgba(255,180,60,.16)' : 'rgba(255,255,255,.08)'; rr(x, y, 98, 96, 10); cx.fill();
-    cx.strokeStyle = now ? '#ffd400' : 'rgba(255,255,255,.25)'; cx.lineWidth = now ? 3.5 : 1.2; cx.stroke();
-    txt('DAG ' + (i + 1), x + 49, y + 24, 14, now ? '#ffd400' : '#b8c6ff', 'center', '900');
-    coinTxt('+' + RWD[i], x + 49, y + 60, big ? 20 : 17);
-    txt(done ? 'GEHAALD' : now ? 'VANDAAG' : '', x + 49, y + 86, 11, done ? '#9dffb0' : '#ffd400', 'center', '900');
-  }
-  pill(X0 + 230, 228, 340, 50, cl ? 'PAK BELONING  +' + streakRw(R.n) : played ? 'VANDAAG AL OPGEHAALD' : 'SPEEL EERST EEN WEDSTRIJD', cl ? () => streakClaim() : null, cl, 17);
-  txt('Elke dag met een afgewerkte wedstrijd of oefening telt. Na dag 7 begint de rij opnieuw.', X0 + 400, 300, 13, 'rgba(255,255,255,.75)', 'center', '600');
-  txt('Mis je een dag, dan zak je een dag terug, niet naar nul.', X0 + 400, 318, 13, 'rgba(255,255,255,.75)', 'center', '600');
-  cx.fillStyle = 'rgba(255,255,255,.07)'; rr(X0 + 30, 332, 740, 196, 10); cx.fill();
-  txt('ZO VERDIEN JE MUNTEN', X0 + 50, 358, 15, '#ffd400', 'left', '900');
-  const L = ['Wedstrijd: winst 100, gelijk 40, verlies 15', 'Plus 20 per doelpunt van jou', 'Kick off en straat: de helft', 'Gekochte wereld: +10 procent extra', 'Seizoen: 100 tot 500, beker tot 400',
-    'Toernooi winnen: 400 tot 900', 'Opdrachten (CLUB): tot 280 per dag', 'Dagreeks: 20 tot 300 per dag', 'Muntcode uit de leerapp: tot 500'];
-  L.forEach((s, i) => txt(s, X0 + 50 + (i < 5 ? 0 : 370), 386 + (i % 5) * 26, 14, '#fff', 'left', '700'));
-  pill(X0 + 30, 540, 300, 46, 'CODE INWISSELEN', () => redeemDialog(), false, 16);
-  pill(X0 + 470, 540, 300, 46, 'NAAR DE WINKEL', () => { goTo('club'); tab = 4; }, false, 16);
-  if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 400, 214, 15, '#ffd400', 'center', '900');
+  const X0 = screenBG('DAGREEKS EN MUNTEN');
+  flame(X0 + 44, 92, 0.9, true);
+  txt('Elke dag munten via de leerapp', X0 + 72, 100, 20, '#fff', 'left', '900');
+  cx.fillStyle = 'rgba(255,255,255,.08)'; rr(X0 + 30, 122, 740, 250, 12); cx.fill();
+  const L = [['1', 'Open de leerapp (Leer-app homepage Engels) en maak 2 lessen.'], ['2', 'Na je tweede les krijg je een muntcode of een knop.'], ['3', 'Tik op de knop of plak de code hier bij CODE INWISSELEN.'], ['4', 'Je krijgt ' + LEERMUNTEN + ' munten voor die dag.']];
+  L.forEach((r, i) => { const y = 160 + i * 52; cx.fillStyle = '#ffd400'; cx.beginPath(); cx.arc(X0 + 70, y - 6, 16, 0, 6.2832); cx.fill(); txt(r[0], X0 + 70, y, 18, '#1b1b1b', 'center', '900'); txt(r[1], X0 + 102, y, 16, '#fff', 'left', '700'); });
+  txt('Meer dan 2 lessen op een dag geeft geen extra munten.', X0 + 400, 388, 15, '#ffd400', 'center', '900');
+  txt('De volgende dag maak je weer 2 lessen en krijg je weer munten.', X0 + 400, 414, 15, 'rgba(255,255,255,.85)', 'center', '700');
+  txt('Elke dag telt apart: een gemiste dag kun je niet inhalen.', X0 + 400, 438, 14, 'rgba(255,255,255,.7)', 'center', '600');
+  pill(X0 + 230, 462, 340, 50, 'CODE INWISSELEN', () => redeemDialog(), true, 17);
+  pill(X0 + 30, 540, 300, 46, 'NAAR DE WINKEL', () => { goTo('club'); tab = 4; }, false, 16);
+  if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 400, 446, 15, '#ffd400', 'center', '900');
 }
 // CLUB, OPSTELLING: upgradescherm van 1 kaart
 let upSel = -1;
