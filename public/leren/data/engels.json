@@ -849,7 +849,7 @@
          "uitleg": "Apples zijn tellbaar: how many."
         },
         {
-         "vraag": "Kies: Do you have ___ cheese?",
+         "vraag": "Kies: Is there ___ cheese in the fridge? (je weet het niet)",
          "opties": [
           "some",
           "any",
@@ -1094,7 +1094,7 @@
          "uitleg": "Na 'does' komt de stam zonder -s."
         },
         {
-         "vraag": "Meervoud/enkelvoud: study bij she:",
+         "vraag": "Welke werkwoordsvorm hoort bij she? (study)",
          "opties": [
           "She studys",
           "She study",
@@ -1353,7 +1353,7 @@
       {
        "id": "j1-telling-time",
        "titel": "Hoe laat is het? Dagelijkse routine",
-       "uitleg": "Het uur zeg je zo: 3:00 = It's three o'clock. 3:30 = It's half past three. 3:15 = It's a quarter past three. 3:45 = It's a quarter to four. 3:10 = ten past three. 3:50 = ten to four.\n\nLet op: 'half past three' betekent 3:30, in het Nederlands zeggen we 'half vier'. Dat is dus anders!\n\nVraag: What time is it? / What time do you get up? Antwoord met 'at': I get up at seven o'clock.\n\nRoutine met present simple: I get up, I have breakfast, I go to school, I do my homework, I go to bed. Frequentiewoorden: always (altijd), usually (meestal), often (vaak), sometimes (soms), never (nooit). Ze staan voor het hoofdwerkwoord: I often play games.",
+       "uitleg": "Het uur zeg je zo: 3:00 = It's three o'clock. 3:30 = It's half past three. 3:15 = It's a quarter past three. 3:45 = It's a quarter to four. 3:10 = ten past three. 3:50 = ten to four.\n\nLet op: 'half past three' betekent 3:30, in het Nederlands zeggen we 'half vier'. Dat is dus anders!\n\nVraag: What time is it? / What time do you get up? Antwoord met 'at': I get up at seven o'clock.\n\nRoutine met present simple: I get up, I have breakfast, I go to school, I do my homework, I go to bed. Frequentiewoorden: always (altijd), usually (meestal), often (vaak), sometimes (soms), never (nooit). Ze staan voor het hoofdwerkwoord (bij to be staan ze erachter: She is always late): I often play games.",
        "woorden": [
         {
          "nl": "opstaan",
@@ -1361,7 +1361,7 @@
          "voorbeeld": "I get up at 7 o'clock."
         },
         {
-         "nl": "zich wassen",
+         "nl": "douchen",
          "doel": "have a shower",
          "voorbeeld": "He has a shower in the morning."
         },
@@ -1420,7 +1420,7 @@
         {
          "vraag": "Hoe laat is 4:30?",
          "opties": [
-          "half four",
+          "a quarter past four",
           "half past four",
           "half to five"
          ],
@@ -1523,8 +1523,8 @@
         },
         {
          "nl": "muts",
-         "doel": "hat",
-         "voorbeeld": "He wears a hat in winter."
+         "doel": "woolly hat",
+         "voorbeeld": "He wears a woolly hat in winter."
         },
         {
          "nl": "sjaal",
@@ -2327,11 +2327,11 @@
          "vraag": "Wat is 'a ticket'?",
          "opties": [
           "een koffer",
-          "een ticket",
+          "een kaartje (voor trein of bus)",
           "een paspoort"
          ],
          "antwoord": 1,
-         "uitleg": "Ticket = ticket/kaartje."
+         "uitleg": "Ticket = kaartje (voor trein of bus)."
         }
        ]
       },
@@ -2433,10 +2433,10 @@
          "uitleg": "Verleden tijd van go."
         },
         {
-         "vraag": "Welk woord past bij een postkaart?",
+         "vraag": "Hoe begint een postkaart aan je oma correct?",
          "opties": [
-          "Dear Gran?",
-          "Gran dear!",
+          "Hello Gran dear!",
+          "To Gran from me.",
           "Dear Gran,"
          ],
          "antwoord": 2,
@@ -2603,7 +2603,7 @@
         {
          "nl": "verboden",
          "doel": "mustn't",
-         "voorbeeld": "You mustn't smoke here."
+         "voorbeeld": "You mustn't run in the corridor."
         },
         {
          "nl": "niet hoeven",
@@ -2954,7 +2954,7 @@
       {
        "id": "j2-comparatives",
        "titel": "De vergelijkende trap (comparative)",
-       "uitleg": "Met de vergelijkende trap vergelijk je twee dingen: groter dan, sneller dan.\n\nKorte bijvoeglijke naamwoorden (een lettergreep): + -er + than. tall - taller than, fast - faster than. Eindigt op -e: alleen -r (nice - nicer). Korte klinker + medeklinker: verdubbel (big - bigger, hot - hotter). Eindigt op -y: -ier (happy - happier).\n\nLange bijvoeglijke naamwoorden (twee of meer lettergrepen): more + woord + than. interesting - more interesting than, expensive - more expensive than.\n\nOnregelmatig: good - better, bad - worse, far - further.\n\nZin: A cheetah is faster than a lion. English is more difficult than maths for me.\n\nGelijk: as ... as. Tom is as tall as Ben. Niet gelijk: not as ... as.",
+       "uitleg": "Met de vergelijkende trap vergelijk je twee dingen: groter dan, sneller dan.\n\nKorte bijvoeglijke naamwoorden (een lettergreep): + -er + than. Woorden op -y met twee lettergrepen krijgen ook -ier: happy - happier than. tall - taller than, fast - faster than. Eindigt op -e: alleen -r (nice - nicer). Korte klinker + medeklinker: verdubbel (big - bigger, hot - hotter). Eindigt op -y: -ier (happy - happier).\n\nLange bijvoeglijke naamwoorden (twee of meer lettergrepen): more + woord + than. interesting - more interesting than, expensive - more expensive than.\n\nOnregelmatig: good - better, bad - worse, far - further.\n\nZin: A cheetah is faster than a lion. English is more difficult than maths for me.\n\nGelijk: as ... as. Tom is as tall as Ben. Niet gelijk: not as ... as.",
        "woorden": [
         {
          "nl": "groot",
@@ -3073,7 +3073,7 @@
       {
        "id": "j2-superlatives",
        "titel": "De overtreffende trap (superlative)",
-       "uitleg": "De overtreffende trap gebruik je als iets de allermeeste is van een groep: de grootste, de snelste. Je zet altijd 'the' voor.\n\nKorte woorden: the + -est. tall - the tallest, fast - the fastest, big - the biggest, happy - the happiest.\nLange woorden: the most + woord. the most interesting, the most expensive.\nOnregelmatig: good - the best, bad - the worst, far - the furthest.\n\nZin: Mount Everest is the highest mountain in the world. She is the most intelligent pupil in our class.\n\nNa een overtreffende trap gebruik je 'in' met een plaats of groep: the biggest city IN Belgium, the best player IN the team.",
+       "uitleg": "De overtreffende trap gebruik je als iets de allermeeste is van een groep: de grootste, de snelste. Je zet altijd 'the' voor.\n\nKorte woorden: the + -est. tall - the tallest, fast - the fastest, big - the biggest, happy - the happiest (woorden op -y krijgen ook bij twee lettergrepen -iest).\nLange woorden: the most + woord. the most interesting, the most expensive.\nOnregelmatig: good - the best, bad - the worst, far - the furthest.\n\nZin: Mount Everest is the highest mountain in the world. She is the most intelligent pupil in our class.\n\nNa een overtreffende trap gebruik je 'in' met een plaats of groep: the biggest city IN Belgium, the best player IN the team.",
        "woorden": [
         {
          "nl": "het hoogste",
@@ -3291,7 +3291,7 @@
           "winkelwagen"
          ],
          "antwoord": 0,
-         "uitleg": "Sale = uitverkoop (op de borden in de winkel)."
+         "uitleg": "Sale = uitverkoop (een periode met lagere prijzen)."
         },
         {
          "vraag": "Hoe vraag je naar de prijs?",
@@ -3472,7 +3472,7 @@
          "voorbeeld": "Cars will fly in the future."
         },
         {
-         "nl": "belofte",
+         "nl": "beloven",
          "doel": "promise",
          "voorbeeld": "I promise I'll help."
         },
@@ -3623,7 +3623,7 @@
         {
          "nl": "verboden",
          "doel": "forbidden",
-         "voorbeeld": "Smoking is forbidden."
+         "voorbeeld": "Phones are forbidden in class."
         }
        ],
        "oefeningen": [
