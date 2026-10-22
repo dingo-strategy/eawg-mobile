@@ -1,5 +1,5 @@
 (function () {
-  var KEY = 'leren-v2';
+  var PKEY = 'leren-profielen', LEGACY = 'leren-v2';
   var root = document.getElementById('app');
 
   var VAKKEN = [
@@ -11,19 +11,28 @@
     { id: 'nederlands', naam: 'Nederlands', icoon: '📖', uitleg: 'Taal en spelling' }
   ];
 
-  var data = {};   // vak-id -> geladen leerstof (of null als ze nog niet bestaat)
+  var data = {};   // vak+reeks -> geladen leerstof (of null als ze nog niet bestaat)
+  var KL = { klassen: [], vakken: {} };   // uit data/klassen.json
 
-  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
-  var S = load();
-  S.scores = S.scores || {};   // "vak/lesid" -> beste aantal juist (0..1)
+  // Alles blijft op dit toestel: profielen en voortgang staan in de browser, er is geen server.
+  function lees(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
+  function schrijf(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var PR = lees(PKEY) || { lijst: [], actief: null };
+  var S = {};   // staat van het actieve profiel
+  function save() { if (PR.actief) schrijf('leren-p-' + PR.actief, S); }
+  function savePR() { schrijf(PKEY, PR); }
+  function vulS() {
+    S.scores = S.scores || {};   // "vak/lesid" -> beste aantal juist (0..1)
+    S.dagen = S.dagen || {}; S.betaald = S.betaald || {}; S.mijl = S.mijl || {}; S.freeze = S.freeze || {}; S.fout = S.fout || {};
+  }
+  function activeer(id) { PR.actief = id; savePR(); S = lees('leren-p-' + id) || {}; vulS(); }
+  vulS();
 
   // ---------- beloningen (munten voor het voetbalspel) ----------
   // Cijfers volgen het advies van de onderzoeker; het zijn gekalibreerde gokken, na enkele weken bijsturen.
   var TRAPPEN = [[0.9, 40], [0.7, 30], [0.5, 20], [0, 10]];   // [minimumscore, munten]
   var MAX_LESSEN_DAG = 3, CAP_DAG = 100, FREEZES_PER_WEEK = 2;
   var MIJLPALEN = { 3: 30, 7: 75, 14: 150, 30: 300 }, NA_30 = 200;
-  S.dagen = S.dagen || {}; S.betaald = S.betaald || {}; S.mijl = S.mijl || {}; S.freeze = S.freeze || {};
 
   function dag(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
   function dagNr(key) { var p = key.split('-'); return Date.UTC(+p[0], p[1] - 1, +p[2]) / 864e5; }
@@ -94,27 +103,33 @@
     return e;
   }
   function knop(cls, text, fn) { var b = el('button', cls, text); b.addEventListener('click', fn); return b; }
-  function vak(id) { return VAKKEN.filter(function (v) { return v.id === id; })[0]; }
+  function vak(id) {
+    var c = KL.vakken[id]; if (c) return { id: id, naam: c.naam, icoon: c.icoon, uitleg: c.uitleg };
+    return VAKKEN.filter(function (v) { return v.id === id; })[0];
+  }
+  function klas() { return KL.klassen.filter(function (k) { return k.id === S.klas; })[0] || null; }
+  function reeks() { var k = klas(); return k ? k.reeks : 'A'; }
+  function vakkenKlas() { var k = klas(); return (k ? k.vakken : []).map(vak).filter(Boolean); }
 
-  function niveau() { return S.niveau === 'B' ? 'B' : 'A'; }
   function haal(bestand) {
     return fetch('data/' + bestand + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; });
   }
-  // B-stroom: eenvoudigere versie; bestaat die nog niet, dan tonen we de A-versie met een melding.
-  function laad(id, niv) {
-    niv = niv || niveau();
-    var sl = id + niv;
+  // Bestandsnaam per reeks: A = id, B = id-b (makkelijker), L = id-l (lager), G = id-g (tweede graad).
+  // Bestaat de B-versie nog niet, dan tonen we de A-versie met een melding.
+  var SUF = { A: '', B: '-b', L: '-l', G: '-g' };
+  function laad(id, r) {
+    r = r || reeks();
+    var sl = id + r;
     if (sl in data) return Promise.resolve(data[sl]);
-    var p = niv === 'B'
-      ? haal(id + '-b').then(function (d) {
-          if (d) { d.niveau = 'B'; return d; }
-          return haal(id).then(function (a) { if (a) { a.niveau = 'A'; a.terugval = true; } return a; });
-        })
-      : haal(id).then(function (a) { if (a) a.niveau = 'A'; return a; });
+    var p = haal(id + (SUF[r] || '')).then(function (d) {
+      if (d) { d.niveau = r; return d; }
+      if (r === 'B') return haal(id).then(function (a) { if (a) { a.niveau = 'A'; a.terugval = true; } return a; });
+      return null;
+    });
     return p.then(function (d) { data[sl] = d; return d; });
   }
-  // Scores worden per niveau bewaard, zodat A en B elkaar niet storen.
-  function sk(d, lid) { return (d.niveau === 'B' ? 'B:' : '') + d.vak + '/' + lid; }
+  // Scores worden per reeks bewaard, zodat de niveaus elkaar niet storen.
+  function sk(d, lid) { return (d.niveau && d.niveau !== 'A' ? d.niveau + ':' : '') + d.vak + '/' + lid; }
 
   function alleLessen(d, jaar) {
     var out = [];
@@ -147,14 +162,16 @@
     kop.appendChild(el('p', 'sub', 'Wat leren we vandaag?'));
     top.appendChild(kop);
     var chips = el('div', 'chips');
+    var pf = PR.lijst.filter(function (x) { return x.id === PR.actief; })[0] || {};
+    chips.appendChild(knop('streak profielknop', (pf.avatar || '🙂') + ' ' + (pf.naam || ''), function () { location.hash = '#/profiel'; }));
     chips.appendChild(el('div', 'streak', '🔥 ' + (S.reeksLes || 0)));
     chips.appendChild(el('div', 'streak', '🪙 ' + muntenVandaag() + '/' + CAP_DAG));
     top.appendChild(chips);
     root.appendChild(top);
 
-    if (S.laatsteLes) {
+    if (S.laatsteLes && S.laatsteKlas === S.klas) {
       var p = S.laatsteLes.split('/');
-      var h = knop('hero v-' + p[0], '', function () { S.niveau = S.laatsteNiveau || 'A'; save(); location.hash = '#/' + S.laatsteLes; route(); });
+      var h = knop('hero v-' + p[0], '', function () { location.hash = '#/' + S.laatsteLes; });
       h.appendChild(el('small', '', 'Verder doen'));
       h.appendChild(el('strong', '', (vak(p[0]) || {}).naam + ' – ' + (S.laatsteTitel || 'verder')));
       root.appendChild(h);
@@ -167,18 +184,15 @@
       hk.appendChild(el('span', '', Math.min(tehe, HERHALING_MAX) + ' vragen om te herhalen'));
       root.appendChild(hk);
     }
-    var sw = el('div', 'niveau'); sw.setAttribute('role', 'group'); sw.setAttribute('aria-label', 'Niveau');
-    [['A', 'A-stroom'], ['B', 'B-stroom']].forEach(function (x) {
-      var b = knop('seg' + (niveau() === x[0] ? ' aan' : ''), x[1], function () { S.niveau = x[0]; save(); home(); });
-      b.setAttribute('aria-pressed', niveau() === x[0] ? 'true' : 'false');
-      sw.appendChild(b);
-    });
-    root.appendChild(sw);
-    root.appendChild(el('p', 'uitlegje', niveau() === 'B' ? 'B-stroom: kortere uitleg en makkelijkere vragen.' : 'A-stroom: de volledige leerstof.'));
+    var kk = klas();
+    root.appendChild(knop('klaschip', '📚 ' + (kk ? kk.naam : 'Kies je klas') + ' · wijzigen', function () { location.hash = '#/profiel'; }));
+    if (kk && kk.reeks === 'B') root.appendChild(el('p', 'uitlegje', 'B-stroom: kortere uitleg en makkelijkere vragen.'));
 
     root.appendChild(el('h2', '', 'Vakken'));
     var grid = el('div', 'grid');
-    VAKKEN.forEach(function (v) {
+    var lijstV = vakkenKlas();
+    if (!lijstV.length) root.appendChild(el('p', 'sub', 'Voor deze klas worden de vakken nog klaargemaakt.'));
+    lijstV.forEach(function (v) {
       var t = el(v.binnenkort ? 'div' : 'button', 'tile v-' + v.id + ' ' + (v.binnenkort ? 'off' : 'on'));
       t.appendChild(el('span', 'ico', v.icoon));
       t.appendChild(el('b', '', v.naam));
@@ -189,7 +203,7 @@
         var holder = el('div'); t.appendChild(holder);
         laad(v.id).then(function (d) {
           if (!d) { holder.appendChild(el('span', 'badge', 'Nog niet klaar')); return; }
-          var pr = voortgang(d);
+          var pr = voortgang(d, kk && kk.jaar);
           holder.appendChild(bar(pr.totaal ? 100 * pr.klaar / pr.totaal : 0));
           holder.appendChild(el('span', 's', pr.klaar + ' / ' + pr.totaal + ' lessen'));
         });
@@ -205,16 +219,18 @@
     root.appendChild(terug('#/', 'Alle vakken'));
     var ban = el('div', 'banner'), bt = el('div');
     ban.appendChild(el('span', 'ico', v.icoon));
-    bt.appendChild(el('h1', '', v.naam)); bt.appendChild(el('p', 'sub', v.uitleg + ' · ' + (niveau() === 'B' ? 'B-stroom' : 'A-stroom')));
+    bt.appendChild(el('h1', '', v.naam)); bt.appendChild(el('p', 'sub', v.uitleg + ' · ' + (klas() ? klas().naam : '')));
     ban.appendChild(bt); root.appendChild(ban);
     var plek = el('div'); root.appendChild(plek);
     laad(id).then(function (d) {
       if (!d) { plek.appendChild(el('p', 'sub', 'De leerstof van dit vak is nog niet klaar.')); return; }
       if (d.terugval) plek.appendChild(el('p', 'melding', 'De makkelijkere B-versie van dit vak komt eraan. Je ziet nu de A-versie.'));
       if (d.dekking) plek.appendChild(el('p', 'sub', d.dekking));
-      (d.leerjaren || []).forEach(function (j) {
+      var zichtbaar = (d.leerjaren || []).filter(function (j) { return !klas() || j.jaar === klas().jaar; });
+      if (!zichtbaar.length) plek.appendChild(el('p', 'sub', 'Voor jouw klas is er in dit vak nog geen leerstof.'));
+      zichtbaar.forEach(function (j) {
         var pr = voortgang(d, j.jaar);
-        plek.appendChild(el('h2', '', j.jaar + 'e middelbaar · ' + pr.klaar + '/' + pr.totaal + ' lessen'));
+        plek.appendChild(el('h2', '', (klas() ? klas().naam : j.jaar) + ' · ' + pr.klaar + '/' + pr.totaal + ' lessen'));
         var lijst = el('div', 'lijst');
         (j.themas || []).forEach(function (t) {
           var rij = el('button', 'rij');
@@ -275,7 +291,7 @@
       var t = d && vindThema(d, tid);
       var les = t && (t.lessen || []).filter(function (l) { return l.id === lid; })[0];
       if (!les) { plek.appendChild(el('p', 'sub', 'Les niet gevonden.')); return; }
-      S.laatsteLes = id + '/' + tid + '/' + lid; S.laatsteTitel = les.titel; S.laatsteNiveau = d.niveau; save();
+      S.laatsteLes = id + '/' + tid + '/' + lid; S.laatsteTitel = les.titel; S.laatsteKlas = S.klas; save();
 
       plek.appendChild(el('h1', '', les.titel));
       String(les.uitleg || '').split(/\n\s*\n/).forEach(function (a) { if (a.trim()) plek.appendChild(el('p', 'uitleg', a.trim())); });
@@ -374,7 +390,6 @@
 
   // ---------- gespreide herhaling: foute vragen komen na 1, 3 en 7 dagen terug ----------
   var INTERVALLEN = [1, 3, 7], HERHALING_MAX = 8;
-  S.fout = S.fout || {};
   function noteerFout(d, les, i) {
     S.fout[d.niveau + '|' + d.vak + '|' + les.id + '|' + i] = { v: d.vak, n: d.niveau, l: les.id, i: i, stap: 0, due: dagNr(vandaag()) + INTERVALLEN[0] };
     save();
@@ -500,8 +515,126 @@
     toon();
   }
 
+  // ---------- profiel en klaskeuze ----------
+  var AVATARS = ['🦊', '🐼', '🐯', '🦁', '🐸', '🐵', '🦄', '🐙', '🦉', '🐧', '🚀', '⚽'];
+
+  function klasKiezer(host, gekozen, bijKeuze) {
+    host.textContent = '';
+    var groepen = [];
+    KL.klassen.forEach(function (k) { if (groepen.indexOf(k.groep) < 0) groepen.push(k.groep); });
+    groepen.forEach(function (g) {
+      host.appendChild(el('p', 'groep', g));
+      var rij = el('div', 'chiprij');
+      KL.klassen.filter(function (k) { return k.groep === g; }).forEach(function (k) {
+        var b = knop('keuze' + (k.id === gekozen ? ' aan' : ''), k.naam, function () { bijKeuze(k.id); klasKiezer(host, k.id, bijKeuze); });
+        b.setAttribute('aria-pressed', k.id === gekozen ? 'true' : 'false');
+        rij.appendChild(b);
+      });
+      host.appendChild(rij);
+    });
+  }
+
+  function nieuwProfiel() {
+    leeg();
+    var eerste = !PR.lijst.length;
+    if (!eerste) root.appendChild(terug('#/profiel', 'Profiel'));
+    root.appendChild(el('h1', '', eerste ? 'Welkom! 👋' : 'Nieuw profiel'));
+    root.appendChild(el('p', 'sub', 'Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel; er wordt niets naar een server gestuurd.'));
+    var naam = el('input', 'invul'); naam.type = 'text'; naam.maxLength = 16; naam.id = 'bijnaam';
+    naam.setAttribute('autocomplete', 'off'); naam.setAttribute('aria-label', 'Bijnaam'); naam.placeholder = 'Bijnaam';
+    root.appendChild(naam);
+    root.appendChild(el('p', 'groep', 'Kies een figuurtje'));
+    var av = AVATARS[0], avRij = el('div', 'chiprij');
+    function tekenAv() {
+      avRij.textContent = '';
+      AVATARS.forEach(function (a) {
+        var b = knop('avatar' + (a === av ? ' aan' : ''), a, function () { av = a; tekenAv(); });
+        b.setAttribute('aria-label', 'Figuurtje ' + a); b.setAttribute('aria-pressed', a === av ? 'true' : 'false');
+        avRij.appendChild(b);
+      });
+    }
+    tekenAv(); root.appendChild(avRij);
+    root.appendChild(el('h2', '', 'In welke klas zit je?'));
+    var kz = el('div'), gekozen = null, start = knop('btn', 'Starten', function () {
+      var n = naam.value.trim(); if (!n || !gekozen) return;
+      var id = 'p' + Date.now().toString(36);
+      PR.lijst.push({ id: id, naam: n, avatar: av });
+      if (eerste) { var oud = lees(LEGACY); if (oud) schrijf('leren-p-' + id, oud); }   // voortgang van vroeger meenemen
+      activeer(id); S.klas = gekozen; save(); location.hash = '#/'; route();
+    });
+    start.disabled = true;
+    function check() { start.disabled = !(naam.value.trim() && gekozen); }
+    naam.addEventListener('input', check);
+    klasKiezer(kz, null, function (id) { gekozen = id; check(); });
+    root.appendChild(kz); root.appendChild(start);
+  }
+
+  function profielScherm() {
+    leeg();
+    root.appendChild(terug('#/', 'Start'));
+    var pf = PR.lijst.filter(function (x) { return x.id === PR.actief; })[0];
+    root.appendChild(el('h1', '', pf.avatar + ' ' + pf.naam));
+    root.appendChild(el('h2', '', 'Mijn klas'));
+    var kz = el('div'); root.appendChild(kz);
+    klasKiezer(kz, S.klas, function (id) { S.klas = id; S.laatsteLes = null; save(); });
+
+    if (PR.lijst.length > 1) {
+      root.appendChild(el('h2', '', 'Wisselen van profiel'));
+      var rij = el('div', 'chiprij');
+      PR.lijst.forEach(function (x) {
+        if (x.id === PR.actief) return;
+        rij.appendChild(knop('keuze', x.avatar + ' ' + x.naam, function () { activeer(x.id); location.hash = '#/'; route(); }));
+      });
+      root.appendChild(rij);
+    }
+    root.appendChild(knop('btn zacht', '＋ Nieuw profiel', function () { location.hash = '#/nieuw'; }));
+
+    root.appendChild(el('h2', '', 'Bewaren en overzetten'));
+    root.appendChild(el('p', 'sub', 'Er is geen account op een server. Wil je je voortgang naar een ander toestel meenemen? Kopieer dan de code en plak ze daar bij "Herstellen".'));
+    var vak1 = el('textarea', 'code'); vak1.id = 'backup'; vak1.readOnly = true; vak1.hidden = true; vak1.setAttribute('aria-label', 'Back-upcode');
+    root.appendChild(knop('btn zacht', 'Toon mijn code', function () {
+      try { vak1.value = btoa(unescape(encodeURIComponent(JSON.stringify({ p: pf, s: S })))); } catch (e) { vak1.value = 'Code maken lukt niet op dit toestel.'; }
+      vak1.hidden = false; vak1.focus(); vak1.select();
+    }));
+    root.appendChild(vak1);
+    var inv = el('textarea', 'code'); inv.id = 'herstel'; inv.placeholder = 'Plak hier een code'; inv.setAttribute('aria-label', 'Code herstellen');
+    var melding = el('p', 'sub');
+    root.appendChild(inv);
+    root.appendChild(knop('btn zacht', 'Herstellen', function () {
+      try {
+        var o = JSON.parse(decodeURIComponent(escape(atob(inv.value.trim()))));
+        if (!o || !o.p || !o.s) throw 0;
+        var id = 'p' + Date.now().toString(36);
+        PR.lijst.push({ id: id, naam: String(o.p.naam || 'Hersteld').slice(0, 16), avatar: o.p.avatar || '🙂' });
+        schrijf('leren-p-' + id, o.s); activeer(id); location.hash = '#/'; route();
+      } catch (e) { melding.textContent = 'Die code werkt niet. Controleer of je ze helemaal gekopieerd hebt.'; }
+    }));
+    root.appendChild(melding);
+
+    root.appendChild(el('h2', '', 'Profiel verwijderen'));
+    var wis = el('div');
+    function toonWis(stap) {
+      wis.textContent = '';
+      if (!stap) { wis.appendChild(knop('btn zacht', 'Verwijder dit profiel', function () { toonWis(1); })); return; }
+      wis.appendChild(el('p', 'sub', 'Zeker? Alle voortgang van dit profiel verdwijnt van dit toestel.'));
+      wis.appendChild(knop('btn gevaar', 'Ja, verwijderen', function () {
+        try { localStorage.removeItem('leren-p-' + PR.actief); } catch (e) {}
+        PR.lijst = PR.lijst.filter(function (x) { return x.id !== PR.actief; });
+        PR.actief = null; savePR();
+        if (PR.lijst.length) activeer(PR.lijst[0].id); else { S = {}; vulS(); }
+        location.hash = '#/'; route();
+      }));
+      wis.appendChild(knop('btn zacht', 'Annuleren', function () { toonWis(0); }));
+    }
+    toonWis(0); root.appendChild(wis);
+  }
+
   function route() {
     var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+    if (!PR.actief) return nieuwProfiel();
+    if (p[0] === 'nieuw') return nieuwProfiel();
+    if (p[0] === 'profiel') return profielScherm();
+    if (!klas()) return profielScherm();
     if (!p.length) return home();
     if (p[0] === 'herhaling') return herhalingScherm();
     if (!vak(p[0]) || vak(p[0]).binnenkort) return home();
@@ -510,5 +643,9 @@
     return lesScherm(p[0], p[1], p[2]);
   }
   window.addEventListener('hashchange', route);
-  route();
+  haal('klassen').then(function (k) {
+    if (k) KL = k;
+    if (PR.actief && PR.lijst.some(function (x) { return x.id === PR.actief; })) activeer(PR.actief); else PR.actief = null;
+    route();
+  });
 })();

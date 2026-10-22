@@ -141,3 +141,17 @@ button.tile:active,.hero:active{transform:scale(.98)}
 .invul{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--text);margin-bottom:10px}
 .invul:focus{outline:3px solid var(--warm);outline-offset:1px}
 @media (prefers-reduced-motion:reduce){.kop.gevonden,.kop.fout{animation:none}}
+
+/* profiel en klaskeuze */
+.profielknop{font:inherit;cursor:pointer;color:var(--text)}
+.klaschip{display:block;width:100%;margin-top:14px;text-align:left;font:inherit;font-weight:700;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 16px;cursor:pointer}
+.groep{margin:14px 0 6px;color:var(--muted);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.chiprij{display:flex;flex-wrap:wrap;gap:8px}
+.keuze{font:inherit;font-weight:600;color:var(--text);background:var(--card);border:2px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;min-height:44px}
+.keuze.aan{border-color:var(--accent);background:var(--accent-soft)}
+.keuze.aan::before{content:'✓ '}
+.avatar{font-size:1.6rem;width:52px;height:52px;border-radius:16px;border:2px solid var(--line);background:var(--card);cursor:pointer}
+.avatar.aan{border-color:var(--accent);background:var(--accent-soft)}
+.code{width:100%;min-height:84px;margin:8px 0;font:inherit;font-size:14px;padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--text)}
+.btn.gevaar{background:#b3261e;color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
