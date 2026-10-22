@@ -8,7 +8,7 @@
     { id: 'wiskunde', naam: 'Wiskunde', icoon: '➗', uitleg: 'Getallen en meetkunde' },
     { id: 'aardrijkskunde', naam: 'Aardrijkskunde', icoon: '🌍', uitleg: 'Kaarten en klimaat' },
     { id: 'geschiedenis', naam: 'Geschiedenis', icoon: '🏛️', uitleg: 'Van prehistorie tot nu' },
-    { id: 'nederlands', naam: 'Nederlands', icoon: '📖', uitleg: 'Taal en spelling', binnenkort: true }
+    { id: 'nederlands', naam: 'Nederlands', icoon: '📖', uitleg: 'Taal en spelling' }
   ];
 
   var data = {};   // vak-id -> geladen leerstof (of null als ze nog niet bestaat)

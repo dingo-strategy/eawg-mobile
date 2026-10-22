@@ -1,0 +1,2708 @@
+{
+ "vak": "nederlands",
+ "naam": "Nederlands",
+ "niveau": "B",
+ "bronnen": [
+  {
+   "titel": "GO! onderwijs van de Vlaamse Gemeenschap - leerplan Basisvorming eerste graad B-stroom (2024/1B/BAS)",
+   "url": "https://pro.g-o.be/download/GOPRO-1830562155-27338/GO! SO 1ste graad B-stroom - leerplan Basisvorming"
+  },
+  {
+   "titel": "GO! onderwijs van de Vlaamse Gemeenschap - leerplan Basisvorming eerste graad A-stroom",
+   "url": "https://pro.g-o.be/download/GOPRO-1830562155-27333/GO! SO 1ste graad A-stroom - leerplan Basisvorming"
+  }
+ ],
+ "dekking": "Vereenvoudigde versie afgeleid van de A-stroomleerstof (kern, ca. 65% van de lessen), met kortere zinnen en 3 antwoordopties. Niet getoetst aan de B-leerplannen: het B-leerplan werd gevonden maar de tekst kon niet geopend worden. Ontbreekt: sterke werkwoorden, hoofdzin en bijzin, leestekens, verkleinwoorden, naamwoordelijk gezegde, betoog, verslag, gesprek en discussie, media en reclame.",
+ "leerjaren": [
+  {
+   "jaar": 1,
+   "themas": [
+    {
+     "id": "b-ww-nu",
+     "titel": "Werkwoorden schrijven (nu)",
+     "samenvatting": "Je schrijft werkwoorden juist: stam, t en d.",
+     "lessen": [
+      {
+       "id": "b-stam-en-vorm",
+       "titel": "Stam en werkwoordsvorm",
+       "uitleg": "Een werkwoord zegt wat je doet. Bijvoorbeeld: werken, spelen, lopen.\n\nDe stam vind je bij 'ik'. Ik werk. De stam is 'werk'.\n\nBij 'hij' schrijf je stam + t: hij werkt. Bij 'wij' schrijf je het hele werkwoord: wij werken.",
+       "woorden": [
+        {
+         "nl": "werkwoord",
+         "doel": "woord voor wat je doet",
+         "voorbeeld": "spelen"
+        },
+        {
+         "nl": "stam",
+         "doel": "het werkwoord bij 'ik'",
+         "voorbeeld": "Bij fietsen is de stam fiets."
+        },
+        {
+         "nl": "hij werkt",
+         "doel": "stam + t",
+         "voorbeeld": "Hij werkt hard."
+        },
+        {
+         "nl": "ik werk",
+         "doel": "alleen de stam",
+         "voorbeeld": "Ik werk hard."
+        },
+        {
+         "nl": "wij werken",
+         "doel": "het hele werkwoord",
+         "voorbeeld": "Wij werken hard."
+        },
+        {
+         "nl": "jij werkt",
+         "doel": "jij vóór het werkwoord: stam + t",
+         "voorbeeld": "Jij werkt hard."
+        },
+        {
+         "nl": "werk jij?",
+         "doel": "jij ná het werkwoord: alleen de stam",
+         "voorbeeld": "Werk jij vandaag?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de stam van 'fietsen'?",
+         "opties": [
+          "fietsen",
+          "fiets",
+          "fietst"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ik fiets. De stam is fiets."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Hij speel buiten.",
+          "Hij spelen buiten.",
+          "Hij speelt buiten."
+         ],
+         "antwoord": 2,
+         "uitleg": "Bij 'hij' schrijf je stam + t."
+        },
+        {
+         "vraag": "Vul in: Wij ... (wandelen) graag.",
+         "opties": [
+          "wandelen",
+          "wandelt",
+          "wandel"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij 'wij' schrijf je het hele werkwoord."
+        },
+        {
+         "vraag": "Vul in: Ik ... (leren) mijn les.",
+         "opties": [
+          "leert",
+          "leer",
+          "leren"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij 'ik' schrijf je alleen de stam."
+        }
+       ]
+      },
+      {
+       "id": "b-jij-en-u",
+       "titel": "Jij en u",
+       "uitleg": "Staat 'jij' vóór het werkwoord? Dan schrijf je stam + t. Jij werkt.\n\nStaat 'jij' ná het werkwoord? Dan schrijf je alleen de stam. Werk jij?\n\nBij 'u' blijft de t altijd staan. U werkt. Werkt u?",
+       "woorden": [
+        {
+         "nl": "jij",
+         "doel": "jij of je: de persoon die je aanspreekt",
+         "voorbeeld": "Jij komt mee."
+        },
+        {
+         "nl": "u",
+         "doel": "beleefde vorm van jij",
+         "voorbeeld": "Woont u hier?"
+        },
+        {
+         "nl": "vraag",
+         "doel": "zin met een vraagteken",
+         "voorbeeld": "Speel jij mee?"
+        },
+        {
+         "nl": "voor",
+         "doel": "eerst jij, dan het werkwoord",
+         "voorbeeld": "Jij speelt."
+        },
+        {
+         "nl": "na",
+         "doel": "eerst het werkwoord, dan jij",
+         "voorbeeld": "Speel jij?"
+        },
+        {
+         "nl": "stam + t",
+         "doel": "stam met een t erbij",
+         "voorbeeld": "speelt"
+        },
+        {
+         "nl": "alleen de stam",
+         "doel": "zonder t erbij",
+         "voorbeeld": "speel"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Vul in: ... (komen) jij ook?",
+         "opties": [
+          "Komt",
+          "Komen",
+          "Kom"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het werkwoord staat voor 'jij'. Alleen de stam."
+        },
+        {
+         "vraag": "Vul in: Jij ... (werken) hard.",
+         "opties": [
+          "werkt",
+          "werk",
+          "werken"
+         ],
+         "antwoord": 0,
+         "uitleg": "'Jij' staat voor het werkwoord. Stam + t."
+        },
+        {
+         "vraag": "Vul in: ... (wonen) u in Gent?",
+         "opties": [
+          "Woon",
+          "Woont",
+          "Wonen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij 'u' blijft de t staan."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Speelt jij mee?",
+          "Spelen jij mee?",
+          "Speel jij mee?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Voor 'jij' staat alleen de stam."
+        }
+       ]
+      },
+      {
+       "id": "b-ww-op-d",
+       "titel": "Werkwoorden met een d",
+       "uitleg": "Sommige stammen eindigen op een d. Bijvoorbeeld: worden, vinden.\n\nIk word. Ik vind. Je hoort de d niet. Maar je schrijft ze wel.\n\nBij 'hij' komt er een t bij. Hij wordt. Hij vindt.",
+       "woorden": [
+        {
+         "nl": "worden",
+         "doel": "een werkwoord met een d",
+         "voorbeeld": "Ik word groot."
+        },
+        {
+         "nl": "vinden",
+         "doel": "een werkwoord met een d",
+         "voorbeeld": "Ik vind het mooi."
+        },
+        {
+         "nl": "ik word",
+         "doel": "stam met d",
+         "voorbeeld": "Ik word moe."
+        },
+        {
+         "nl": "hij wordt",
+         "doel": "stam + t",
+         "voorbeeld": "Hij wordt moe."
+        },
+        {
+         "nl": "ik vind",
+         "doel": "stam met d",
+         "voorbeeld": "Ik vind het leuk."
+        },
+        {
+         "nl": "hij vindt",
+         "doel": "stam + t",
+         "voorbeeld": "Hij vindt het leuk."
+        },
+        {
+         "nl": "antwoorden",
+         "doel": "een werkwoord met een d",
+         "voorbeeld": "Hij antwoordt snel."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Vul in: Hij ... (worden) boos.",
+         "opties": [
+          "wordt",
+          "word",
+          "wort"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij 'hij' komt er een t bij."
+        },
+        {
+         "vraag": "Vul in: Ik ... (vinden) het mooi.",
+         "opties": [
+          "vindt",
+          "vind",
+          "vint"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij 'ik' schrijf je alleen de stam."
+        },
+        {
+         "vraag": "Vul in: De juf ... (antwoorden).",
+         "opties": [
+          "antwoord",
+          "antwoort",
+          "antwoordt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Stam antwoord + t."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Ik word moe.",
+          "Ik wordt moe.",
+          "Ik wort moe."
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij 'ik' staat geen t."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-verleden",
+     "titel": "Verleden tijd",
+     "samenvatting": "Je schrijft de verleden tijd en het voltooid deelwoord.",
+     "lessen": [
+      {
+       "id": "b-t-kofschip",
+       "titel": "'t kofschip",
+       "uitleg": "Verleden tijd is iets dat voorbij is. Gisteren speelde ik.\n\nKijk naar de laatste letter van de stam. Is het t, k, f, s, ch of p? Dan schrijf je -te. Anders schrijf je -de.\n\nWerken: werkte. Spelen: speelde. Bij 'wij' komt er een n bij: wij werkten.",
+       "woorden": [
+        {
+         "nl": "verleden tijd",
+         "doel": "iets dat voorbij is",
+         "voorbeeld": "Gisteren speelde ik."
+        },
+        {
+         "nl": "'t kofschip",
+         "doel": "de letters t, k, f, s, ch, p",
+         "voorbeeld": "werk → werkte"
+        },
+        {
+         "nl": "-te",
+         "doel": "einde na 't kofschip",
+         "voorbeeld": "werkte"
+        },
+        {
+         "nl": "-de",
+         "doel": "einde in de andere gevallen",
+         "voorbeeld": "speelde"
+        },
+        {
+         "nl": "stam",
+         "doel": "het werkwoord bij 'ik'",
+         "voorbeeld": "speel"
+        },
+        {
+         "nl": "werkten",
+         "doel": "meer personen: n erbij",
+         "voorbeeld": "Wij werkten."
+        },
+        {
+         "nl": "speelden",
+         "doel": "meer personen: n erbij",
+         "voorbeeld": "Wij speelden."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Gisteren ... Lotte haar fiets. (poetsen)",
+         "opties": [
+          "poetsde",
+          "poetste",
+          "poetsten"
+         ],
+         "antwoord": 1,
+         "uitleg": "De stam eindigt op s. Dus -te."
+        },
+        {
+         "vraag": "Gisteren ... ik buiten. (spelen)",
+         "opties": [
+          "speelte",
+          "speelden",
+          "speelde"
+         ],
+         "antwoord": 2,
+         "uitleg": "De stam eindigt op l. Dus -de."
+        },
+        {
+         "vraag": "Vorige week ... wij samen. (werken)",
+         "opties": [
+          "werkten",
+          "werkte",
+          "werkde"
+         ],
+         "antwoord": 0,
+         "uitleg": "Stam werk + te + n."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "De kinderen speelte buiten.",
+          "De kinderen speelden buiten.",
+          "De kinderen speelt buiten."
+         ],
+         "antwoord": 1,
+         "uitleg": "Meer personen: -den."
+        }
+       ]
+      },
+      {
+       "id": "b-voltooid-deelwoord",
+       "titel": "Het voltooid deelwoord",
+       "uitleg": "Het voltooid deelwoord gebruik je met 'hebben' of 'zijn'. Ik heb gewerkt.\n\nJe maakt het zo: ge- + stam + t of d. Je gebruikt weer 't kofschip.\n\nBegint het werkwoord met be-, ver- of ont-? Dan komt er geen ge- bij. Bijvoorbeeld: verteld.",
+       "woorden": [
+        {
+         "nl": "voltooid deelwoord",
+         "doel": "vorm met ge- na hebben of zijn",
+         "voorbeeld": "gewerkt"
+        },
+        {
+         "nl": "gewerkt",
+         "doel": "k zit in 't kofschip",
+         "voorbeeld": "Ik heb gewerkt."
+        },
+        {
+         "nl": "gespeeld",
+         "doel": "l zit niet in 't kofschip",
+         "voorbeeld": "Ik heb gespeeld."
+        },
+        {
+         "nl": "gepraat",
+         "doel": "stam eindigt al op t",
+         "voorbeeld": "Ik heb gepraat."
+        },
+        {
+         "nl": "verteld",
+         "doel": "geen ge- bij ver-",
+         "voorbeeld": "Ik heb verteld."
+        },
+        {
+         "nl": "ontdekt",
+         "doel": "geen ge- bij ont-",
+         "voorbeeld": "Ik heb ontdekt."
+        },
+        {
+         "nl": "besteld",
+         "doel": "geen ge- bij be-",
+         "voorbeeld": "Ik heb besteld."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is juist? Ik heb ... (werken).",
+         "opties": [
+          "gewerkd",
+          "werkt",
+          "gewerkt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Stam werk. De k zit in 't kofschip."
+        },
+        {
+         "vraag": "Wat is juist? Ik heb ... (spelen).",
+         "opties": [
+          "gespeeld",
+          "gespeelt",
+          "speeld"
+         ],
+         "antwoord": 0,
+         "uitleg": "Stam speel. De l zit er niet in."
+        },
+        {
+         "vraag": "Wat is juist? Hij heeft het ... (vertellen).",
+         "opties": [
+          "geverteld",
+          "verteld",
+          "vertelt"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij ver- komt er geen ge-."
+        },
+        {
+         "vraag": "Wat is juist? We hebben ... (praten).",
+         "opties": [
+          "gepraatt",
+          "gepraad",
+          "gepraat"
+         ],
+         "antwoord": 2,
+         "uitleg": "Stam praat eindigt al op t."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-woordsoorten",
+     "titel": "Woordsoorten",
+     "samenvatting": "Je herkent woordsoorten in een zin.",
+     "lessen": [
+      {
+       "id": "b-naamwoorden",
+       "titel": "Naamwoorden en lidwoorden",
+       "uitleg": "Een zelfstandig naamwoord is een naam voor iets. Bijvoorbeeld: kat, school, tafel.\n\nEen lidwoord staat ervoor: de, het, een.\n\nEen bijvoeglijk naamwoord beschrijft het zelfstandig naamwoord. Een rode jas.",
+       "woorden": [
+        {
+         "nl": "zelfstandig naamwoord",
+         "doel": "naam voor iets",
+         "voorbeeld": "kat"
+        },
+        {
+         "nl": "lidwoord",
+         "doel": "de, het of een",
+         "voorbeeld": "de kat"
+        },
+        {
+         "nl": "bijvoeglijk naamwoord",
+         "doel": "woord dat beschrijft",
+         "voorbeeld": "rood"
+        },
+        {
+         "nl": "de",
+         "doel": "lidwoord",
+         "voorbeeld": "de tafel"
+        },
+        {
+         "nl": "het",
+         "doel": "lidwoord",
+         "voorbeeld": "het boek"
+        },
+        {
+         "nl": "een",
+         "doel": "lidwoord",
+         "voorbeeld": "een pen"
+        },
+        {
+         "nl": "beschrijven",
+         "doel": "zeggen hoe iets is",
+         "voorbeeld": "een grote hond"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk woord is een zelfstandig naamwoord? De kat slaapt.",
+         "opties": [
+          "kat",
+          "slaapt",
+          "De"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een kat is een dier."
+        },
+        {
+         "vraag": "Welk woord beschrijft? Ik koop een rode jas.",
+         "opties": [
+          "koop",
+          "rode",
+          "jas"
+         ],
+         "antwoord": 1,
+         "uitleg": "'Rode' zegt hoe de jas is."
+        },
+        {
+         "vraag": "Welke woorden zijn lidwoorden?",
+         "opties": [
+          "ik, jij, hij",
+          "snel, traag",
+          "de, het, een"
+         ],
+         "antwoord": 2,
+         "uitleg": "De, het en een."
+        },
+        {
+         "vraag": "Welk woord is geen zelfstandig naamwoord?",
+         "opties": [
+          "wandelen",
+          "tafel",
+          "school"
+         ],
+         "antwoord": 0,
+         "uitleg": "Wandelen is een werkwoord."
+        }
+       ]
+      },
+      {
+       "id": "b-ww-en-vnw",
+       "titel": "Werkwoorden en voornaamwoorden",
+       "uitleg": "Een werkwoord zegt wat je doet. Ik lees. Hij loopt.\n\nEen voornaamwoord komt in de plaats van een naam. Peter fietst. Hij is moe.\n\nVoorbeelden: ik, jij, hij, zij, wij. Of: mijn, jouw, zijn.",
+       "woorden": [
+        {
+         "nl": "werkwoord",
+         "doel": "woord voor wat je doet",
+         "voorbeeld": "lezen"
+        },
+        {
+         "nl": "voornaamwoord",
+         "doel": "woord in de plaats van een naam",
+         "voorbeeld": "hij"
+        },
+        {
+         "nl": "ik",
+         "doel": "voornaamwoord",
+         "voorbeeld": "Ik lees."
+        },
+        {
+         "nl": "jij",
+         "doel": "voornaamwoord",
+         "voorbeeld": "Jij leest."
+        },
+        {
+         "nl": "hij",
+         "doel": "voornaamwoord",
+         "voorbeeld": "Hij leest."
+        },
+        {
+         "nl": "wij",
+         "doel": "voornaamwoord",
+         "voorbeeld": "Wij lezen."
+        },
+        {
+         "nl": "mijn",
+         "doel": "bezit",
+         "voorbeeld": "mijn tas"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk woord is een werkwoord? De kinderen lezen.",
+         "opties": [
+          "kinderen",
+          "lezen",
+          "De"
+         ],
+         "antwoord": 1,
+         "uitleg": "Lezen zegt wat ze doen."
+        },
+        {
+         "vraag": "Welk woord is een voornaamwoord? Zij woont hier.",
+         "opties": [
+          "woont",
+          "hier",
+          "Zij"
+         ],
+         "antwoord": 2,
+         "uitleg": "'Zij' vervangt een naam."
+        },
+        {
+         "vraag": "Welk woord toont bezit? Dat is mijn tas.",
+         "opties": [
+          "mijn",
+          "tas",
+          "Dat"
+         ],
+         "antwoord": 0,
+         "uitleg": "'Mijn' toont van wie de tas is."
+        },
+        {
+         "vraag": "Wat vervangt 'hij'? Peter fietst. Hij is moe.",
+         "opties": [
+          "fietst",
+          "Peter",
+          "moe"
+         ],
+         "antwoord": 1,
+         "uitleg": "'Hij' staat voor Peter."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-zinnen",
+     "titel": "Zinnen ontleden",
+     "samenvatting": "Je zoekt de persoonsvorm, het onderwerp en het lijdend voorwerp.",
+     "lessen": [
+      {
+       "id": "b-pv-onderwerp",
+       "titel": "Persoonsvorm en onderwerp",
+       "uitleg": "De persoonsvorm is een werkwoord in de zin. Zet de zin in het verleden. Het woord dat verandert, is de persoonsvorm.\n\nDe hond blaft. De hond blafte. 'Blaft' is de persoonsvorm.\n\nHet onderwerp vind je met: wie of wat + persoonsvorm? Wie blaft? De hond.",
+       "woorden": [
+        {
+         "nl": "persoonsvorm",
+         "doel": "het werkwoord dat verandert",
+         "voorbeeld": "blaft"
+        },
+        {
+         "nl": "onderwerp",
+         "doel": "wie of wat het doet",
+         "voorbeeld": "De hond"
+        },
+        {
+         "nl": "zin",
+         "doel": "woorden met een punt",
+         "voorbeeld": "De hond blaft."
+        },
+        {
+         "nl": "verleden tijd",
+         "doel": "iets dat voorbij is",
+         "voorbeeld": "blafte"
+        },
+        {
+         "nl": "vraag",
+         "doel": "om het onderwerp te vinden",
+         "voorbeeld": "Wie blaft?"
+        },
+        {
+         "nl": "verandert",
+         "doel": "wordt anders",
+         "voorbeeld": "blaft → blafte"
+        },
+        {
+         "nl": "werkwoord",
+         "doel": "woord voor wat je doet",
+         "voorbeeld": "blaffen"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de persoonsvorm? Mijn broer speelt gitaar.",
+         "opties": [
+          "broer",
+          "gitaar",
+          "speelt"
+         ],
+         "antwoord": 2,
+         "uitleg": "In het verleden: speelde."
+        },
+        {
+         "vraag": "Wat is het onderwerp? De leerlingen wachten.",
+         "opties": [
+          "De leerlingen",
+          "wachten",
+          "De"
+         ],
+         "antwoord": 0,
+         "uitleg": "Wie wachten? De leerlingen."
+        },
+        {
+         "vraag": "Wat is het onderwerp? Morgen gaat Sara zwemmen.",
+         "opties": [
+          "Morgen",
+          "Sara",
+          "zwemmen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Wie gaat? Sara."
+        },
+        {
+         "vraag": "Hoe vind je het onderwerp?",
+         "opties": [
+          "Zoek het langste woord.",
+          "Neem het eerste woord.",
+          "Vraag: wie of wat + persoonsvorm?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat is de vraag voor het onderwerp."
+        }
+       ]
+      },
+      {
+       "id": "b-lijdend-voorwerp",
+       "titel": "Het lijdend voorwerp",
+       "uitleg": "Het lijdend voorwerp is wat iemand doet of krijgt. Sam leest een boek.\n\nJe vindt het met: wie of wat + persoonsvorm + onderwerp? Wat leest Sam? Een boek.\n\nNiet elke zin heeft een lijdend voorwerp. De baby slaapt.",
+       "woorden": [
+        {
+         "nl": "lijdend voorwerp",
+         "doel": "wat of wie de handeling ondergaat",
+         "voorbeeld": "een boek"
+        },
+        {
+         "nl": "onderwerp",
+         "doel": "wie of wat het doet",
+         "voorbeeld": "Sam"
+        },
+        {
+         "nl": "persoonsvorm",
+         "doel": "werkwoord dat past bij het onderwerp",
+         "voorbeeld": "leest"
+        },
+        {
+         "nl": "handeling",
+         "doel": "iets dat je doet",
+         "voorbeeld": "lezen"
+        },
+        {
+         "nl": "vraag",
+         "doel": "om het lijdend voorwerp te vinden",
+         "voorbeeld": "Wat leest Sam?"
+        },
+        {
+         "nl": "zin zonder",
+         "doel": "een zin zonder lijdend voorwerp",
+         "voorbeeld": "De baby slaapt."
+        },
+        {
+         "nl": "zinsdeel",
+         "doel": "een deel van de zin",
+         "voorbeeld": "een boek"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het lijdend voorwerp? Oma bakt appeltaart.",
+         "opties": [
+          "appeltaart",
+          "Oma",
+          "bakt"
+         ],
+         "antwoord": 0,
+         "uitleg": "Wat bakt oma? Appeltaart."
+        },
+        {
+         "vraag": "Wat is het lijdend voorwerp? Wij zien de dokter.",
+         "opties": [
+          "Wij",
+          "de dokter",
+          "zien"
+         ],
+         "antwoord": 1,
+         "uitleg": "Wie zien wij? De dokter."
+        },
+        {
+         "vraag": "Welke zin heeft geen lijdend voorwerp?",
+         "opties": [
+          "Tom eet een appel.",
+          "Ik lees de krant.",
+          "De baby slaapt."
+         ],
+         "antwoord": 2,
+         "uitleg": "Je kan niet vragen: wat slaapt de baby?"
+        },
+        {
+         "vraag": "Welke vraag vindt het lijdend voorwerp?",
+         "opties": [
+          "Wie of wat + persoonsvorm + onderwerp?",
+          "Waar + persoonsvorm?",
+          "Wanneer + persoonsvorm?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Dat is de juiste vraag."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-woordenschat",
+     "titel": "Woordenschat",
+     "samenvatting": "Je kent synoniemen, antoniemen en samenstellingen.",
+     "lessen": [
+      {
+       "id": "b-synoniemen-antoniemen",
+       "titel": "Synoniemen en antoniemen",
+       "uitleg": "Een synoniem betekent bijna hetzelfde. Snel en vlug.\n\nEen antoniem is het tegenovergestelde. Groot en klein.\n\nControleer altijd of de zin nog klopt.",
+       "woorden": [
+        {
+         "nl": "synoniem",
+         "doel": "woord met dezelfde betekenis",
+         "voorbeeld": "snel – vlug"
+        },
+        {
+         "nl": "antoniem",
+         "doel": "woord met de tegenovergestelde betekenis",
+         "voorbeeld": "groot – klein"
+        },
+        {
+         "nl": "mooi",
+         "doel": "synoniem van fraai",
+         "voorbeeld": "een mooie jas"
+        },
+        {
+         "nl": "vroeg",
+         "doel": "antoniem van laat",
+         "voorbeeld": "vroeg opstaan"
+        },
+        {
+         "nl": "blij",
+         "doel": "antoniem van verdrietig",
+         "voorbeeld": "een blije dag"
+        },
+        {
+         "nl": "woning",
+         "doel": "synoniem van huis",
+         "voorbeeld": "een mooie woning"
+        },
+        {
+         "nl": "tegenovergesteld",
+         "doel": "helemaal anders",
+         "voorbeeld": "warm – koud"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een synoniem van 'vlug'?",
+         "opties": [
+          "traag",
+          "snel",
+          "laat"
+         ],
+         "antwoord": 1,
+         "uitleg": "Vlug en snel zijn bijna gelijk."
+        },
+        {
+         "vraag": "Wat is een antoniem van 'vroeg'?",
+         "opties": [
+          "vlug",
+          "ochtend",
+          "laat"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vroeg en laat zijn tegenpolen."
+        },
+        {
+         "vraag": "Welk paar zijn synoniemen?",
+         "opties": [
+          "woning – huis",
+          "warm – koud",
+          "jong – oud"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een woning is een huis."
+        },
+        {
+         "vraag": "Welk paar zijn antoniemen?",
+         "opties": [
+          "mooi – fraai",
+          "blij – verdrietig",
+          "huis – woning"
+         ],
+         "antwoord": 1,
+         "uitleg": "Blij en verdrietig zijn tegenpolen."
+        }
+       ]
+      },
+      {
+       "id": "b-samenstellingen",
+       "titel": "Samenstellingen",
+       "uitleg": "Een samenstelling is een woord van twee woorden. School + tas = schooltas.\n\nJe schrijft ze aan elkaar. Dus: fietspad. Niet: fiets pad.\n\nHet laatste woord bepaalt het lidwoord. Het boek, dus het schoolboek.",
+       "woorden": [
+        {
+         "nl": "samenstelling",
+         "doel": "woord van twee woorden",
+         "voorbeeld": "schooltas"
+        },
+        {
+         "nl": "school",
+         "doel": "eerste deel",
+         "voorbeeld": "schooltas"
+        },
+        {
+         "nl": "tas",
+         "doel": "laatste deel",
+         "voorbeeld": "schooltas"
+        },
+        {
+         "nl": "fietspad",
+         "doel": "fiets + pad",
+         "voorbeeld": "een mooi fietspad"
+        },
+        {
+         "nl": "voetbal",
+         "doel": "voet + bal",
+         "voorbeeld": "een voetbal"
+        },
+        {
+         "nl": "aan elkaar",
+         "doel": "zonder spatie",
+         "voorbeeld": "fietspad"
+        },
+        {
+         "nl": "lidwoord",
+         "doel": "de of het",
+         "voorbeeld": "het schoolboek"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe schrijf je het juist?",
+         "opties": [
+          "fiets pad",
+          "fiets-pad",
+          "fietspad"
+         ],
+         "antwoord": 2,
+         "uitleg": "Samenstellingen schrijf je aan elkaar."
+        },
+        {
+         "vraag": "Welk woord is een samenstelling?",
+         "opties": [
+          "voetbal",
+          "wandelen",
+          "groot"
+         ],
+         "antwoord": 0,
+         "uitleg": "Voet + bal."
+        },
+        {
+         "vraag": "Welk lidwoord hoort bij 'schoolboek'?",
+         "opties": [
+          "de",
+          "het",
+          "een"
+         ],
+         "antwoord": 1,
+         "uitleg": "Boek is een het-woord."
+        },
+        {
+         "vraag": "Wat betekent 'hondenhok'?",
+         "opties": [
+          "Een hond voor een hok",
+          "Een hok vol honden",
+          "Een hok voor een hond"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het laatste woord is hok."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-spelling",
+     "titel": "Spelling van woorden",
+     "samenvatting": "Je schrijft meervoud en hoofdletters juist.",
+     "lessen": [
+      {
+       "id": "b-meervoud",
+       "titel": "Het meervoud",
+       "uitleg": "Meervoud is meer dan één. Meestal schrijf je -en. Boek, boeken.\n\nNa een korte klinker verdubbelt de medeklinker: kat, katten. Na een lange klinker is er één letter: raam, ramen.\n\nBij a, o, u en i komt 's. Foto, foto's. Bij -el, -er en -je komt meestal -s.",
+       "woorden": [
+        {
+         "nl": "meervoud",
+         "doel": "meer dan één",
+         "voorbeeld": "boeken"
+        },
+        {
+         "nl": "enkelvoud",
+         "doel": "één",
+         "voorbeeld": "boek"
+        },
+        {
+         "nl": "boeken",
+         "doel": "meervoud van boek",
+         "voorbeeld": "twee boeken"
+        },
+        {
+         "nl": "katten",
+         "doel": "meervoud van kat",
+         "voorbeeld": "twee katten"
+        },
+        {
+         "nl": "ramen",
+         "doel": "meervoud van raam",
+         "voorbeeld": "twee ramen"
+        },
+        {
+         "nl": "foto's",
+         "doel": "meervoud van foto",
+         "voorbeeld": "twee foto's"
+        },
+        {
+         "nl": "meisjes",
+         "doel": "meervoud van meisje",
+         "voorbeeld": "twee meisjes"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het meervoud van 'kat'?",
+         "opties": [
+          "katten",
+          "katen",
+          "kats"
+         ],
+         "antwoord": 0,
+         "uitleg": "Korte klinker: de t verdubbelt."
+        },
+        {
+         "vraag": "Wat is het meervoud van 'raam'?",
+         "opties": [
+          "rammen",
+          "ramen",
+          "raams"
+         ],
+         "antwoord": 1,
+         "uitleg": "Lange klinker: één a."
+        },
+        {
+         "vraag": "Wat is het meervoud van 'foto'?",
+         "opties": [
+          "fotos",
+          "fotoos",
+          "foto's"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na o komt 's."
+        },
+        {
+         "vraag": "Wat is het meervoud van 'meisje'?",
+         "opties": [
+          "meisjes",
+          "meisjen",
+          "meisje's"
+         ],
+         "antwoord": 0,
+         "uitleg": "Na -je komt -s."
+        }
+       ]
+      },
+      {
+       "id": "b-hoofdletters",
+       "titel": "Hoofdletters",
+       "uitleg": "Je schrijft een hoofdletter aan het begin van een zin. Ook bij namen: Lotte, Gent, België.\n\nTalen krijgen een hoofdletter. Frans, Nederlands.\n\nDagen en maanden schrijf je klein. Maandag, juli.",
+       "woorden": [
+        {
+         "nl": "hoofdletter",
+         "doel": "grote letter",
+         "voorbeeld": "Gent"
+        },
+        {
+         "nl": "naam",
+         "doel": "bijvoorbeeld Lotte",
+         "voorbeeld": "Lotte"
+        },
+        {
+         "nl": "stad",
+         "doel": "bijvoorbeeld Gent",
+         "voorbeeld": "Gent"
+        },
+        {
+         "nl": "land",
+         "doel": "bijvoorbeeld België",
+         "voorbeeld": "België"
+        },
+        {
+         "nl": "taal",
+         "doel": "bijvoorbeeld Frans",
+         "voorbeeld": "Frans"
+        },
+        {
+         "nl": "dag",
+         "doel": "schrijf je klein",
+         "voorbeeld": "maandag"
+        },
+        {
+         "nl": "maand",
+         "doel": "schrijf je klein",
+         "voorbeeld": "juli"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Op Maandag gaan we naar Brugge.",
+          "Op maandag gaan we naar Brugge.",
+          "Op maandag gaan we naar brugge."
+         ],
+         "antwoord": 1,
+         "uitleg": "Dagen klein, steden groot."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Ik leer frans.",
+          "ik leer Frans.",
+          "Ik leer Frans."
+         ],
+         "antwoord": 2,
+         "uitleg": "Talen krijgen een hoofdletter."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "In juli ga ik naar Spanje.",
+          "In Juli ga ik naar Spanje.",
+          "in juli ga ik naar spanje."
+         ],
+         "antwoord": 0,
+         "uitleg": "Maand klein, land groot."
+        },
+        {
+         "vraag": "Welk woord krijgt een hoofdletter?",
+         "opties": [
+          "rivier",
+          "Schelde",
+          "zomer"
+         ],
+         "antwoord": 1,
+         "uitleg": "Schelde is een naam."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-lezen",
+     "titel": "Lezen",
+     "samenvatting": "Je leest teksten en vindt de hoofdgedachte.",
+     "lessen": [
+      {
+       "id": "b-tekstsoorten",
+       "titel": "Tekstsoorten",
+       "uitleg": "Elke tekst heeft een doel. Een nieuwsbericht geeft informatie.\n\nEen recept legt uit hoe je iets maakt. Een sprookje vertelt een verhaal. Een reclame wil iets verkopen.\n\nVraag jezelf: wat wil de schrijver?",
+       "woorden": [
+        {
+         "nl": "tekstsoort",
+         "doel": "soort tekst",
+         "voorbeeld": "recept"
+        },
+        {
+         "nl": "nieuwsbericht",
+         "doel": "tekst met informatie",
+         "voorbeeld": "een bericht in de krant"
+        },
+        {
+         "nl": "recept",
+         "doel": "tekst die uitlegt hoe je iets maakt",
+         "voorbeeld": "pannenkoeken maken"
+        },
+        {
+         "nl": "sprookje",
+         "doel": "een verhaal",
+         "voorbeeld": "Roodkapje"
+        },
+        {
+         "nl": "reclame",
+         "doel": "tekst om iets te verkopen",
+         "voorbeeld": "reclame voor sneakers"
+        },
+        {
+         "nl": "doel",
+         "doel": "wat de schrijver wil",
+         "voorbeeld": "informeren"
+        },
+        {
+         "nl": "informeren",
+         "doel": "uitleg geven",
+         "voorbeeld": "een nieuwsbericht"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Een recept is een tekst die ...",
+         "opties": [
+          "verhaalt",
+          "iets verkoopt",
+          "uitlegt hoe je iets maakt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een recept legt uit."
+        },
+        {
+         "vraag": "Een reclame wil vooral ...",
+         "opties": [
+          "je iets laten kopen",
+          "een verhaal vertellen",
+          "je iets leren"
+         ],
+         "antwoord": 0,
+         "uitleg": "Reclame wil verkopen."
+        },
+        {
+         "vraag": "Een nieuwsbericht wil vooral ...",
+         "opties": [
+          "verkopen",
+          "informeren",
+          "een sprookje vertellen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het geeft informatie."
+        },
+        {
+         "vraag": "Een sprookje is een ...",
+         "opties": [
+          "recept",
+          "nieuwsbericht",
+          "verhaal"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een sprookje vertelt een verhaal."
+        }
+       ]
+      },
+      {
+       "id": "b-hoofdgedachte",
+       "titel": "Onderwerp en hoofdgedachte",
+       "uitleg": "Het onderwerp is waarover de tekst gaat. Zeg het in één of twee woorden.\n\nDe hoofdgedachte is de belangrijkste boodschap. Zeg ze in één zin.\n\nDe titel helpt je. Kijk ook naar de tussentitels.",
+       "woorden": [
+        {
+         "nl": "onderwerp",
+         "doel": "waarover de tekst gaat",
+         "voorbeeld": "slaap"
+        },
+        {
+         "nl": "hoofdgedachte",
+         "doel": "de belangrijkste boodschap",
+         "voorbeeld": "Slaap is belangrijk."
+        },
+        {
+         "nl": "titel",
+         "doel": "naam van de tekst",
+         "voorbeeld": "Slaap goed"
+        },
+        {
+         "nl": "tussentitel",
+         "doel": "titel boven een stuk tekst",
+         "voorbeeld": "Waarom slaap je?"
+        },
+        {
+         "nl": "kernwoord",
+         "doel": "belangrijk woord",
+         "voorbeeld": "slaap"
+        },
+        {
+         "nl": "tekst",
+         "doel": "woorden die je leest",
+         "voorbeeld": "een artikel"
+        },
+        {
+         "nl": "boodschap",
+         "doel": "wat de schrijver wil zeggen",
+         "voorbeeld": "Slaap voldoende."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Tekst: 'Jongeren slapen te weinig. Ze zijn moe op school.' Wat is het onderwerp?",
+         "opties": [
+          "slaap bij jongeren",
+          "school",
+          "sport"
+         ],
+         "antwoord": 0,
+         "uitleg": "De tekst gaat over slaap."
+        },
+        {
+         "vraag": "Tekst: 'Fietsen is gezond. Het is ook goedkoop.' Wat is de hoofdgedachte?",
+         "opties": [
+          "Fietsen is moeilijk.",
+          "Fietsen is gezond en goedkoop.",
+          "Fietsen is gevaarlijk."
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat is de boodschap."
+        },
+        {
+         "vraag": "Waar vind je snel het onderwerp?",
+         "opties": [
+          "in het paginanummer",
+          "in de laatste zin",
+          "in de titel"
+         ],
+         "antwoord": 2,
+         "uitleg": "De titel geeft het onderwerp."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-schrijven",
+     "titel": "Schrijven",
+     "samenvatting": "Je schrijft een brief of e-mail.",
+     "lessen": [
+      {
+       "id": "b-brief-email",
+       "titel": "Brief en e-mail",
+       "uitleg": "Een brief heeft een aanhef, een tekst en een slotgroet. Onderaan zet je je naam.\n\nAan vrienden schrijf je informeel. 'Dag Lotte' en 'Groetjes'. Aan de directeur schrijf je formeel. 'Geachte mevrouw' en 'Met vriendelijke groeten'.",
+       "woorden": [
+        {
+         "nl": "aanhef",
+         "doel": "begroeting bovenaan",
+         "voorbeeld": "Geachte mevrouw,"
+        },
+        {
+         "nl": "slotgroet",
+         "doel": "afsluiting onderaan",
+         "voorbeeld": "Met vriendelijke groeten"
+        },
+        {
+         "nl": "formeel",
+         "doel": "beleefd",
+         "voorbeeld": "Geachte mijnheer,"
+        },
+        {
+         "nl": "informeel",
+         "doel": "los en vriendelijk",
+         "voorbeeld": "Dag Lotte,"
+        },
+        {
+         "nl": "onderwerp",
+         "doel": "titel van een e-mail",
+         "voorbeeld": "Vraag over de uitstap"
+        },
+        {
+         "nl": "naam",
+         "doel": "onderaan de brief",
+         "voorbeeld": "Lotte Peeters"
+        },
+        {
+         "nl": "e-mail",
+         "doel": "brief op de computer",
+         "voorbeeld": "Ik stuur een e-mail."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Je schrijft aan de directeur. Welke aanhef past?",
+         "opties": [
+          "Geachte mijnheer,",
+          "Hey boss!",
+          "Dag maat,"
+         ],
+         "antwoord": 0,
+         "uitleg": "Aan een directeur schrijf je formeel."
+        },
+        {
+         "vraag": "Welke slotgroet is formeel?",
+         "opties": [
+          "Doeii",
+          "Met vriendelijke groeten",
+          "Kusjes"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dit is beleefd."
+        },
+        {
+         "vraag": "Wat zet je onderaan een brief?",
+         "opties": [
+          "het onderwerp",
+          "de aanhef",
+          "je naam"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na de slotgroet komt je naam."
+        },
+        {
+         "vraag": "Waarom schrijf je een onderwerp in een e-mail?",
+         "opties": [
+          "De lezer weet waarover het gaat.",
+          "Het is mooi.",
+          "Het moet niet."
+         ],
+         "antwoord": 0,
+         "uitleg": "Het onderwerp geeft een snelle indruk."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b-taal",
+     "titel": "Taal in Vlaanderen",
+     "samenvatting": "Je kent het verschil tussen tussentaal en standaardtaal.",
+     "lessen": [
+      {
+       "id": "b-tussentaal",
+       "titel": "Tussentaal en standaardtaal",
+       "uitleg": "In Vlaanderen praten veel mensen tussentaal. Dat is een mengeling van dialect en standaardtaal.\n\nVoorbeeld: 'Ge moet da doen.' In standaardtaal: 'Je moet dat doen.'\n\nOp school en in een brief gebruik je standaardtaal.",
+       "woorden": [
+        {
+         "nl": "dialect",
+         "doel": "taal van een streek",
+         "voorbeeld": "West-Vlaams"
+        },
+        {
+         "nl": "tussentaal",
+         "doel": "mengeling van dialect en standaardtaal",
+         "voorbeeld": "Ge moet da doen."
+        },
+        {
+         "nl": "standaardtaal",
+         "doel": "verzorgde taal",
+         "voorbeeld": "Je moet dat doen."
+        },
+        {
+         "nl": "ge",
+         "doel": "tussentaal voor jij",
+         "voorbeeld": "Ge moet komen."
+        },
+        {
+         "nl": "da",
+         "doel": "tussentaal voor dat",
+         "voorbeeld": "Da is mooi."
+        },
+        {
+         "nl": "ni",
+         "doel": "tussentaal voor niet",
+         "voorbeeld": "Ik kom ni."
+        },
+        {
+         "nl": "je",
+         "doel": "standaardtaal voor ge",
+         "voorbeeld": "Je moet komen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is standaardtaal voor 'Ge moet da doen'?",
+         "opties": [
+          "Ge moet dat doen.",
+          "Je moet dat doen.",
+          "Je moet da doen."
+         ],
+         "antwoord": 1,
+         "uitleg": "Schrijf 'je' en 'dat'."
+        },
+        {
+         "vraag": "Wat is standaardtaal voor 'Da's ni juist'?",
+         "opties": [
+          "Da is niet juist.",
+          "Dat is ni juist.",
+          "Dat is niet juist."
+         ],
+         "antwoord": 2,
+         "uitleg": "Schrijf 'dat is niet juist'."
+        },
+        {
+         "vraag": "Wanneer gebruik je standaardtaal?",
+         "opties": [
+          "in een brief of presentatie",
+          "met vrienden op de speelplaats",
+          "tijdens het spelen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Dan is verzorgde taal belangrijk."
+        },
+        {
+         "vraag": "Wat is tussentaal?",
+         "opties": [
+          "alleen Frans",
+          "een mengeling van dialect en standaardtaal",
+          "de taal van de krant"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het zit tussen dialect en standaardtaal."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "jaar": 2,
+   "themas": [
+    {
+     "id": "b2-ww",
+     "titel": "Werkwoorden in alle tijden",
+     "samenvatting": "Je herkent de tijd van een zin en schrijft de verleden tijd juist.",
+     "lessen": [
+      {
+       "id": "b2-tijden",
+       "titel": "De werkwoordstijden",
+       "uitleg": "De tegenwoordige tijd gaat over nu. Ik werk.\n\nDe verleden tijd gaat over iets dat voorbij is. Ik werkte. Of: ik heb gewerkt.\n\nDe toekomende tijd gaat over later. Ik zal werken.",
+       "woorden": [
+        {
+         "nl": "tegenwoordige tijd",
+         "doel": "de tijd voor nu",
+         "voorbeeld": "Ik werk."
+        },
+        {
+         "nl": "verleden tijd",
+         "doel": "de tijd voor wat voorbij is",
+         "voorbeeld": "Ik werkte."
+        },
+        {
+         "nl": "toekomende tijd",
+         "doel": "de tijd voor later",
+         "voorbeeld": "Ik zal werken."
+        },
+        {
+         "nl": "nu",
+         "doel": "op dit moment",
+         "voorbeeld": "Ik werk nu."
+        },
+        {
+         "nl": "gisteren",
+         "doel": "de dag voor vandaag",
+         "voorbeeld": "Gisteren werkte ik."
+        },
+        {
+         "nl": "morgen",
+         "doel": "de dag na vandaag",
+         "voorbeeld": "Morgen zal ik werken."
+        },
+        {
+         "nl": "voltooid deelwoord",
+         "doel": "vorm met ge-",
+         "voorbeeld": "gewerkt"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke tijd is dit? De zon schijnt.",
+         "opties": [
+          "verleden tijd",
+          "toekomende tijd",
+          "tegenwoordige tijd"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het gaat over nu."
+        },
+        {
+         "vraag": "Welke tijd is dit? Wij speelden buiten.",
+         "opties": [
+          "verleden tijd",
+          "tegenwoordige tijd",
+          "toekomende tijd"
+         ],
+         "antwoord": 0,
+         "uitleg": "Speelden is verleden tijd."
+        },
+        {
+         "vraag": "Welke tijd is dit? Morgen zal het regenen.",
+         "opties": [
+          "verleden tijd",
+          "toekomende tijd",
+          "tegenwoordige tijd"
+         ],
+         "antwoord": 1,
+         "uitleg": "'Zal' wijst naar later."
+        },
+        {
+         "vraag": "Zet in de verleden tijd: Ik werk hard.",
+         "opties": [
+          "Ik werkde hard.",
+          "Ik heb werkte hard.",
+          "Ik werkte hard."
+         ],
+         "antwoord": 2,
+         "uitleg": "Stam werk. De k zit in 't kofschip."
+        }
+       ]
+      },
+      {
+       "id": "b2-dubbele-t-d",
+       "titel": "Verleden tijd met t of d",
+       "uitleg": "Eindigt de stam al op t of d? Dan voeg je gewoon -te of -de toe.\n\nPraten: praat + te = praatte. Antwoorden: antwoord + de = antwoordde.\n\nBij meer personen komt er een n bij. Wij praatten.",
+       "woorden": [
+        {
+         "nl": "praten",
+         "doel": "stam praat",
+         "voorbeeld": "Wij praten."
+        },
+        {
+         "nl": "praatte",
+         "doel": "praat + te",
+         "voorbeeld": "Hij praatte."
+        },
+        {
+         "nl": "antwoorden",
+         "doel": "stam antwoord",
+         "voorbeeld": "Zij antwoorden."
+        },
+        {
+         "nl": "antwoordde",
+         "doel": "antwoord + de",
+         "voorbeeld": "Zij antwoordde."
+        },
+        {
+         "nl": "landen",
+         "doel": "stam land",
+         "voorbeeld": "De piloot landt."
+        },
+        {
+         "nl": "landde",
+         "doel": "land + de",
+         "voorbeeld": "Hij landde."
+        },
+        {
+         "nl": "wachtte",
+         "doel": "wacht + te",
+         "voorbeeld": "Ik wachtte."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Gisteren ... de juf. (antwoorden)",
+         "opties": [
+          "antwoordde",
+          "antwoorde",
+          "antwoorte"
+         ],
+         "antwoord": 0,
+         "uitleg": "Stam antwoord + de."
+        },
+        {
+         "vraag": "De piloot ... veilig. (landen)",
+         "opties": [
+          "lande",
+          "landde",
+          "landte"
+         ],
+         "antwoord": 1,
+         "uitleg": "Stam land + de."
+        },
+        {
+         "vraag": "We ... lang. (praten)",
+         "opties": [
+          "praaten",
+          "praatden",
+          "praatten"
+         ],
+         "antwoord": 2,
+         "uitleg": "Stam praat + te + n."
+        },
+        {
+         "vraag": "Vul in: Hij ... op de bus. (wachten)",
+         "opties": [
+          "wachtte",
+          "wachte",
+          "wachtde"
+         ],
+         "antwoord": 0,
+         "uitleg": "Stam wacht + te."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-zinsdelen",
+     "titel": "Zinsdelen",
+     "samenvatting": "Je zoekt de bijwoordelijke bepaling en verbanden in zinnen.",
+     "lessen": [
+      {
+       "id": "b2-bwb",
+       "titel": "De bijwoordelijke bepaling",
+       "uitleg": "Een bijwoordelijke bepaling vertelt waar, wanneer of hoe iets gebeurt.\n\nDe kinderen spelen elke dag in de tuin. Wanneer? Elke dag. Waar? In de tuin.\n\nJe kan ze meestal weglaten. De zin blijft juist.",
+       "woorden": [
+        {
+         "nl": "bijwoordelijke bepaling",
+         "doel": "zinsdeel over plaats, tijd of manier",
+         "voorbeeld": "in de tuin"
+        },
+        {
+         "nl": "waar",
+         "doel": "vraag naar de plaats",
+         "voorbeeld": "Waar speel je?"
+        },
+        {
+         "nl": "wanneer",
+         "doel": "vraag naar de tijd",
+         "voorbeeld": "Wanneer speel je?"
+        },
+        {
+         "nl": "hoe",
+         "doel": "vraag naar de manier",
+         "voorbeeld": "Hoe speel je?"
+        },
+        {
+         "nl": "gisteren",
+         "doel": "een bepaling van tijd",
+         "voorbeeld": "Gisteren speelde ik."
+        },
+        {
+         "nl": "in de tuin",
+         "doel": "een bepaling van plaats",
+         "voorbeeld": "Ik speel in de tuin."
+        },
+        {
+         "nl": "weglaten",
+         "doel": "niet schrijven",
+         "voorbeeld": "De zin blijft juist."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de bepaling? Gisteren las ik een boek.",
+         "opties": [
+          "boek",
+          "Gisteren",
+          "ik"
+         ],
+         "antwoord": 1,
+         "uitleg": "Wanneer las ik? Gisteren."
+        },
+        {
+         "vraag": "Wat is de bepaling van plaats? Hij woont in Mechelen.",
+         "opties": [
+          "Hij",
+          "woont",
+          "in Mechelen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Waar woont hij? In Mechelen."
+        },
+        {
+         "vraag": "Welke vragen horen bij een bijwoordelijke bepaling?",
+         "opties": [
+          "waar, wanneer, hoe",
+          "wie of wat",
+          "aan wie"
+         ],
+         "antwoord": 0,
+         "uitleg": "Dit zijn de vragen."
+        }
+       ]
+      },
+      {
+       "id": "b2-voegwoorden",
+       "titel": "Voegwoorden",
+       "uitleg": "Voegwoorden verbinden zinnen. Ze tonen een verband.\n\nOmdat toont een reden. Ik blijf thuis omdat ik ziek ben. Maar toont een tegenstelling. Dus toont een gevolg.\n\nKies het voegwoord dat bij de betekenis past.",
+       "woorden": [
+        {
+         "nl": "voegwoord",
+         "doel": "woord dat zinnen verbindt",
+         "voorbeeld": "omdat"
+        },
+        {
+         "nl": "omdat",
+         "doel": "toont een reden",
+         "voorbeeld": "Ik blijf thuis omdat het regent."
+        },
+        {
+         "nl": "want",
+         "doel": "toont een reden",
+         "voorbeeld": "Ik blijf thuis, want het regent."
+        },
+        {
+         "nl": "maar",
+         "doel": "toont een tegenstelling",
+         "voorbeeld": "Ik wil, maar ik kan niet."
+        },
+        {
+         "nl": "dus",
+         "doel": "toont een gevolg",
+         "voorbeeld": "Het regent, dus ik blijf thuis."
+        },
+        {
+         "nl": "zodat",
+         "doel": "toont een doel",
+         "voorbeeld": "Ik studeer zodat ik slaag."
+        },
+        {
+         "nl": "als",
+         "doel": "toont een voorwaarde",
+         "voorbeeld": "Als het regent, blijf ik thuis."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk woord toont een reden?",
+         "opties": [
+          "maar",
+          "omdat",
+          "dus"
+         ],
+         "antwoord": 1,
+         "uitleg": "Omdat geeft de reden."
+        },
+        {
+         "vraag": "Welk woord past? Het regent, ... ik blijf thuis.",
+         "opties": [
+          "maar",
+          "omdat",
+          "dus"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dus toont het gevolg."
+        },
+        {
+         "vraag": "Welk woord toont een tegenstelling?",
+         "opties": [
+          "maar",
+          "want",
+          "dus"
+         ],
+         "antwoord": 0,
+         "uitleg": "Maar zet twee zaken tegenover elkaar."
+        },
+        {
+         "vraag": "Welk woord past? ... het regent, blijf ik thuis.",
+         "opties": [
+          "Omdat",
+          "Als",
+          "Maar"
+         ],
+         "antwoord": 1,
+         "uitleg": "Als toont een voorwaarde."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-spelling",
+     "titel": "Spelling",
+     "samenvatting": "Je schrijft het meervoud met trema en kiest tussen dan en als.",
+     "lessen": [
+      {
+       "id": "b2-trema",
+       "titel": "Trema en afkortingen",
+       "uitleg": "Het trema zijn twee puntjes. Ze tonen dat twee klinkers apart klinken.\n\nHet meervoud van idee is ideeën. Het meervoud van zee is zeeën.\n\nAfkortingen: bv. is bijvoorbeeld. Enz. is enzovoort.",
+       "woorden": [
+        {
+         "nl": "trema",
+         "doel": "twee puntjes op een klinker",
+         "voorbeeld": "ideeën"
+        },
+        {
+         "nl": "idee",
+         "doel": "één gedachte",
+         "voorbeeld": "een goed idee"
+        },
+        {
+         "nl": "ideeën",
+         "doel": "meervoud van idee",
+         "voorbeeld": "goede ideeën"
+        },
+        {
+         "nl": "zee",
+         "doel": "water",
+         "voorbeeld": "de zee"
+        },
+        {
+         "nl": "zeeën",
+         "doel": "meervoud van zee",
+         "voorbeeld": "alle zeeën"
+        },
+        {
+         "nl": "bv.",
+         "doel": "bijvoorbeeld",
+         "voorbeeld": "bv. appels"
+        },
+        {
+         "nl": "enz.",
+         "doel": "enzovoort",
+         "voorbeeld": "appels, peren, enz."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het meervoud van 'idee'?",
+         "opties": [
+          "idees",
+          "idee's",
+          "ideeën"
+         ],
+         "antwoord": 2,
+         "uitleg": "Idee krijgt -ën."
+        },
+        {
+         "vraag": "Wat is het meervoud van 'zee'?",
+         "opties": [
+          "zeeën",
+          "zeeen",
+          "zeën"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zee + en = zeeën."
+        },
+        {
+         "vraag": "Wat betekent 'bv.'?",
+         "opties": [
+          "beter",
+          "bijvoorbeeld",
+          "bovendien"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bv. is bijvoorbeeld."
+        }
+       ]
+      },
+      {
+       "id": "b2-dan-als",
+       "titel": "Dan of als?",
+       "uitleg": "Bij ongelijk gebruik je 'dan'. Hij is sneller dan ik.\n\nBij gelijk gebruik je 'als'. Zij is even slim als haar broer.\n\nLet op de woorden 'meer', 'groter' en 'sneller'. Daar komt 'dan' bij.",
+       "woorden": [
+        {
+         "nl": "dan",
+         "doel": "gebruik je bij ongelijk",
+         "voorbeeld": "groter dan"
+        },
+        {
+         "nl": "als",
+         "doel": "gebruik je bij gelijk",
+         "voorbeeld": "even groot als"
+        },
+        {
+         "nl": "sneller",
+         "doel": "vergelijkende trap",
+         "voorbeeld": "sneller dan"
+        },
+        {
+         "nl": "groter",
+         "doel": "vergelijkende trap",
+         "voorbeeld": "groter dan"
+        },
+        {
+         "nl": "even",
+         "doel": "toont gelijk",
+         "voorbeeld": "even groot"
+        },
+        {
+         "nl": "ongelijk",
+         "doel": "niet hetzelfde",
+         "voorbeeld": "groter dan"
+        },
+        {
+         "nl": "gelijk",
+         "doel": "hetzelfde",
+         "voorbeeld": "even groot als"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Vul in: Hij is sneller ... ik.",
+         "opties": [
+          "als",
+          "en",
+          "dan"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ongelijk: dan."
+        },
+        {
+         "vraag": "Vul in: Zij is even slim ... haar broer.",
+         "opties": [
+          "als",
+          "dan",
+          "en"
+         ],
+         "antwoord": 0,
+         "uitleg": "Gelijk: als."
+        },
+        {
+         "vraag": "Vul in: Mijn tas is zwaarder ... jouw tas.",
+         "opties": [
+          "als",
+          "dan",
+          "of"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ongelijk: dan."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-woordenschat",
+     "titel": "Woordenschat en tussentaal",
+     "samenvatting": "Je begrijpt woordbetekenis en schrijft standaardtaal.",
+     "lessen": [
+      {
+       "id": "b2-woordbetekenis",
+       "titel": "Woordbetekenis",
+       "uitleg": "Een woord kan meer dan één betekenis hebben. Een bank kan een zitbank zijn of een bank voor geld.\n\nLetterlijk is precies wat er staat. Figuurlijk is een andere betekenis. 'Hij heeft een gouden hart' betekent: hij is heel goed.\n\nDe zin helpt je de betekenis te vinden.",
+       "woorden": [
+        {
+         "nl": "letterlijk",
+         "doel": "precies wat er staat",
+         "voorbeeld": "De bal rolt."
+        },
+        {
+         "nl": "figuurlijk",
+         "doel": "een andere betekenis",
+         "voorbeeld": "een gouden hart"
+        },
+        {
+         "nl": "bank",
+         "doel": "zitbank of bank voor geld",
+         "voorbeeld": "Ik zit op de bank."
+        },
+        {
+         "nl": "gouden hart",
+         "doel": "heel goed zijn",
+         "voorbeeld": "Hij heeft een gouden hart."
+        },
+        {
+         "nl": "uitdrukking",
+         "doel": "vaste groep woorden",
+         "voorbeeld": "Het regent pijpenstelen."
+        },
+        {
+         "nl": "pijpenstelen",
+         "doel": "heel hard regenen",
+         "voorbeeld": "Het regent pijpenstelen."
+        },
+        {
+         "nl": "betekenis",
+         "doel": "wat een woord zegt",
+         "voorbeeld": "de betekenis opzoeken"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent 'Hij heeft een gouden hart'?",
+         "opties": [
+          "Zijn hart is van goud.",
+          "Hij is ziek.",
+          "Hij is heel goed."
+         ],
+         "antwoord": 2,
+         "uitleg": "Het is figuurlijk bedoeld."
+        },
+        {
+         "vraag": "Wat betekent 'Het regent pijpenstelen'?",
+         "opties": [
+          "Het regent heel hard.",
+          "Het regent pijpen.",
+          "Het regent niet."
+         ],
+         "antwoord": 0,
+         "uitleg": "Het is een uitdrukking."
+        },
+        {
+         "vraag": "Welke zin gaat over geld?",
+         "opties": [
+          "De kat ligt op de bank.",
+          "Ik haal geld af bij de bank.",
+          "De bank is zacht."
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij een bank haal je geld."
+        }
+       ]
+      },
+      {
+       "id": "b2-tussentaal",
+       "titel": "Tussentaal verbeteren",
+       "uitleg": "Tussentaal is een mengeling van dialect en standaardtaal. Op school gebruik je standaardtaal.\n\nTypisch tussentaal: ge, gij, da, wa, ni. Standaardtaal: je, jij, dat, wat, niet.\n\nVoorbeeld: 'Hebt ge da gezien?' wordt 'Heb je dat gezien?'",
+       "woorden": [
+        {
+         "nl": "tussentaal",
+         "doel": "mengeling van dialect en standaardtaal",
+         "voorbeeld": "Hebt ge da gezien?"
+        },
+        {
+         "nl": "standaardtaal",
+         "doel": "verzorgde taal",
+         "voorbeeld": "Heb je dat gezien?"
+        },
+        {
+         "nl": "ge",
+         "doel": "tussentaal",
+         "voorbeeld": "Ge moet komen."
+        },
+        {
+         "nl": "da",
+         "doel": "tussentaal",
+         "voorbeeld": "Da is leuk."
+        },
+        {
+         "nl": "wa",
+         "doel": "tussentaal",
+         "voorbeeld": "Wa doe je?"
+        },
+        {
+         "nl": "ni",
+         "doel": "tussentaal",
+         "voorbeeld": "Ik weet ni."
+        },
+        {
+         "nl": "niet",
+         "doel": "standaardtaal",
+         "voorbeeld": "Ik weet het niet."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is standaardtaal voor 'Wa doede gij'?",
+         "opties": [
+          "Wa doe jij?",
+          "Wat doede jij?",
+          "Wat doe jij?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Schrijf 'wat' en 'doe jij'."
+        },
+        {
+         "vraag": "Welke zin is standaardtaal?",
+         "opties": [
+          "Ik heb een hond.",
+          "Ik heb nen hond.",
+          "Ik heb ne hond."
+         ],
+         "antwoord": 0,
+         "uitleg": "'Een' is standaardtaal."
+        },
+        {
+         "vraag": "Welke zin is standaardtaal?",
+         "opties": [
+          "Dat is ni waar.",
+          "Dat is niet waar.",
+          "Da is niet waar."
+         ],
+         "antwoord": 1,
+         "uitleg": "Schrijf 'dat' en 'niet'."
+        },
+        {
+         "vraag": "Wanneer gebruik je best standaardtaal?",
+         "opties": [
+          "tijdens het spelen",
+          "bij het chatten met vrienden",
+          "in een presentatie op school"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een presentatie is formeel."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-lezen",
+     "titel": "Lezen en bronnen",
+     "samenvatting": "Je leest teksten kritisch.",
+     "lessen": [
+      {
+       "id": "b2-tekstdoel",
+       "titel": "Het doel van een tekst",
+       "uitleg": "Elke tekst heeft een doel. De schrijver wil informeren, overtuigen, amuseren of uitleggen.\n\nEen reclame wil overtuigen. Een grap wil amuseren. Een handleiding wil uitleggen.\n\nKijk naar de titel en de woorden. Dan zie je het doel.",
+       "woorden": [
+        {
+         "nl": "doel",
+         "doel": "wat de schrijver wil",
+         "voorbeeld": "overtuigen"
+        },
+        {
+         "nl": "informeren",
+         "doel": "uitleg geven",
+         "voorbeeld": "een nieuwsbericht"
+        },
+        {
+         "nl": "overtuigen",
+         "doel": "iemand iets laten geloven",
+         "voorbeeld": "reclame"
+        },
+        {
+         "nl": "amuseren",
+         "doel": "plezier geven",
+         "voorbeeld": "een grap"
+        },
+        {
+         "nl": "handleiding",
+         "doel": "uitleg bij een toestel",
+         "voorbeeld": "Draai de schroef los."
+        },
+        {
+         "nl": "reclame",
+         "doel": "tekst om iets te verkopen",
+         "voorbeeld": "een reclamefolder"
+        },
+        {
+         "nl": "schrijver",
+         "doel": "wie de tekst maakt",
+         "voorbeeld": "de schrijver van het boek"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het doel van een reclamefolder?",
+         "opties": [
+          "overtuigen",
+          "amuseren",
+          "uitleggen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Reclame wil je laten kopen."
+        },
+        {
+         "vraag": "Wat is het doel van een grappige strip?",
+         "opties": [
+          "overtuigen",
+          "amuseren",
+          "informeren"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een strip wil plezier geven."
+        },
+        {
+         "vraag": "Je leest: 'Draai de schroef los.' Wat is het doel?",
+         "opties": [
+          "amuseren",
+          "overtuigen",
+          "uitleggen hoe het moet"
+         ],
+         "antwoord": 2,
+         "uitleg": "De tekst geeft een opdracht."
+        }
+       ]
+      },
+      {
+       "id": "b2-feit-mening",
+       "titel": "Feit en mening",
+       "uitleg": "Een feit kan je controleren. Een week heeft zeven dagen.\n\nEen mening is wat iemand vindt. Brugge is de mooiste stad.\n\nLet op de woorden 'volgens mij' en 'de mooiste'. Dat zijn meningen.",
+       "woorden": [
+        {
+         "nl": "feit",
+         "doel": "iets dat je kan controleren",
+         "voorbeeld": "Een week heeft zeven dagen."
+        },
+        {
+         "nl": "mening",
+         "doel": "wat iemand vindt",
+         "voorbeeld": "Ik vind pizza lekker."
+        },
+        {
+         "nl": "controleren",
+         "doel": "nakijken of het klopt",
+         "voorbeeld": "een feit controleren"
+        },
+        {
+         "nl": "volgens mij",
+         "doel": "begin van een mening",
+         "voorbeeld": "Volgens mij is het mooi."
+        },
+        {
+         "nl": "de mooiste",
+         "doel": "een mening",
+         "voorbeeld": "de mooiste stad"
+        },
+        {
+         "nl": "juist",
+         "doel": "klopt",
+         "voorbeeld": "een juist antwoord"
+        },
+        {
+         "nl": "fout",
+         "doel": "klopt niet",
+         "voorbeeld": "een fout antwoord"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke zin is een feit?",
+         "opties": [
+          "Een week heeft zeven dagen.",
+          "Zomer is de mooiste tijd.",
+          "Voetbal is saai."
+         ],
+         "antwoord": 0,
+         "uitleg": "Dat kan je controleren."
+        },
+        {
+         "vraag": "Welke zin is een mening?",
+         "opties": [
+          "De Schelde stroomt door Antwerpen.",
+          "Brugge is de mooiste stad.",
+          "Een jaar heeft twaalf maanden."
+         ],
+         "antwoord": 1,
+         "uitleg": "Mooi is een mening."
+        },
+        {
+         "vraag": "Welk woord wijst op een mening?",
+         "opties": [
+          "op 1 mei",
+          "in 2020",
+          "volgens mij"
+         ],
+         "antwoord": 2,
+         "uitleg": "'Volgens mij' is een mening."
+        }
+       ]
+      },
+      {
+       "id": "b2-bronnen",
+       "titel": "Betrouwbare bronnen",
+       "uitleg": "Een bron is de plaats waar je informatie haalt. Bijvoorbeeld een boek of een website.\n\nNiet elke bron is betrouwbaar. Kijk naar de auteur en naar de datum. Zoek de informatie in twee bronnen.\n\nSchrijf je bronnen op. Dan kan iedereen controleren.",
+       "woorden": [
+        {
+         "nl": "bron",
+         "doel": "plaats waar je informatie haalt",
+         "voorbeeld": "een boek"
+        },
+        {
+         "nl": "betrouwbaar",
+         "doel": "je kan erop vertrouwen",
+         "voorbeeld": "een erkende site"
+        },
+        {
+         "nl": "auteur",
+         "doel": "wie het schreef",
+         "voorbeeld": "de auteur van het boek"
+        },
+        {
+         "nl": "datum",
+         "doel": "wanneer het geschreven is",
+         "voorbeeld": "1 mei 2024"
+        },
+        {
+         "nl": "website",
+         "doel": "pagina op internet",
+         "voorbeeld": "een nieuwssite"
+        },
+        {
+         "nl": "controleren",
+         "doel": "nakijken",
+         "voorbeeld": "de bron controleren"
+        },
+        {
+         "nl": "opschrijven",
+         "doel": "noteren",
+         "voorbeeld": "de bron opschrijven"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat kijk je na bij een bron?",
+         "opties": [
+          "De auteur en de datum",
+          "De kleur",
+          "Het aantal foto's"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo weet je of ze betrouwbaar is."
+        },
+        {
+         "vraag": "Waarom zoek je in twee bronnen?",
+         "opties": [
+          "Voor meer tekst",
+          "Om na te gaan of het klopt",
+          "Omdat het moet"
+         ],
+         "antwoord": 1,
+         "uitleg": "Twee bronnen bevestigen het."
+        },
+        {
+         "vraag": "Waarom schrijf je je bronnen op?",
+         "opties": [
+          "Voor de layout",
+          "Omdat het mooi is",
+          "Zodat anderen kunnen controleren"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zo is je werk controleerbaar."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-schrijven",
+     "titel": "Schrijven en spreken",
+     "samenvatting": "Je schrijft een samenvatting en geeft een presentatie.",
+     "lessen": [
+      {
+       "id": "b2-samenvatting",
+       "titel": "Een samenvatting schrijven",
+       "uitleg": "Een samenvatting geeft de hoofdzaken. Ze is korter dan de tekst.\n\nLees de tekst. Onderstreep de kernwoorden. Schrijf in je eigen woorden.\n\nLaat voorbeelden weg. Voeg geen mening toe.",
+       "woorden": [
+        {
+         "nl": "samenvatting",
+         "doel": "korte versie van een tekst",
+         "voorbeeld": "Ik vat de tekst samen."
+        },
+        {
+         "nl": "hoofdzaak",
+         "doel": "het belangrijkste",
+         "voorbeeld": "de hoofdzaak"
+        },
+        {
+         "nl": "kernwoord",
+         "doel": "belangrijk woord",
+         "voorbeeld": "fiets"
+        },
+        {
+         "nl": "onderstrepen",
+         "doel": "een streep zetten",
+         "voorbeeld": "kernwoorden onderstrepen"
+        },
+        {
+         "nl": "eigen woorden",
+         "doel": "jouw woorden",
+         "voorbeeld": "in eigen woorden"
+        },
+        {
+         "nl": "voorbeeld",
+         "doel": "een situatie die iets toont",
+         "voorbeeld": "bijvoorbeeld een hond"
+        },
+        {
+         "nl": "mening",
+         "doel": "wat je vindt",
+         "voorbeeld": "Ik vind het mooi."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat laat je weg in een samenvatting?",
+         "opties": [
+          "Voorbeelden",
+          "De hoofdzaken",
+          "De kernwoorden"
+         ],
+         "antwoord": 0,
+         "uitleg": "Voorbeelden zijn niet nodig."
+        },
+        {
+         "vraag": "Hoe schrijf je een samenvatting?",
+         "opties": [
+          "Je kopieert zinnen.",
+          "In eigen woorden.",
+          "Met je mening."
+         ],
+         "antwoord": 1,
+         "uitleg": "Eigen woorden tonen dat je het snapt."
+        },
+        {
+         "vraag": "Wat doe je eerst?",
+         "opties": [
+          "Meteen schrijven",
+          "Voorbeelden zoeken",
+          "De tekst lezen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Eerst begrijp je de tekst."
+        }
+       ]
+      },
+      {
+       "id": "b2-presenteren",
+       "titel": "Een presentatie geven",
+       "uitleg": "Een presentatie heeft een begin, midden en einde. Begin met een boeiende zin.\n\nZet trefwoorden op je slide. Zet geen lange zinnen.\n\nPraat luid en rustig. Kijk naar je publiek. Oefen vooraf.",
+       "woorden": [
+        {
+         "nl": "presentatie",
+         "doel": "uitleg voor een groep",
+         "voorbeeld": "Mijn spreekbeurt"
+        },
+        {
+         "nl": "begin",
+         "doel": "het eerste deel",
+         "voorbeeld": "Een boeiende zin"
+        },
+        {
+         "nl": "midden",
+         "doel": "het hoofddeel",
+         "voorbeeld": "De uitleg"
+        },
+        {
+         "nl": "einde",
+         "doel": "het laatste deel",
+         "voorbeeld": "De samenvatting"
+        },
+        {
+         "nl": "trefwoord",
+         "doel": "belangrijk woord op een slide",
+         "voorbeeld": "fiets"
+        },
+        {
+         "nl": "publiek",
+         "doel": "de mensen die luisteren",
+         "voorbeeld": "de klas"
+        },
+        {
+         "nl": "oefenen",
+         "doel": "vooraf proberen",
+         "voorbeeld": "thuis oefenen"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat zet je op een slide?",
+         "opties": [
+          "Trefwoorden",
+          "De hele tekst",
+          "Niets"
+         ],
+         "antwoord": 0,
+         "uitleg": "Trefwoorden zijn genoeg."
+        },
+        {
+         "vraag": "Hoe praat je?",
+         "opties": [
+          "Heel snel",
+          "Luid en rustig",
+          "Fluisterend"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zo volgt iedereen je."
+        },
+        {
+         "vraag": "Waarnaar kijk je?",
+         "opties": [
+          "Naar je schoenen",
+          "Naar je blad",
+          "Naar je publiek"
+         ],
+         "antwoord": 2,
+         "uitleg": "Oogcontact is belangrijk."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "b2-media",
+     "titel": "Media en taal",
+     "samenvatting": "Je herkent nepnieuws en formeel of informeel taalgebruik.",
+     "lessen": [
+      {
+       "id": "b2-nepnieuws",
+       "titel": "Nepnieuws herkennen",
+       "uitleg": "Nepnieuws is een bericht dat niet klopt. Het gaat snel rond op sociale media.\n\nCheck de bron. Kijk of andere sites het ook melden. Kijk naar de datum.\n\nBen je niet zeker? Deel het dan niet.",
+       "woorden": [
+        {
+         "nl": "nepnieuws",
+         "doel": "bericht dat niet klopt",
+         "voorbeeld": "een verzonnen bericht"
+        },
+        {
+         "nl": "bron",
+         "doel": "herkomst van het bericht",
+         "voorbeeld": "een nieuwssite"
+        },
+        {
+         "nl": "sociale media",
+         "doel": "apps om te delen",
+         "voorbeeld": "een groepschat"
+        },
+        {
+         "nl": "delen",
+         "doel": "doorsturen",
+         "voorbeeld": "een bericht delen"
+        },
+        {
+         "nl": "controleren",
+         "doel": "nakijken",
+         "voorbeeld": "de bron controleren"
+        },
+        {
+         "nl": "datum",
+         "doel": "wanneer het verscheen",
+         "voorbeeld": "1 mei 2024"
+        },
+        {
+         "nl": "betrouwbaar",
+         "doel": "je kan erop vertrouwen",
+         "voorbeeld": "een betrouwbare site"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is nepnieuws?",
+         "opties": [
+          "een bericht dat niet klopt",
+          "oud nieuws",
+          "nieuws uit het buitenland"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het klopt niet."
+        },
+        {
+         "vraag": "Wat controleer je bij twijfel?",
+         "opties": [
+          "Het aantal likes",
+          "De bron en andere sites",
+          "De kleur van de foto"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zo controleer je het."
+        },
+        {
+         "vraag": "Wat doe je als je niet zeker bent?",
+         "opties": [
+          "Meteen delen",
+          "Alles geloven",
+          "Niet delen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Deel nooit twijfelachtig nieuws."
+        }
+       ]
+      },
+      {
+       "id": "b2-taalregisters",
+       "titel": "Formeel en informeel",
+       "uitleg": "We praten niet altijd hetzelfde. Dat hangt af van de situatie.\n\nInformeel gebruik je met vrienden. Formeel gebruik je met de directeur of in een brief.\n\nFormeel is beleefd. Je gebruikt standaardtaal en 'u'.",
+       "woorden": [
+        {
+         "nl": "formeel",
+         "doel": "beleefd taalgebruik",
+         "voorbeeld": "Kunt u mij helpen?"
+        },
+        {
+         "nl": "informeel",
+         "doel": "los taalgebruik",
+         "voorbeeld": "Hey, kom je mee?"
+        },
+        {
+         "nl": "register",
+         "doel": "taalgebruik per situatie",
+         "voorbeeld": "formeel of informeel"
+        },
+        {
+         "nl": "situatie",
+         "doel": "de omstandigheden",
+         "voorbeeld": "een brief of een chat"
+        },
+        {
+         "nl": "beleefd",
+         "doel": "vriendelijk en netjes",
+         "voorbeeld": "Alstublieft."
+        },
+        {
+         "nl": "directeur",
+         "doel": "hoofd van de school",
+         "voorbeeld": "de directeur"
+        },
+        {
+         "nl": "u",
+         "doel": "beleefde vorm van jij",
+         "voorbeeld": "Kunt u helpen?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke zin is formeel?",
+         "opties": [
+          "Kunt u mij helpen, alstublieft?",
+          "Hey, wat is er?",
+          "Zeg, kom eens mee."
+         ],
+         "antwoord": 0,
+         "uitleg": "Dit is beleefd."
+        },
+        {
+         "vraag": "Welke zin is informeel?",
+         "opties": [
+          "Zou u zo vriendelijk willen zijn?",
+          "Hey, kom je mee?",
+          "Geachte mevrouw,"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dit is los."
+        },
+        {
+         "vraag": "Wanneer gebruik je formeel taalgebruik?",
+         "opties": [
+          "met vrienden",
+          "op de speelplaats",
+          "in een sollicitatiebrief"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dan wil je beleefd overkomen."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
