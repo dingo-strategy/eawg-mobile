@@ -2713,6 +2713,12 @@ function roundel(x, y, r, k, big) {
   if (big) { const t = (k.code || '').slice(0, 3); cx.save(); cx.font = '900 ' + (r * 0.42) + 'px system-ui,sans-serif'; cx.textAlign = 'center'; cx.lineJoin = 'round'; cx.lineWidth = r * 0.13; cx.strokeStyle = 'rgba(0,0,0,.7)'; cx.strokeText(t, x, cy + r * 0.15); cx.fillStyle = '#fff'; cx.fillText(t, x, cy + r * 0.15); cx.restore(); }
 }
 let crestMode = 0;
+// wapen in toernooien: het echte logo als het bestaat, anders het getekende schild
+function crestT(x, y, r, t, big) {
+  const lg = t && t.logo && crestMode === 0 ? logoImg(t.logo) : null;
+  if (lg) { const w = lg.naturalWidth || 1, h = lg.naturalHeight || 1, k = Math.min(1, w / h), d2 = r * 2.3; cx.drawImage(lg, x - d2 * (w >= h ? 0.5 : 0.5 * k), y - d2 * (h >= w ? 0.5 : 0.5 * (h / w)) + r * 0.05, d2 * (w >= h ? 1 : k), d2 * (h >= w ? 1 : h / w)); return; }
+  crest(x, y, r, t.kit, big);
+}
 function crest(x, y, r, k, big) {
   if (crestMode === 1) return roundel(x, y, r, k, big);
   const h = hsh(k.name || 'X'), st = h % 5, A = k.shirt || '#c33', cd = (p, q) => { const a = parseInt(String(p).slice(1), 16) || 0, b = parseInt(String(q).slice(1), 16) || 0; return Math.abs((a >> 16) - (b >> 16)) + Math.abs(((a >> 8) & 255) - ((b >> 8) & 255)) + Math.abs((a & 255) - (b & 255)); };
@@ -2817,12 +2823,12 @@ const TOURS = [
 const GROUPFX = [[[0, 1], [2, 3]], [[0, 2], [1, 3]], [[0, 3], [1, 2]]];
 let TT = null, tourStep = 0, tourDef = 0, tourMine = 0, tourTeams0 = null, tourConfirm = false;
 function tourTeams(d) {
-  if (d.kind === 'nat') return (d.codes ? NAT.filter(n => d.codes.includes(n[1])) : NAT.slice(d.off || 0, (d.off || 0) + d.n)).map(n => ({ ts: n[2], kit: { name: n[0], code: n[1], shirt: n[3], shorts: n[4], sock: n[5], trim: n[6] } }));
+  if (d.kind === 'nat') return (d.codes ? NAT.filter(n => d.codes.includes(n[1])) : NAT.slice(d.off || 0, (d.off || 0) + d.n)).map(n => ({ ts: n[2], logo: 'logos/land-' + n[0].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.png', kit: { name: n[0], code: n[1], shirt: n[3], shorts: n[4], sock: n[5], trim: n[6] } }));
   const P = pool(), PRO = ['PRO LEAGUE', 'EREDIVISIE', 'PREMIER LEAGUE', 'BUNDESLIGA', 'LIGUE 1', 'LA LIGA'];
   const by = (a, b) => b.ts - a.ts || (a.kit.name < b.kit.name ? -1 : 1);
-  if (d.kind === 'club') return P.filter(t => d.comp ? t.comp === d.comp : PRO.includes(t.comp)).sort(by).slice(d.off, d.off + d.n).map(t => ({ ts: t.ts, kit: t.kit }));
+  if (d.kind === 'club') return P.filter(t => d.comp ? t.comp === d.comp : PRO.includes(t.comp)).sort(by).slice(d.off, d.off + d.n).map(t => ({ ts: t.ts, logo: t.logo, kit: t.kit }));
   const pro = P.filter(t => t.comp === 'PRO LEAGUE').sort(by).slice(0, 12), am = P.filter(t => !PRO.includes(t.comp)).sort(by).slice(0, 4);
-  return pro.concat(am).map(t => ({ ts: t.ts, kit: t.kit }));
+  return pro.concat(am).map(t => ({ ts: t.ts, logo: t.logo, kit: t.kit }));
 }
 function tourSim(a, b) { const A = TT.teams[a].ts, B = TT.teams[b].ts; return [pois(1.4 * Math.pow(A / B, 2.4)), pois(1.4 * Math.pow(B / A, 2.4))]; }
 function tourWin(a, b, ga, gb) { return ga > gb ? a : ga < gb ? b : (Math.random() < 0.5 + (TT.teams[a].ts - TT.teams[b].ts) * 0.004 ? a : b); }
@@ -2909,11 +2915,11 @@ function drawTour() {
   const name = names[tab], nm = i => TT.teams[i].kit.name;
   if (name === 'PROGRAMMA') {
     const o = tourNext(), m = TT.teams[TT.mine];
-    crest(X0 + 120, 210, 40, m.kit, true); txt(m.kit.name, X0 + 120, 270, 17, '#fff', 'center', '900');
+    crestT(X0 + 120, 210, 40, m, true); txt(m.kit.name, X0 + 120, 270, 17, '#fff', 'center', '900');
     if (o !== null) {
       const q = TT.teams[o], lab = TT.phase === 'group' ? 'POULE ' + String.fromCharCode(65 + myGroup()) + ' - RONDE ' + (TT.round + 1) + ' / 3' : koName(TT.pairs.length);
       txt(lab, X0 + 400, 150, 22, '#8fb0ff', 'center', '900'); txt('VS', X0 + 400, 215, 30, '#fff', 'center', '900');
-      crest(X0 + 680, 210, 40, q.kit, true); txt(q.kit.name, X0 + 680, 270, 17, '#fff', 'center', '900'); txt('sterkte ' + q.ts, X0 + 680, 294, 14, '#ffd400', 'center', '800');
+      crestT(X0 + 680, 210, 40, q, true); txt(q.kit.name, X0 + 680, 270, 17, '#fff', 'center', '900'); txt('sterkte ' + q.ts, X0 + 680, 294, 14, '#ffd400', 'center', '800');
       pill(X0 + 300, 330, 200, 56, 'SPEEL', tourPlay, true, 20);
     } else {
       txt(TT.champ === TT.mine ? 'KAMPIOEN!' : 'UITGESCHAKELD', X0 + 400, 150, 34, TT.champ === TT.mine ? '#ffd400' : '#ff7a7a', 'center', '900');
@@ -2957,7 +2963,7 @@ function drawTourSetup(X0) {
   T.forEach((t, i) => {
     const x = X0 + 16 + (i % cols) * cw, y = 106 + Math.floor(i / cols) * ch, sel = i === tourMine;
     cx.fillStyle = sel ? 'rgba(255,212,0,.28)' : 'rgba(255,255,255,.07)'; rr(x, y, cw - 6, ch - 6, 6); cx.fill(); if (sel) { cx.strokeStyle = '#ffd400'; cx.lineWidth = 2; cx.stroke(); }
-    crest(x + 22, y + 22, 13, t.kit, false); txt(t.kit.code, x + 62, y + 26, 15, '#fff', 'center', '900'); txt(String(t.ts), x + 62, y + 42, 12, '#ffd400', 'center', '800');
+    crestT(x + 22, y + 22, 13, t, false); txt(t.kit.code, x + 62, y + 26, 15, '#fff', 'center', '900'); txt(String(t.ts), x + 62, y + 42, 12, '#ffd400', 'center', '800');
     hits.push({ x, y, w: cw - 6, h: ch - 6, fn: () => { tourMine = i; } });
   });
   txt(T[tourMine].kit.name + '  (sterkte ' + T[tourMine].ts + ')', X0 + 400, 490, 20, '#fff', 'center', '900');

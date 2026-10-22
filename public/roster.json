@@ -1,5 +1,5 @@
 {
- "version": 8,
+ "version": 9,
  "competitions": [
   {
    "name": "WEST-VLAANDEREN A",
@@ -135,7 +135,8 @@
      "shorts": "#FFFFFF",
      "sock": "#63B6F2",
      "trim": "#FFFFFF",
-     "ts": 64
+     "ts": 64,
+     "logo": "logos/vc-vamos-zandvoorde.png"
     },
     {
      "name": "KFC MEULEBEKE",
@@ -144,7 +145,8 @@
      "shorts": "#D62828",
      "sock": "#D62828",
      "trim": "#D62828",
-     "ts": 62
+     "ts": 62,
+     "logo": "logos/kfc-meulebeke.png"
     },
     {
      "name": "KWS CLUB LAUWE",
@@ -153,7 +155,8 @@
      "shorts": "#17191F",
      "sock": "#F2C230",
      "trim": "#17191F",
-     "ts": 62
+     "ts": 62,
+     "logo": "logos/kws-club-lauwe.png"
     },
     {
      "name": "FUSION OOSTENDE",
@@ -162,7 +165,8 @@
      "shorts": "#17191F",
      "sock": "#17191F",
      "trim": "#F2C230",
-     "ts": 58
+     "ts": 58,
+     "logo": "logos/fusion-oostende.png"
     }
    ]
   },
@@ -176,7 +180,8 @@
      "shorts": "#37A9E0",
      "sock": "#37A9E0",
      "trim": "#FFFFFF",
-     "ts": 72
+     "ts": 72,
+     "logo": "logos/kv-koksijde-oostduinke.png"
     },
     {
      "name": "KV EENDRACHT AALTER",
@@ -185,7 +190,8 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 69
+     "ts": 69,
+     "logo": "logos/kv-eendracht-aalter.png"
     },
     {
      "name": "SCT MENEN",
@@ -194,7 +200,8 @@
      "shorts": "#17191F",
      "sock": "#F2C230",
      "trim": "#17191F",
-     "ts": 66
+     "ts": 66,
+     "logo": "logos/sct-menen.png"
     },
     {
      "name": "KV DIKSMUIDE OOSTENDE",
@@ -203,7 +210,8 @@
      "shorts": "#1B3F8F",
      "sock": "#1B3F8F",
      "trim": "#1B3F8F",
-     "ts": 62
+     "ts": 62,
+     "logo": "logos/kv-diksmuide-oostende.png"
     },
     {
      "name": "ZWEVEGEM SPORT",
@@ -212,7 +220,8 @@
      "shorts": "#FFFFFF",
      "sock": "#D62828",
      "trim": "#FFFFFF",
-     "ts": 60
+     "ts": 60,
+     "logo": "logos/zwevegem-sport.png"
     },
     {
      "name": "EAWG FC",
@@ -230,7 +239,8 @@
      "shorts": "#FFFFFF",
      "sock": "#1B6FB0",
      "trim": "#FFFFFF",
-     "ts": 58
+     "ts": 58,
+     "logo": "logos/sc-zonnebeke.png"
     },
     {
      "name": "SV ZULTE-WAREGEM",
@@ -1014,7 +1024,8 @@
      "shorts": "#004170",
      "sock": "#004170",
      "trim": "#DA291C",
-     "ts": 86
+     "ts": 86,
+     "logo": "logos/paris-saint-germain.png"
     },
     {
      "name": "OLYMPIQUE MARSEILLE",
@@ -1023,7 +1034,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#2FAEE0",
-     "ts": 82
+     "ts": 82,
+     "logo": "logos/olympique-marseille.png"
     },
     {
      "name": "AS MONACO",
@@ -1032,7 +1044,8 @@
      "shorts": "#FFFFFF",
      "sock": "#E4002B",
      "trim": "#FFFFFF",
-     "ts": 81
+     "ts": 81,
+     "logo": "logos/as-monaco.png"
     },
     {
      "name": "LOSC LILLE",
@@ -1041,7 +1054,8 @@
      "shorts": "#1B2A5C",
      "sock": "#E2001A",
      "trim": "#1B2A5C",
-     "ts": 80
+     "ts": 80,
+     "logo": "logos/losc-lille.png"
     },
     {
      "name": "OLYMPIQUE LYON",
@@ -1050,7 +1064,8 @@
      "shorts": "#1F3C88",
      "sock": "#FFFFFF",
      "trim": "#DA2127",
-     "ts": 80
+     "ts": 80,
+     "logo": "logos/olympique-lyon.png"
     },
     {
      "name": "RC LENS",
@@ -1059,7 +1074,8 @@
      "shorts": "#F5C400",
      "sock": "#D81E1E",
      "trim": "#D81E1E",
-     "ts": 79
+     "ts": 79,
+     "logo": "logos/rc-lens.png"
     },
     {
      "name": "OGC NICE",
@@ -1068,7 +1084,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#111111",
-     "ts": 78
+     "ts": 78,
+     "logo": "logos/ogc-nice.png"
     },
     {
      "name": "STADE RENNAIS",
@@ -1077,7 +1094,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#111111",
-     "ts": 77
+     "ts": 77,
+     "logo": "logos/stade-rennais.png"
     },
     {
      "name": "RC STRASBOURG",
@@ -1086,7 +1104,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0066B3",
      "trim": "#FFFFFF",
-     "ts": 74
+     "ts": 74,
+     "logo": "logos/rc-strasbourg.png"
     },
     {
      "name": "STADE BRESTOIS",
@@ -1095,7 +1114,8 @@
      "shorts": "#FFFFFF",
      "sock": "#E30613",
      "trim": "#FFFFFF",
-     "ts": 73
+     "ts": 73,
+     "logo": "logos/stade-brestois.png"
     },
     {
      "name": "TOULOUSE FC",
@@ -1104,7 +1124,8 @@
      "shorts": "#FFFFFF",
      "sock": "#5B2A86",
      "trim": "#FFFFFF",
-     "ts": 72
+     "ts": 72,
+     "logo": "logos/toulouse-fc.png"
     },
     {
      "name": "FC NANTES",
@@ -1113,7 +1134,8 @@
      "shorts": "#00873C",
      "sock": "#FFD500",
      "trim": "#00873C",
-     "ts": 70
+     "ts": 70,
+     "logo": "logos/fc-nantes.png"
     },
     {
      "name": "AJ AUXERRE",
@@ -1122,7 +1144,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#0F5FA6",
-     "ts": 69
+     "ts": 69,
+     "logo": "logos/aj-auxerre.png"
     },
     {
      "name": "ANGERS SCO",
@@ -1131,7 +1154,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#FFFFFF",
-     "ts": 66
+     "ts": 66,
+     "logo": "logos/angers-sco.png"
     },
     {
      "name": "LE HAVRE AC",
@@ -1140,7 +1164,8 @@
      "shorts": "#0A3C73",
      "sock": "#6FB7E8",
      "trim": "#0A3C73",
-     "ts": 66
+     "ts": 66,
+     "logo": "logos/le-havre-ac.png"
     },
     {
      "name": "FC LORIENT",
@@ -1149,7 +1174,8 @@
      "shorts": "#111111",
      "sock": "#F58220",
      "trim": "#111111",
-     "ts": 66
+     "ts": 66,
+     "logo": "logos/fc-lorient.png"
     },
     {
      "name": "PARIS FC",
@@ -1158,7 +1184,8 @@
      "shorts": "#1B4DA0",
      "sock": "#1B4DA0",
      "trim": "#FFFFFF",
-     "ts": 65
+     "ts": 65,
+     "logo": "logos/paris-fc.png"
     },
     {
      "name": "FC METZ",
@@ -1167,7 +1194,8 @@
      "shorts": "#8A1538",
      "sock": "#8A1538",
      "trim": "#FFFFFF",
-     "ts": 64
+     "ts": 64,
+     "logo": "logos/fc-metz.png"
     }
    ]
   },
@@ -1181,7 +1209,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#FEBE10",
-     "ts": 88
+     "ts": 88,
+     "logo": "logos/real-madrid.png"
     },
     {
      "name": "FC BARCELONA",
@@ -1190,7 +1219,8 @@
      "shorts": "#004D98",
      "sock": "#004D98",
      "trim": "#EDBB00",
-     "ts": 87
+     "ts": 87,
+     "logo": "logos/fc-barcelona.png"
     },
     {
      "name": "ATLETICO MADRID",
@@ -1199,7 +1229,8 @@
      "shorts": "#1B2C5C",
      "sock": "#1B2C5C",
      "trim": "#FFFFFF",
-     "ts": 84
+     "ts": 84,
+     "logo": "logos/atletico-madrid.png"
     },
     {
      "name": "ATHLETIC CLUB",
@@ -1208,7 +1239,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#FFFFFF",
-     "ts": 80
+     "ts": 80,
+     "logo": "logos/athletic-club.png"
     },
     {
      "name": "VILLARREAL CF",
@@ -1217,7 +1249,8 @@
      "shorts": "#F7D108",
      "sock": "#F7D108",
      "trim": "#0A4C9E",
-     "ts": 79
+     "ts": 79,
+     "logo": "logos/villarreal-cf.png"
     },
     {
      "name": "REAL SOCIEDAD",
@@ -1226,7 +1259,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0067B1",
      "trim": "#FFFFFF",
-     "ts": 78
+     "ts": 78,
+     "logo": "logos/real-sociedad.png"
     },
     {
      "name": "REAL BETIS",
@@ -1235,7 +1269,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0BB363",
      "trim": "#FFFFFF",
-     "ts": 78
+     "ts": 78,
+     "logo": "logos/real-betis.png"
     },
     {
      "name": "SEVILLA FC",
@@ -1244,7 +1279,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#D4001F",
-     "ts": 76
+     "ts": 76,
+     "logo": "logos/sevilla-fc.png"
     },
     {
      "name": "GIRONA FC",
@@ -1253,7 +1289,8 @@
      "shorts": "#0B2F6B",
      "sock": "#D6001C",
      "trim": "#FFFFFF",
-     "ts": 75
+     "ts": 75,
+     "logo": "logos/girona-fc.png"
     },
     {
      "name": "VALENCIA CF",
@@ -1262,7 +1299,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#F58220",
-     "ts": 75
+     "ts": 75,
+     "logo": "logos/valencia-cf.png"
     },
     {
      "name": "CELTA VIGO",
@@ -1271,7 +1309,8 @@
      "shorts": "#7DB7E8",
      "sock": "#7DB7E8",
      "trim": "#E4002B",
-     "ts": 74
+     "ts": 74,
+     "logo": "logos/celta-vigo.png"
     },
     {
      "name": "CA OSASUNA",
@@ -1280,7 +1319,8 @@
      "shorts": "#1B2A5C",
      "sock": "#1B2A5C",
      "trim": "#FFFFFF",
-     "ts": 72
+     "ts": 72,
+     "logo": "logos/ca-osasuna.png"
     },
     {
      "name": "GETAFE CF",
@@ -1289,7 +1329,8 @@
      "shorts": "#0B4DA2",
      "sock": "#0B4DA2",
      "trim": "#FFFFFF",
-     "ts": 72
+     "ts": 72,
+     "logo": "logos/getafe-cf.png"
     },
     {
      "name": "RAYO VALLECANO",
@@ -1298,7 +1339,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#D4001F",
-     "ts": 71
+     "ts": 71,
+     "logo": "logos/rayo-vallecano.png"
     },
     {
      "name": "RCD MALLORCA",
@@ -1307,7 +1349,8 @@
      "shorts": "#111111",
      "sock": "#111111",
      "trim": "#111111",
-     "ts": 71
+     "ts": 71,
+     "logo": "logos/rcd-mallorca.png"
     },
     {
      "name": "DEPORTIVO ALAVES",
@@ -1316,7 +1359,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0057A8",
      "trim": "#FFFFFF",
-     "ts": 69
+     "ts": 69,
+     "logo": "logos/deportivo-alaves.png"
     },
     {
      "name": "RCD ESPANYOL",
@@ -1325,7 +1369,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0A4FA3",
      "trim": "#FFFFFF",
-     "ts": 68
+     "ts": 68,
+     "logo": "logos/rcd-espanyol.png"
     },
     {
      "name": "ELCHE CF",
@@ -1334,7 +1379,8 @@
      "shorts": "#FFFFFF",
      "sock": "#FFFFFF",
      "trim": "#00A05A",
-     "ts": 66
+     "ts": 66,
+     "logo": "logos/elche-cf.png"
     },
     {
      "name": "LEVANTE UD",
@@ -1343,7 +1389,8 @@
      "shorts": "#0B2F6B",
      "sock": "#0B2F6B",
      "trim": "#0B2F6B",
-     "ts": 65
+     "ts": 65,
+     "logo": "logos/levante-ud.png"
     },
     {
      "name": "REAL OVIEDO",
@@ -1352,7 +1399,8 @@
      "shorts": "#FFFFFF",
      "sock": "#0057A8",
      "trim": "#FFFFFF",
-     "ts": 64
+     "ts": 64,
+     "logo": "logos/real-oviedo.png"
     }
    ]
   }
