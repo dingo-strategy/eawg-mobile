@@ -98,7 +98,7 @@
       {
        "id": "kompas-windrichtingen",
        "titel": "Kompas en windrichtingen",
-       "uitleg": "Met een kompas kun je de richting bepalen. De naald van een kompas wijst naar het noorden. Een windroos is het sterretje met de windrichtingen op een kaart of kompas.\n\nDe vier hoofdwindrichtingen zijn noord (N), oost (O), zuid (Z) en west (W). Ertussen liggen de tussenwindrichtingen: noordoost (NO), zuidoost (ZO), zuidwest (ZW) en noordwest (NW).\n\nOp de meeste kaarten ligt het noorden bovenaan. Als je naar het noorden kijkt, ligt het oosten rechts, het westen links en het zuiden achter je.\n\nIn Vlaanderen ligt de Noordzee in het noordwesten van het land en liggen de Ardennen ten zuidoosten van Vlaanderen. Antwerpen ligt ten noorden van Brussel.",
+       "uitleg": "Met een kompas kun je de richting bepalen. De naald van een kompas wijst naar het (magnetische) noorden. Een windroos is het sterretje met de windrichtingen op een kaart of kompas.\n\nDe vier hoofdwindrichtingen zijn noord (N), oost (O), zuid (Z) en west (W). Ertussen liggen de tussenwindrichtingen: noordoost (NO), zuidoost (ZO), zuidwest (ZW) en noordwest (NW).\n\nOp de meeste kaarten ligt het noorden bovenaan. Als je naar het noorden kijkt, ligt het oosten rechts, het westen links en het zuiden achter je.\n\nIn Vlaanderen ligt de Noordzee in het noordwesten van het land en liggen de Ardennen ten zuidoosten van Vlaanderen. Antwerpen ligt ten noorden van Brussel.",
        "woorden": [
         {
          "nl": "kompas",
@@ -728,7 +728,7 @@
       {
        "id": "landschappen-bg",
        "titel": "Landschappen in België",
-       "uitleg": "Een landschap is het uitzicht van een gebied, met natuurlijke en menselijke kenmerken. België heeft verschillende landschapstypes.\n\nAan de kust vind je zand, duinen en strand. Daarachter liggen de polders: laag land dat vroeger zeebodem was, met dijken, sloten en weilanden. Dichter naar het binnenland ligt de zandstreek met droge, zandige bodem (zoals de Kempen), de leemstreek met vruchtbare leembodem, en daarna de heuvelachtige landschappen. In het zuiden liggen de Ardennen met bossen, plateaus en diepe valleien.\n\nDe bodem bepaalt mee wat er kan groeien. Leem is erg vruchtbaar en wordt gebruikt voor akkerbouw. Op zandgrond groeien vaak dennenbossen en heide.\n\nMensen veranderen landschappen met huizen, wegen, industrie en landbouw.",
+       "uitleg": "Een landschap is het uitzicht van een gebied, met natuurlijke en menselijke kenmerken. België heeft verschillende landschapstypes.\n\nAan de kust vind je zand, duinen en strand. Daarachter liggen de polders: laag land dat vroeger zeebodem was, met dijken, sloten en weilanden. Verder landinwaarts liggen de zandstreken met droge, zandige bodem (zoals Zandig Vlaanderen en de Kempen), de leemstreek met vruchtbare leembodem, en daarna de heuvelachtige landschappen. In het zuiden liggen de Ardennen met bossen, plateaus en diepe valleien.\n\nDe bodem bepaalt mee wat er kan groeien. Leem is erg vruchtbaar en wordt gebruikt voor akkerbouw. Op zandgrond groeien vaak dennenbossen en heide.\n\nMensen veranderen landschappen met huizen, wegen, industrie en landbouw.",
        "woorden": [
         {
          "nl": "polder",
@@ -809,7 +809,7 @@
       {
        "id": "opbouw-platen",
        "titel": "De opbouw van de aarde en de platen",
-       "uitleg": "De aarde is opgebouwd uit lagen. Helemaal buiten ligt de aardkorst, een dunne harde laag waarop wij leven. Daaronder ligt de mantel, een dikke laag hete, deels vloeibare rots. In het midden zit de kern, die erg heet is.\n\nDe aardkorst is gebroken in grote stukken: de tektonische platen. Zij drijven heel langzaam, ongeveer enkele centimeters per jaar, op de mantel. Dat gaat zo traag dat we het niet voelen.\n\nWaar platen botsen, schuiven, of uit elkaar gaan, ontstaan bijzondere verschijnselen. Als twee platen op elkaar botsen, kunnen gebergten ontstaan, zoals de Alpen en de Himalaya. Bij een plaatrand schuift soms een plaat onder een andere.\n\nDe theorie dat continenten bewegen heet de platentektoniek.",
+       "uitleg": "De aarde is opgebouwd uit lagen. Helemaal buiten ligt de aardkorst, een dunne harde laag waarop wij leven. Daaronder ligt de mantel, een dikke laag hete rots die heel traag kan vloeien. In het midden zit de kern, die erg heet is.\n\nDe aardkorst is gebroken in grote stukken: de tektonische platen. Zij drijven heel langzaam, ongeveer enkele centimeters per jaar, op de mantel. Dat gaat zo traag dat we het niet voelen.\n\nWaar platen botsen, schuiven, of uit elkaar gaan, ontstaan bijzondere verschijnselen. Als twee platen op elkaar botsen, kunnen gebergten ontstaan, zoals de Alpen en de Himalaya. Bij een plaatrand schuift soms een plaat onder een andere.\n\nDe theorie dat continenten bewegen heet de platentektoniek.",
        "woorden": [
         {
          "nl": "aardkorst",
@@ -1289,7 +1289,7 @@
       {
        "id": "europa-natuur",
        "titel": "Europa: ligging en natuurlijke kenmerken",
-       "uitleg": "Europa is een continent in het noordwesten van het grote landblok Eurazië. Het wordt begrensd door de Noordelijke IJszee in het noorden, de Atlantische Oceaan in het westen en de Middellandse Zee in het zuiden. In het oosten loopt de grens ruwweg langs het Oeralgebergte.\n\nBelangrijke gebergten zijn de Alpen in het midden-zuiden en de Pyreneeën tussen Spanje en Frankrijk. Grote rivieren zijn de Rijn, de Donau, de Seine en de Rhône. De Donau is een van de langste rivieren van Europa en stroomt door meerdere landen.\n\nNoord-Europa is vlak met veel meren en bossen, Zuid-Europa is bergachtig met warme, droge zomers. Het Noord-Europese laagland loopt van Frankrijk door België en Nederland naar Polen.\n\nEuropa heeft een lange kustlijn met veel schiereilanden, zoals het Iberisch schiereiland (Spanje en Portugal).",
+       "uitleg": "Europa is een continent in het noordwesten van het grote landblok Eurazië. Het wordt begrensd door de Noordelijke IJszee in het noorden, de Atlantische Oceaan in het westen en de Middellandse Zee in het zuiden. In het oosten loopt de grens ruwweg langs het Oeralgebergte.\n\nBelangrijke gebergten zijn de Alpen in het midden-zuiden en de Pyreneeën tussen Spanje en Frankrijk. Grote rivieren zijn de Rijn, de Donau, de Seine en de Rhône. De Donau is een van de langste rivieren van Europa en stroomt door meerdere landen.\n\nNoord-Europa heeft veel meren en bossen (zoals Finland en Zweden), met het Scandinavisch Gebergte in Noorwegen, Zuid-Europa is bergachtig met warme, droge zomers. Het Noord-Europese laagland loopt van Frankrijk door België en Nederland naar Polen.\n\nEuropa heeft een lange kustlijn met veel schiereilanden, zoals het Iberisch schiereiland (Spanje en Portugal).",
        "woorden": [
         {
          "nl": "schiereiland",
@@ -1914,7 +1914,7 @@
       {
        "id": "landbouwtypes",
        "titel": "Soorten landbouw",
-       "uitleg": "Landbouw is het telen van planten (akkerbouw) en het houden van dieren (veeteelt) voor voedsel en grondstoffen. Akkerbouw gaat over graan, aardappelen, suikerbieten of groenten. Tuinbouw gaat over groenten, fruit en bloemen.\n\nIntensieve landbouw haalt veel productie uit een kleine oppervlakte met machines, meststoffen en veel dieren. Extensieve landbouw gebruikt veel ruimte voor een lagere productie per hectare, bijvoorbeeld grote graslanden met weinig dieren.\n\nBij biologische landbouw gebruikt men geen chemische bestrijdingsmiddelen en kunstmest. Bij zelfvoorzienende landbouw produceert een gezin vooral voor eigen gebruik.\n\nIn Vlaanderen is de landbouw vaak intensief, met veel groenten, aardappelen en veeteelt. De grond is beperkt, daarom is landbouw er sterk gespecialiseerd.",
+       "uitleg": "Landbouw is het telen van planten (akkerbouw) en het houden van dieren (veeteelt) voor voedsel en grondstoffen. Akkerbouw gaat over graan, aardappelen, suikerbieten of groenten. Tuinbouw gaat over groenten, fruit en bloemen.\n\nIntensieve landbouw haalt veel productie uit een kleine oppervlakte met machines, meststoffen en veel dieren. Extensieve landbouw gebruikt veel ruimte voor een lagere productie per hectare, bijvoorbeeld grote graslanden met weinig dieren.\n\nBij biologische landbouw gebruikt men geen synthetische bestrijdingsmiddelen en kunstmest. Bij zelfvoorzienende landbouw produceert een gezin vooral voor eigen gebruik.\n\nIn Vlaanderen is de landbouw vaak intensief, met veel groenten, aardappelen en veeteelt. De grond is beperkt, daarom is landbouw er sterk gespecialiseerd.",
        "woorden": [
         {
          "nl": "akkerbouw",
@@ -2124,7 +2124,7 @@
          "uitleg": "CO2 versterkt het broeikaseffect."
         },
         {
-         "vraag": "Waar staan windparken van België?",
+         "vraag": "Waar staan de Belgische windparken op zee?",
          "opties": [
           "In de Sahara",
           "In de Noordzee",
@@ -2229,7 +2229,7 @@
       {
        "id": "broeikaseffect",
        "titel": "Het broeikaseffect en klimaatverandering",
-       "uitleg": "De atmosfeer is de laag gas rond de aarde. Sommige gassen, zoals CO2 en methaan, houden warmte vast. Dat is het natuurlijke broeikaseffect en zorgt ervoor dat het op aarde bewoonbaar is.\n\nDoor het verbranden van fossiele brandstoffen en het kappen van bossen komt er extra CO2 in de lucht. Daardoor wordt het versterkte broeikaseffect veroorzaakt en warmt de aarde op. Dat noemen we de opwarming van de aarde of klimaatverandering.\n\nGevolgen zijn smeltend ijs, stijgende zeespiegel, meer hittegolven, droogte en hevige regen. Een stijgende zeespiegel is gevaarlijk voor kustgebieden zoals de Belgische kust.\n\nOm de opwarming te beperken moeten landen minder broeikasgassen uitstoten.",
+       "uitleg": "De atmosfeer is de laag gas rond de aarde. Sommige gassen, zoals CO2 en methaan, houden warmte vast. Dat is het natuurlijke broeikaseffect en zorgt ervoor dat het op aarde bewoonbaar is.\n\nDoor het verbranden van fossiele brandstoffen en het kappen van bossen komt er extra CO2 in de lucht. Daardoor ontstaat het versterkte broeikaseffect en warmt de aarde op. Dat noemen we de opwarming van de aarde of klimaatverandering.\n\nGevolgen zijn smeltend ijs, stijgende zeespiegel, meer hittegolven, droogte en hevige regen. Een stijgende zeespiegel is gevaarlijk voor kustgebieden zoals de Belgische kust.\n\nOm de opwarming te beperken moeten landen minder broeikasgassen uitstoten.",
        "woorden": [
         {
          "nl": "broeikasgas",
@@ -2458,7 +2458,7 @@
       {
        "id": "risicos-beschermen",
        "titel": "Risico's en bescherming",
-       "uitleg": "Een risico is de kans dat een ramp schade doet. Mensen kunnen het risico verkleinen met preventie (voorkomen) en voorbereiding.\n\nBij aardbevingen bouwt men gebouwen die kunnen meebewegen. Voor tsunami's bestaan waarschuwingssystemen. Bij overstromingen gebruikt men dijken, stuwen, overstromingsgebieden en natuurlijke bufferzones. Aan de Belgische kust beschermen duinen en dijken tegen de zee.\n\nVoor vulkanen en stormen zijn er weersvoorspellingen en evacuatieplannen. Mensen die dichtbij een vulkaan wonen, moeten weten waar ze naartoe moeten.\n\nOok in je dagelijks leven kun je je voorbereiden: weten wie je moet bellen (het noodnummer 112), een noodpakket klaarzetten en luisteren naar de waarschuwingen.",
+       "uitleg": "Een risico is de kans dat een ramp schade doet. Mensen kunnen het risico verkleinen met preventie (voorkomen) en voorbereiding.\n\nBij aardbevingen bouwt men gebouwen die kunnen meebewegen. Voor tsunami's bestaan waarschuwingssystemen. Bij overstromingen gebruikt men dijken, stuwen, overstromingsgebieden en natuurlijke bufferzones. Aan de Belgische kust beschermen duinen en dijken tegen de zee.\n\nVoor stormen zijn er weersvoorspellingen, voor vulkanen meetnetwerken, en voor beide evacuatieplannen. Mensen die dichtbij een vulkaan wonen, moeten weten waar ze naartoe moeten.\n\nOok in je dagelijks leven kun je je voorbereiden: weten wie je moet bellen (het noodnummer 112), een noodpakket klaarzetten en luisteren naar de waarschuwingen.",
        "woorden": [
         {
          "nl": "risico",

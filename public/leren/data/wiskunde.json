@@ -152,7 +152,7 @@
          "uitleg": "Het kgv van 6 en 8 is 24."
         },
         {
-         "vraag": "Je hebt 48 appels en 36 peren. Je maakt zo weinig mogelijk pakketjes met in elk pakketje evenveel appels en evenveel peren, zonder rest. Hoeveel pakketjes maak je?",
+         "vraag": "Je hebt 48 appels en 36 peren. Je maakt zo veel mogelijk pakketjes met in elk pakketje evenveel appels en evenveel peren, zonder rest. Hoeveel pakketjes maak je?",
          "opties": [
           "4",
           "84",
@@ -687,7 +687,7 @@
       {
        "id": "j1-machten",
        "titel": "Machten",
-       "uitleg": "Een macht is een herhaalde vermenigvuldiging van hetzelfde getal. In 2^5 is 2 het grondtal en 5 de exponent: 2^5 = 2 x 2 x 2 x 2 x 2 = 32.\n\nEnkele voorbeelden: 3^4 = 81, 10^3 = 1000, 7^1 = 7 en 5^0 = 1.\n\nDe tweede macht heet kwadraat: 6^2 = 36. De derde macht heet derdemacht: 4^3 = 64.\n\nBij negatieve grondtallen let je op het teken: (-2)^3 = -8, want drie negatieve factoren geven een negatief resultaat. En (-2)^2 = 4.",
+       "uitleg": "Een macht is een herhaalde vermenigvuldiging van hetzelfde getal. In 2^5 is 2 het grondtal en 5 de exponent: 2^5 = 2 x 2 x 2 x 2 x 2 = 32.\n\nEnkele voorbeelden: 3^4 = 81, 10^3 = 1000, 7^1 = 7 en 5^0 = 1.\n\nDe tweede macht heet kwadraat: 6^2 = 36. De derde macht heet kubus: 4^3 = 64.\n\nBij negatieve grondtallen let je op het teken: (-2)^3 = -8, want drie negatieve factoren geven een negatief resultaat. En (-2)^2 = 4.",
        "oefeningen": [
         {
          "vraag": "Wat is 2^5?",
@@ -880,7 +880,7 @@
       {
        "id": "j1-driehoeken-vierhoeken",
        "titel": "Driehoeken en vierhoeken",
-       "uitleg": "In elke driehoek is de som van de hoeken 180 graden. Als twee hoeken 50 en 70 graden zijn, is de derde hoek 180 - 50 - 70 = 60 graden.\n\nEen gelijkbenige driehoek heeft twee gelijke zijden en twee gelijke basishoeken. Een gelijkzijdige driehoek heeft drie gelijke zijden en drie hoeken van 60 graden. Een rechthoekige driehoek heeft een hoek van 90 graden.\n\nDe som van de hoeken in een vierhoek is 360 graden.\n\nEen rechthoek heeft vier rechte hoeken. Een parallellogram heeft twee paar evenwijdige zijden en overstaande hoeken zijn gelijk. Een ruit heeft vier gelijke zijden en haar diagonalen staan loodrecht op elkaar. Een vierkant is zowel een rechthoek als een ruit.",
+       "uitleg": "In elke driehoek is de som van de hoeken 180 graden. Als twee hoeken 50 en 70 graden zijn, is de derde hoek 180 - 50 - 70 = 60 graden.\n\nEen gelijkbenige driehoek heeft twee gelijke zijden en twee gelijke basishoeken. Een gelijkzijdige driehoek heeft drie gelijke zijden en drie hoeken van 60 graden. Een rechthoekige driehoek heeft een hoek van 90 graden.\n\nDe som van de hoeken in een vierhoek is 360 graden.\n\nIn een driehoek is elke zijde kleiner dan de som van de twee andere zijden.\n\nEen rechthoek heeft vier rechte hoeken. Een parallellogram heeft twee paar evenwijdige zijden en overstaande hoeken zijn gelijk. Een ruit heeft vier gelijke zijden en haar diagonalen staan loodrecht op elkaar. Een vierkant is zowel een rechthoek als een ruit.",
        "oefeningen": [
         {
          "vraag": "In een driehoek zijn twee hoeken 50 en 70 graden. Hoe groot is de derde?",
@@ -1431,7 +1431,7 @@
       {
        "id": "j2-rationale-volgorde",
        "titel": "Machten, haakjes en rekenvolgorde",
-       "uitleg": "De rekenvolgorde blijft gelden: haakjes eerst, dan machten, dan vermenigvuldigen en delen, dan optellen en aftrekken.\n\nPas op met machten en tekens: (-2)^2 = (-2) x (-2) = 4, maar -2^2 = -(2 x 2) = -4, want de exponent hoort enkel bij de 2.\n\nVoorbeelden: 3 + 4 x (-2) = 3 + (-8) = -5. En (3 - 8) x (-2) = (-5) x (-2) = 10.\n\nEen breuk van een negatief getal: 1/2 - 3/4 = 2/4 - 3/4 = -1/4.",
+       "uitleg": "De rekenvolgorde blijft gelden: haakjes eerst, dan machten, dan vermenigvuldigen en delen, dan optellen en aftrekken.\n\nPas op met machten en tekens: (-2)^2 = (-2) x (-2) = 4, maar -2^2 = -(2 x 2) = -4, want de exponent hoort enkel bij de 2.\n\nVoorbeelden: 3 + 4 x (-2) = 3 + (-8) = -5. En (3 - 8) x (-2) = (-5) x (-2) = 10.\n\nEen aftrekking van breuken kan een negatief resultaat geven: 1/2 - 3/4 = 2/4 - 3/4 = -1/4.",
        "oefeningen": [
         {
          "vraag": "Wat is (-2)^2?",
@@ -2340,7 +2340,7 @@
        "uitleg": "Twee figuren zijn congruent als ze exact dezelfde vorm en grootte hebben (dekkend na verplaatsen, spiegelen of draaien). Twee driehoeken zijn congruent als ze drie gelijke zijden hebben, of twee gelijke zijden en de ingesloten hoek, of een gelijke zijde met twee gelijke aanliggende hoeken.\n\nGelijkvormige figuren hebben dezelfde vorm: overeenkomstige hoeken zijn gelijk en overeenkomstige zijden zijn evenredig met een vaste factor k, de vergrotingsfactor. De driehoeken met zijden 3, 4, 5 en 6, 8, 10 zijn gelijkvormig met k = 2.\n\nBij vergroting met factor k wordt de lengte k keer groter, de oppervlakte k^2 keer en het volume k^3 keer. Bij k = 2: zijde 5 wordt 10, oppervlakte 6 wordt 24 en het volume van een kubus met ribbe 2 (volume 8) wordt 64 bij ribbe 4.\n\nToepassing: een boom van 2 m werpt 3 m schaduw. Op hetzelfde moment werpt een andere boom 12 m schaduw. De factor is 12 : 3 = 4, dus de boom is 2 x 4 = 8 m hoog.",
        "oefeningen": [
         {
-         "vraag": "Een figuur wordt 2 keer vergroot. Een zijde van 5 cm wordt...",
+         "vraag": "Een figuur wordt vergroot met factor 2. Een zijde van 5 cm wordt...",
          "opties": [
           "10 cm",
           "7 cm",
@@ -2351,7 +2351,7 @@
          "uitleg": "Lengtes worden met de factor 2 vermenigvuldigd."
         },
         {
-         "vraag": "Een figuur met oppervlakte 6 cm^2 wordt 2 keer vergroot. Wat is de nieuwe oppervlakte?",
+         "vraag": "Een figuur met oppervlakte 6 cm^2 wordt vergroot met factor 2. Wat is de nieuwe oppervlakte?",
          "opties": [
           "8 cm^2",
           "24 cm^2",
@@ -2362,7 +2362,7 @@
          "uitleg": "De oppervlakte wordt k^2 = 4 keer groter: 6 x 4 = 24."
         },
         {
-         "vraag": "Een kubus met ribbe 2 cm wordt 2 keer vergroot. Hoeveel keer groter wordt zijn volume?",
+         "vraag": "Een kubus met ribbe 2 cm wordt vergroot met factor 2. Hoeveel keer groter wordt zijn volume?",
          "opties": [
           "4 keer",
           "2 keer",
