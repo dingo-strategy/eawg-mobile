@@ -177,6 +177,7 @@
   // ---------- schermen ----------
   function home() {
     leeg();
+    root.appendChild(el('p', 'merk', '🏆 Leerliga'));
     var top = el('div', 'top'), kop = el('div');
     kop.appendChild(el('h1', '', begroeting() + '! 👋'));
     kop.appendChild(el('p', 'sub', Tr('Wat leren we vandaag?')));
@@ -584,7 +585,7 @@
     leeg();
     var eerste = !PR.lijst.length;
     if (!eerste) root.appendChild(terug('#/profiel', Tr('Profiel')));
-    root.appendChild(el('h1', '', eerste ? Tr('Welkom! 👋') : Tr('Nieuw profiel')));
+    root.appendChild(el('h1', '', eerste ? Tr('Welkom bij Leerliga! 👋') : Tr('Nieuw profiel')));
     root.appendChild(el('p', 'sub', Tr('Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel; er wordt niets naar een server gestuurd.')));
     var naam = el('input', 'invul'); naam.type = 'text'; naam.maxLength = 16; naam.id = 'bijnaam';
     naam.setAttribute('autocomplete', 'off'); naam.setAttribute('aria-label', Tr('Bijnaam')); naam.placeholder = Tr('Bijnaam');
@@ -1009,6 +1010,7 @@
   // Eerste scherm: iedereen moet eerst zijn taal kunnen kiezen, in de talen zelf.
   function taalScherm() {
     leeg();
+    root.appendChild(el('p', 'merk', '🏆 Leerliga'));
     root.appendChild(el('h1', '', 'Taal · Langue · Language'));
     root.appendChild(el('p', 'sub', 'Kies je taal · Choisis ta langue · Choose your language'));
     var lijst = el('div', 'lijst');

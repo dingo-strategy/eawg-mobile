@@ -132,7 +132,6 @@ window.LEREN_I18N = {
   "Wat leren we vandaag?": "Qu'est-ce qu'on apprend aujourd'hui ?",
   "Welk begrip hoort bij: \"{w}\"?": "Quelle notion correspond à : « {w} » ?",
   "Welkom terug! Je had al {n} dagen gedaan, die tellen nog half mee.": "Bon retour ! Tu avais déjà {n} jours, ils comptent encore à moitié.",
-  "Welkom! 👋": "Bienvenue ! 👋",
   "Wisselen van profiel": "Changer de profil",
   "Woord {i} van {n}": "Mot {i} sur {n}",
   "Woorden": "Mots",
@@ -200,7 +199,8 @@ window.LEREN_I18N = {
   "1e middelbaar · B-stroom": "1re secondaire · filière B",
   "2e middelbaar · B-stroom": "2e secondaire · filière B",
   "3e middelbaar": "3e secondaire",
-  "4e middelbaar": "4e secondaire"
+  "4e middelbaar": "4e secondaire",
+  "Welkom bij Leerliga! 👋": "Bienvenue sur Leerliga ! 👋"
  },
  "en": {
   "Alle vakken": "All subjects",
@@ -334,7 +334,6 @@ window.LEREN_I18N = {
   "Wat leren we vandaag?": "What shall we learn today?",
   "Welk begrip hoort bij: \"{w}\"?": "Which term matches: \"{w}\"?",
   "Welkom terug! Je had al {n} dagen gedaan, die tellen nog half mee.": "Welcome back! You already had {n} days, they still count by half.",
-  "Welkom! 👋": "Welcome! 👋",
   "Wisselen van profiel": "Switch profile",
   "Woord {i} van {n}": "Word {i} of {n}",
   "Woorden": "Words",
@@ -402,6 +401,7 @@ window.LEREN_I18N = {
   "1e middelbaar · B-stroom": "Secondary year 1 · B stream",
   "2e middelbaar · B-stroom": "Secondary year 2 · B stream",
   "3e middelbaar": "Secondary year 3",
-  "4e middelbaar": "Secondary year 4"
+  "4e middelbaar": "Secondary year 4",
+  "Welkom bij Leerliga! 👋": "Welcome to Leerliga! 👋"
  }
 };

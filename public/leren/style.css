@@ -107,7 +107,7 @@ button.tile:active,.hero:active{transform:scale(.98)}
   text-align:center;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
 @media (prefers-reduced-motion:reduce){.beloning{animation:none}}
-.chips{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.chips{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:56%}
 
 /* niveau A / B */
 .niveau{display:flex;gap:6px;margin-top:20px;padding:4px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
@@ -176,3 +176,6 @@ img.foto{display:block;width:100%;max-width:100%;height:auto;margin:10px 0;borde
 /* instellingen */
 html.groot{font-size:122%}
 .taalrij{font-weight:700;font-size:1.15rem;text-align:left;min-height:56px}
+
+/* merknaam */
+.merk{margin:0 0 6px;font-weight:800;letter-spacing:.02em;color:var(--accent)}
