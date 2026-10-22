@@ -441,11 +441,80 @@ async function deleteAccount(request, env) {
   }
   await env.DB.batch([
     env.DB.prepare("DELETE FROM saves WHERE user_id = ?").bind(s.user_id),
+    env.DB.prepare("DELETE FROM redeemed WHERE user_id = ?").bind(s.user_id),
     env.DB.prepare("DELETE FROM sessions WHERE user_id = ?").bind(s.user_id),
     env.DB.prepare("DELETE FROM attempts WHERE key = ?").bind(s.username_lc),
     env.DB.prepare("DELETE FROM users WHERE id = ?").bind(s.user_id),
   ]);
   return json(200, { ok: true }, { "Set-Cookie": clearCookie() });
+}
+
+// ---------- muntcodes inwisselen (POST /api/redeem) ----------
+// Een code ziet er zo uit: <bedrag>.<uitgiftedatum JJJJMMDD>.<nonce>.<handtekening>
+// Handtekening = eerste 10 bytes van HMAC-SHA256(REDEEM_SECRET, "<bedrag>.<datum>.<nonce>"), in base32 (16 tekens).
+// Hoofdletterongevoelig (alles wordt naar hoofdletters gezet). Eenmalig per account, max 500 munten, 30 dagen geldig.
+// Maak codes met: node tools/maak_muntcode.mjs <bedrag>   (geheim in de omgevingsvariabele REDEEM_SECRET)
+
+const REDEEM_MAX = 500;
+const REDEEM_DAYS = 30;
+const LIMIT_REDEEM_FAILS = 10;   // foute codes per account per uur
+const B32 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+const REDEEM_RE = /^([1-9][0-9]{0,3})\.(\d{8})\.([A-Z2-7]{6,12})\.([A-Z2-7]{16})$/;
+
+function base32(bytes) {
+  let bits = 0, val = 0, out = "";
+  for (const b of bytes) {
+    val = (val << 8) | b; bits += 8;
+    while (bits >= 5) { out += B32[(val >>> (bits - 5)) & 31]; bits -= 5; }
+  }
+  if (bits > 0) out += B32[(val << (5 - bits)) & 31];
+  return out;
+}
+async function redeemSig(secret, msg) {
+  const key = await crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sig = new Uint8Array(await crypto.subtle.sign("HMAC", key, enc.encode(msg)));
+  return base32(sig.slice(0, 10));
+}
+function parseDay(s) {
+  const y = +s.slice(0, 4), m = +s.slice(4, 6), d = +s.slice(6, 8), t = Date.UTC(y, m - 1, d);
+  const dt = new Date(t);
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d ? t : NaN;
+}
+
+async function redeem(request, env) {
+  if (!env.REDEEM_SECRET) throw new HttpError(503, "Codes inwisselen staat nog niet aan.");
+  const s = await requireSession(request, env);
+  const ip = clientIp(request);
+  const now = Date.now();
+  const lim = await env.DB.prepare(
+    "SELECT COUNT(*) AS n, MIN(ts) AS first FROM attempts WHERE kind = 'redeem' AND key = ? AND ts > ?"
+  ).bind(s.username_lc, now - 60 * MIN).first();
+  if (lim.n >= LIMIT_REDEEM_FAILS) throw tooMany(lim.first + 60 * MIN - now);
+  const body = await readJson(request, MAX_BODY);
+  const raw = str(body.code);
+  if (raw === null || raw.length > 64) throw new HttpError(400, "Vul een code in.");
+  const code = raw.toUpperCase().replace(/\s+/g, "");
+  const bad = async () => {
+    await recordFail(env, "redeem", ip, s.username_lc);
+    return new HttpError(400, "Deze code klopt niet.");
+  };
+  const m = code.match(REDEEM_RE);
+  if (!m) throw await bad();
+  const [, amountS, dayS, nonce, sig] = m;
+  const amount = Number(amountS);
+  const want = await redeemSig(env.REDEEM_SECRET, `${amountS}.${dayS}.${nonce}`);
+  if (!safeEqual(enc.encode(want), enc.encode(sig))) throw await bad();
+  // vanaf hier is de code echt door ons uitgegeven
+  if (amount < 1 || amount > REDEEM_MAX) throw new HttpError(400, `Een code is hoogstens ${REDEEM_MAX} munten waard.`);
+  const issued = parseDay(dayS);
+  if (!isFinite(issued) || issued > now + 24 * 60 * MIN) throw new HttpError(400, "Deze code klopt niet.");
+  if (now - issued > REDEEM_DAYS * 24 * 60 * MIN) throw new HttpError(410, "Deze code is verlopen (langer dan 30 dagen geleden gemaakt).");
+  const key = `${amountS}.${dayS}.${nonce}`;
+  const row = await env.DB.prepare(
+    "INSERT INTO redeemed (user_id, code, amount, ts) VALUES (?, ?, ?, ?) ON CONFLICT(user_id, code) DO NOTHING RETURNING code"
+  ).bind(s.user_id, key, amount, now).first();
+  if (!row) throw new HttpError(409, "Deze code heb je al ingewisseld.");
+  return json(200, { ok: true, amount, key });
 }
 
 // ---------- online kamers (Durable Object ROOM, zie room.js) ----------
@@ -529,6 +598,7 @@ const ROUTES = {
   "/api/recover": { POST: recover },
   "/api/password": { POST: changePassword },
   "/api/account": { DELETE: deleteAccount },
+  "/api/redeem": { POST: redeem },
 };
 
 async function handleApi(request, env, ctx, url) {

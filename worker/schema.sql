@@ -39,3 +39,13 @@ CREATE TABLE IF NOT EXISTS attempts (
 CREATE INDEX IF NOT EXISTS idx_attempts_ip_key ON attempts(ip, key, ts);
 CREATE INDEX IF NOT EXISTS idx_attempts_ip_kind ON attempts(ip, kind, ts);
 CREATE INDEX IF NOT EXISTS idx_attempts_ts ON attempts(ts);
+
+-- Ingewisselde muntcodes (POST /api/redeem). Een code werkt een keer per account.
+-- code = "<bedrag>.<datum>.<nonce>" zonder handtekening. Zelfde inhoud staat in migrations/0001_redeemed.sql.
+CREATE TABLE IF NOT EXISTS redeemed (
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  code    TEXT    NOT NULL,
+  amount  INTEGER NOT NULL,                -- aantal munten (1 tot 500)
+  ts      INTEGER NOT NULL,                -- tijdstip in milliseconden
+  PRIMARY KEY (user_id, code)
+);

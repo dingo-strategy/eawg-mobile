@@ -1,5 +1,5 @@
 ﻿// VERSIE moet gelijk zijn aan het getal in index.html (game.js?v=NN). Bij live zetten beide samen verhogen.
-const VERSIE = 44;
+const VERSIE = 45;
 const CACHE = 'eawg-v' + VERSIE;
 // zonder deze bestanden start de game niet: alles of niets
 const KERN = ['./', 'index.html', 'game.js?v=' + VERSIE, 'manifest.json', 'icon-192.png', 'icon-512.png'];

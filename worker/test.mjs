@@ -260,6 +260,61 @@ check("statische /roster.json wordt geserveerd", r.status === 200, `${r.status}`
 r = await req("GET", "/api/bestaatniet");
 check("onbekend /api/-pad geeft JSON 404", r.status === 404 && !!r.data?.error, `${r.status}`);
 
+// 12b. Muntcodes inwisselen (POST /api/redeem)
+// Server starten MET geheim:   npx wrangler dev --local --port 8788 --var REDEEM_SECRET:<geheim>
+//   en dan testen met:         REDEEM_SECRET=<geheim> node worker/test.mjs
+// Server ZONDER geheim en test zonder REDEEM_SECRET: dan moet het eindpunt 503 geven.
+const SECRET = process.env.REDEEM_SECRET || "";
+const { maakCode } = await import("../tools/maak_muntcode.mjs");
+const dagen = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10).replace(/-/g, "");
+if (!SECRET) {
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: "150.20261022.ABCDEF.AAAAAAAAAAAAAAAA" } });
+  check("redeem zonder REDEEM_SECRET op de server geeft 503", r.status === 503, `${r.status} ${r.text}`);
+} else {
+  const c150 = maakCode(SECRET, 150);
+  r = await req("POST", "/api/redeem", { body: { code: c150 } });
+  check("redeem zonder sessie geeft 401", r.status === 401, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: c150 }, origin: "https://kwaadaardig.example" });
+  check("redeem met verkeerde Origin geeft 403", r.status === 403, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: c150.toLowerCase() } });
+  check("geldige code (kleine letters) geeft 200 en 150 munten", r.status === 200 && r.data?.amount === 150 && r.data?.key === c150.split(".").slice(0, 3).join("."), r.text);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: c150 } });
+  check("zelfde code tweede keer in hetzelfde account geeft 409", r.status === 409, `${r.status} ${r.text}`);
+  const rows = d1(`SELECT COUNT(*) AS n, SUM(amount) AS s FROM redeemed WHERE user_id = (SELECT id FROM users WHERE username_lc = '${user.toLowerCase()}')`);
+  check("database: 1 rij in redeemed met 150 munten", rows[0]?.n === 1 && rows[0]?.s === 150, JSON.stringify(rows));
+  const [a, d, n, s] = maakCode(SECRET, 100).split(".");
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: `500.${d}.${n}.${s}` } });
+  check("bedrag aangepast na ondertekenen geeft 400", r.status === 400, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: maakCode(SECRET, 501) } });
+  check("code boven 500 munten (wel juist ondertekend) geeft 400", r.status === 400, `${r.status} ${r.text}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: maakCode(SECRET, 50, dagen(31)) } });
+  check("code van 31 dagen oud geeft 410 (verlopen)", r.status === 410, `${r.status} ${r.text}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: maakCode(SECRET, 50, dagen(29)) } });
+  check("code van 29 dagen oud werkt nog (200)", r.status === 200 && r.data?.amount === 50, `${r.status} ${r.text}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: maakCode(SECRET, 50, dagen(-3)) } });
+  check("code met datum in de toekomst geeft 400", r.status === 400, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: maakCode("ander-geheim-dat-niet-klopt", 150) } });
+  check("code met ander geheim geeft 400", r.status === 400, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: "zomaar iets" } });
+  check("onzin geeft 400", r.status === 400, `${r.status}`);
+  r = await req("POST", "/api/redeem", { cookie: session4, body: { code: 12345 } });
+  check("code die geen tekst is geeft 400", r.status === 400, `${r.status}`);
+  // ander account mag dezelfde code ook een keer gebruiken (eenmalig PER account)
+  const IPr = newIp();
+  r = await req("POST", "/api/register", { body: { username: `munt_${RUN}`, password: pw }, ip: IPr });
+  const sessR = r.cookie;
+  r = await req("POST", "/api/redeem", { cookie: sessR, body: { code: c150 } });
+  check("zelfde code in een ander account geeft 200 (eenmalig per account)", r.status === 200 && r.data?.amount === 150, `${r.status} ${r.text}`);
+  // beperking: 10 foute codes per uur per account, de 11e geeft 429
+  const st = [];
+  for (let i = 0; i < 11; i++) { r = await req("POST", "/api/redeem", { cookie: sessR, body: { code: "100.20261022.ABCDEF.AAAAAAAAAAAAAAA" + "ABCDEFGHIJK"[i] } }); st.push(r.status); }
+  check(`10 foute codes geven 400, de 11e geeft 429 (${st.join(",")})`, st.slice(0, 10).every((x) => x === 400) && st[10] === 429);
+  r = await req("POST", "/api/redeem", { cookie: sessR, body: { code: maakCode(SECRET, 20) } });
+  check("na 10 foute codes is ook een goede code even geblokkeerd (429)", r.status === 429, `${r.status}`);
+  r = await req("DELETE", "/api/account", { cookie: sessR, body: { password: pw }, ip: IPr });
+  check("tweede testaccount verwijderd", r.status === 200, `${r.status}`);
+}
+
 // 13. Account verwijderen
 r = await req("DELETE", "/api/account", { cookie: session4, body: { password: "fout-wachtwoord" }, ip: IP2 });
 check("verwijderen met fout wachtwoord geeft 401", r.status === 401, `${r.status}`);
@@ -274,10 +329,11 @@ const left = d1(
   `SELECT (SELECT COUNT(*) FROM users WHERE username_lc = '${lc}') AS u, ` +
   `(SELECT COUNT(*) FROM sessions WHERE user_id NOT IN (SELECT id FROM users)) AS s, ` +
   `(SELECT COUNT(*) FROM saves WHERE user_id NOT IN (SELECT id FROM users)) AS v, ` +
-  `(SELECT COUNT(*) FROM attempts WHERE key = '${lc}') AS a`
+  `(SELECT COUNT(*) FROM attempts WHERE key = '${lc}') AS a, ` +
+  `(SELECT COUNT(*) FROM redeemed WHERE user_id NOT IN (SELECT id FROM users)) AS m`
 )[0];
-check(`database: geen rijen over na verwijderen (users ${left.u}, sessies ${left.s}, saves ${left.v}, pogingen ${left.a})`,
-  left.u === 0 && left.s === 0 && left.v === 0 && left.a === 0);
+check(`database: geen rijen over na verwijderen (users ${left.u}, sessies ${left.s}, saves ${left.v}, pogingen ${left.a}, codes ${left.m})`,
+  left.u === 0 && left.s === 0 && left.v === 0 && left.a === 0 && left.m === 0);
 r = await req("POST", "/api/login", { body: { username: user, password: "derde-wachtwoord-4" }, ip: newIp() });
 check("login na verwijderen lukt niet", r.status === 401, `${r.status}`);
 
