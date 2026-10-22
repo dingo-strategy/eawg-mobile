@@ -2040,7 +2040,7 @@ function streakClaim() {
   const v = streakRw(S.streak.n); S.streak.claim = today(); S.coins += v; econMsg = '+' + v + ' munten voor dag ' + S.streak.n + '!'; econMsgT = tNow; saveS(); return true;
 }
 // muntcode inwisselen: de server controleert de handtekening en of de code al gebruikt is in dit account
-function redeemDialog() {
+function redeemDialog(pre) {
   const d = authOverlay(), f = document.createElement('form'); f.style.cssText = LGP; d.appendChild(f);
   const t = document.createElement('div'); t.style.cssText = 'font:900 20px system-ui,sans-serif;text-align:center;margin-bottom:8px'; t.textContent = 'CODE INWISSELEN'; f.appendChild(t);
   const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.8);margin-bottom:6px'; x.textContent = 'Heb je een muntcode gekregen, bijvoorbeeld in de leerapp? Typ of plak hem hier. Elke code werkt een keer per account en is 30 dagen geldig. Je moet aangemeld zijn.'; f.appendChild(x);
@@ -2061,6 +2061,7 @@ function redeemDialog() {
     }
     m.textContent = r.status === 401 ? 'Meld je eerst aan (MEER, ACCOUNT). Codes gaan naar je account.' : r.status === 503 ? 'Codes inwisselen staat nog niet aan op de server.' : (r.j && r.j.error) || 'Dat lukte niet.';
   };
+  if (pre) i.value = pre;
   i.focus();
 }
 
@@ -3713,6 +3714,7 @@ setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (
   { const h = location.hash || '', m = /(vrijetrap|penalty3d|penalty)/.exec(h); if (m) setTimeout(() => spHash(m[1], /cpu/.test(h)), 1100); }
   { const m = /#(winkel|werelden|reeks|upgrade)\b/.exec(location.hash || ''); if (m) setTimeout(() => econHash(m[1]), 400); } }, 60);
 authInit();
+{ const mm = /munten=([A-Za-z0-9.\-]+)/.exec(location.hash || ''); if (mm) { let tries = 0; const iv = setInterval(() => { if (++tries > 120) clearInterval(iv); else if (!document.getElementById('authov') && authUser) { clearInterval(iv); redeemDialog(mm[1]); } }, 1000); } }
 // service worker + melding "Nieuwe versie beschikbaar" als er een nieuwe klaarstaat
 let updBar = null;
 function showUpdate(sw) {

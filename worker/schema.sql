@@ -49,3 +49,12 @@ CREATE TABLE IF NOT EXISTS redeemed (
   ts      INTEGER NOT NULL,                -- tijdstip in milliseconden
   PRIMARY KEY (user_id, code)
 );
+
+-- leerapp koppeling: een code per (leerling, aantal dagen reeks)
+CREATE TABLE IF NOT EXISTS leerissued (
+  leer_id TEXT    NOT NULL,
+  streak  INTEGER NOT NULL,
+  code    TEXT    NOT NULL,
+  ts      INTEGER NOT NULL,
+  PRIMARY KEY (leer_id, streak)
+);
