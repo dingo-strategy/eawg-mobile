@@ -307,7 +307,7 @@
       {
        "id": "voltooid-deelwoord",
        "titel": "Het voltooid deelwoord",
-       "uitleg": "Het voltooid deelwoord gebruik je met 'hebben' of 'zijn': ik heb gewerkt, zij is gekomen. Bij regelmatige werkwoorden maak je het zo: ge- + stam + t of d. Je gebruikt dezelfde regel van 't kofschip: gewerkt (k), gespeeld (l).\n\nStaat er al een t of d op het einde van de stam? Dan komt er geen tweede bij: gepraat, geantwoord.\n\nBegint het werkwoord met be-, ver- of ont-? Dan komt er geen ge- bij: verteld, ontdekt, besteld.",
+       "uitleg": "Het voltooid deelwoord gebruik je met 'hebben' of 'zijn': ik heb gewerkt, zij is gekomen. Bij regelmatige werkwoorden maak je het zo: ge- + stam + t of d. Je gebruikt dezelfde regel van 't kofschip: gewerkt (k), gespeeld (l).\n\nStaat er al een t of d op het einde van de stam? Dan komt er geen tweede bij: gepraat, geantwoord.\n\nBegint het werkwoord met be-, ge-, er-, her-, ont- of ver-? Dan komt er geen ge- bij: verteld, ontdekt, besteld.",
        "woorden": [
         {
          "nl": "voltooid deelwoord",
@@ -595,7 +595,7 @@
       {
        "id": "bijwoord-voorzetsel-voegwoord",
        "titel": "Bijwoord, voorzetsel en voegwoord",
-       "uitleg": "Een bijwoord zegt hoe, wanneer of waar iets gebeurt: snel, morgen, hier, vaak. Het verandert nooit van vorm.\n\nEen voorzetsel staat voor een naamwoord en toont plaats of verband: in, op, onder, naar, met, voor.\n\nEen voegwoord verbindt woorden of zinnen: en, maar, want, omdat.",
+       "uitleg": "Een bijwoord zegt hoe, wanneer of waar iets gebeurt: snel, morgen, hier, vaak. Het krijgt geen -en of -t zoals een werkwoord.\n\nEen voorzetsel staat voor een naamwoord en toont plaats of verband: in, op, onder, naar, met, voor.\n\nEen voegwoord verbindt woorden of zinnen: en, maar, want, omdat.",
        "woorden": [
         {
          "nl": "bijwoord",
@@ -1023,7 +1023,7 @@
       {
        "id": "verkleinwoorden",
        "titel": "Verkleinwoorden",
-       "uitleg": "Een verkleinwoord maakt iets kleiner of liever. Het eindigt op -je, -tje, -etje, -pje of -kje. Verkleinwoorden zijn altijd het-woorden: het huisje.\n\nVoorbeelden: huis – huisje, boek – boekje, stoel – stoeltje, tuin – tuintje. Na een korte klinker plus l, n of r komt -etje: bal – balletje, man – mannetje. Na een lange klinker plus m komt -pje: boom – boompje, raam – raampje. Bij -ing komt -kje: koning – koninkje.\n\nIn Vlaanderen zeggen we vaak 'boekske'. Dat is tussentaal. In de standaardtaal schrijf je boekje.",
+       "uitleg": "Een verkleinwoord maakt iets kleiner of liever. Het eindigt op -je, -tje, -etje, -pje of -kje. Verkleinwoorden zijn altijd het-woorden: het huisje.\n\nVoorbeelden: huis – huisje, boek – boekje, stoel – stoeltje, tuin – tuintje. Na een korte klinker plus l, m, n of r komt -etje: bal – balletje, man – mannetje. Na een lange klinker plus m komt -pje: boom – boompje, raam – raampje. Bij -ing komt -kje: koning – koninkje.\n\nIn Vlaanderen zeggen we vaak 'boekske'. Dat is tussentaal. In de standaardtaal schrijf je boekje.",
        "woorden": [
         {
          "nl": "verkleinwoord",
@@ -1092,7 +1092,7 @@
       {
        "id": "tussentaal",
        "titel": "Tussentaal en standaardtaal",
-       "uitleg": "In Vlaanderen spreken veel mensen dialect of tussentaal. Dialect is de taal van een streek. Tussentaal is een mengeling van dialect en standaardtaal. Standaardtaal is de verzorgde taal die iedereen begrijpt, op school en in nieuws.\n\nVoorbeelden van tussentaal: 'Ge moet da doen.' In de standaardtaal: 'Je moet dat doen.' Ook: 'Da's ni juist' wordt 'Dat is niet juist'.\n\nTussentaal is niet fout met vrienden. Maar in een brief, een toets of een presentatie gebruik je standaardtaal.",
+       "uitleg": "In Vlaanderen spreken veel mensen dialect of tussentaal. Dialect is de taal van een streek. Tussentaal is een mengeling van dialect en standaardtaal. Standaardtaal is de verzorgde taal die iedereen begrijpt, op school en in het nieuws.\n\nVoorbeelden van tussentaal: 'Ge moet da doen.' In de standaardtaal: 'Je moet dat doen.' Ook: 'Da's ni juist' wordt 'Dat is niet juist'.\n\nTussentaal is niet fout met vrienden. Maar in een brief, een toets of een presentatie gebruik je standaardtaal.",
        "woorden": [
         {
          "nl": "dialect",
@@ -2125,7 +2125,7 @@
       {
        "id": "lv-mv",
        "titel": "Lijdend en meewerkend voorwerp",
-       "uitleg": "Het lijdend voorwerp (LV) vind je met 'wie of wat + persoonsvorm + onderwerp?' Het meewerkend voorwerp (MV) is de persoon die iets krijgt of ontvangt. Je vindt het met 'aan of voor wie?'\n\nIk geef mijn zus een boek. Wat geef ik? Een boek (LV). Aan wie geef ik het? Aan mijn zus (MV).\n\nEen MV komt alleen voor als er ook een LV is.",
+       "uitleg": "Het lijdend voorwerp (LV) vind je met 'wie of wat + persoonsvorm + onderwerp?' Het meewerkend voorwerp (MV) is de persoon die iets krijgt of ontvangt. Je vindt het met 'aan of voor wie?'\n\nIk geef mijn zus een boek. Wat geef ik? Een boek (LV). Aan wie geef ik het? Aan mijn zus (MV).\n\nEen MV komt meestal voor samen met een LV.",
        "woorden": [
         {
          "nl": "lijdend voorwerp",
@@ -2403,7 +2403,7 @@
       {
        "id": "voegwoorden-verbanden",
        "titel": "Voegwoorden en verbanden",
-       "uitleg": "Voegwoorden leggen een verband tussen zinnen.\n\nOorzaak: omdat, want, doordat. Gevolg: dus, daardoor. Tegenstelling: maar, hoewel, toch. Tijd: nadat, voordat, terwijl. Doel: zodat. Voorwaarde: als.\n\nKies altijd het voegwoord dat bij de betekenis past.",
+       "uitleg": "Voegwoorden leggen een verband tussen zinnen.\n\nOorzaak: omdat, want, doordat. Gevolg: dus, daarom. Tegenstelling: maar, hoewel, echter. Tijd: nadat, voordat, terwijl. Doel: zodat. Voorwaarde: als.\n\nKies altijd het voegwoord dat bij de betekenis past.",
        "woorden": [
         {
          "nl": "oorzaak",
@@ -2463,7 +2463,7 @@
          "uitleg": "Ik studeer met het doel om te slagen."
         },
         {
-         "vraag": "Welk voegwoord past: ... het regent, blijf ik thuis.",
+         "vraag": "Welk voegwoord past: ... je je bord leeg eet, krijg je een ijsje.",
          "opties": [
           "Als",
           "Omdat",
@@ -2580,7 +2580,7 @@
           "idee's"
          ],
          "antwoord": 0,
-         "uitleg": "Idee krijgt -ën met trema."
+         "uitleg": "Idee + en = ideeën, met een trema op de laatste e."
         },
         {
          "vraag": "Wat is het meervoud van 'zee'?",
@@ -2627,7 +2627,7 @@
       {
        "id": "vaak-verward",
        "titel": "Woorden die je vaak verwart",
-       "uitleg": "Hen, hun en ze: gebruik 'hun' voor bezit (hun huis) of als meewerkend voorwerp (ik geef hun een boek). Gebruik 'hen' voor het lijdend voorwerp (ik zie hen) en na een voorzetsel (met hen). 'Ze' kan je bijna altijd veilig gebruiken.\n\nDan en als: bij ongelijk gebruik je 'dan': groter dan. Bij gelijk gebruik je 'als': even groot als.",
+       "uitleg": "Hen, hun en ze: gebruik 'hun' voor bezit (hun huis) of als meewerkend voorwerp (ik geef hun een boek). Gebruik 'hen' voor het lijdend voorwerp (ik zie hen) en na een voorzetsel (met hen). Twijfel je tussen hen en hun? Dan kan je vaak 'ze' gebruiken (ik zie ze, ik geef ze een boek). Bij bezit moet je wel 'hun' schrijven.\n\nDan en als: bij ongelijk gebruik je 'dan': groter dan. Bij gelijk gebruik je 'als': even groot als.",
        "woorden": [
         {
          "nl": "hen",
@@ -2652,7 +2652,7 @@
          "uitleg": "Bezit: hun huis."
         },
         {
-         "vraag": "Vul in: Ik ga met ... mee. (na voorzetsel)",
+         "vraag": "Vul in: Ik ga met ... mee. (na voorzetsel, meer personen)",
          "opties": [
           "hen",
           "hun",
@@ -2662,7 +2662,7 @@
          "uitleg": "Na een voorzetsel: hen."
         },
         {
-         "vraag": "Vul in: Ik zie ... elke dag. (lijdend voorwerp)",
+         "vraag": "Vul in: Ik zie ... elke dag. (lijdend voorwerp, meer personen)",
          "opties": [
           "hun",
           "hen",
@@ -3390,7 +3390,7 @@
         {
          "vraag": "In welke tijd schrijf je een verslag meestal?",
          "opties": [
-          "toekomstige tijd",
+          "toekomende tijd",
           "alleen tegenwoordige tijd",
           "verleden tijd"
          ],

@@ -186,7 +186,7 @@
           "Speel jij mee?"
          ],
          "antwoord": 2,
-         "uitleg": "Voor 'jij' staat alleen de stam."
+         "uitleg": "Het werkwoord staat vóór 'jij'. Dan schrijf je alleen de stam."
         }
        ]
       },
@@ -284,7 +284,7 @@
       {
        "id": "b-t-kofschip",
        "titel": "'t kofschip",
-       "uitleg": "Verleden tijd is iets dat voorbij is. Gisteren speelde ik.\n\nKijk naar de laatste letter van de stam. Is het t, k, f, s, ch of p? Dan schrijf je -te. Anders schrijf je -de.\n\nWerken: werkte. Spelen: speelde. Bij 'wij' komt er een n bij: wij werkten.",
+       "uitleg": "Verleden tijd is iets dat voorbij is. Gisteren speelde ik.\n\nKijk naar de laatste letter van de stam. Is het t, k, f, s, ch of p? Dan schrijf je -te. Anders schrijf je -de. Let op: bij reizen en verven staat in de infinitief een z of v. Dus: reisde, verfde.\n\nWerken: werkte. Spelen: speelde. Bij 'wij' komt er een n bij: wij werkten.",
        "woorden": [
         {
          "nl": "verleden tijd",
@@ -368,7 +368,7 @@
       {
        "id": "b-voltooid-deelwoord",
        "titel": "Het voltooid deelwoord",
-       "uitleg": "Het voltooid deelwoord gebruik je met 'hebben' of 'zijn'. Ik heb gewerkt.\n\nJe maakt het zo: ge- + stam + t of d. Je gebruikt weer 't kofschip.\n\nBegint het werkwoord met be-, ver- of ont-? Dan komt er geen ge- bij. Bijvoorbeeld: verteld.",
+       "uitleg": "Het voltooid deelwoord gebruik je met 'hebben' of 'zijn'. Ik heb gewerkt.\n\nJe maakt het zo: ge- + stam + t of d. Je gebruikt weer 't kofschip. Eindigt de stam al op t of d? Dan komt er geen tweede bij: gepraat, geantwoord.\n\nBegint het werkwoord met be-, ver- of ont-? Dan komt er geen ge- bij. Bijvoorbeeld: verteld.",
        "woorden": [
         {
          "nl": "voltooid deelwoord",
@@ -643,12 +643,12 @@
         },
         {
          "nl": "onderwerp",
-         "doel": "wie of wat het doet",
+         "doel": "het antwoord op: wie of wat + persoonsvorm?",
          "voorbeeld": "De hond"
         },
         {
          "nl": "zin",
-         "doel": "woorden met een punt",
+         "doel": "groep woorden die een boodschap geeft",
          "voorbeeld": "De hond blaft."
         },
         {
@@ -718,7 +718,7 @@
       {
        "id": "b-lijdend-voorwerp",
        "titel": "Het lijdend voorwerp",
-       "uitleg": "Het lijdend voorwerp is wat iemand doet of krijgt. Sam leest een boek.\n\nJe vindt het met: wie of wat + persoonsvorm + onderwerp? Wat leest Sam? Een boek.\n\nNiet elke zin heeft een lijdend voorwerp. De baby slaapt.",
+       "uitleg": "Het lijdend voorwerp is wie of wat de handeling ondergaat. Sam leest een boek.\n\nJe vindt het met: wie of wat + persoonsvorm + onderwerp? Wat leest Sam? Een boek.\n\nNiet elke zin heeft een lijdend voorwerp. De baby slaapt.",
        "woorden": [
         {
          "nl": "lijdend voorwerp",
@@ -744,11 +744,6 @@
          "nl": "vraag",
          "doel": "om het lijdend voorwerp te vinden",
          "voorbeeld": "Wat leest Sam?"
-        },
-        {
-         "nl": "zin zonder",
-         "doel": "een zin zonder lijdend voorwerp",
-         "voorbeeld": "De baby slaapt."
         },
         {
          "nl": "zinsdeel",
@@ -984,7 +979,7 @@
       {
        "id": "b-meervoud",
        "titel": "Het meervoud",
-       "uitleg": "Meervoud is meer dan één. Meestal schrijf je -en. Boek, boeken.\n\nNa een korte klinker verdubbelt de medeklinker: kat, katten. Na een lange klinker is er één letter: raam, ramen.\n\nBij a, o, u en i komt 's. Foto, foto's. Bij -el, -er en -je komt meestal -s.",
+       "uitleg": "Meervoud is meer dan één. Meestal schrijf je -en. Boek, boeken.\n\nNa een korte klinker verdubbelt de medeklinker: kat, katten. Na een lange klinker schrijf je één klinker: raam, ramen.\n\nEindigt het woord op a, o, u of i? Dan komt 's. Foto, foto's. Bij -el, -er en -je komt meestal -s.",
        "woorden": [
         {
          "nl": "meervoud",
@@ -1068,7 +1063,7 @@
       {
        "id": "b-hoofdletters",
        "titel": "Hoofdletters",
-       "uitleg": "Je schrijft een hoofdletter aan het begin van een zin. Ook bij namen: Lotte, Gent, België.\n\nTalen krijgen een hoofdletter. Frans, Nederlands.\n\nDagen en maanden schrijf je klein. Maandag, juli.",
+       "uitleg": "Je schrijft een hoofdletter aan het begin van een zin. Ook bij namen: Lotte, Gent, België.\n\nTalen krijgen een hoofdletter. Frans, Nederlands.\n\nDagen en maanden schrijf je klein. maandag, juli.",
        "woorden": [
         {
          "nl": "hoofdletter",
@@ -1201,7 +1196,7 @@
         {
          "vraag": "Een recept is een tekst die ...",
          "opties": [
-          "verhaalt",
+          "een verhaal vertelt",
           "iets verkoopt",
           "uitlegt hoe je iets maakt"
          ],
@@ -1285,7 +1280,7 @@
         {
          "vraag": "Tekst: 'Jongeren slapen te weinig. Ze zijn moe op school.' Wat is het onderwerp?",
          "opties": [
-          "slaap bij jongeren",
+          "slaap",
           "school",
           "sport"
          ],
@@ -1306,7 +1301,7 @@
          "vraag": "Waar vind je snel het onderwerp?",
          "opties": [
           "in het paginanummer",
-          "in de laatste zin",
+          "in de bladzijdenummers van het boek",
           "in de titel"
          ],
          "antwoord": 2,
@@ -1545,7 +1540,7 @@
         },
         {
          "nl": "voltooid deelwoord",
-         "doel": "vorm met ge-",
+         "doel": "vorm met hebben of zijn: gewerkt, verteld",
          "voorbeeld": "gewerkt"
         }
        ],
@@ -1830,11 +1825,11 @@
          "uitleg": "Maar zet twee zaken tegenover elkaar."
         },
         {
-         "vraag": "Welk woord past? ... het regent, blijf ik thuis.",
+         "vraag": "Welk woord toont een voorwaarde? ... het regent, blijf ik thuis.",
          "opties": [
-          "Omdat",
+          "Maar",
           "Als",
-          "Maar"
+          "Dus"
          ],
          "antwoord": 1,
          "uitleg": "Als toont een voorwaarde."
@@ -2006,7 +2001,7 @@
       {
        "id": "b2-woordbetekenis",
        "titel": "Woordbetekenis",
-       "uitleg": "Een woord kan meer dan één betekenis hebben. Een bank kan een zitbank zijn of een bank voor geld.\n\nLetterlijk is precies wat er staat. Figuurlijk is een andere betekenis. 'Hij heeft een gouden hart' betekent: hij is heel goed.\n\nDe zin helpt je de betekenis te vinden.",
+       "uitleg": "Een woord kan meer dan één betekenis hebben. Een bank kan een zitbank zijn of een bank voor geld.\n\nLetterlijk is precies wat er staat. Figuurlijk is een andere betekenis. 'Hij heeft een gouden hart' betekent: hij is heel lief.\n\nDe zin helpt je de betekenis te vinden.",
        "woorden": [
         {
          "nl": "letterlijk",
@@ -2050,7 +2045,7 @@
          "opties": [
           "Zijn hart is van goud.",
           "Hij is ziek.",
-          "Hij is heel goed."
+          "Hij is heel lief."
          ],
          "antwoord": 2,
          "uitleg": "Het is figuurlijk bedoeld."
@@ -2180,7 +2175,7 @@
         },
         {
          "nl": "informeren",
-         "doel": "uitleg geven",
+         "doel": "iets laten weten",
          "voorbeeld": "een nieuwsbericht"
         },
         {
