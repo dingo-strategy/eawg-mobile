@@ -6,6 +6,8 @@ let Q = 0, dprCap = 2, qN = 0, qT = 0, DPR = 1, bgk = 1, scale = 1, oy = 0, SW =
 const SYF = 190, SYN = 590, SF = 0.66, SN = 1.22;
 let camX = W / 2, zoom = 1.4, tNow = 0, shakeT = 0, goalT = 0;
 let court = null, curKey = 'veld', koiUser = 0, inStreet = false, stSel = 0;
+// stadion (VELDEN) voor het grote veld: null = het gratis standaardveld. veldBuilt = welk stadion nu in de gebakken textuur zit.
+let veld = null, veldBuilt = '', veldTry = '';
 let kitSlot = 0, formIdx = [0, 0], FORM = [3, 2, 2], ATTFROM = 5, vSelF = -1, vSelB = -1;
 // toeval voor de spelsimulatie: vaste seed per match (mulberry32), zodat een match herhaalbaar is (voorbereiding online spelen).
 // Tekenen, menu's en effecten gebruiken gewoon Math.random.
@@ -39,8 +41,10 @@ function buildBG() {
   const g = bg.getContext('2d'); g.scale(bgk, bgk);
   let seed = 7;
   const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
-  const sky = g.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, court ? court.sky[0] : '#05070f'); sky.addColorStop(1, court ? court.sky[1] : '#121c38');
+  const SKY = court ? court.sky : veld ? veld.sky : null;
+  const sky = g.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, SKY ? SKY[0] : '#05070f'); sky.addColorStop(1, SKY ? SKY[1] : '#121c38');
   g.fillStyle = sky; g.fillRect(0, 0, w, h);
+  if (!court && veld) { stadiumBG(g, w, h, rnd, veld, true); return; }
   if (court && court.crowd === 'skyline') { skyline(g, w, h, rnd); return; }
   if (court && court.crowd === 'mural') { mural(g, w, h, rnd); return; }
   if (court && court.crowd === 'tunnel') { tunnelBG(g, w, h, rnd); return; }
@@ -64,7 +68,11 @@ function buildBG() {
   if ('filter' in g) g.filter = 'blur(' + (0.7 * bgk) + 'px)';
   g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(tmp, 0, 0); g.restore(); g.filter = 'none'; tmp.width = tmp.height = 0;
   g.globalAlpha = 1;
-  if (!court || court.indoor) {
+  if (!court || court.indoor) roofDak(g, w);
+  const lip = g.createLinearGradient(0, h - 32, 0, h); lip.addColorStop(0, '#0c1424'); lip.addColorStop(1, '#04060c');
+  g.fillStyle = lip; g.fillRect(0, h - 32, w, 32);
+}
+function roofDak(g, w) {
   const roof = g.createLinearGradient(0, 0, 0, 70); roof.addColorStop(0, '#03050a'); roof.addColorStop(0.7, 'rgba(8,12,22,.92)'); roof.addColorStop(1, 'rgba(8,12,22,0)');
   g.fillStyle = roof; g.fillRect(0, 0, w, 70);
   g.strokeStyle = 'rgba(70,85,120,.45)'; g.lineWidth = 1;
@@ -76,9 +84,6 @@ function buildBG() {
     g.moveTo(x - 11, y); g.lineTo(x + 11, y); g.moveTo(x, y - 11); g.lineTo(x, y + 11); g.stroke();
     g.fillStyle = 'rgba(255,255,255,.08)'; g.beginPath(); g.arc(x, y, 14, 0, 7); g.fill();
   }
-  }
-  const lip = g.createLinearGradient(0, h - 32, 0, h); lip.addColorStop(0, '#0c1424'); lip.addColorStop(1, '#04060c');
-  g.fillStyle = lip; g.fillRect(0, h - 32, w, 32);
 }
 addEventListener('resize', resize);
 
@@ -691,10 +696,10 @@ function glowFor(col) {
   return glowCache[col] = c;
 }
 function drawLights() {
-  if (!court || !court.lamps || Q >= 2 || !bg) return;
+  const LS = court || veld; if (!LS || !LS.lamps || !LS.lamps.length || Q >= 2 || !bg) return;
   const bx = -180 - (camX - W / 2) * 0.12, bw = bg.width / bgk;
   cx.save(); cx.globalCompositeOperation = 'lighter';
-  court.lamps.forEach((L, i) => {
+  LS.lamps.forEach((L, i) => {
     let a = L.a; if (L.flick) { const ph = (tNow * L.flick + i * 3.7) % 5; a *= ph < 0.18 ? 0.2 : ph < 0.3 ? 0.65 : 1; }
     const x = bx + L.fx * bw, y = L.y, r = L.r;
     cx.globalAlpha = Math.min(1, a); cx.drawImage(glowFor(L.col), x - r, y - r, 2 * r, 2 * r);
@@ -941,8 +946,13 @@ function drawVoor() {
   });
   txt('OPSTELLING', X0 + 10, 258, 13, '#8fb0ff', 'left', '800');
   FORMS[z].forEach((f, i) => pill(X0 + 10 + i * 96, 266, 90, 36, f.filter(n => n > 0).join('-'), () => { formIdx[z] = i; saveVoor(); prepMatch(); }, formIdx[z] === i, 16));
-  const px = X0 + 10, py = 312, pw = 372, ph = 188;
-  cx.fillStyle = court ? court.floor : '#2f8a3c'; rr(px, py, pw, ph, 8); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.55)'; cx.lineWidth = 2; cx.strokeRect(px + 6, py + 6, pw - 12, ph - 12); cx.beginPath(); cx.arc(px + pw - 6, py + ph / 2, 30, 1.5708, 4.7124); cx.stroke();
+  const px = X0 + 10, py = 312, pw = 372, ph = court ? 188 : 146;
+  if (!court) {
+    const L = veldList();
+    pill(X0 + 10, 466, 372, 38, L.length < 2 ? 'STADION: STANDAARD (koop er bij CLUB)' : 'STADION: ' + veldNaam(veld ? veld.id : '') + (veld && ownV(veld.id) ? '  +10%' : '') + '   >', () => cycleVeld(true), L.length > 1 && !!veld, 14);
+    if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 196, 460, 13, '#ffd400', 'center', '900');
+  }
+  cx.fillStyle = court ? court.floor : veld ? veld.g[0] : '#2f8a3c'; rr(px, py, pw, ph, 8); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.55)'; cx.lineWidth = 2; cx.strokeRect(px + 6, py + 6, pw - 12, ph - 12); cx.beginPath(); cx.arc(px + pw - 6, py + ph / 2, 30, 1.5708, 4.7124); cx.stroke();
   players.filter(p => p.t === 0).forEach(p => {
     const dx = px + 20 + p.hx / (Math.max(...HOME.map(h => h[0])) * 1.1) * (pw - 70), dy = py + 14 + p.hy / H * (ph - 28);
     cx.fillStyle = p.i === 0 ? '#d8ff2a' : TEAMS[0].shirt; cx.beginPath(); cx.arc(dx, dy, 11, 0, 6.2832); cx.fill(); cx.strokeStyle = '#fff'; cx.lineWidth = 2; cx.stroke();
@@ -1170,21 +1180,24 @@ function drawStraat() {
 }
 function buildGrass() {
   if (court) { buildFloor(); return; }
-  const tw = (GX1 - GX0) * TXL, th = (GY1 - GY0) * TXL;
+  const v = veld, tw = (GX1 - GX0) * TXL, th = (GY1 - GY0) * TXL;
+  veldBuilt = v ? v.id : ''; lineCol = (v && v.line) || 'rgba(255,255,255,.9)';
   if (grass) grass.width = grass.height = 0;
   grass = document.createElement('canvas'); grass.width = tw; grass.height = th;
   const g = grass.getContext('2d');
   const X = x => (x - GX0) * TXL, Y = y => (y - GY0) * TXL;
-  for (let i = -4; i < 15; i++) { g.fillStyle = i % 2 ? '#2a8638' : '#37a145'; g.fillRect(X(i * 100), 0, 100 * TXL, th); }
-  for (let i = 0; i < 280; i++) {
+  if (!v) { for (let i = -4; i < 15; i++) { g.fillStyle = i % 2 ? '#2a8638' : '#37a145'; g.fillRect(X(i * 100), 0, 100 * TXL, th); } }
+  else mowPattern(g, X, Y, tw, th, v);
+  const nP = Math.round(280 * (v && v.patch != null ? v.patch : 1)), wk = v && v.wear != null ? v.wear : 1, wc = (v && v.wearCol) || '125,95,45';
+  for (let i = 0; i < nP; i++) {
     const x = Math.random() * tw, y = Math.random() * th, r = 40 + Math.random() * 170;
     const gr = g.createRadialGradient(x, y, 0, x, y, r), c = Math.random() < 0.5 ? '255,255,255' : '0,25,0';
     gr.addColorStop(0, 'rgba(' + c + ',' + (0.035 + Math.random() * 0.045) + ')'); gr.addColorStop(1, 'rgba(' + c + ',0)');
     g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r);
   }
-  for (const [wx, wy, wr, a] of [[0, H / 2, 95, 0.30], [W, H / 2, 95, 0.30], [100, H / 2, 22, 0.35], [W - 100, H / 2, 22, 0.35], [W / 2, H / 2, 24, 0.22]]) {
+  if (wk > 0) for (const [wx, wy, wr, a] of [[0, H / 2, 95, 0.30], [W, H / 2, 95, 0.30], [100, H / 2, 22, 0.35], [W - 100, H / 2, 22, 0.35], [W / 2, H / 2, 24, 0.22]]) {
     const gr = g.createRadialGradient(X(wx), Y(wy), 0, X(wx), Y(wy), wr * TXL);
-    gr.addColorStop(0, 'rgba(125,95,45,' + a + ')'); gr.addColorStop(1, 'rgba(125,95,45,0)');
+    gr.addColorStop(0, 'rgba(' + wc + ',' + Math.min(0.9, a * wk) + ')'); gr.addColorStop(1, 'rgba(' + wc + ',0)');
     g.fillStyle = gr; g.fillRect(X(wx) - wr * TXL, Y(wy) - wr * TXL, 2 * wr * TXL, 2 * wr * TXL);
   }
   // ruis (vroeger een lus over ~6 miljoen beeldpunten) en grassprietjes (vroeger 150000 + 14000 fillRect) als herhaaltegel van 512 bij 512.
@@ -1192,7 +1205,7 @@ function buildGrass() {
   noiseOnto(g, grass.width, grass.height, 9, 0.7, 1, 0.6, Math.random, 512);
   const T = 512, st = document.createElement('canvas'); st.width = st.height = T; const sg = st.getContext('2d');
   const dens = T * T / (grass.width * grass.height), nS = Math.round(150000 * dens), nD = Math.round(14000 * dens);
-  const lite = 'rgba(175,240,125,.22)', dk = 'rgba(8,55,18,.26)';
+  const lite = v && v.blade ? v.blade[0] : 'rgba(175,240,125,.22)', dk = v && v.blade ? v.blade[1] : 'rgba(8,55,18,.26)';
   for (let i = 0; i < nS; i++) {
     sg.fillStyle = i & 1 ? lite : dk; const x = Math.random() * T, y = Math.random() * T, h = 3 + Math.random() * 5;
     sg.fillRect(x, y, 1, h); if (y + h > T) sg.fillRect(x, y - T, 1, h);
@@ -1201,6 +1214,7 @@ function buildGrass() {
   for (let i = 0; i < nD; i++) sg.fillRect(Math.random() * T, Math.random() * T, 1, 1);
   g.fillStyle = g.createPattern(st, 'repeat'); g.fillRect(0, 0, tw, th);
   st.width = st.height = 0;
+  if (v) veldExtras(g, X, Y, tw, th, v);
 }
 let lineCol = 'rgba(255,255,255,.9)';
 function pl(pts, closed) {
@@ -1224,7 +1238,7 @@ function drawLines() {
   pl([[0, H / 2 - 130], [150, H / 2 - 130], [150, H / 2 + 130], [0, H / 2 + 130]]); pl([[W, H / 2 - 130], [W - 150, H / 2 - 130], [W - 150, H / 2 + 130], [W, H / 2 + 130]]);
   pl([[0, H / 2 - 62], [52, H / 2 - 62], [52, H / 2 + 62], [0, H / 2 + 62]]); pl([[W, H / 2 - 62], [W - 52, H / 2 - 62], [W - 52, H / 2 + 62], [W, H / 2 + 62]]);
   pl(arcPts(100, H / 2, 72, -0.805, 0.805)); pl(arcPts(W - 100, H / 2, 72, Math.PI - 0.805, Math.PI + 0.805));
-  cx.fillStyle = 'rgba(255,255,255,.92)';
+  cx.fillStyle = lineCol;
   for (const [sx, sy] of [[W / 2, H / 2], [100, H / 2], [W - 100, H / 2]]) { const q = P(sx, sy, 0); cx.beginPath(); cx.ellipse(q[0], q[1], 3.4 * q[2], 2.2 * q[2], 0, 0, 6.2832); cx.fill(); }
   for (const [x0, y0, a0] of [[0, 0, 0], [W, 0, 1.5708], [W, H, 3.1416], [0, H, 4.7124]]) pl(arcPts(x0, y0, 10, a0, a0 + 1.5708));
 }
@@ -1260,12 +1274,12 @@ function drawPitch() {
 function drawBoards() {
   if (court) { drawWalls(); return; }
   const y = -26, a = P(-120, y, 0), b = P(W + 120, y, 0), c = P(W + 120, y, 17), d = P(-120, y, 17);
-  const g = cx.createLinearGradient(0, d[1], 0, a[1]); g.addColorStop(0, '#0d3a9a'); g.addColorStop(1, '#061c55');
+  const bd = veld && veld.boards, g = cx.createLinearGradient(0, d[1], 0, a[1]); g.addColorStop(0, bd ? bd[0] : '#0d3a9a'); g.addColorStop(1, bd ? bd[1] : '#061c55');
   poly(g, [a, b, c, d]);
   cx.fillStyle = 'rgba(255,255,255,.55)'; cx.fillRect(0, d[1], SW, 1.5);
   for (let x = -100; x < W + 100; x += 170) {
     const q = P(x, y, 5); if (q[0] < -200 || q[0] > SW + 200) continue;
-    txt('EAWG MOBILE', q[0], q[1], 11 * q[2], '#fff', 'center', '900');
+    txt(bd ? bd[3] : 'EAWG MOBILE', q[0], q[1], 11 * q[2], bd ? bd[2] : '#fff', 'center', '900');
   }
 }
 function drawGoal(gx, dir) {
@@ -1411,8 +1425,8 @@ function drawPlayer(p, ov) {
 
 function drawBall() {
   const q = P(ball.x, ball.y, ball.z + 4.5), r = 5.4 * q[2], x = q[0], y = q[1];
-  const gr = cx.createRadialGradient(x - r * 0.38, y - r * 0.42, r * 0.1, x, y, r);
-  gr.addColorStop(0, '#ffffff'); gr.addColorStop(0.6, '#dfe3ea'); gr.addColorStop(1, '#848b9a');
+  const gr = cx.createRadialGradient(x - r * 0.38, y - r * 0.42, r * 0.1, x, y, r), bc = !court && veld && veld.ball;
+  gr.addColorStop(0, bc ? bc[0] : '#ffffff'); gr.addColorStop(0.6, bc ? bc[1] : '#dfe3ea'); gr.addColorStop(1, bc ? bc[2] : '#848b9a');
   cx.fillStyle = gr; cx.beginPath(); cx.arc(x, y, r, 0, 6.2832); cx.fill();
   cx.fillStyle = '#232832';
   for (let k = 0; k < 4; k++) {
@@ -1485,7 +1499,7 @@ function drawScene() {
   if (shakeT > 0) cx.translate((Math.random() - 0.5) * 9 * shakeT * 2, (Math.random() - 0.5) * 7 * shakeT * 2);
   // achtergrond staat (bijna) 1 op 1 op het scherm: 'low' filter is hier even scherp en veel goedkoper dan 'high'
   cx.imageSmoothingQuality = 'low'; cx.drawImage(bg, -180 - (camX - W / 2) * 0.12, 0, bg.width / bgk, bg.height / bgk); cx.imageSmoothingQuality = 'high';
-  if (Q < 2 && !(court && court.crowd !== 'fans') && (++fN & 7) === 0) { flashes = []; for (let i = 0; i < 7; i++) flashes.push([Math.random() * SW, 70 + Math.random() * (SYF - 120), 2 + Math.random() * 2]); }
+  if (Q < 2 && !(court && court.crowd !== 'fans') && !(!court && veld && veld.calm) && (++fN & 7) === 0) { flashes = []; for (let i = 0; i < 7; i++) flashes.push([Math.random() * SW, 70 + Math.random() * (SYF - 120), 2 + Math.random() * 2]); }
   for (const f of flashes) { cx.fillStyle = 'rgba(255,255,255,.85)'; cx.beginPath(); cx.arc(f[0], f[1], f[2], 0, 6.2832); cx.fill(); }
   drawLights();
   if (DBG) { t1 = performance.now(); DT.bg = t1 - t0; t0 = t1; }
@@ -1504,7 +1518,7 @@ function drawScene() {
   }
   const list = players.slice(); list.push(ball); list.sort((a, b) => a.y - b.y);
   for (const e of list) { if (e === ball) drawBall(); else drawPlayer(e); }
-  if (court && court.weather && Q < 2) drawWeather();
+  { const ws = court || veld; if (ws && ws.weather && Q < 2) drawWeather(ws); }
   cx.restore();
   if (DBG) { t1 = performance.now(); DT.spel = t1 - t0; t0 = t1; }
   if (Q < 2) { cx.fillStyle = vig; cx.fillRect(0, 0, SW, VH); }
@@ -1588,7 +1602,10 @@ function loadSet() {
   MATCH = MATCHES[mIdx];
 }
 function startMatch(opts) {
-  setCourt(opts && opts.street ? opts.court : null);
+  const street = !!(opts && opts.street);
+  if (!street) veld = veldPick(); // eerst het stadion kiezen, dan wordt de textuur maar een keer gebakken
+  setCourt(street ? opts.court : null);
+  if (!street) setVeld(veld ? veld.id : '');
   fr = opts && opts.kind === 'friendly' ? opts : null; cur = fr ? null : (opts || null); yel = {}; ban = null;
   if (fr) { TEAMS[0] = Object.assign({}, GKS[0], fr.a); TEAMS[1] = Object.assign({}, GKS[1], fr.b); } else if (cur) { TEAMS[0] = Object.assign({}, GKS[0], KITS[cur.mine]); TEAMS[1] = Object.assign({}, GKS[1], KITS[cur.opp]); } else applyKits();
   loadVoor(); prepMatch(); state = 'voor';
@@ -1917,9 +1934,10 @@ const lineAvg = () => { let s = 0; for (let i = 0; i < 5; i++) s += eff(lineCard
 function afterMatch() {
   const win = score[0] > score[1], dr = score[0] === score[1]; let coin = (win ? 100 : dr ? 40 : 15) + score[0] * 20; const ln = [];
   if (!cur && !(fr && fr.tour)) coin = Math.round(coin * 0.5);
-  const wb = court && court.bonus ? Math.round(coin * court.bonus) : 0; coin += wb;
+  // bonus: gekochte wereld (straat) of gekocht stadion (groot veld), 10 procent
+  const bon = court ? (court.bonus || 0) : (veld && ownV(veld.id) ? veld.bonus : 0), wb = bon ? Math.round(coin * bon) : 0; coin += wb;
   objs(); const o = S.obj; o.play++; if (win) o.win++; o.goals += score[0]; if (score[1] === 0) o.clean++;
-  S.coins += coin; ln.push('+' + coin + ' munten' + (wb ? ' (wereldbonus +' + wb + ')' : ''));
+  S.coins += coin; ln.push('+' + coin + ' munten' + (wb ? (court ? ' (wereldbonus +' : ' (stadionbonus +') + wb + ')' : ''));
   econDay();
   if (cur) for (const l of finishComp(score[0], score[1])) ln.push(l);
   if (fr && fr.tour && TT) for (const l of finishTour(score[0], score[1])) ln.push(l);
@@ -1991,6 +2009,8 @@ function fixS() {
   if (typeof S.home !== 'string' || !owned(S.home)) S.home = '';
   if (!S.streak || typeof S.streak !== 'object') S.streak = { n: 0, last: '', claim: '', best: 0 };
   if (!Array.isArray(S.codes)) S.codes = [];
+  if (!Array.isArray(S.velden)) S.velden = []; S.velden = S.velden.filter((id, i, a) => typeof id === 'string' && VBYID[id] && a.indexOf(id) === i);
+  if (typeof S.veld !== 'string' || !ownV(S.veld)) S.veld = '';
   if (!S.bought || typeof S.bought !== 'object') S.bought = {};
 }
 // kopen: nooit onder nul, en een tweede tik binnen 0,4 s doet niets (geen dubbele afschrijving)
@@ -2011,6 +2031,279 @@ function starLine(c) {
   if (best >= 0) { S.lineup[best] = c.id; saveS(); }
 }
 function buyWorld(id) { if (owned(id)) return false; return buy(COURTS[id].price, () => { S.worlds.push(id); if (!S.home) S.home = id; }); }
+// ---------- STADIONS (VELDEN): grote velden voor 8 tegen 8 (kick off, seizoen, toernooien). Alleen uiterlijk en +10 procent munten. ----------
+// g = twee graskleuren, pat = maaipatroon, sw = breedte van een baan, line = lijnkleur, scene = landschap achter de tribune, top = waar het publiek begint,
+// dens = hoe vol de tribune zit, roof = dak (hout, golf, glas), lamps = lichten (gloed per beeld, masten gebakken), weather = regen, sneeuw, as of confetti.
+const VL = (fxs, y, col, a, extra) => fxs.map((fx, i) => Object.assign({ fx, y, r: 60, col, a, cone: true, spread: 120 }, extra ? extra(i) : {}));
+const CROWD_MIX = ['#d9e8f5', '#c0392b', '#1d2a52', '#f4d03f', '#2c3e66', '#e8e8ea', '#3c4a6b', '#9b2d2d'];
+const VELDEN = [
+  { id: 'dorp', name: 'DORPSVELD', kort: 'DORPSVELD', sub: 'BOERDERIJ, KOEIEN EN EEN HELLING', price: 1000, g: ['#62a03c', '#5a9436'], pat: 'effen', patch: 1.8, wear: 1.7, wearCol: '150,118,60', blade: ['rgba(215,235,120,.22)', 'rgba(40,70,15,.26)'], line: 'rgba(250,250,240,.86)', sky: ['#5fa8e6', '#d9eefa'], scene: 'dorp', top: 130, dens: 0.16, stand: false, calm: true, pal: CROWD_MIX, boards: ['#7a5a32', '#4a3418', '#f4e6c8', 'FC DORP'], lamps: [] },
+  { id: 'park', name: 'KUNSTGRAS SPORTPARK', kort: 'SPORTPARK', sub: 'KUNSTGRAS, FLATS EN EEN HEK', price: 1000, g: ['#2aa34e', '#26984a'], pat: 'strepen', sw: 50, patch: 0.3, wear: 0.3, gran: true, blade: ['rgba(140,240,150,.16)', 'rgba(10,60,25,.2)'], line: 'rgba(255,255,255,.96)', sky: ['#7d8fa3', '#cbd5df'], scene: 'park', top: 118, dens: 0.35, standCol: '#30363f', fence: true, masts: true, calm: true, pal: CROWD_MIX, boards: ['#1d5fbf', '#0d2f6a', '#ffffff', 'SPORTPARK'], lamps: VL([0.18, 0.82], 46, '255,250,235', 0.3, () => ({ cone: false, r: 40 })) },
+  { id: 'modder', name: 'MODDERVELD', kort: 'MODDERVELD', sub: 'REGEN, PLASSEN EN BRUINE MODDER', price: 1250, g: ['#4f7a35', '#426a2b'], pat: 'strepen', sw: 100, mud: true, wear: 0.4, blade: ['rgba(170,190,120,.16)', 'rgba(30,40,15,.26)'], line: 'rgba(245,240,225,.82)', sky: ['#3a4048', '#7a8088'], scene: 'modder', top: 100, dens: 0.5, roof: 'golf', standCol: '#2a2c30', pal: ['#2a2e36', '#5a3a2a', '#3a4a3a', '#7a7a7a', '#c8102e', '#1b2a4b'], weather: 'rain', grade: 'rgba(90,100,110,.08)', boards: ['#5a5f66', '#33373c', '#e8e8e8', 'MODDER FC'], lamps: [] },
+  { id: 'engels', name: 'KLASSIEK ENGELS STADION', kort: 'ENGELS STADION', sub: 'HOUTEN TRIBUNES IN DE REGEN', price: 1250, g: ['#2f7d3a', '#246630'], pat: 'strepen', sw: 60, line: 'rgba(255,255,255,.95)', sky: ['#4a5058', '#8a9098'], roof: 'hout', top: 46, pal: ['#c8102e', '#ffffff', '#1b2a6b', '#d8d8d8', '#7a0a1a', '#e8e8ea', '#2a2a2a'], weather: 'rain', grade: 'rgba(130,140,160,.07)', boards: ['#7a1418', '#4a0a0c', '#f4e6c8', 'EAWG UNITED'], lamps: [] },
+  { id: 'retro', name: 'RETRO ZWART-WIT TV', kort: 'RETRO TV', sub: 'ALS EEN OUDE UITZENDING', price: 1500, g: ['#4a964f', '#357539'], pat: 'dwars', sw: 75, bw: true, line: 'rgba(255,255,255,.97)', sky: ['#2a2a2a', '#8a8a8a'], scene: 'retro', top: 70, masts: true, pal: CROWD_MIX, boards: ['#6a6a6a', '#2a2a2a', '#ffffff', 'EAWG 1966'], lamps: VL([0.1, 0.37, 0.63, 0.9], 22, '255,255,255', 0.5, () => ({ spread: 130 })) },
+  { id: 'haven', name: 'HAVENSTADION', kort: 'HAVENSTADION', sub: 'KRANEN, SCHEPEN EN ZEELUCHT', price: 1500, g: ['#37a24b', '#2a873c'], pat: 'diagonaal', sw: 110, line: 'rgba(255,255,255,.95)', sky: ['#f08a6a', '#ffd9a8'], scene: 'haven', top: 110, dens: 0.85, standCol: '#1f2a3a', flags: ['#1b5fbf', '#ffffff'], pal: ['#1b5fbf', '#ffffff', '#f2c230', '#1b5fbf', '#e8e8ea', '#0d2a5a'], boards: ['#0d3a6a', '#062040', '#ffffff', 'HAVEN'], grade: 'rgba(255,170,120,.05)', lamps: [] },
+  { id: 'sneeuw', name: 'SNEEUWWEDSTRIJD', kort: 'SNEEUWVELD', sub: 'SNEEUW, DENNEN, ORANJE BAL', price: 1500, g: ['#3c8a48', '#2f7639'], pat: 'strepen', sw: 100, snow: true, ball: ['#ffd8a8', '#ff8a1a', '#9a4a08'], line: 'rgba(225,40,40,.92)', sky: ['#8a9aae', '#dfe7ef'], scene: 'sneeuw', top: 96, dens: 0.8, standCol: '#2a3240', snowcap: true, pal: ['#c8102e', '#f4f4f4', '#1b2a4b', '#2a6a3a', '#e8e8ea', '#3a3a4a'], weather: 'snow', boards: ['#e8eef4', '#b8c4d0', '#c8102e', 'WINTER CUP'], grade: 'rgba(200,220,255,.06)', lamps: [] },
+  { id: 'nacht', name: 'NACHT ONDER LICHTMASTEN', kort: 'LICHTMASTEN', sub: 'VIER MASTEN, DONKERE LUCHT', price: 2000, g: ['#2f8a3e', '#247236'], pat: 'breed', sw: 150, night: true, line: 'rgba(255,255,255,.97)', sky: ['#02030a', '#0e1530'], scene: 'nacht', top: 78, masts: true, standCol: '#0c111e', pal: ['#8a9ab8', '#a83a3a', '#2a3a6a', '#c8b060', '#4a5a7a', '#b8c0d0'], lamps: VL([0.06, 0.34, 0.66, 0.94], 16, '235,245,255', 0.95, () => ({ r: 72, spread: 160 })) },
+  { id: 'berg', name: 'ITALIAANSE BERGTRIBUNE', kort: 'BERGTRIBUNE', sub: 'DE ALPEN ACHTER DE TRIBUNE', price: 2000, g: ['#3fa54c', '#318c40'], pat: 'ruit', sw: 100, sh: 75, line: 'rgba(255,255,255,.96)', sky: ['#2f7fd8', '#bfe2ff'], scene: 'berg', top: 94, dens: 0.9, standCol: '#bdb3a4', flags: ['#1f9d55', '#ffffff', '#c8102e'], pal: ['#1f4fbf', '#ffffff', '#111111', '#1f4fbf', '#0a2a7a', '#ffffff'], boards: ['#1f4fbf', '#0a2a7a', '#ffffff', 'CALCIO EAWG'], lamps: [] },
+  { id: 'zuid', name: 'ZONNIG ZUID-AMERIKAANS', kort: 'ZUID-AMERIKA', sub: 'STEILE TRIBUNES EN SPANDOEKEN', price: 2000, g: ['#46a845', '#379339'], pat: 'plaid', sw: 90, line: 'rgba(255,255,255,.97)', sky: ['#1f8be0', '#9fd8ff'], scene: 'zuid', top: 34, banners: true, pal: ['#fdda24', '#1f9d55', '#1b5fbf', '#ffffff', '#e03a3a', '#fdda24'], weather: 'confetti', conf: ['#fdda24', '#ffffff', '#1f9d55', '#1b5fbf'], boards: ['#fdda24', '#c8a400', '#0b3a1a', 'VAMOS'], grade: 'rgba(255,230,120,.07)', lamps: [] },
+  { id: 'woestijn', name: 'WOESTIJNSTADION', kort: 'WOESTIJN', sub: 'DUINEN, PALMEN EN WITTE BOGEN', price: 2000, g: ['#4aa64a', '#3a8f3b'], pat: 'strepen', sw: 100, sand: true, line: 'rgba(255,255,255,.96)', sky: ['#ff8a3d', '#ffd9a0'], scene: 'woestijn', top: 86, dens: 0.8, standCol: '#e8dcc4', arches: true, pal: ['#ffffff', '#1f9d55', '#c8102e', '#f4efe6', '#111111'], boards: ['#c8a060', '#8a6a30', '#ffffff', 'SAHARA'], grade: 'rgba(255,160,60,.07)', lamps: [] },
+  { id: 'arena', name: 'MODERNE ARENA MET DAK', kort: 'ARENA MET DAK', sub: 'GESLOTEN DAK EN EEN LED-RING', price: 2500, g: ['#37a648', '#2a8e3b'], pat: 'strepen', sw: 75, line: 'rgba(255,255,255,.98)', sky: ['#05060c', '#141a2c'], roof: 'glas', top: 54, pal: ['#7b5cff', '#ffffff', '#3ab0ff', '#ff4fa3', '#1d2a52', '#e8e8ea'], boards: ['#7b5cff', '#2a0a6a', '#ffffff', 'EAWG ARENA'], lamps: [0, 1, 2, 3, 4, 5, 6, 7].map(i => ({ fx: (i + 0.5) / 8, y: 30, r: 46, col: '235,240,255', a: 0.7, cone: true, spread: 70 })) },
+  { id: 'jungle', name: 'JUNGLESTADION', kort: 'JUNGLE', sub: 'LIANEN, MIST EN PAPEGAAIEN', price: 2500, g: ['#3c9a40', '#2d8034'], pat: 'golf', sw: 100, line: 'rgba(255,255,230,.92)', sky: ['#6aa88a', '#d4ead8'], scene: 'jungle', top: 104, dens: 0.75, standCol: '#5a4020', mist: true, pal: ['#f2c230', '#1f9d55', '#ff7a1a', '#ffffff', '#2a6a3a'], boards: ['#2a5a2a', '#123a12', '#f2e6a0', 'JUNGLE'], grade: 'rgba(60,140,80,.06)', lamps: [] },
+  { id: 'vulkaan', name: 'VULKAANSTADION', kort: 'VULKAAN', sub: 'LAVA, ASREGEN EN ZWARTE ROTS', price: 2500, g: ['#43913c', '#33782f'], pat: 'diamant', sw: 90, line: 'rgba(255,228,205,.94)', sky: ['#120406', '#5a1408'], scene: 'vulkaan', top: 94, dens: 0.8, standCol: '#1a1414', pal: ['#222222', '#c8102e', '#ff7a1a', '#3a3a3a', '#f4f4f4'], weather: 'as', boards: ['#2a0a06', '#120302', '#ff7a1a', 'LAVA'], grade: 'rgba(255,90,30,.05)', lamps: VL([0.1, 0.3, 0.5, 0.7, 0.9], 84, '255,120,40', 0.55, i => ({ cone: false, r: 40, flick: 1.4 + i * 0.5 })) },
+  { id: 'wolken', name: 'ZWEVEND STADION IN DE WOLKEN', kort: 'WOLKENSTADION', sub: 'EILANDEN, WATERVAL, REGENBOOG', price: 3000, g: ['#4cb554', '#3c9c45'], pat: 'cirkel', sw: 70, line: 'rgba(255,255,255,.97)', sky: ['#2a7ad8', '#cfeaff'], scene: 'wolken', top: 104, dens: 0.7, standCol: '#e8eef8', pal: ['#ffffff', '#7ad0ff', '#ffd400', '#ff9ac8', '#9dffb0', '#2a7ad8'], boards: ['#ffffff', '#cfe0f4', '#2a7ad8', 'HEMEL'], grade: 'rgba(200,230,255,.05)', lamps: [] },
+  { id: 'goud', name: 'GOUDEN FINALE STADION', kort: 'GOUDEN FINALE', sub: 'VUURWERK, GOUD EN DE BEKER', price: 3000, g: ['#35a046', '#288538'], pat: 'ster', line: 'rgba(255,232,160,.96)', sky: ['#04030a', '#1c1430'], scene: 'goud', top: 58, rim: true, pal: ['#ffd400', '#ffffff', '#e7c24a', '#222222', '#ffd400', '#c89a20'], weather: 'confetti', conf: ['#ffd400', '#ffffff', '#e7c24a', '#ffb000'], boards: ['#e7c24a', '#8a6a10', '#1b1400', 'FINALE'], grade: 'rgba(255,210,90,.05)', lamps: VL([0.08, 0.3, 0.5, 0.7, 0.92], 14, '255,230,160', 0.8, () => ({ spread: 110 })) }
+];
+const VBYID = {}; VELDEN.forEach(v => { v.bonus = 0.1; VBYID[v.id] = v; });
+// '' = het standaardveld (gratis, altijd van jou)
+const ownV = id => !id || (!!VBYID[id] && !!S && Array.isArray(S.velden) && S.velden.indexOf(id) >= 0);
+function buyVeld(id) { if (!VBYID[id] || ownV(id)) return false; return buy(VBYID[id].price, () => { S.velden.push(id); if (!S.veld) S.veld = id; }); }
+// welk stadion bij een wedstrijd op het grote veld: je thuisstadion (ook bij uitwedstrijden), of een voorbeeld via #veld=... bij lokaal testen
+function veldPick() { if (veldTry && VBYID[veldTry]) return VBYID[veldTry]; return S && S.veld && ownV(S.veld) ? VBYID[S.veld] : null; }
+function setVeld(id) { veld = (id && VBYID[id]) || null; if (!court && veldBuilt !== (veld ? veld.id : '')) { buildGrass(); buildBG(); } }
+const veldList = () => [''].concat(VELDEN.filter(v => ownV(v.id)).map(v => v.id));
+const veldNaam = id => id && VBYID[id] ? VBYID[id].kort : 'STANDAARD';
+// wisselen tussen je stadions (scherm voor de wedstrijd en OPTIES); live = meteen opnieuw bakken
+function cycleVeld(live) {
+  const L = veldList(); if (L.length < 2) { econMsg = 'Koop stadions bij CLUB, WERELDEN, STADIONS.'; econMsgT = tNow; return; }
+  const c0 = live ? (veld ? veld.id : '') : S.veld; S.veld = L[(L.indexOf(c0) + 1) % L.length]; veldTry = ''; saveS();
+  if (live && !court) setVeld(S.veld);
+}
+// maaipatroon in wereldmaten op de grastextuur
+function mowPattern(g, X, Y, tw, th, v) {
+  const sw = v.sw || 100, T = TXL, p = v.pat;
+  g.fillStyle = v.g[0]; g.fillRect(0, 0, tw, th); g.fillStyle = v.g[1];
+  if (p === 'strepen' || p === 'breed' || p === 'plaid') for (let x = Math.floor(GX0 / sw) * sw; x < GX1; x += sw) if (Math.round(x / sw) & 1) g.fillRect(X(x), 0, sw * T, th);
+  if (p === 'dwars') for (let y = Math.floor(GY0 / sw) * sw; y < GY1; y += sw) if (Math.round(y / sw) & 1) g.fillRect(0, Y(y), tw, sw * T);
+  if (p === 'plaid') { const sh = Math.round(sw * 0.75); g.fillStyle = 'rgba(255,255,255,.07)'; for (let y = Math.floor(GY0 / sh) * sh; y < GY1; y += sh) if (Math.round(y / sh) & 1) g.fillRect(0, Y(y), tw, sh * T); }
+  if (p === 'ruit') { const sh = v.sh || 75; for (let x = Math.floor(GX0 / sw) * sw; x < GX1; x += sw) for (let y = Math.floor(GY0 / sh) * sh; y < GY1; y += sh) if ((Math.round(x / sw) + Math.round(y / sh)) & 1) g.fillRect(X(x), Y(y), sw * T, sh * T); }
+  if (p === 'diagonaal') { const k = 0.8; for (let i = Math.floor((GX0 - k * GY1) / sw) - 1; i * sw < GX1 - k * GY0 + sw; i++) if (i & 1) { g.beginPath(); g.moveTo(X(i * sw - k * GY0), Y(GY0)); g.lineTo(X((i + 1) * sw - k * GY0), Y(GY0)); g.lineTo(X((i + 1) * sw - k * GY1), Y(GY1)); g.lineTo(X(i * sw - k * GY1), Y(GY1)); g.closePath(); g.fill(); } }
+  if (p === 'diamant') { const s = sw * T, n = Math.ceil(Math.hypot(tw, th) / s / 2) + 1; g.save(); g.translate(X(W / 2), Y(H / 2)); g.rotate(Math.PI / 4); for (let i = -n; i <= n; i++) for (let j = -n; j <= n; j++) if ((i + j) & 1) g.fillRect(i * s, j * s, s, s); g.restore(); }
+  if (p === 'cirkel') { const st = sw * T, R = Math.hypot(tw, th); for (let k = Math.ceil(R / st); k > 0; k--) { g.fillStyle = k & 1 ? v.g[1] : v.g[0]; g.beginPath(); g.arc(X(W / 2), Y(H / 2), k * st, 0, 6.2832); g.fill(); } }
+  if (p === 'golf') for (let x = Math.floor(GX0 / sw) * sw; x < GX1; x += sw) { if (!(Math.round(x / sw) & 1)) continue; g.beginPath(); for (let y = GY0; y <= GY1; y += 20) g.lineTo(X(x + Math.sin(y * 0.011) * 24), Y(y)); for (let y = GY1; y >= GY0; y -= 20) g.lineTo(X(x + sw + Math.sin(y * 0.011) * 24), Y(y)); g.closePath(); g.fill(); }
+  if (p === 'ster') { const n = 32, R = Math.hypot(tw, th), cxp = X(W / 2), cyp = Y(H / 2); for (let k = 0; k < n; k += 2) { g.beginPath(); g.moveTo(cxp, cyp); g.arc(cxp, cyp, R, k * 6.2832 / n, (k + 1) * 6.2832 / n); g.closePath(); g.fill(); } }
+}
+// modder, sneeuw, zand, rubberkorrels, nachtlicht, kleurtoon en zwart-wit: allemaal een keer in de textuur gebakken
+function veldExtras(g, X, Y, tw, th, v) {
+  const r = rngOf(91 + v.id.length * 17), T = TXL;
+  const blob = (x, y, rad, col, a) => { const gr = g.createRadialGradient(x, y, 0, x, y, rad); gr.addColorStop(0, 'rgba(' + col + ',' + a + ')'); gr.addColorStop(0.55, 'rgba(' + col + ',' + (a * 0.7) + ')'); gr.addColorStop(1, 'rgba(' + col + ',0)'); g.fillStyle = gr; g.fillRect(x - rad, y - rad, 2 * rad, 2 * rad); };
+  const outside = col => { g.fillStyle = col; g.beginPath(); g.rect(0, 0, tw, th); g.rect(X(-6), Y(-6), (W + 12) * T, (H + 12) * T); g.fill('evenodd'); };
+  if (v.mud) {
+    for (const [mx, my, mr, a] of [[40, H / 2, 170, 0.9], [W - 40, H / 2, 170, 0.9], [W / 2, H / 2, 130, 0.75], [W * 0.3, H * 0.55, 90, 0.5], [W * 0.7, H * 0.45, 90, 0.5]]) blob(X(mx), Y(my), mr * T, '96,66,38', a);
+    for (let i = 0; i < 46; i++) blob(X(r() * W), Y(r() * H), (25 + r() * 70) * T, r() < 0.5 ? '86,58,32' : '112,82,50', 0.35 + r() * 0.3);
+    for (let i = 0; i < 9; i++) { const x = X(80 + r() * (W - 160)), y = Y(40 + r() * (H - 80)), rx = (20 + r() * 45) * T; g.save(); g.translate(x, y); g.scale(1, 0.4); g.fillStyle = 'rgba(70,80,92,.55)'; g.beginPath(); g.arc(0, 0, rx, 0, 6.2832); g.fill(); g.fillStyle = 'rgba(205,215,225,.22)'; g.beginPath(); g.arc(-rx * 0.2, -rx * 0.2, rx * 0.45, 0, 6.2832); g.fill(); g.restore(); }
+    g.strokeStyle = 'rgba(60,40,20,.35)'; g.lineWidth = 3 * T; for (let i = 0; i < 14; i++) { const x = X(r() * W), y = Y(r() * H); g.beginPath(); g.moveTo(x, y); g.lineTo(x + (r() - 0.5) * 140 * T, y + (r() - 0.5) * 40 * T); g.stroke(); }
+    for (let i = 0; i < 2500; i++) { g.fillStyle = r() < 0.5 ? 'rgba(50,32,16,.35)' : 'rgba(150,120,80,.25)'; g.fillRect(r() * tw, r() * th, 1 + r() * 2.5, 1 + r() * 2.5); }
+  }
+  if (v.sand) {
+    outside('rgba(218,184,124,.94)');
+    for (let i = 0; i < 70; i++) { const e = r() < 0.5, x = e ? (r() < 0.5 ? r() * 60 : W - r() * 60) : r() * W, y = e ? r() * H : (r() < 0.5 ? r() * 50 : H - r() * 50); blob(X(x), Y(y), (20 + r() * 50) * T, '218,184,124', 0.35 + r() * 0.3); }
+    for (let i = 0; i < 2500; i++) { g.fillStyle = r() < 0.5 ? 'rgba(255,240,200,.3)' : 'rgba(150,110,60,.25)'; g.fillRect(r() * tw, r() * th, 1 + r() * 1.5, 1 + r() * 1.5); }
+  }
+  if (v.snow) {
+    outside('rgba(240,246,252,.92)');
+    for (let i = 0; i < 150; i++) { let x = r() * W, y = r() * H; if (r() < 0.7) y = r() < 0.5 ? r() * 90 : H - r() * 90; else if (r() < 0.5) x = r() < 0.5 ? r() * 80 : W - r() * 80; blob(X(x), Y(y), (20 + r() * 60) * T, '245,250,255', 0.25 + r() * 0.35); }
+    for (let i = 0; i < 3000; i++) { g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(r() * tw, r() * th, 1 + r() * 2, 1 + r() * 2); }
+  }
+  if (v.gran) { for (let i = 0; i < 6000; i++) { g.fillStyle = r() < 0.75 ? 'rgba(20,20,22,.4)' : 'rgba(255,255,255,.18)'; g.fillRect(r() * tw, r() * th, 1 + r(), 1 + r()); } g.fillStyle = 'rgba(0,0,0,.06)'; for (let x = 0; x <= W; x += 75) g.fillRect(X(x), 0, 1.5 * T, th); }
+  if (v.night) {
+    g.fillStyle = 'rgba(4,8,26,.3)'; g.fillRect(0, 0, tw, th);
+    g.globalCompositeOperation = 'lighter';
+    for (const [lx, ly] of [[-60, -40], [W * 0.36, -60], [W * 0.64, -60], [W + 60, -40], [-60, H + 40], [W + 60, H + 40]]) blob(X(lx), Y(ly), 520 * T, '255,250,230', 0.12);
+    blob(X(W / 2), Y(H / 2), 700 * T, '255,250,230', 0.05);
+    g.globalCompositeOperation = 'source-over';
+  }
+  if (v.grade) { g.fillStyle = v.grade; g.fillRect(0, 0, tw, th); }
+  if (v.bw) { g.globalCompositeOperation = 'saturation'; g.fillStyle = '#808080'; g.fillRect(0, 0, tw, th); g.globalCompositeOperation = 'source-over'; }
+}
+// publiek: rijen kleine mensjes (zelfde stijl als het standaardveld); dens < 1 laat plaatsen leeg
+function crowdOn(t2, w, h, rnd, pal, y0, dens) {
+  const skinT = ['#f1c9a5', '#d9a273', '#a8744a', '#6b4428'];
+  for (let y = y0; y < h - 28; y += 6) {
+    const k = (y - y0) / Math.max(20, h - 30 - y0), br = 0.35 + 0.65 * k;
+    for (let x = -3; x < w; x += 6) {
+      if (dens < 1 && rnd() > dens) continue;
+      const xx = x + rnd() * 3, yy = y + rnd() * 2;
+      t2.globalAlpha = 1; t2.fillStyle = pal[(rnd() * pal.length) | 0]; t2.fillRect(xx, yy + 2.6, 5, 7);
+      t2.fillStyle = skinT[(rnd() * 4) | 0]; t2.beginPath(); t2.arc(xx + 2.5, yy + 1.6, 2.2, 0, 7); t2.fill();
+      t2.globalAlpha = 1 - br; t2.fillStyle = '#04070f'; t2.fillRect(xx - 0.5, yy - 1, 6, 11);
+    }
+    if (((y - y0) / 6) % 8 === 7) { t2.globalAlpha = 0.55; t2.fillStyle = '#05080f'; t2.fillRect(0, y + 8, w, 2); }
+  }
+  t2.globalAlpha = 1;
+}
+// achtergrond van een stadion: landschap, tribune met publiek, dak en masten (full = met zachte vervaging zoals het standaardveld)
+function stadiumBG(g, w, h, rnd, v, full) {
+  const top = v.top || 46;
+  sceneBG(g, w, h, rnd, v);
+  if (v.stand !== false && v.roof !== 'glas') { g.fillStyle = v.standCol || '#141a28'; g.fillRect(0, top - 6, w, h - top + 6); g.fillStyle = 'rgba(255,255,255,.22)'; g.fillRect(0, top - 6, w, 2); }
+  if (v.roof === 'glas') { g.fillStyle = '#0a0d18'; g.fillRect(0, 0, w, h); }
+  const pal = v.pal || CROWD_MIX, dens = v.dens == null ? 1 : v.dens;
+  if (full) {
+    const tmp = document.createElement('canvas'); tmp.width = Math.ceil(w * bgk); tmp.height = Math.ceil(h * bgk); const t2 = tmp.getContext('2d'); t2.scale(bgk, bgk);
+    crowdOn(t2, w, h, rnd, pal, top, dens);
+    if ('filter' in g) g.filter = 'blur(' + (0.7 * bgk) + 'px)';
+    g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(tmp, 0, 0); g.restore(); g.filter = 'none'; tmp.width = tmp.height = 0;
+  } else crowdOn(g, w, h, rnd, pal, top, dens);
+  stadiumFG(g, w, h, rnd, v);
+}
+function sceneBG(g, w, h, rnd, v) {
+  const top = v.top || 46, s = v.scene;
+  const glow = (x, y, r, col, a) => { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(' + col + ',' + a + ')'); gr.addColorStop(1, 'rgba(' + col + ',0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); };
+  const hills = (col, y0, amp, f, ph) => { g.fillStyle = col; g.beginPath(); g.moveTo(0, h); for (let x = 0; x <= w + 40; x += 30) g.lineTo(x, y0 + Math.sin(x * f + ph) * amp + Math.sin(x * f * 3.1 + ph * 2) * amp * 0.3); g.lineTo(w + 40, h); g.closePath(); g.fill(); };
+  const tree = (x, y, r, col) => { g.fillStyle = '#4a3220'; g.fillRect(x - 2, y - r * 0.4, 4, r * 1.2); g.fillStyle = col; for (const [dx, dy, k] of [[0, -0.8, 1], [-0.6, -0.5, 0.7], [0.6, -0.5, 0.7]]) { g.beginPath(); g.arc(x + dx * r, y + dy * r, r * k, 0, 6.2832); g.fill(); } };
+  const cloud = (x, y, k, col) => { g.fillStyle = col; for (const [dx, dy, rx, ry] of [[0, 0, 40, 12], [-22, 3, 22, 10], [24, 2, 26, 11], [4, -8, 24, 12]]) { g.beginPath(); g.ellipse(x + dx * k, y + dy * k, rx * k, ry * k, 0, 0, 6.2832); g.fill(); } };
+  const stars = (n, yMax) => { for (let i = 0; i < n; i++) { g.fillStyle = 'rgba(255,255,255,' + (0.2 + rnd() * 0.7) + ')'; const z = rnd() < 0.1 ? 2.2 : 1.3; g.fillRect(rnd() * w, rnd() * yMax, z, z); } };
+  const tri = (x0, y0, x1, y1, x2, y2, col) => { g.fillStyle = col; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.lineTo(x2, y2); g.closePath(); g.fill(); };
+  if (s === 'dorp') {
+    glow(w * 0.8, 34, 80, '255,250,210', 0.8); g.fillStyle = '#fff8d8'; g.beginPath(); g.arc(w * 0.8, 34, 12, 0, 6.2832); g.fill();
+    for (let i = 0; i < 6; i++) cloud(rnd() * w, 16 + rnd() * 26, 0.7 + rnd() * 0.6, 'rgba(255,255,255,.85)');
+    hills('#86b45e', 82, 10, 0.004, 1); hills('#6fa04c', 104, 7, 0.007, 2);
+    for (const bx of [w * 0.26, w * 0.68]) {
+      const red = bx < w / 2; g.fillStyle = red ? '#a8322a' : '#f2ece0'; g.fillRect(bx, 84, 76, 42); tri(bx - 6, 84, bx + 38, 60, bx + 82, 84, red ? '#5a1a14' : '#3a3a40');
+      g.fillStyle = red ? '#f4efe6' : '#5a3a2a'; g.fillRect(bx + 28, 100, 20, 26); if (red) { g.strokeStyle = '#f4efe6'; g.lineWidth = 2; g.beginPath(); g.moveTo(bx + 28, 100); g.lineTo(bx + 48, 126); g.moveTo(bx + 48, 100); g.lineTo(bx + 28, 126); g.stroke(); g.fillStyle = '#b8bcc2'; g.fillRect(bx + 84, 64, 18, 62); g.fillStyle = '#8a9098'; g.beginPath(); g.arc(bx + 93, 64, 9, Math.PI, 0); g.fill(); }
+      else { g.fillStyle = '#7ab8e0'; g.fillRect(bx + 8, 96, 12, 10); g.fillRect(bx + 56, 96, 12, 10); }
+    }
+    for (let x = 10; x < w; x += 60 + rnd() * 80) if (Math.abs(x - w * 0.26 - 45) > 70 && Math.abs(x - w * 0.68 - 38) > 60) tree(x, 120 + rnd() * 6, 10 + rnd() * 8, rnd() < 0.5 ? '#2f6a2a' : '#3a7a30');
+    for (let i = 0; i < 8; i++) { const cxp = rnd() * w, cy = 92 + rnd() * 14; g.fillStyle = '#f4f4f0'; g.beginPath(); g.ellipse(cxp, cy, 7, 4, 0, 0, 6.2832); g.fill(); g.fillStyle = '#1a1a1a'; g.fillRect(cxp - 3, cy - 2, 3, 3); g.fillRect(cxp + 7, cy - 3, 4, 4); g.fillRect(cxp - 5, cy + 3, 1.5, 3); g.fillRect(cxp + 4, cy + 3, 1.5, 3); }
+    g.fillStyle = '#5a4030'; for (let x = 0; x < w; x += 26) g.fillRect(x, 118, 3, 14); g.fillRect(0, 121, w, 2); g.fillRect(0, 127, w, 2);
+    const gb = g.createLinearGradient(0, top - 4, 0, h); gb.addColorStop(0, '#5f9a3a'); gb.addColorStop(1, '#3e6e26'); g.fillStyle = gb; g.fillRect(0, top - 4, w, h - top + 4);
+  } else if (s === 'park') {
+    for (let i = 0; i < 8; i++) cloud(rnd() * w, 14 + rnd() * 30, 0.8 + rnd() * 0.7, 'rgba(235,238,242,.7)');
+    let x = -20; while (x < w) { const bw = 60 + rnd() * 70, bh = 50 + rnd() * 56, col = ['#9aa0a8', '#b0b4ba', '#8a8f98', '#c4a88a'][(rnd() * 4) | 0]; g.fillStyle = col; g.fillRect(x, top - bh, bw, bh + 6); for (let wy = top - bh + 6; wy < top - 6; wy += 10) for (let wx = x + 5; wx < x + bw - 8; wx += 11) { g.fillStyle = rnd() < 0.15 ? '#ffe2a0' : 'rgba(60,72,92,.75)'; g.fillRect(wx, wy, 7, 6); } g.fillStyle = 'rgba(0,0,0,.18)'; g.fillRect(x, top - bh, bw, 3); x += bw + 8 + rnd() * 30; }
+    for (let x2 = 10; x2 < w; x2 += 50 + rnd() * 60) tree(x2, top + 2, 9 + rnd() * 6, rnd() < 0.5 ? '#3a7a3a' : '#2f6a34');
+  } else if (s === 'modder') {
+    for (let i = 0; i < 12; i++) cloud(rnd() * w, 10 + rnd() * 40, 1 + rnd() * 0.8, 'rgba(58,62,70,.6)');
+    hills('#4a5a40', top - 24, 6, 0.005, 0);
+    g.strokeStyle = '#2a2620'; for (let x = 20; x < w; x += 90 + rnd() * 80) { g.lineWidth = 3; g.beginPath(); g.moveTo(x, top - 6); g.lineTo(x + 2, top - 50); g.stroke(); g.lineWidth = 1.2; for (let k = 0; k < 6; k++) { const y = top - 20 - rnd() * 30, d = (rnd() - 0.5) * 30; g.beginPath(); g.moveTo(x + 1, y); g.lineTo(x + d, y - 10 - rnd() * 10); g.stroke(); } }
+  } else if (s === 'retro') {
+    let x = -10; while (x < w) { const bw = 80 + rnd() * 60; g.fillStyle = '#3a3a3a'; g.fillRect(x, top - 28, bw, 30); for (let k = 0; k < bw; k += 20) tri(x + k, top - 28, x + k + 20, top - 28, x + k + 20, top - 42, '#333333'); x += bw + 10; }
+    for (let k = 0; k < 4; k++) { const cxp = 80 + k * w / 4 + rnd() * 60; g.fillStyle = '#4a4040'; g.fillRect(cxp, top - 62, 12, 40); for (let q = 0; q < 6; q++) { g.fillStyle = 'rgba(160,160,160,' + (0.45 - q * 0.06) + ')'; g.beginPath(); g.arc(cxp + 6 + q * 10, top - 66 - q * 4, 6 + q * 2.5, 0, 6.2832); g.fill(); } }
+  } else if (s === 'haven') {
+    glow(w * 0.2, top - 34, 90, '255,210,160', 0.85);
+    const sy = top - 44, sea = g.createLinearGradient(0, sy, 0, top); sea.addColorStop(0, '#4a7aa8'); sea.addColorStop(1, '#1a3a5a'); g.fillStyle = sea; g.fillRect(0, sy, w, h - sy);
+    for (let y = sy + 3; y < top; y += 5) for (let xx = rnd() * 30; xx < w; xx += 30 + rnd() * 40) { g.fillStyle = 'rgba(255,220,190,' + (0.1 + rnd() * 0.2) + ')'; g.fillRect(xx, y, 8 + rnd() * 12, 1.2); }
+    for (let i = 0; i < 3; i++) { const bx = rnd() * w, by = sy + 10; g.fillStyle = '#20242c'; g.beginPath(); g.moveTo(bx, by); g.lineTo(bx + 120, by); g.lineTo(bx + 110, by + 10); g.lineTo(bx + 8, by + 10); g.fill(); for (let k = 0; k < 8; k++) { g.fillStyle = ['#c8402a', '#1b5fbf', '#f2c230', '#2a8a4a'][(rnd() * 4) | 0]; g.fillRect(bx + 10 + k * 11, by - 8 - ((rnd() * 2) | 0) * 7, 10, 7); } g.fillStyle = '#f4f4f4'; g.fillRect(bx + 100, by - 18, 12, 18); }
+    for (let k = 0; k < 4; k++) { const x0 = 60 + k * w / 4 + rnd() * 60; g.strokeStyle = k & 1 ? '#c8402a' : '#e0662a'; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, top); g.lineTo(x0, 22); g.moveTo(x0 + 26, top); g.lineTo(x0 + 26, 22); g.moveTo(x0 - 40, 24); g.lineTo(x0 + 110, 24); g.stroke(); g.lineWidth = 1; g.beginPath(); g.moveTo(x0, 40); g.lineTo(x0 + 26, 60); g.moveTo(x0 + 26, 40); g.lineTo(x0, 60); g.moveTo(x0 + 80, 24); g.lineTo(x0 + 80, 56); g.stroke(); g.fillStyle = '#f2c230'; g.fillRect(x0 + 4, 14, 18, 10); }
+    for (let i = 0; i < 6; i++) { const x0 = rnd() * w, y0 = 14 + rnd() * 26; g.strokeStyle = 'rgba(255,255,255,.85)'; g.lineWidth = 1.4; g.beginPath(); g.moveTo(x0 - 6, y0 - 3); g.quadraticCurveTo(x0 - 3, y0 - 5, x0, y0); g.quadraticCurveTo(x0 + 3, y0 - 5, x0 + 6, y0 - 3); g.stroke(); }
+  } else if (s === 'sneeuw') {
+    let x = -60; while (x < w) { const mw = 140 + rnd() * 160, mh = 60 + rnd() * 40, yb = top - 10; tri(x, yb, x + mw / 2, yb - mh, x + mw, yb, '#e8eef6'); tri(x + mw / 2, yb - mh, x + mw, yb, x + mw * 0.6, yb, '#b8c6d6'); x += mw * 0.7; }
+    hills('#f2f6fa', top - 14, 4, 0.006, 1);
+    for (let x2 = 0; x2 < w; x2 += 22 + rnd() * 26) { const th = 22 + rnd() * 16, yb = top - 4; for (let k = 0; k < 3; k++) { const ww = (12 - k * 3) * th / 30; tri(x2 - ww, yb - k * th * 0.28, x2, yb - th - k * 2, x2 + ww, yb - k * th * 0.28, '#1f4a32'); } tri(x2 - 3, yb - th + 5, x2, yb - th - 2, x2 + 3, yb - th + 5, '#ffffff'); }
+  } else if (s === 'nacht') {
+    stars(70, top); g.fillStyle = '#e8e4d0'; g.beginPath(); g.arc(w * 0.72, 24, 9, 0, 6.2832); g.fill();
+    let x = -10; while (x < w) { const bw = 20 + rnd() * 40, bh = 10 + rnd() * 34; g.fillStyle = '#0a0e1c'; g.fillRect(x, top - bh, bw, bh + 6); for (let wy = top - bh + 3; wy < top - 2; wy += 5) for (let wx = x + 2; wx < x + bw - 3; wx += 5) if (rnd() < 0.25) { g.fillStyle = rnd() < 0.7 ? '#ffd27a' : '#9fd8ff'; g.fillRect(wx, wy, 2, 2); } x += bw + 2; }
+  } else if (s === 'berg') {
+    let x = -80; while (x < w) { const mw = 180 + rnd() * 200, mh = 70 + rnd() * 40, yb = top - 8, px = x + mw * (0.4 + rnd() * 0.2); tri(x, yb, px, yb - mh, x + mw, yb, '#7f95b6'); tri(px, yb - mh, x + mw, yb, px + mw * 0.1, yb, '#6a7fa0'); g.fillStyle = '#ffffff'; g.beginPath(); g.moveTo(px, yb - mh); g.lineTo(px - mw * 0.12, yb - mh * 0.72); g.lineTo(px - mw * 0.04, yb - mh * 0.76); g.lineTo(px + mw * 0.03, yb - mh * 0.7); g.lineTo(px + mw * 0.1, yb - mh * 0.74); g.closePath(); g.fill(); x += mw * 0.65; }
+    hills('#5f9a50', top - 18, 6, 0.006, 2);
+    for (let x2 = 30; x2 < w; x2 += 70 + rnd() * 90) { const y = top - 20 + rnd() * 6; g.fillStyle = '#f4efe6'; g.fillRect(x2, y, 14, 9); tri(x2 - 2, y, x2 + 7, y - 6, x2 + 16, y, '#b0442a'); }
+    const cxp = w * 0.55; g.fillStyle = '#f4efe6'; g.fillRect(cxp, top - 46, 8, 30); tri(cxp - 1, top - 46, cxp + 4, top - 58, cxp + 9, top - 46, '#5a3a2a');
+  } else if (s === 'zuid') {
+    glow(w * 0.86, 14, 110, '255,245,190', 0.9);
+  } else if (s === 'woestijn') {
+    glow(w * 0.35, top - 26, 130, '255,190,110', 0.85); g.fillStyle = '#ffcf7a'; g.beginPath(); g.arc(w * 0.35, top - 26, 24, 0, 6.2832); g.fill();
+    hills('#e0a060', top - 30, 10, 0.004, 0); hills('#c8864a', top - 12, 7, 0.007, 1);
+    for (let x = 30 + rnd() * 60; x < w; x += 200 + rnd() * 160) { const ty = top - 6, lean = (rnd() - 0.5) * 24, th = 48 + rnd() * 20; g.strokeStyle = '#6b4a2a'; g.lineWidth = 4; g.beginPath(); g.moveTo(x, ty); g.quadraticCurveTo(x + lean * 0.4, ty - th * 0.5, x + lean, ty - th); g.stroke(); g.fillStyle = '#2f7a3e'; for (let k = 0; k < 7; k++) { const a = -Math.PI + k * Math.PI / 6, len = 26 + rnd() * 6; g.beginPath(); g.moveTo(x + lean, ty - th); g.quadraticCurveTo(x + lean + Math.cos(a) * len * 0.6, ty - th + Math.sin(a) * len * 0.6 - 8, x + lean + Math.cos(a) * len, ty - th + Math.sin(a) * len * 0.5 + 10); g.quadraticCurveTo(x + lean + Math.cos(a) * len * 0.6, ty - th + Math.sin(a) * len * 0.6 + 2, x + lean, ty - th); g.fill(); } }
+  } else if (s === 'jungle') {
+    for (let layer = 0; layer < 3; layer++) { const col = ['#1f5a32', '#2a7a3e', '#3a8a46'][layer]; for (let x = -20; x < w; x += 16 + rnd() * 18) { g.fillStyle = col; g.beginPath(); g.arc(x, 18 + layer * 26 + rnd() * 18, 18 + rnd() * 16, 0, 6.2832); g.fill(); } }
+    g.fillStyle = '#2a7a3e'; g.fillRect(0, 70, w, top - 70);
+    g.strokeStyle = '#1a4a22'; g.lineWidth = 2; for (let x = 10; x < w; x += 40 + rnd() * 50) { g.beginPath(); g.moveTo(x, 0); g.quadraticCurveTo(x + 14, 40, x - 4, 50 + rnd() * 40); g.stroke(); }
+    for (let i = 0; i < 7; i++) { const px = rnd() * w, py = 30 + rnd() * 50, red = rnd() < 0.5; g.fillStyle = red ? '#e03a2a' : '#2a6ae0'; g.beginPath(); g.ellipse(px, py, 3, 5, 0.3, 0, 6.2832); g.fill(); g.fillStyle = red ? '#ffd400' : '#ffd400'; g.fillRect(px - 1, py + 4, 2, 6); }
+  } else if (s === 'vulkaan') {
+    for (let i = 0; i < 9; i++) cloud(rnd() * w, 10 + rnd() * 30, 1 + rnd(), 'rgba(40,20,20,.55)');
+    tri(w * 0.12 - 160, top + 4, w * 0.12, 40, w * 0.12 + 170, top + 4, '#2a1a18');
+    const vx = w * 0.62; g.fillStyle = '#1e1414'; g.beginPath(); g.moveTo(vx - 270, top + 4); g.lineTo(vx - 36, 22); g.lineTo(vx + 36, 22); g.lineTo(vx + 290, top + 4); g.closePath(); g.fill();
+    glow(vx, 22, 100, '255,110,30', 0.85);
+    g.strokeStyle = '#ff6a1a'; g.lineWidth = 3; for (const [ex, cx1] of [[-100, -40], [80, 50], [-30, -10]]) { g.beginPath(); g.moveTo(vx + ex * 0.15, 24); g.quadraticCurveTo(vx + cx1, (top + 24) / 2, vx + ex, top); g.stroke(); }
+    for (let q = 0; q < 7; q++) { g.fillStyle = 'rgba(30,20,20,' + (0.55 - q * 0.06) + ')'; g.beginPath(); g.arc(vx - 6 - q * 10, 12 - q * 3, 8 + q * 3, 0, 6.2832); g.fill(); }
+  } else if (s === 'wolken') {
+    const cols = ['255,80,80', '255,160,60', '255,230,80', '100,220,120', '80,160,255', '160,100,255']; g.lineWidth = 4; cols.forEach((c, k) => { g.strokeStyle = 'rgba(' + c + ',.32)'; g.beginPath(); g.arc(w * 0.3, top + 70, 160 - k * 4, Math.PI, 2 * Math.PI); g.stroke(); });
+    for (let i = 0; i < 4; i++) { const ix = 80 + i * w / 4 + rnd() * 80, iy = 30 + rnd() * 34, iw = 50 + rnd() * 30; tri(ix - iw / 2, iy, ix + iw / 2, iy, ix, iy + 34, '#8a6a4a'); g.fillStyle = '#5fbf5a'; g.beginPath(); g.ellipse(ix, iy, iw / 2 + 2, 6, 0, 0, 6.2832); g.fill(); tree(ix - 8, iy - 2, 6, '#2f8a3a'); g.fillStyle = 'rgba(200,235,255,.7)'; g.fillRect(ix + iw / 2 - 8, iy + 2, 3, 40); }
+    for (let i = 0; i < 16; i++) cloud(rnd() * w, 40 + rnd() * (top - 40), 0.8 + rnd() * 0.9, 'rgba(255,255,255,.92)');
+  } else if (s === 'goud') {
+    stars(50, top);
+    for (let i = 0; i < 7; i++) { const fx = rnd() * w, fy = 12 + rnd() * (top - 24), col = ['255,212,0', '255,255,255', '255,140,60', '255,190,0'][(rnd() * 4) | 0], R = 14 + rnd() * 16; glow(fx, fy, R * 1.6, col, 0.3); g.strokeStyle = 'rgba(' + col + ',.85)'; g.lineWidth = 1.3; for (let k = 0; k < 18; k++) { const a = k * 0.349; g.beginPath(); g.moveTo(fx + Math.cos(a) * R * 0.3, fy + Math.sin(a) * R * 0.3); g.lineTo(fx + Math.cos(a) * R, fy + Math.sin(a) * R); g.stroke(); g.fillStyle = 'rgba(' + col + ',1)'; g.fillRect(fx + Math.cos(a) * R * 1.12, fy + Math.sin(a) * R * 1.12, 1.6, 1.6); } }
+  }
+}
+// voor het publiek: daken, masten, vlaggen, spandoeken, bogen, hek, sneeuw, mist, rand en zwart-wit
+function stadiumFG(g, w, h, rnd, v) {
+  const top = v.top || 46, yb = h - 28;
+  if (v.roof === 'hout') {
+    const rf = g.createLinearGradient(0, 0, 0, 40); rf.addColorStop(0, '#24160c'); rf.addColorStop(1, '#5a3a22'); g.fillStyle = rf; g.fillRect(0, 0, w, 40);
+    g.fillStyle = 'rgba(0,0,0,.25)'; for (let y = 4; y < 38; y += 6) g.fillRect(0, y, w, 1);
+    g.fillStyle = '#e8e0d0'; g.fillRect(0, 38, w, 3);
+    const sh = g.createLinearGradient(0, 41, 0, 84); sh.addColorStop(0, 'rgba(0,0,0,.55)'); sh.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = sh; g.fillRect(0, 41, w, 43);
+    g.strokeStyle = '#3a2616'; for (let x = 40; x < w; x += 120) { g.fillStyle = '#3a2616'; g.fillRect(x - 3, 41, 6, yb - 41); g.lineWidth = 3; g.beginPath(); g.moveTo(x - 26, 41); g.lineTo(x, 66); g.lineTo(x + 26, 41); g.stroke(); }
+  }
+  if (v.roof === 'golf') {
+    const y0 = top - 24; g.fillStyle = '#6a6e74'; g.fillRect(0, y0, w, 18); g.fillStyle = 'rgba(0,0,0,.22)'; for (let x = 0; x < w; x += 5) g.fillRect(x, y0, 2, 18); g.fillStyle = '#a0a6ac'; g.fillRect(0, y0 + 16, w, 2);
+    const sh = g.createLinearGradient(0, y0 + 18, 0, y0 + 50); sh.addColorStop(0, 'rgba(0,0,0,.45)'); sh.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = sh; g.fillRect(0, y0 + 18, w, 32);
+    g.fillStyle = '#2a2c30'; for (let x = 60; x < w; x += 140) g.fillRect(x - 2, y0 + 18, 4, yb - y0 - 18);
+  }
+  if (v.roof === 'glas') {
+    const c = g.createLinearGradient(0, 0, 0, 46); c.addColorStop(0, '#04050a'); c.addColorStop(1, '#141a2c'); g.fillStyle = c; g.fillRect(0, 0, w, 46);
+    g.strokeStyle = 'rgba(80,95,130,.5)'; g.lineWidth = 1; for (let x = -40; x < w; x += 60) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x + 40, 44); g.moveTo(x + 60, 0); g.lineTo(x + 20, 44); g.stroke(); }
+    const led = g.createLinearGradient(0, 0, w, 0); for (let k = 0; k <= 6; k++) led.addColorStop(k / 6, ['#7b5cff', '#3ab0ff', '#ff4fa3'][k % 3]); g.fillStyle = led; g.fillRect(0, 46, w, 7); g.fillStyle = 'rgba(255,255,255,.35)'; g.fillRect(0, 46, w, 1.5);
+    const gl = g.createLinearGradient(0, 53, 0, 72); gl.addColorStop(0, 'rgba(120,120,255,.25)'); gl.addColorStop(1, 'rgba(120,120,255,0)'); g.fillStyle = gl; g.fillRect(0, 53, w, 19);
+    const sx = w * 0.5; g.fillStyle = '#05070c'; g.fillRect(sx - 70, 6, 140, 32); g.strokeStyle = '#3ab0ff'; g.lineWidth = 1.5; g.strokeRect(sx - 70, 6, 140, 32); g.font = '900 14px system-ui,sans-serif'; g.textAlign = 'center'; g.fillStyle = '#9fe0ff'; g.fillText('EAWG ARENA', sx, 27);
+    for (const L of v.lamps) { g.fillStyle = '#fff'; g.beginPath(); g.arc(L.fx * w, L.y, 2.5, 0, 6.2832); g.fill(); }
+  }
+  if (v.masts) for (const L of v.lamps) {
+    const x = L.fx * w, y = L.y; g.strokeStyle = '#2a2e38'; g.lineWidth = 2; g.beginPath(); g.moveTo(x - 9, yb); g.lineTo(x - 3, y + 12); g.moveTo(x + 9, yb); g.lineTo(x + 3, y + 12); g.stroke();
+    g.lineWidth = 1; for (let yy = y + 18; yy < yb - 6; yy += 12) { const k = (yy - y) / (yb - y), d = 3 + 6 * k; g.beginPath(); g.moveTo(x - d, yy); g.lineTo(x + d, yy + 12); g.moveTo(x + d, yy); g.lineTo(x - d, yy + 12); g.stroke(); }
+    g.fillStyle = '#1a1d24'; g.fillRect(x - 22, y - 8, 44, 21); g.fillStyle = '#fffbe8'; for (let rI = 0; rI < 3; rI++) for (let cI = 0; cI < 5; cI++) g.fillRect(x - 19 + cI * 8, y - 5 + rI * 6, 6, 4);
+  }
+  if (v.flags) for (let x = 30, k = 0; x < w; x += 120, k++) { g.strokeStyle = '#dddddd'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(x, top - 4); g.lineTo(x, top - 32); g.stroke(); g.fillStyle = v.flags[k % v.flags.length]; g.fillRect(x + 1, top - 32, 22, 13); g.fillStyle = 'rgba(0,0,0,.15)'; g.fillRect(x + 12, top - 32, 11, 13); }
+  if (v.banners) {
+    for (let x = 10 + rnd() * 30, k = 0; x < w; x += 140 + rnd() * 70, k++) { const bw = 90 + rnd() * 40, y0 = yb - 44 - rnd() * 30, cs = [v.pal[k % 3], v.pal[(k + 1) % 3]]; g.fillStyle = cs[0]; g.fillRect(x, y0, bw, 26); g.fillStyle = cs[1]; g.fillRect(x, y0 + 9, bw, 8); g.font = '900 12px system-ui,sans-serif'; g.textAlign = 'center'; g.fillStyle = '#111'; g.fillText(['VAMOS', 'EAWG', 'OLE OLE', 'CAMPEON'][k % 4], x + bw / 2, y0 + 17); }
+    g.lineWidth = 1.2; for (let i = 0; i < 40; i++) { const x = rnd() * w, y = top + rnd() * 40; g.strokeStyle = ['rgba(255,255,255,.8)', 'rgba(253,218,36,.8)', 'rgba(31,157,85,.8)'][i % 3]; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + 6, y + 20, x - 2, y + 40 + rnd() * 30); g.stroke(); }
+  }
+  if (v.arches) { g.strokeStyle = 'rgba(250,248,240,.92)'; g.lineWidth = 3; for (let x = -60; x < w; x += 180) { g.beginPath(); g.moveTo(x, top + 4); g.quadraticCurveTo(x + 90, top - 64, x + 180, top + 4); g.stroke(); } g.lineWidth = 1; g.strokeStyle = 'rgba(250,248,240,.55)'; for (let x = -60; x < w; x += 18) { const t = (((x + 60) % 180) / 180), ya = top + 4 - 4 * 34 * t * (1 - t); g.beginPath(); g.moveTo(x, ya); g.lineTo(x, top + 2); g.stroke(); } }
+  if (v.fence) { g.strokeStyle = 'rgba(40,46,56,.9)'; g.lineWidth = 2; for (let x = 0; x < w; x += 60) { g.beginPath(); g.moveTo(x, top - 40); g.lineTo(x, yb); g.stroke(); } g.strokeStyle = 'rgba(200,210,220,.22)'; g.lineWidth = 1; for (let x = -200; x < w; x += 12) { g.beginPath(); g.moveTo(x, top - 40); g.lineTo(x + 140, yb); g.moveTo(x + 140, top - 40); g.lineTo(x, yb); g.stroke(); } g.fillStyle = 'rgba(40,46,56,.9)'; g.fillRect(0, top - 42, w, 3); }
+  if (v.snowcap) { g.fillStyle = '#f4f8fc'; for (let x = 0; x < w; x += 8) g.fillRect(x, top - 8 - rnd() * 3, 8, 5); }
+  if (v.mist) { const m = g.createLinearGradient(0, top - 40, 0, yb); m.addColorStop(0, 'rgba(230,245,235,0)'); m.addColorStop(0.4, 'rgba(230,245,235,.35)'); m.addColorStop(1, 'rgba(230,245,235,.08)'); g.fillStyle = m; g.fillRect(0, top - 40, w, yb - top + 40); }
+  if (v.rim) { g.fillStyle = '#e7c24a'; g.fillRect(0, top - 12, w, 7); g.fillStyle = '#fff6d0'; for (let x = 6; x < w; x += 16) g.fillRect(x, top - 10, 4, 3); const cxp = w * 0.5, ty = top - 14; g.fillStyle = '#ffd400'; g.beginPath(); g.moveTo(cxp - 16, ty - 40); g.quadraticCurveTo(cxp - 16, ty - 14, cxp, ty - 12); g.quadraticCurveTo(cxp + 16, ty - 14, cxp + 16, ty - 40); g.closePath(); g.fill(); g.fillRect(cxp - 3, ty - 12, 6, 8); g.fillRect(cxp - 10, ty - 5, 20, 5); g.strokeStyle = '#ffd400'; g.lineWidth = 3; g.beginPath(); g.arc(cxp - 17, ty - 32, 6, Math.PI * 0.5, Math.PI * 1.5); g.arc(cxp + 17, ty - 32, 6, Math.PI * 1.5, Math.PI * 0.5); g.stroke(); }
+  const lc = v.lip || ['#0c1424', '#04060c'], lip = g.createLinearGradient(0, h - 32, 0, h); lip.addColorStop(0, lc[0]); lip.addColorStop(1, lc[1]); g.fillStyle = lip; g.fillRect(0, h - 32, w, 32);
+  if (v.snowcap) { g.fillStyle = '#eef4fa'; for (let x = 0; x < w; x += 10) g.fillRect(x, h - 33 - rnd() * 2, 10, 4); }
+  if (v.bw) { g.globalCompositeOperation = 'saturation'; g.fillStyle = '#808080'; g.fillRect(0, 0, w, h); g.globalCompositeOperation = 'source-over'; g.fillStyle = 'rgba(0,0,0,.14)'; for (let y = 0; y < h; y += 3) g.fillRect(0, y, w, 1); }
+}
+// kleine voorbeeldprent van een stadion (keuzekaart), een keer gemaakt en bewaard
+function veldThumb(v) {
+  if (v.thumb) return v.thumb;
+  const t = document.createElement('canvas'); t.width = 250; t.height = 80; const g = t.getContext('2d'); g.scale(0.4, 0.4);
+  const sk = g.createLinearGradient(0, 0, 0, 200); sk.addColorStop(0, v.sky[0]); sk.addColorStop(1, v.sky[1]); g.fillStyle = sk; g.fillRect(0, 0, 625, 200);
+  try { stadiumBG(g, 625, 200, rngOf(23 + v.id.length * 7), v, false); } catch (e) {}
+  return v.thumb = t;
+}
+// keuzekaart van een stadion (CLUB, WERELDEN, STADIONS)
+function veldTile(v, rx, ry, kw, h, sel) {
+  const w = 250, hy = h * 0.42;
+  cx.save(); cx.translate(rx, ry); cx.scale(kw / w, 1); rr(0, 0, w, h, 10); cx.clip();
+  cx.drawImage(veldThumb(v), 0, 0, w, hy);
+  cx.fillStyle = v.g[0]; cx.fillRect(0, hy, w, h - hy); cx.fillStyle = v.g[1];
+  const p = v.pat, gh = h - hy, sw = (v.sw || 100) * 0.22;
+  if (p === 'strepen' || p === 'breed' || p === 'plaid' || p === 'golf') for (let x = 0, k = 0; x < w; x += sw, k++) if (k & 1) cx.fillRect(x, hy, sw, gh);
+  if (p === 'dwars') for (let y = hy, k = 0; y < h; y += 9, k++) if (k & 1) cx.fillRect(0, y, w, 9);
+  if (p === 'ruit') for (let x = 0, i = 0; x < w; x += 22, i++) for (let y = hy, j = 0; y < h; y += 10, j++) if ((i + j) & 1) cx.fillRect(x, y, 22, 10);
+  if (p === 'diagonaal' || p === 'diamant') for (let x = -gh, k = 0; x < w; x += 22, k++) if (k & 1) { cx.beginPath(); cx.moveTo(x, h); cx.lineTo(x + 22, h); cx.lineTo(x + 22 + gh, hy); cx.lineTo(x + gh, hy); cx.fill(); }
+  if (p === 'cirkel') for (let k = 9; k > 0; k--) { cx.fillStyle = k & 1 ? v.g[1] : v.g[0]; cx.beginPath(); cx.ellipse(w / 2, hy + gh * 0.55, k * 18, k * 6, 0, 0, 6.2832); cx.fill(); }
+  if (p === 'ster') for (let k = 0; k < 24; k += 2) { cx.beginPath(); cx.moveTo(w / 2, hy + gh * 0.55); cx.arc(w / 2, hy + gh * 0.55, 300, k * 0.2618, (k + 1) * 0.2618); cx.fill(); }
+  if (v.mud) { cx.fillStyle = 'rgba(96,66,38,.8)'; for (const [mx, r] of [[20, 26], [w - 20, 26], [w / 2, 20]]) { cx.beginPath(); cx.ellipse(mx, hy + gh * 0.55, r, r * 0.4, 0, 0, 6.2832); cx.fill(); } }
+  if (v.snow || v.sand) { cx.fillStyle = v.snow ? 'rgba(242,247,252,.9)' : 'rgba(218,184,124,.92)'; cx.fillRect(0, hy, w, 6); cx.fillRect(0, h - 10, w, 10); cx.fillRect(0, hy, 8, gh); cx.fillRect(w - 8, hy, 8, gh); }
+  if (v.night) { cx.fillStyle = 'rgba(4,8,26,.28)'; cx.fillRect(0, hy, w, gh); }
+  cx.strokeStyle = v.line; cx.lineWidth = 2.2; cx.beginPath(); cx.moveTo(w / 2, hy); cx.lineTo(w / 2, h); cx.stroke(); cx.beginPath(); cx.ellipse(w / 2, hy + gh * 0.55, 34, 10, 0, 0, 6.2832); cx.stroke();
+  if (v.bw) { cx.globalCompositeOperation = 'saturation'; cx.fillStyle = '#808080'; cx.fillRect(0, hy, w, gh); cx.globalCompositeOperation = 'source-over'; }
+  if (v.weather) { const wt = v.weather; for (let k = 0; k < 40; k++) { cx.fillStyle = wt === 'snow' ? 'rgba(255,255,255,.9)' : wt === 'rain' ? 'rgba(200,220,255,.6)' : wt === 'as' ? 'rgba(90,80,80,.8)' : (v.conf || ['#fff'])[k % (v.conf || ['#fff']).length]; cx.fillRect((k * 97.31 * 7.13) % w, (k * 53.7 * 3.71) % h, wt === 'rain' ? 1.4 : 3, wt === 'rain' ? 9 : 3); } }
+  const sh = cx.createLinearGradient(0, h * 0.55, 0, h); sh.addColorStop(0, 'rgba(0,0,0,0)'); sh.addColorStop(1, 'rgba(0,0,0,.45)'); cx.fillStyle = sh; cx.fillRect(0, 0, w, h);
+  const tg = cx.createLinearGradient(0, 0, 0, 56); tg.addColorStop(0, 'rgba(0,0,0,.62)'); tg.addColorStop(1, 'rgba(0,0,0,0)'); cx.fillStyle = tg; cx.fillRect(0, 0, w, 56);
+  cx.restore();
+  const lk = !ownV(v.id);
+  if (lk) { cx.fillStyle = 'rgba(4,6,20,.58)'; rr(rx, ry, kw, h, 10); cx.fill(); lockIcon(rx + kw / 2, ry + h / 2 + 8, 1); }
+  cx.strokeStyle = sel ? '#ffd400' : 'rgba(255,255,255,.3)'; cx.lineWidth = sel ? 4 : 1.5; rr(rx, ry, kw, h, 10); cx.stroke();
+  txt(v.kort, rx + 10, ry + 26, 14, '#fff', 'left', '900'); txt(v.sub, rx + 10, ry + 41, 8.5, 'rgba(255,255,255,.85)', 'left', '700');
+  if (lk) coinTxt(String(v.price), rx + kw / 2, ry + h - 14, 16);
+  else txt(S.veld === v.id ? 'THUISSTADION  +10% MUNTEN' : '+10% MUNTEN', rx + 10, ry + h - 10, 11, S.veld === v.id ? '#ffd400' : '#9dffb0', 'left', '900');
+}
 // welke kaart hoort bij speler i van je team: keeper = plek 0, verdedigers = plek 1 en 2, middenveld = 3, aanval = 4 (ook bij 8 tegen 8)
 function slotOf(i) { if (i === 0) return 0; if (i <= FORM[0]) return 1 + ((i - 1) % 2); if (i <= FORM[0] + FORM[1]) return 3; return 4; }
 function applyClub() {
@@ -2187,9 +2480,15 @@ function worldThumb(c) {
   return c.thumb = t;
 }
 // regen of sneeuw over het veld (licht: geen nieuwe objecten per beeld, uit op de laagste kwaliteit)
-function drawWeather() {
-  const wt = court.weather; cx.save();
+function drawWeather(src) {
+  const wt = src.weather; cx.save();
   if (wt === 'rain') { cx.strokeStyle = 'rgba(190,210,240,.38)'; cx.lineWidth = 1.3; cx.beginPath(); for (let i = 0; i < 110; i++) { const x = ((i * 137.5 + tNow * 70) % (SW + 40)) - 20, y = ((i * 71.3 + tNow * 760) % (VH + 40)) - 20; cx.moveTo(x, y); cx.lineTo(x - 4, y + 16); } cx.stroke(); }
+  else if (wt === 'as') {
+    cx.fillStyle = 'rgba(80,72,72,.55)'; for (let i = 0; i < 80; i++) { const y = ((i * 61.3 + tNow * (22 + (i % 4) * 7)) % (VH + 20)) - 10, x = ((i * 97.7) % SW) + Math.sin(tNow * 0.9 + i) * 14; cx.fillRect(x, y, 2 + (i % 2), 2 + (i % 2)); }
+    cx.fillStyle = 'rgba(255,150,60,.85)'; for (let i = 0; i < 16; i++) { const y = VH - ((i * 83.1 + tNow * (30 + i * 3)) % (VH + 20)), x = ((i * 151.7) % SW) + Math.sin(tNow * 2 + i) * 8; cx.fillRect(x, y, 2, 2); }
+  } else if (wt === 'confetti') {
+    const C = src.conf || ['#ffd400', '#ffffff']; for (let c = 0; c < C.length; c++) { cx.fillStyle = C[c]; for (let i = c; i < 72; i += C.length) { const y = ((i * 47.9 + tNow * (36 + (i % 5) * 8)) % (VH + 20)) - 10, x = ((i * 89.3) % SW) + Math.sin(tNow * 1.7 + i) * 16, f = Math.abs(Math.sin(tNow * 4 + i)); cx.fillRect(x, y, 4, 1 + f * 4); } }
+  }
   else { cx.fillStyle = 'rgba(255,255,255,.85)'; for (let i = 0; i < 90; i++) { const y = ((i * 53.7 + tNow * (40 + (i % 5) * 9)) % (VH + 20)) - 10, x = ((i * 113.1) % SW) + Math.sin(tNow * 1.3 + i) * 10, s = 1.5 + (i % 3); cx.fillRect(x, y, s, s); } }
   cx.restore();
 }
@@ -2306,22 +2605,30 @@ function drawStars(X0) {
   if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 770, 548, 15, '#ffd400', 'right', '900');
 }
 // CLUB, WERELDEN
-let wSel = 0;
+let wSel = 0, wMode = 0;
+// CLUB, WERELDEN: schakelaar STRAATWERELDEN (5 tegen 5) of STADIONS (8 tegen 8). Zelfde kaarten, zelfde koop (buy), zelfde bonus.
 function drawWorlds(X0) {
-  const per = 8, pages = Math.ceil(WORLDS.length / per); if (page >= pages) page = 0;
-  WORLDS.slice(page * per, page * per + per).forEach((wd, j) => { const i = page * per + j, rx = X0 + 16 + (j % 4) * 195, ry = 102 + Math.floor(j / 4) * 160; courtTile(COURTS[wd.id], rx, ry, 186, 150, i === wSel); hits.push({ x: rx, y: ry, w: 186, h: 150, fn: () => { wSel = i; } }); });
-  const wd = WORLDS[Math.max(0, Math.min(WORLDS.length - 1, wSel))], c = COURTS[wd.id], own = owned(wd.id);
+  const V = wMode === 1, L = V ? VELDEN : WORLDS, per = 8, pages = Math.ceil(L.length / per); if (page >= pages) page = 0;
+  pill(X0 + 16, 100, 200, 30, 'STRAATWERELDEN', () => { if (V) { wMode = 0; wSel = 0; page = 0; } }, !V, 13);
+  pill(X0 + 224, 100, 200, 30, 'STADIONS 8 TEGEN 8', () => { if (!V) { wMode = 1; wSel = 0; page = 0; } }, V, 13);
+  txt(V ? 'Voor kick off, seizoen en toernooien' : 'Voor STRAAT, 5 tegen 5', X0 + 784, 121, 12, '#8fb0ff', 'right', '800');
+  L.slice(page * per, page * per + per).forEach((it, j) => { const i = page * per + j, rx = X0 + 16 + (j % 4) * 195, ry = 138 + Math.floor(j / 4) * 146; if (V) veldTile(it, rx, ry, 186, 138, i === wSel); else courtTile(COURTS[it.id], rx, ry, 186, 138, i === wSel); hits.push({ x: rx, y: ry, w: 186, h: 138, fn: () => { wSel = i; } }); });
+  const wd = L[Math.max(0, Math.min(L.length - 1, wSel))], c = V ? wd : COURTS[wd.id], own = V ? ownV(wd.id) : owned(wd.id), home = V ? S.veld === wd.id : S.home === wd.id;
   txt(c.name + '  |  ' + c.sub, X0 + 30, 446, 15, '#fff', 'left', '900');
-  txt(own ? (S.home === wd.id ? 'Dit is je thuisveld. Elke wedstrijd hier: +10 procent munten.' : 'In bezit. Kies hem als thuisveld of speel er bij STRAAT.') : 'Prijs ' + c.price + ' munten. Daarna te kiezen bij STRAAT, +10 procent munten per wedstrijd.', X0 + 30, 468, 13, '#b8c6ff', 'left', '700');
-  if (!own) pill(X0 + 30, 484, 250, 48, S.coins >= c.price ? 'KOOP  ' + c.price : 'TE WEINIG (' + c.price + ')', S.coins >= c.price ? () => buyWorld(wd.id) : null, S.coins >= c.price, 16);
+  if (V) txt(own ? (home ? 'Dit is je thuisstadion. Elke wedstrijd hier: +10 procent munten.' : 'In bezit. Maak het je thuisstadion, ook te kiezen voor de wedstrijd.') : 'Prijs ' + c.price + ' munten. Alleen uiterlijk, +10 procent munten per wedstrijd.', X0 + 30, 468, 13, '#b8c6ff', 'left', '700');
+  else txt(own ? (home ? 'Dit is je thuisveld. Elke wedstrijd hier: +10 procent munten.' : 'In bezit. Kies hem als thuisveld of speel er bij STRAAT.') : 'Prijs ' + c.price + ' munten. Daarna te kiezen bij STRAAT, +10 procent munten per wedstrijd.', X0 + 30, 468, 13, '#b8c6ff', 'left', '700');
+  if (!own) pill(X0 + 30, 484, 250, 48, S.coins >= c.price ? 'KOOP  ' + c.price : 'TE WEINIG (' + c.price + ')', S.coins >= c.price ? () => (V ? buyVeld(wd.id) : buyWorld(wd.id)) : null, S.coins >= c.price, 16);
+  else if (V) { pill(X0 + 30, 484, 250, 48, home ? 'THUISSTADION' : 'MAAK THUISSTADION', home ? null : () => { S.veld = wd.id; veldTry = ''; saveS(); }, !home, 16); pill(X0 + 296, 484, 200, 48, 'NAAR KICK OFF', () => { S.veld = wd.id; veldTry = ''; saveS(); goTo('pick'); }, false, 16); }
   else { pill(X0 + 30, 484, 250, 48, S.home === wd.id ? 'THUISVELD' : 'MAAK THUISVELD', S.home === wd.id ? null : () => { S.home = wd.id; saveS(); }, S.home !== wd.id, 16); pill(X0 + 296, 484, 200, 48, 'SPEEL HIER', () => { goTo('straat'); stSel = Object.keys(COURTS).indexOf(wd.id); stPg = Math.floor(stSel / 8); }, false, 16); }
+  if (V && S.veld) pill(X0 + 506, 484, 116, 48, 'STANDAARD', () => { S.veld = ''; veldTry = ''; saveS(); }, false, 13);
   if (pages > 1) pill(X0 + 630, 484, 150, 48, 'PAGINA ' + (page + 1) + ' / ' + pages, () => { page = (page + 1) % pages; }, false, 13);
   txt('Munten verdien je met wedstrijden, toernooien, het seizoen, opdrachten en je dagreeks.', X0 + 30, 556, 12, 'rgba(255,255,255,.6)', 'left', '700');
   if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 770, 446, 15, '#ffd400', 'right', '900');
 }
 function econHash(k) {
   if (k === 'reeks') goTo('reeks');
-  else if (k === 'werelden') { goTo('club'); tab = 5; }
+  else if (k === 'werelden') { goTo('club'); tab = 5; wMode = 0; }
+  else if (k === 'velden') { goTo('club'); tab = 5; wMode = 1; wSel = 0; page = 0; }
   else if (k === 'upgrade') { goTo('club'); tab = 0; upSel = 4; }
   else { goTo('club'); tab = 4; }
 }
@@ -2511,7 +2818,7 @@ const GROUPFX = [[[0, 1], [2, 3]], [[0, 2], [1, 3]], [[0, 3], [1, 2]]];
 let TT = null, tourStep = 0, tourDef = 0, tourMine = 0, tourTeams0 = null, tourConfirm = false;
 function tourTeams(d) {
   if (d.kind === 'nat') return (d.codes ? NAT.filter(n => d.codes.includes(n[1])) : NAT.slice(d.off || 0, (d.off || 0) + d.n)).map(n => ({ ts: n[2], kit: { name: n[0], code: n[1], shirt: n[3], shorts: n[4], sock: n[5], trim: n[6] } }));
-  const P = pool(), PRO = ['PRO LEAGUE', 'EREDIVISIE', 'PREMIER LEAGUE', 'BUNDESLIGA'];
+  const P = pool(), PRO = ['PRO LEAGUE', 'EREDIVISIE', 'PREMIER LEAGUE', 'BUNDESLIGA', 'LIGUE 1', 'LA LIGA'];
   const by = (a, b) => b.ts - a.ts || (a.kit.name < b.kit.name ? -1 : 1);
   if (d.kind === 'club') return P.filter(t => d.comp ? t.comp === d.comp : PRO.includes(t.comp)).sort(by).slice(d.off, d.off + d.n).map(t => ({ ts: t.ts, kit: t.kit }));
   const pro = P.filter(t => t.comp === 'PRO LEAGUE').sort(by).slice(0, 12), am = P.filter(t => !PRO.includes(t.comp)).sort(by).slice(0, 4);
@@ -2907,7 +3214,7 @@ function spStart(o) {
   S.kc[0] = bx - fx * 0.5 - S.rx * 0.38; S.kc[1] = -fz * 0.5 - S.rz * 0.38;
   // muur
   if (!S.pen) {
-    const n0 = big ? (dz < 20 ? 5 : dz < 26 ? 4 : 3) : (dz < 11 ? 3 : 2);
+    const n0 = o.wallN || (big ? (dz < 20 ? 5 : dz < 26 ? 4 : 3) : (dz < 11 ? 3 : 2)); // oefenen: vaste muurgrootte per poging
     const defs = pl(def).filter(p => p.i && p !== o.tackler).concat(o.tackler && o.tackler.i ? [o.tackler] : []);
     const n = Math.min(n0, defs.length);
     let ax, az, out;
@@ -2921,7 +3228,7 @@ function spStart(o) {
     const rest = defs.slice(n).slice(0, 2), ds = big ? [[-1.8, -6.4], [2.6, -8.3]] : [[-1, -2.6], [1.4, -3.4]];
     rest.forEach((p, i) => S.others.push({ p, x: ds[i][0], z: dz + ds[i][1], back: false, ph: Math.random() * 6 }));
     const mates = pl(att).filter(p => p.i && p !== kicker), as = big ? [[-2.6, -7], [1.6, -9.2], [4.6, -6]] : [[-1.4, -2.4], [1.8, -3.8]];
-    if (mates.length) { const m = mates[0]; S.mate = { p: m, x: bx + S.rx * 3.4 + fx * 1.2, z: S.rz * 3.4 + fz * 1.2, back: true, ph: Math.random() * 6 }; S.others.push(S.mate); }
+    if (mates.length && from !== 'oefen') { const m = mates[0]; S.mate = { p: m, x: bx + S.rx * 3.4 + fx * 1.2, z: S.rz * 3.4 + fz * 1.2, back: true, ph: Math.random() * 6 }; S.others.push(S.mate); }
     mates.slice(1, 1 + as.length).forEach((p, i) => S.others.push({ p, x: as[i][0], z: dz + as[i][1], back: true, ph: Math.random() * 6 }));
   }
   if (!S.user) S.cw = 1.3 + srnd() * 1.0;
@@ -3138,8 +3445,22 @@ function spPractice() {
   if (court) setCourt(null);
   if (players.length !== NP * 2) { setForm(); mk(); }
   const kk = players.find(p => p.t === 0 && p.i === NP - 1);
+  if (PR && PR.kind === 'vrij') {
+    // vrije trap oefenen: poging uit de reeks (afstand in meter, opzij in meter, muurgrootte), omgerekend naar veldpunten (groot veld)
+    const a = PR.fks[Math.min(PR.round, PR.fks.length - 1)];
+    spStart({ pen: false, att: 0, victim: kk, from: 'oefen', fx: W - a.d / 0.07, fy: H / 2 + a.x / 0.113, wallN: a.m, card: '' });
+    return;
+  }
   spStart({ pen: true, att: 0, victim: kk, from: 'oefen', fx: null, fy: null });
 }
+// 5 vrije trappen: afstand 17 tot 28 meter (17 is de kortste afstand die de 3D-scene toelaat), links, midden of rechts, muur van 2 tot 5
+let penKind = 'pen';
+function fkSeries() {
+  const zij = [-7, 0, 7].sort(() => Math.random() - 0.5), out = [];
+  for (let i = 0; i < 5; i++) { const d = Math.round(17 + Math.random() * 11), x = i < 3 ? zij[i] + Math.round((Math.random() - 0.5) * 4) : Math.round((Math.random() - 0.5) * 16); out.push({ d, x, m: d < 20 ? 4 + (Math.random() < 0.5 ? 1 : 0) : d < 24 ? 3 + (Math.random() < 0.5 ? 1 : 0) : 2 + (Math.random() < 0.6 ? 1 : 0) }); }
+  return out;
+}
+const fkZij = x => x < -2 ? 'LINKS' : x > 2 ? 'RECHTS' : 'MIDDEN';
 // ---------- invoer ----------
 function spBtn() { return [SW - 112, 468, 64]; }
 function spDown(x, y, id) {
@@ -3375,7 +3696,7 @@ function spHUD() {
   const S = SP, aim = S.ph === 'aim' || S.ph === 'intro';
   // titel
   cx.fillStyle = 'rgba(8,16,50,.86)'; rr(14, 12, 330, 64, 8); cx.fill(); cx.fillStyle = S.card === 'ROOD' ? '#e0302c' : S.card ? '#ffd400' : '#ffffff'; cx.fillRect(14, 70, 330, 6);
-  const ttl = S.from === 'oefen' ? 'PENALTY OEFENEN' : S.pen ? 'PENALTY' : 'VRIJE TRAP';
+  const ttl = S.from === 'oefen' ? (S.pen ? 'PENALTY OEFENEN' : 'VRIJE TRAP OEFENEN') : S.pen ? 'PENALTY' : 'VRIJE TRAP';
   txt(ttl + (S.pen ? '' : '  ' + Math.round(S.dist) + ' M'), 28, 42, 24, '#fff', 'left', '900');
   const sub = S.from === 'oefen' ? 'RONDE ' + Math.min(5, PR.round + 1) + ' / 5   GOALS ' + PR.goals : (S.card ? (S.card === 'ROOD' ? 'TWEEDE GEEL' : 'GELE KAART') + (S.tackler ? ' ' + S.tackler.name : '') + '   ' : '') + TEAMS[0].code + ' ' + score[0] + ' - ' + score[1] + ' ' + TEAMS[1].code;
   txt(sub, 28, 63, 13, '#b8c6ff', 'left', '800');
@@ -3422,7 +3743,7 @@ function spHUD() {
   }
 }
 // penalty's oefenen in 3D (vanuit het oefenscherm)
-function spPracticeStart() { penNew(); PR.d3 = 1; spPractice(); }
+function spPracticeStart() { if (!(PR && PR.fks && PR.kind === penKind && PR.round === 0 && !PR.done)) penNew(penKind); PR.d3 = 1; spPractice(); } // vrije trappen: de getoonde reeks blijft dezelfde
 function spHash(kind, cpu) {
   if (kind === 'penalty3d') { goTo('pen'); spPracticeStart(); return; }
   if (state !== 'play') { if (state !== 'voor') startMatch(); beginMatch(); }
@@ -3437,7 +3758,7 @@ function spHash(kind, cpu) {
 
 // ---- OEFENEN: penalty's ----
 let PR = null;
-function penNew() { PR = { round: 0, goals: 0, shot: -1, dive: -1, res: '', t: 0, done: false, hist: [] }; }
+function penNew(kind) { if (kind) penKind = kind; PR = { kind: penKind, round: 0, goals: 0, shot: -1, dive: -1, res: '', t: 0, done: false, hist: [], fks: penKind === 'vrij' ? fkSeries() : null }; }
 function penShoot(z) {
   if (!PR || PR.shot >= 0 || PR.done) return;
   const dive = (Math.random() * 6) | 0; let res;
@@ -3446,7 +3767,11 @@ function penShoot(z) {
   PR.shot = z; PR.dive = dive; PR.res = res; PR.t = 0; if (res === 'GOAL!') { PR.goals++; whistle(0.2); } buzz(res === 'GOAL!' ? 25 : 12);
 }
 function drawPen() {
-  const X0 = screenBG('PENALTY\'S OEFENEN'); if (!PR) penNew();
+  const X0 = screenBG('OEFENEN'); if (!PR) penNew();
+  // twee keuzes: penalty's (2D of 3D) en vrije trappen (3D)
+  pill(X0 + 176, 54, 214, 38, 'PENALTY\'S', () => { if (PR.kind === 'vrij') penNew('pen'); }, PR.kind !== 'vrij', 16);
+  pill(X0 + 406, 54, 214, 38, 'VRIJE TRAPPEN', () => { if (PR.kind !== 'vrij') penNew('vrij'); }, PR.kind === 'vrij', 16);
+  if (PR.kind === 'vrij') { drawFkPrac(X0); return; }
   const gx = X0 + 150, gy = 130, gw = 500, gh = 250;
   cx.fillStyle = '#2f9a42'; cx.fillRect(X0, gy + gh, 800, 120); cx.fillStyle = 'rgba(255,255,255,.08)'; cx.fillRect(gx, gy, gw, gh);
   cx.strokeStyle = '#fff'; cx.lineWidth = 8; cx.strokeRect(gx, gy, gw, gh);
@@ -3466,26 +3791,60 @@ function drawPen() {
   // zones (taps)
   const wait = PR.shot < 0 && !PR.done;
   for (let z = 0; z < 6; z++) { const x = gx + (z % 3) * zw, y = gy + ((z / 3) | 0) * zh; if (wait) { hits.push({ x, y, w: zw, h: zh, fn: () => penShoot(z) }); cx.strokeStyle = 'rgba(255,212,0,.55)'; cx.lineWidth = 2; cx.setLineDash([8, 8]); cx.strokeRect(x + 4, y + 4, zw - 8, zh - 8); cx.setLineDash([]); } }
-  txt('RONDE ' + Math.min(5, PR.round + (PR.shot >= 0 ? 1 : 1)) + ' / 5', X0 + 40, 100, 20, '#fff', 'left', '900'); txt('GOALS ' + PR.goals, X0 + 760, 100, 20, '#ffd400', 'right', '900');
-  for (let i = 0; i < 5; i++) { const h = PR.hist[i]; cx.fillStyle = h === undefined ? 'rgba(255,255,255,.2)' : h ? '#2fd071' : '#ff5468'; cx.beginPath(); cx.arc(X0 + 330 + i * 34, 94, 11, 0, 7); cx.fill(); }
+  penHead(X0);
   if (wait && PR.round === 0) pill(X0 + 600, 396, 190, 46, 'SPEEL IN 3D', () => spPracticeStart(), true, 16);
   if (wait) txt('Tik op een hoek van het doel om te schieten (bovenhoeken kunnen naast gaan)', X0 + 400, 545, 15, 'rgba(255,255,255,.85)', 'center', '700');
   if (PR.shot >= 0 && PR.t > 0.45) {
     txt(PR.res, X0 + 400, 330, 56, PR.res === 'GOAL!' ? '#ffd400' : '#ff9a9a', 'center', '900');
     if (PR.t > 1.3) { PR.hist.push(PR.res === 'GOAL!' ? 1 : 0); PR.round++; PR.shot = -1; if (PR.round >= 5) { PR.done = true; econDay(); } }
   }
-  if (PR.done) {
-    const g = PR.goals, med = g >= 5 ? 'GOUD' : g >= 4 ? 'ZILVER' : g >= 2 ? 'BRONS' : 'GEEN MEDAILLE';
-    cx.fillStyle = 'rgba(8,16,50,.88)'; rr(X0 + 200, 190, 400, 190, 14); cx.fill();
-    txt(g + ' / 5 GESCOORD', X0 + 400, 245, 32, '#fff', 'center', '900'); txt(med, X0 + 400, 290, 26, g >= 5 ? '#ffd400' : g >= 4 ? '#c9d3e6' : '#d79a68', 'center', '900');
-    pill(X0 + 260, 315, 130, 46, 'OPNIEUW', () => penNew(), true, 16); pill(X0 + 410, 315, 130, 46, 'MENU', () => { state = 'spelen'; }, false, 16);
-  }
+  if (PR.done) penDone(X0);
+}
+// ronde, goals en de 5 bolletjes (groen = goal)
+function penHead(X0) {
+  txt('RONDE ' + Math.min(5, PR.round + 1) + ' / 5', X0 + 40, 118, 20, '#fff', 'left', '900'); txt('GOALS ' + PR.goals, X0 + 760, 118, 20, '#ffd400', 'right', '900');
+  for (let i = 0; i < 5; i++) { const h = PR.hist[i]; cx.fillStyle = h === undefined ? 'rgba(255,255,255,.2)' : h ? '#2fd071' : '#ff5468'; cx.beginPath(); cx.arc(X0 + 330 + i * 34, 112, 11, 0, 7); cx.fill(); }
+}
+// medaille: penalty's goud 5, zilver 4, brons 2. Vrije trappen zijn moeilijker: goud 4, zilver 3, brons 1.
+const penMedal = (g, vrij) => vrij ? (g >= 4 ? 'GOUD' : g >= 3 ? 'ZILVER' : g >= 1 ? 'BRONS' : 'GEEN MEDAILLE') : (g >= 5 ? 'GOUD' : g >= 4 ? 'ZILVER' : g >= 2 ? 'BRONS' : 'GEEN MEDAILLE');
+function penDone(X0) {
+  const g = PR.goals, med = penMedal(g, PR.kind === 'vrij');
+  cx.fillStyle = 'rgba(8,16,50,.92)'; rr(X0 + 200, 190, 400, 190, 14); cx.fill();
+  txt(g + ' / 5 GESCOORD', X0 + 400, 245, 32, '#fff', 'center', '900'); txt(med, X0 + 400, 290, 26, med === 'GOUD' ? '#ffd400' : med === 'ZILVER' ? '#c9d3e6' : '#d79a68', 'center', '900');
+  pill(X0 + 260, 315, 130, 46, 'OPNIEUW', () => penNew(), true, 16); pill(X0 + 410, 315, 130, 46, 'MENU', () => { state = 'spelen'; }, false, 16);
+}
+// OEFENEN, VRIJE TRAPPEN: bovenaanzicht met de 5 plekken, daarna alles in 3D (zelfde scene als in de wedstrijd)
+function drawFkPrac(X0) {
+  penHead(X0);
+  const px = X0 + 40, py = 140, pw = 440, ph = 300, cxm = px + pw / 2, k = 9.5, gyL = py + 14; // k = beeldpunten per meter
+  cx.fillStyle = '#2f9a42'; rr(px, py, pw, ph, 8); cx.fill();
+  cx.fillStyle = 'rgba(255,255,255,.05)'; for (let i = 0; i < 6; i++) if (i & 1) cx.fillRect(px, py + i * ph / 6, pw, ph / 6);
+  cx.strokeStyle = 'rgba(255,255,255,.85)'; cx.lineWidth = 2;
+  cx.strokeRect(cxm - 20.15 * k, gyL, 40.3 * k, 16.5 * k); cx.strokeRect(cxm - 9.16 * k, gyL, 18.32 * k, 5.5 * k);
+  cx.beginPath(); cx.arc(cxm, gyL + 11 * k, 9.15 * k, 0.65, Math.PI - 0.65); cx.stroke();
+  cx.beginPath(); cx.moveTo(px, gyL); cx.lineTo(px + pw, gyL); cx.stroke();
+  cx.fillStyle = '#fff'; cx.fillRect(cxm - 3.66 * k, gyL - 7, 7.32 * k, 7);
+  const cur = Math.min(PR.round, 4);
+  PR.fks.forEach((a, i) => {
+    const bx = cxm + a.x * k, by = gyL + a.d * k, done = PR.hist[i] !== undefined, on = i === cur && !PR.done;
+    if (on) { const dx = cxm - bx, dy = gyL - by, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L; cx.fillStyle = '#1b2a6b'; for (let m = 0; m < a.m; m++) { const off = (m - (a.m - 1) / 2) * 0.6 * k; cx.beginPath(); cx.arc(bx + ux * 9.15 * k - uy * off, by + uy * 9.15 * k + ux * off, 4, 0, 6.2832); cx.fill(); } cx.strokeStyle = 'rgba(255,212,0,.7)'; cx.setLineDash([6, 6]); cx.beginPath(); cx.moveTo(bx, by); cx.lineTo(cxm, gyL); cx.stroke(); cx.setLineDash([]); }
+    cx.fillStyle = done ? (PR.hist[i] ? '#2fd071' : '#ff5468') : on ? '#ffd400' : 'rgba(255,255,255,.85)'; cx.beginPath(); cx.arc(bx, by, on ? 13 : 10, 0, 6.2832); cx.fill();
+    txt(String(i + 1), bx, by + 5, 13, '#111', 'center', '900');
+  });
+  const rx = X0 + 500;
+  txt('5 VRIJE TRAPPEN', rx, 160, 18, '#fff', 'left', '900');
+  PR.fks.forEach((a, i) => { const y = 192 + i * 30, on = i === cur && !PR.done; cx.fillStyle = on ? 'rgba(255,212,0,.18)' : 'rgba(255,255,255,.06)'; rr(rx, y - 20, 270, 26, 6); cx.fill(); txt((i + 1) + '.  ' + a.d + ' M  ' + fkZij(a.x) + '  MUUR ' + a.m, rx + 10, y - 2, 14, PR.hist[i] === undefined ? '#fff' : PR.hist[i] ? '#9dffb0' : '#ff9a9a', 'left', '800'); });
+  if (!PR.done) pill(rx, 352, 270, 54, PR.round === 0 ? 'START IN 3D' : 'VERDER IN 3D', () => { if (PR.round === 0) spPracticeStart(); else { PR.d3 = 1; spPractice(); } }, true, 18);
+  txt('Sleep om te mikken, sleep over de bal voor effect, houd SCHIET vast voor kracht.', X0 + 400, 520, 14, 'rgba(255,255,255,.85)', 'center', '700');
+  txt('Goud bij 4 goals, zilver bij 3, brons bij 1. Een afgewerkte reeks telt voor je dagreeks.', X0 + 400, 544, 13, 'rgba(255,255,255,.65)', 'center', '600');
+  if (PR.done) penDone(X0);
 }
 function drawSettings() {
   const X0 = screenBG('OPTIES'); tabs(X0, ['SPEL', 'WEERGAVE']);
   const rows = [
     ['DUUR WEDSTRIJD', () => (MATCH / 60) + ' MIN', () => { mIdx = (mIdx + 1) % 5; MATCH = MATCHES[mIdx]; }, 0],
     ['SPELVORM', () => koi ? 'KOOI (muren)' : 'VELD', () => { koi ^= 1; }, 0],
+    ['STADION (8 TEGEN 8)', () => veldNaam(S.veld), () => cycleVeld(false), 0],
     ['NIVEAU (kick-off)', () => DNAMES[dIdx], () => { dIdx = (dIdx + 1) % 5; }, 0],
     ['SPELSNELHEID', () => SNAMES[spdIdx], () => { spdIdx = (spdIdx + 1) % 3; }, 0],
     ['SCHEIDSRECHTER', () => STRICT[strictIdx], () => { strictIdx = (strictIdx + 1) % 4; }, 0],
@@ -3503,6 +3862,7 @@ function drawSettings() {
     txt(r[0], X0 + 64, y + 33, 19, '#fff', 'left', '800'); pill(X0 + 440, y + 3, 300, 46, r[1](), () => { r[2](); saveSet(); }, true, 18);
   });
   txt(tab ? 'Competitie wisselen kan niet tijdens een lopend seizoen.' : 'Scheidsrechter: kans op overtreding bij een tackle. Gele kaart, bij de tweede een rode.', X0 + 40, 560, 15, 'rgba(255,255,255,.7)', 'left', '600');
+  if (econMsg && tNow - econMsgT < 3) txt(econMsg, X0 + 760, 536, 14, '#ffd400', 'right', '900');
   if (!tab) txt('Vrije trap 3D: bij een kaart, een fout in de zestien of een zware fout dicht bij doel trap je zelf (of sta je in doel).', X0 + 40, 582, 13, 'rgba(255,255,255,.6)', 'left', '600');
 }
 
@@ -3623,7 +3983,7 @@ function drawClub() {
   }
 }
 
-window.__gr = { econ: (w, a, b) => { if (w === 'coins') S.coins = a; if (w === 'star') buyStar(STARS[a]); if (w === 'line') { const c = starCard(STARS[a].id); if (c) starLine(c); } if (w === 'up') upBuy(lineCard(a), b); if (w === 'world') buyWorld(a); if (w === 'home') S.home = a; if (w === 'claim') streakClaim(); if (w === 'day') econDay(); if (w === 'last') { S.streak.last = a; S.streak.n = b; } if (w === 'unlock') buyT = -1e9; if (w === 'stpg') { stPg = a; stSel = b != null ? b : a * 8; } if (w === 'wsel') { wSel = a; page = b || 0; } if (w === 'page') page = a; if (w === 'save') saveS(); if (w === 'redeem') redeemDialog(); return JSON.stringify({ coins: S.coins, stars: S.cards.filter(c => c.star).map(c => c.star), worlds: S.worlds, home: S.home, streak: S.streak, lineup: S.lineup, up: S.lineup.map(id => (cardById(id) || {}).up) }); }, alb: (what, a) => { if (what === 'give') { AL.pk = a; saveAl(); } if (what === 'open') albOpen(); if (what === 'tab') { state = 'album'; tab = a; } if (what === 'pg') albPg = a; if (what === 'daily') albDaily(); if (what === 'swap') albSwap(); if (what === 'reset') { AL.have = {}; AL.day = ''; AL.pity = 0; AL.pk = 2; } if (what === 'fill') { albStickers().forEach((x, i) => { if (i % 3) AL.have[x.id] = 1 + (i % 7 === 0 ? 3 : 0); }); } if (what === 'comp') albComp = a; return JSON.stringify({ st: albStats(), pk: AL.pk, pity: AL.pity, n: albStickers().length }); }, tourPlay: () => tourPlay(), tourNew: (di, mine) => { newTour(di, mine, tourTeams(TOURS[di])); }, tourTab: n => { tab = n; }, tourSetup: (st, di) => { tourStep = st; tourDef = di || 0; tourTeams0 = tourTeams(TOURS[tourDef]); tourMine = 3; state = 'tour'; }, setState: x => { state = x; }, tourRun: (di, mine, win) => { const t = tourTeams(TOURS[di]); if (t.length < TOURS[di].n) return 'te weinig teams ' + t.length; newTour(di, mine, t); let n = 0, log = []; while (tourNext() !== null && n < 30) { const ph = TT.phase; const r = finishTour(win ? 3 : 0, win ? 0 : 3); log.push(ph[0] + ':' + r.join('|')); n++; } return JSON.stringify({ n, champ: TT.champ, out: TT.out, mine: TT.mine, last: log.slice(-2) }); }, tourState: () => TT ? TT.phase + TT.round : null, goTour: () => { state = 'tour'; tab = 0; tourStep = 0; }, shoot: (x, y, vx, vy, lt) => { ball.owner = null; ball.x = x; ball.y = y; ball.vx = vx; ball.vy = vy; ball.z = 0; ball.vz = 0; ball.lt = lt; }, ball: () => ({ x: Math.round(ball.x), y: Math.round(ball.y), o: ball.owner ? ball.owner.t + ':' + ball.owner.i : null, lt: ball.lt }), skip: () => { if (state === 'play') timeLeft = 0.05; }, st: () => state, goals: n => { score[0] += n; }, pk: (a, b) => { const P = pool(); const i = P.findIndex(t => t.kit.name === a), j = P.findIndex(t => t.kit.name === b); pickA = i; pickB = j; pickSide = -1; state = 'pick'; return [i, j, P.length]; }, sel: n => { selV = n; }, start: () => { const P = pool(); startMatch({ kind: 'friendly', a: P[pickA].kit, b: P[pickB].kit, ta: P[pickA].ts, tb: P[pickB].ts }); }, mode: m => { crestMode = m; }, give: () => { const k = players.find(p => p.t === 0 && p.i === 0); ball.owner = k; ball.x = k.x; ball.y = k.y; ball.vx = ball.vy = 0; }, pass: () => doPass(), info: () => ({ c: ctrl && ctrl.i, o: ball.owner && (ball.owner.t + ':' + ball.owner.i), v: Math.round(Math.hypot(ball.vx, ball.vy)) }), names: () => players.map(p => p.t + ':' + p.num + ' ' + p.name).join(' | '), sp: (k, c) => spHash(k, c), spSt: () => JSON.stringify(SP ? { ph: SP.ph, out: SP.out, aim: SP.aim, pow: SP.pow, dist: Math.round(SP.dist), wall: SP.wall.length, mode: SP.mode, user: SP.user, pen: SP.pen } : { last: spLast, state }), spShot: (tx, ty, pw, cv, mode) => { if (!SP) return 'geen'; SP.ph = 'aim'; SP.aim[0] = tx; SP.aim[1] = ty; SP.pow = pw; SP.cv = cv || 0; SP.mode = mode || 'shot'; spUserShoot(); return SP.ph; }, spDv: (x, y) => { if (SP) SP.dv = [x, y]; }, spSkip: () => spSkip(), score: () => score.join('-'), tijd: () => Math.round(tNow * 100) / 100, spTS: v => { spTS = v; }, spK: () => { if (!SP) return ''; spKeeperPose(); return JSON.stringify({ t: +SP.t.toFixed(2), ct: +SP.ct.toFixed(2), ph: SP.ph, dvx: +SP.dvx.toFixed(2), dvy: +SP.dvy.toFixed(2), k: +SPK.k.toFixed(2), rot: +SPK.rot.toFixed(2), x: +SPK.x.toFixed(2), tx: SP.fl ? +SP.fl.tx.toFixed(2) : null, ty: SP.fl ? +SP.fl.ty.toFixed(2) : null, c: SP.catch }); } };
+window.__gr = { econ: (w, a, b) => { if (w === 'coins') S.coins = a; if (w === 'star') buyStar(STARS[a]); if (w === 'line') { const c = starCard(STARS[a].id); if (c) starLine(c); } if (w === 'up') upBuy(lineCard(a), b); if (w === 'world') buyWorld(a); if (w === 'home') S.home = a; if (w === 'veld') buyVeld(a); if (w === 'vhome') S.veld = a; if (w === 'wmode') { wMode = a; wSel = b || 0; page = Math.floor((b || 0) / 8); } if (w === 'claim') streakClaim(); if (w === 'day') econDay(); if (w === 'last') { S.streak.last = a; S.streak.n = b; } if (w === 'unlock') buyT = -1e9; if (w === 'stpg') { stPg = a; stSel = b != null ? b : a * 8; } if (w === 'wsel') { wSel = a; page = b || 0; } if (w === 'page') page = a; if (w === 'save') saveS(); if (w === 'redeem') redeemDialog(); return JSON.stringify({ coins: S.coins, stars: S.cards.filter(c => c.star).map(c => c.star), worlds: S.worlds, home: S.home, velden: S.velden, veld: S.veld, streak: S.streak, lineup: S.lineup, up: S.lineup.map(id => (cardById(id) || {}).up) }); }, alb: (what, a) => { if (what === 'give') { AL.pk = a; saveAl(); } if (what === 'open') albOpen(); if (what === 'tab') { state = 'album'; tab = a; } if (what === 'pg') albPg = a; if (what === 'daily') albDaily(); if (what === 'swap') albSwap(); if (what === 'reset') { AL.have = {}; AL.day = ''; AL.pity = 0; AL.pk = 2; } if (what === 'fill') { albStickers().forEach((x, i) => { if (i % 3) AL.have[x.id] = 1 + (i % 7 === 0 ? 3 : 0); }); } if (what === 'comp') albComp = a; return JSON.stringify({ st: albStats(), pk: AL.pk, pity: AL.pity, n: albStickers().length }); }, tourPlay: () => tourPlay(), tourNew: (di, mine) => { newTour(di, mine, tourTeams(TOURS[di])); }, tourTab: n => { tab = n; }, tourSetup: (st, di) => { tourStep = st; tourDef = di || 0; tourTeams0 = tourTeams(TOURS[tourDef]); tourMine = 3; state = 'tour'; }, setState: x => { state = x; }, tourRun: (di, mine, win) => { const t = tourTeams(TOURS[di]); if (t.length < TOURS[di].n) return 'te weinig teams ' + t.length; newTour(di, mine, t); let n = 0, log = []; while (tourNext() !== null && n < 30) { const ph = TT.phase; const r = finishTour(win ? 3 : 0, win ? 0 : 3); log.push(ph[0] + ':' + r.join('|')); n++; } return JSON.stringify({ n, champ: TT.champ, out: TT.out, mine: TT.mine, last: log.slice(-2) }); }, tourState: () => TT ? TT.phase + TT.round : null, goTour: () => { state = 'tour'; tab = 0; tourStep = 0; }, shoot: (x, y, vx, vy, lt) => { ball.owner = null; ball.x = x; ball.y = y; ball.vx = vx; ball.vy = vy; ball.z = 0; ball.vz = 0; ball.lt = lt; }, ball: () => ({ x: Math.round(ball.x), y: Math.round(ball.y), o: ball.owner ? ball.owner.t + ':' + ball.owner.i : null, lt: ball.lt }), skip: () => { if (state === 'play') timeLeft = 0.05; }, st: () => state, goals: n => { score[0] += n; }, pk: (a, b) => { const P = pool(); const i = P.findIndex(t => t.kit.name === a), j = P.findIndex(t => t.kit.name === b); pickA = i; pickB = j; pickSide = -1; state = 'pick'; return [i, j, P.length]; }, sel: n => { selV = n; }, start: () => { const P = pool(); startMatch({ kind: 'friendly', a: P[pickA].kit, b: P[pickB].kit, ta: P[pickA].ts, tb: P[pickB].ts }); }, mode: m => { crestMode = m; }, give: () => { const k = players.find(p => p.t === 0 && p.i === 0); ball.owner = k; ball.x = k.x; ball.y = k.y; ball.vx = ball.vy = 0; }, pass: () => doPass(), info: () => ({ c: ctrl && ctrl.i, o: ball.owner && (ball.owner.t + ':' + ball.owner.i), v: Math.round(Math.hypot(ball.vx, ball.vy)) }), names: () => players.map(p => p.t + ':' + p.num + ' ' + p.name).join(' | '), sp: (k, c) => spHash(k, c), spSt: () => JSON.stringify(SP ? { ph: SP.ph, out: SP.out, aim: SP.aim, pow: SP.pow, dist: Math.round(SP.dist), wall: SP.wall.length, mode: SP.mode, user: SP.user, pen: SP.pen } : { last: spLast, state }), spShot: (tx, ty, pw, cv, mode) => { if (!SP) return 'geen'; SP.ph = 'aim'; SP.aim[0] = tx; SP.aim[1] = ty; SP.pow = pw; SP.cv = cv || 0; SP.mode = mode || 'shot'; spUserShoot(); return SP.ph; }, spDv: (x, y) => { if (SP) SP.dv = [x, y]; }, spSkip: () => spSkip(), score: () => score.join('-'), tijd: () => Math.round(tNow * 100) / 100, spTS: v => { spTS = v; }, spK: () => { if (!SP) return ''; spKeeperPose(); return JSON.stringify({ t: +SP.t.toFixed(2), ct: +SP.ct.toFixed(2), ph: SP.ph, dvx: +SP.dvx.toFixed(2), dvy: +SP.dvy.toFixed(2), k: +SPK.k.toFixed(2), rot: +SPK.rot.toFixed(2), x: +SPK.x.toFixed(2), tx: SP.fl ? +SP.fl.tx.toFixed(2) : null, ty: SP.fl ? +SP.fl.ty.toFixed(2) : null, c: SP.catch }); } };
 const EMB = /*ROSTER*/null;
 function applyRoster(r) {
   albCache = {}; albCS = null;
@@ -3703,7 +4063,11 @@ loadSet(); loadS(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(lo
 setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop);
   { const m = /straat=(\w+)/.exec(location.hash || ''); if (m && COURTS[m[1]]) setTimeout(() => { stSel = Object.keys(COURTS).indexOf(m[1]); startStreet(m[1]); if (/go/.test(location.hash)) beginMatch(); }, 400); else if (/goto=/.test(location.hash || '')) setTimeout(() => { const g = /goto=(\w+)/.exec(location.hash); if (g && SCREENS[g[1]]) goTo(g[1]); }, 400); else if (/straatveld/.test(location.hash || '')) setTimeout(() => { goTo('straat'); stStep = 1; }, 400); else if (/straatmenu/.test(location.hash || '')) setTimeout(() => { goTo('straat'); const ma = /a=([^&]+)/.exec(location.hash); if (ma) { const P = pool(), i = P.findIndex(t => t.kit.name === decodeURIComponent(ma[1])); if (i >= 0) pickA = i; } }, 400); else if (/voorveld/.test(location.hash || '')) setTimeout(() => startMatch(), 400); }
   { const h = location.hash || '', m = /(vrijetrap|penalty3d|penalty)/.exec(h); if (m) setTimeout(() => spHash(m[1], /cpu/.test(h)), 1100); }
-  { const m = /#(winkel|werelden|reeks|upgrade)\b/.exec(location.hash || ''); if (m) setTimeout(() => econHash(m[1]), 400); } }, 60);
+  { const m = /#(winkel|werelden|reeks|upgrade|velden)\b/.exec(location.hash || ''); if (m) setTimeout(() => econHash(m[1]), 400); }
+  // #oefenvrij: OEFENEN met vrije trappen openen (#oefenvrij&go: meteen de eerste vrije trap in 3D)
+  if (/oefenvrij/.test(location.hash || '')) setTimeout(() => { goTo('pen'); penNew('vrij'); if (/&go\b/.test(location.hash)) spPracticeStart(); }, 400);
+  // #veld=<id> (of #veld=<id>&go): kick off op dat stadion. Niet gekocht: alleen lokaal als voorbeeld, zonder bonus.
+  { const m = /[#&]veld=(\w+)/.exec(location.hash || ''); if (m && VBYID[m[1]]) setTimeout(() => { if (ownV(m[1])) { S.veld = m[1]; veldTry = ''; } else if (LOKAAL) veldTry = m[1]; startMatch(); if (/&go\b/.test(location.hash)) beginMatch(); }, 400); } }, 60);
 authInit();
 { const mm = /munten=([A-Za-z0-9.\-]+)/.exec(location.hash || ''); if (mm) { let tries = 0; const iv = setInterval(() => { if (++tries > 120) clearInterval(iv); else if (!document.getElementById('authov') && authUser) { clearInterval(iv); redeemDialog(mm[1]); } }, 1000); } }
 // service worker + melding "Nieuwe versie beschikbaar" als er een nieuwe klaarstaat
