@@ -96,12 +96,24 @@
   function knop(cls, text, fn) { var b = el('button', cls, text); b.addEventListener('click', fn); return b; }
   function vak(id) { return VAKKEN.filter(function (v) { return v.id === id; })[0]; }
 
-  function laad(id) {
-    if (id in data) return Promise.resolve(data[id]);
-    return fetch('data/' + id + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .catch(function () { return null; })
-      .then(function (d) { data[id] = d; return d; });
+  function niveau() { return S.niveau === 'B' ? 'B' : 'A'; }
+  function haal(bestand) {
+    return fetch('data/' + bestand + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; });
   }
+  // B-stroom: eenvoudigere versie; bestaat die nog niet, dan tonen we de A-versie met een melding.
+  function laad(id) {
+    var sl = id + niveau();
+    if (sl in data) return Promise.resolve(data[sl]);
+    var p = niveau() === 'B'
+      ? haal(id + '-b').then(function (d) {
+          if (d) { d.niveau = 'B'; return d; }
+          return haal(id).then(function (a) { if (a) { a.niveau = 'A'; a.terugval = true; } return a; });
+        })
+      : haal(id).then(function (a) { if (a) a.niveau = 'A'; return a; });
+    return p.then(function (d) { data[sl] = d; return d; });
+  }
+  // Scores worden per niveau bewaard, zodat A en B elkaar niet storen.
+  function sk(d, lid) { return (d.niveau === 'B' ? 'B:' : '') + d.vak + '/' + lid; }
 
   function alleLessen(d, jaar) {
     var out = [];
@@ -113,7 +125,7 @@
   }
   function voortgang(d, jaar) {
     var l = alleLessen(d, jaar), k = 0;
-    l.forEach(function (x) { if (S.scores[d.vak + '/' + x.id] != null) k++; });
+    l.forEach(function (x) { if (S.scores[sk(d, x.id)] != null) k++; });
     return { klaar: k, totaal: l.length };
   }
 
@@ -141,11 +153,20 @@
 
     if (S.laatsteLes) {
       var p = S.laatsteLes.split('/');
-      var h = knop('hero v-' + p[0], '', function () { location.hash = '#/' + S.laatsteLes; });
+      var h = knop('hero v-' + p[0], '', function () { S.niveau = S.laatsteNiveau || 'A'; save(); location.hash = '#/' + S.laatsteLes; route(); });
       h.appendChild(el('small', '', 'Verder doen'));
       h.appendChild(el('strong', '', (vak(p[0]) || {}).naam + ' – ' + (S.laatsteTitel || 'verder')));
       root.appendChild(h);
     }
+
+    var sw = el('div', 'niveau'); sw.setAttribute('role', 'group'); sw.setAttribute('aria-label', 'Niveau');
+    [['A', 'A-stroom'], ['B', 'B-stroom']].forEach(function (x) {
+      var b = knop('seg' + (niveau() === x[0] ? ' aan' : ''), x[1], function () { S.niveau = x[0]; save(); home(); });
+      b.setAttribute('aria-pressed', niveau() === x[0] ? 'true' : 'false');
+      sw.appendChild(b);
+    });
+    root.appendChild(sw);
+    root.appendChild(el('p', 'uitlegje', niveau() === 'B' ? 'B-stroom: kortere uitleg en makkelijkere vragen.' : 'A-stroom: de volledige leerstof.'));
 
     root.appendChild(el('h2', '', 'Vakken'));
     var grid = el('div', 'grid');
@@ -176,11 +197,12 @@
     root.appendChild(terug('#/', 'Alle vakken'));
     var ban = el('div', 'banner'), bt = el('div');
     ban.appendChild(el('span', 'ico', v.icoon));
-    bt.appendChild(el('h1', '', v.naam)); bt.appendChild(el('p', 'sub', v.uitleg));
+    bt.appendChild(el('h1', '', v.naam)); bt.appendChild(el('p', 'sub', v.uitleg + ' · ' + (niveau() === 'B' ? 'B-stroom' : 'A-stroom')));
     ban.appendChild(bt); root.appendChild(ban);
     var plek = el('div'); root.appendChild(plek);
     laad(id).then(function (d) {
       if (!d) { plek.appendChild(el('p', 'sub', 'De leerstof van dit vak is nog niet klaar.')); return; }
+      if (d.terugval) plek.appendChild(el('p', 'melding', 'De makkelijkere B-versie van dit vak komt eraan. Je ziet nu de A-versie.'));
       if (d.dekking) plek.appendChild(el('p', 'sub', d.dekking));
       (d.leerjaren || []).forEach(function (j) {
         var pr = voortgang(d, j.jaar);
@@ -188,7 +210,7 @@
         var lijst = el('div', 'lijst');
         (j.themas || []).forEach(function (t) {
           var rij = el('button', 'rij');
-          var kl = (t.lessen || []).filter(function (l) { return S.scores[id + '/' + l.id] != null; }).length;
+          var kl = (t.lessen || []).filter(function (l) { return S.scores[sk(d, l.id)] != null; }).length;
           rij.appendChild(el('b', '', t.titel));
           rij.appendChild(el('span', 's', t.samenvatting || ''));
           rij.appendChild(el('span', 'badge', kl + '/' + (t.lessen || []).length));
@@ -226,7 +248,7 @@
       plek.appendChild(el('h2', '', 'Lessen'));
       var lijst = el('div', 'lijst');
       (t.lessen || []).forEach(function (l) {
-        var s = S.scores[id + '/' + l.id];
+        var s = S.scores[sk(d, l.id)];
         var rij = el('button', 'rij');
         rij.appendChild(el('b', '', l.titel));
         rij.appendChild(el('span', 'badge' + (s != null ? ' ok' : ''), s != null ? '✓ ' + Math.round(s * 100) + '%' : 'Nieuw'));
@@ -245,7 +267,7 @@
       var t = d && vindThema(d, tid);
       var les = t && (t.lessen || []).filter(function (l) { return l.id === lid; })[0];
       if (!les) { plek.appendChild(el('p', 'sub', 'Les niet gevonden.')); return; }
-      S.laatsteLes = id + '/' + tid + '/' + lid; S.laatsteTitel = les.titel; save();
+      S.laatsteLes = id + '/' + tid + '/' + lid; S.laatsteTitel = les.titel; S.laatsteNiveau = d.niveau; save();
 
       plek.appendChild(el('h1', '', les.titel));
       String(les.uitleg || '').split(/\n\s*\n/).forEach(function (a) { if (a.trim()) plek.appendChild(el('p', 'uitleg', a.trim())); });
@@ -264,17 +286,17 @@
       if (les.oefeningen && les.oefeningen.length) {
         plek.appendChild(el('h2', '', 'Oefenen'));
         var q = el('div'); plek.appendChild(q);
-        quiz(q, id, les);
+        quiz(q, d, les);
       }
     });
   }
 
-  function quiz(host, id, les) {
+  function quiz(host, d, les) {
     var i = 0, juist = 0, n = les.oefeningen.length, t0 = 0, snel = true;
     function toon() {
       host.textContent = '';
       if (i >= n) {
-        var score = juist / n, k = id + '/' + les.id;
+        var score = juist / n, k = sk(d, les.id);
         if (S.scores[k] == null || score > S.scores[k]) S.scores[k] = score;
         var br = beloon(k, score, snel);
         host.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist' + (score === 1 ? ' – perfect! 🎉' : '.')));
