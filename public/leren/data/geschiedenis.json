@@ -1,0 +1,3286 @@
+{
+ "vak": "geschiedenis",
+ "naam": "Geschiedenis",
+ "bronnen": [
+  {
+   "titel": "Leerplan Geschiedenis 1ste graad A-stroom, Katholiek Onderwijs Vlaanderen (D/2019/13.758/006)",
+   "url": "https://edumedia-depot.gei.de/bitstream/handle/11163/6338/1689719133.pdf"
+  },
+  {
+   "titel": "Vlaamse eindtermen eerste graad (Themis, Vlaanderen.be)",
+   "url": "https://themis.vlaanderen.be"
+  },
+  {
+   "titel": "Leerplan Geschiedenis 1e graad A-stroom, GO! (2010/007)",
+   "url": "https://edumedia-depot.gei.de/bitstream/handle/11163/6341/1689723076.pdf"
+  }
+ ],
+ "dekking": "Oudheid in leerjaar 1 (tijdsbalk, bronnen, prehistorie, Mesopotamie, Egypte, Grieken, Romeinen ook in onze gewesten, einde oudheid) en middeleeuwen tot Franse Revolutie in leerjaar 2. De indeling is gebaseerd op de gangbare opbouw van de Vlaamse leerplannen; de officiele documenten waren via zoekresultaten gevonden maar kon ik niet openen (netwerk geblokkeerd), dus de precieze leerplandoelen en de verdeling over leerjaar 1 en 2 zijn niet woord voor woord gecontroleerd. De nieuwe eindtermen (2025-2026) integreren geschiedenis in mens en maatschappij; niet apart nagekeken. Ontbreekt: gedetailleerde kaarten, bronnenoefeningen met afbeeldingen, thema's als Islam in de middeleeuwen en Amerikaanse onafhankelijkheid.",
+ "leerjaren": [
+  {
+   "jaar": 1,
+   "themas": [
+    {
+     "id": "tijd-en-bronnen",
+     "titel": "Tijd en bronnen",
+     "samenvatting": "Je leert hoe historici de tijd indelen en hoe ze het verleden onderzoeken met bronnen.",
+     "lessen": [
+      {
+       "id": "tijdsbalk-en-tijdvakken",
+       "titel": "De tijdsbalk en de tijdvakken",
+       "uitleg": "Geschiedenis gaat over wat mensen vroeger deden en meemaakten. Om dat overzichtelijk te maken, verdelen historici het verleden in grote stukken. Zo'n stuk heet een tijdvak. Je ordent de tijdvakken op een tijdsbalk, een lijn waarop je gebeurtenissen in de juiste volgorde zet.\n\nWe kennen vijf tijdvakken. De prehistorie loopt tot de uitvinding van het schrift (ongeveer 3000 v.C.). De oudheid loopt van de uitvinding van het schrift tot de val van het West-Romeinse Rijk in 476 n.C. De middeleeuwen duren van 476 tot ongeveer 1500. De nieuwe tijd loopt tot de Franse Revolutie in 1789. Daarna begint de nieuwste tijd, waarin wij nog altijd leven.\n\nJaartallen voor Christus (v.C.) tellen terug: 500 v.C. is vroeger dan 100 v.C. Jaartallen na Christus (n.C.) tellen gewoon vooruit. Een eeuw is een periode van 100 jaar: het jaar 1789 hoort bij de 18e eeuw, want de 1e eeuw loopt van het jaar 1 tot 100.",
+       "woorden": [
+        {
+         "nl": "prehistorie",
+         "doel": "tijd voor de uitvinding van het schrift",
+         "voorbeeld": "De prehistorie duurde veel langer dan alle andere tijdvakken samen."
+        },
+        {
+         "nl": "tijdvak",
+         "doel": "groot stuk geschiedenis met eigen kenmerken",
+         "voorbeeld": "De middeleeuwen zijn een tijdvak."
+        },
+        {
+         "nl": "eeuw",
+         "doel": "periode van 100 jaar",
+         "voorbeeld": "Het jaar 1302 hoort bij de 14e eeuw."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk tijdvak komt meteen na de oudheid?",
+         "opties": [
+          "Nieuwe tijd",
+          "Prehistorie",
+          "Middeleeuwen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na de oudheid (tot 476 n.C.) volgen de middeleeuwen."
+        },
+        {
+         "vraag": "Waardoor begint de geschiedenis volgens historici?",
+         "opties": [
+          "Door de Romeinen",
+          "Door de uitvinding van het schrift",
+          "Door de eerste stad"
+         ],
+         "antwoord": 1,
+         "uitleg": "Met schriftelijke bronnen begint de geschiedenis; daarvoor spreken we van prehistorie."
+        },
+        {
+         "vraag": "Tot welke eeuw hoort het jaar 1789?",
+         "opties": [
+          "19e eeuw",
+          "18e eeuw",
+          "17e eeuw"
+         ],
+         "antwoord": 1,
+         "uitleg": "1701 tot 1800 is de 18e eeuw."
+        },
+        {
+         "vraag": "Welk jaartal ligt het verst in het verleden?",
+         "opties": [
+          "300 v.C.",
+          "200 n.C.",
+          "50 n.C.",
+          "100 v.C."
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij v.C. tel je terug: 300 v.C. is het vroegst."
+        },
+        {
+         "vraag": "Welke gebeurtenis markeert het begin van de nieuwste tijd?",
+         "opties": [
+          "De ontdekking van Amerika",
+          "De val van Rome",
+          "De Franse Revolutie"
+         ],
+         "antwoord": 2,
+         "uitleg": "Meestal start men de nieuwste tijd bij de Franse Revolutie in 1789."
+        }
+       ]
+      },
+      {
+       "id": "historische-bronnen",
+       "titel": "Bronnen en de historische methode",
+       "uitleg": "Historici weten niets uit het hoofd over vroeger: ze onderzoeken bronnen. Een bron is alles wat ons iets vertelt over het verleden. Een geschreven bron is bijvoorbeeld een brief, een wet of een kroniek (een verhaal over gebeurtenissen). Een materiële bron is een voorwerp, zoals een pot, een gebouw of een gereedschap. Ook foto's, schilderijen en verhalen van getuigen zijn bronnen.\n\nArcheologen graven sporen uit de grond op en onderzoeken die. Wat zij vinden noemen we archeologische vondsten. Een primaire bron komt uit de tijd zelf, zoals een brief uit 1600. Een secundaire bron is later gemaakt, zoals een geschiedenisboek of een film over de Romeinen.\n\nEen historicus stelt vragen aan een bron: wie maakte ze, wanneer, waarom en voor wie? Zo kijkt hij of de bron betrouwbaar is. Een auteur kan namelijk partijdig zijn en de feiten mooier of slechter voorstellen. Daarom vergelijkt een historicus meerdere bronnen met elkaar.",
+       "woorden": [
+        {
+         "nl": "bron",
+         "doel": "alles wat informatie geeft over het verleden",
+         "voorbeeld": "Een munt uit de Romeinse tijd is een bron."
+        },
+        {
+         "nl": "archeoloog",
+         "doel": "wetenschapper die sporen uit de grond onderzoekt",
+         "voorbeeld": "Archeologen vonden resten van een Romeinse villa."
+        },
+        {
+         "nl": "primaire bron",
+         "doel": "bron die uit de bestudeerde tijd zelf komt",
+         "voorbeeld": "Een dagboek uit 1914."
+        },
+        {
+         "nl": "betrouwbaar",
+         "doel": "waarop je kunt vertrouwen omdat ze juist en eerlijk is",
+         "voorbeeld": "Twee onafhankelijke bronnen die hetzelfde vertellen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke bron is een materiële bron?",
+         "opties": [
+          "Een middeleeuwse pot",
+          "Een krant",
+          "Een brief"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een voorwerp zoals een pot is materieel; brieven en kranten zijn geschreven."
+        },
+        {
+         "vraag": "Wat is een secundaire bron?",
+         "opties": [
+          "Een bron uit de tijd zelf",
+          "Een gevonden gereedschap",
+          "Een later gemaakt geschiedenisboek"
+         ],
+         "antwoord": 2,
+         "uitleg": "Secundaire bronnen zijn achteraf gemaakt over het verleden."
+        },
+        {
+         "vraag": "Wat doet een archeoloog?",
+         "opties": [
+          "Hij schrijft wetten",
+          "Hij tekent kaarten van nu",
+          "Hij onderzoekt sporen in de grond"
+         ],
+         "antwoord": 2,
+         "uitleg": "Archeologen graven en onderzoeken vondsten."
+        },
+        {
+         "vraag": "Waarom vergelijkt een historicus meerdere bronnen?",
+         "opties": [
+          "Omdat bronnen altijd hetzelfde zeggen",
+          "Omdat een bron partijdig of onjuist kan zijn",
+          "Om meer papier te hebben"
+         ],
+         "antwoord": 1,
+         "uitleg": "Door vergelijking ontdek je fouten en meningen."
+        },
+        {
+         "vraag": "Welke vraag stel je NIET om een bron te onderzoeken?",
+         "opties": [
+          "Waarom werd ze gemaakt?",
+          "Hoeveel kost ze in de winkel?",
+          "Wie maakte ze?"
+         ],
+         "antwoord": 1,
+         "uitleg": "De winkelprijs zegt niets over de betrouwbaarheid van de bron."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "prehistorie",
+     "titel": "De prehistorie",
+     "samenvatting": "Hoe leefden de eerste mensen als jagers-verzamelaars en hoe veranderde alles met de landbouw?",
+     "lessen": [
+      {
+       "id": "jagers-verzamelaars",
+       "titel": "Jagers en verzamelaars",
+       "uitleg": "De prehistorie begint met de eerste mensachtigen, miljoenen jaren geleden. Onze eigen soort, de Homo sapiens, ontstond ongeveer 300.000 jaar geleden in Afrika. Het eerste deel van de prehistorie noemen we de oude steentijd (paleolithicum). De mensen gebruikten gereedschap van steen, bot en hout.\n\nDe mensen leefden toen als jagers-verzamelaars. Ze jaagden op dieren, visten en verzamelden vruchten, noten en wortels. Als er geen eten meer was, trokken ze verder: ze waren nomaden, mensen zonder vaste woonplaats. Ze leefden in kleine groepen, in grotten of tijdelijke tenten van huiden.\n\nEen heel belangrijke ontdekking was het vuur. Het gaf warmte en licht, hield wilde dieren weg en liet de mensen hun eten koken. Uit die tijd zijn ook grotschilderingen bewaard, zoals in Lascaux in Frankrijk. Waarom ze die maakten, weten we niet zeker.",
+       "woorden": [
+        {
+         "nl": "nomade",
+         "doel": "iemand die rondtrekt en geen vaste woonplaats heeft",
+         "voorbeeld": "Jagers-verzamelaars waren nomaden."
+        },
+        {
+         "nl": "jager-verzamelaar",
+         "doel": "mens die leeft van jagen, vissen en verzamelen",
+         "voorbeeld": "Neanderthalers en vroege Homo sapiens."
+        },
+        {
+         "nl": "paleolithicum",
+         "doel": "oude steentijd",
+         "voorbeeld": "In het paleolithicum gebruikte men vuistbijlen."
+        },
+        {
+         "nl": "grotschildering",
+         "doel": "tekening of schildering op een grotwand",
+         "voorbeeld": "De grotschilderingen van Lascaux."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarvan leefden jagers-verzamelaars?",
+         "opties": [
+          "Van jagen, vissen en verzamelen",
+          "Van handel met steden",
+          "Van akkerbouw"
+         ],
+         "antwoord": 0,
+         "uitleg": "Ze haalden hun voedsel uit de natuur zonder het te telen."
+        },
+        {
+         "vraag": "Wat betekent nomade?",
+         "opties": [
+          "Iemand met een kasteel",
+          "Iemand zonder vaste woonplaats",
+          "Een boer"
+         ],
+         "antwoord": 1,
+         "uitleg": "Nomaden trekken rond op zoek naar eten."
+        },
+        {
+         "vraag": "Welke ontdekking gaf warmte en liet toe om te koken?",
+         "opties": [
+          "Het vuur",
+          "Het schrift",
+          "Het wiel"
+         ],
+         "antwoord": 0,
+         "uitleg": "Vuur was een van de belangrijkste ontdekkingen van de oude steentijd."
+        },
+        {
+         "vraag": "Waar ontstond de Homo sapiens?",
+         "opties": [
+          "In Europa",
+          "In Amerika",
+          "In Afrika"
+         ],
+         "antwoord": 2,
+         "uitleg": "Onze soort ontstond ongeveer 300.000 jaar geleden in Afrika."
+        },
+        {
+         "vraag": "Waarvan werd gereedschap in de oude steentijd gemaakt?",
+         "opties": [
+          "Ijzer",
+          "Brons",
+          "Steen, bot en hout"
+         ],
+         "antwoord": 2,
+         "uitleg": "Metalen kwamen pas veel later."
+        }
+       ]
+      },
+      {
+       "id": "landbouwrevolutie",
+       "titel": "De landbouwrevolutie en de metaaltijden",
+       "uitleg": "Rond 10.000 jaar geleden begonnen mensen in het Nabije Oosten planten te telen en dieren te houden. Dat heet de landbouwrevolutie, het begin van de nieuwe steentijd (neolithicum). De mensen werden zo sedentair: ze bleven op één plaats wonen en bouwden dorpen met huizen. In onze streken kwamen de eerste landbouwers ongeveer 5300 v.C.\n\nLandbouw bracht grote veranderingen. Er was meer en zekerder voedsel, zodat de bevolking groeide. Mensen maakten aardewerk om voedsel te bewaren en weefden stof. Een teveel aan voedsel (overschot) maakte arbeidsverdeling mogelijk: niet iedereen moest nog boer zijn. Er kwamen ook ambachtslui, en later handel.\n\nDaarna leerden mensen metaal bewerken. Eerst koper, dan brons (een mengsel van koper en tin) tijdens de bronstijd, en later ijzer tijdens de ijzertijd. Metalen gereedschap en wapens waren sterker dan steen. In onze streken begon de ijzertijd ongeveer 800 v.C.",
+       "woorden": [
+        {
+         "nl": "landbouwrevolutie",
+         "doel": "overgang van jagen en verzamelen naar planten telen en dieren houden",
+         "voorbeeld": "Rond 10.000 jaar geleden in het Nabije Oosten."
+        },
+        {
+         "nl": "sedentair",
+         "doel": "op één vaste plaats wonend",
+         "voorbeeld": "Landbouwers waren sedentair."
+        },
+        {
+         "nl": "brons",
+         "doel": "metaal gemaakt van koper en tin",
+         "voorbeeld": "Bronzen zwaarden en bijlen."
+        },
+        {
+         "nl": "arbeidsverdeling",
+         "doel": "verschillende mensen doen verschillende taken",
+         "voorbeeld": "Een pottenbakker, een smid en een boer."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de landbouwrevolutie?",
+         "opties": [
+          "De overgang naar planten telen en dieren houden",
+          "Een oorlog tussen boeren",
+          "De uitvinding van het wiel"
+         ],
+         "antwoord": 0,
+         "uitleg": "Mensen gingen zelf voedsel produceren."
+        },
+        {
+         "vraag": "Wat is brons?",
+         "opties": [
+          "Een mengsel van koper en tin",
+          "Een soort steen",
+          "Een gouden munt"
+         ],
+         "antwoord": 0,
+         "uitleg": "Brons is een metaallegering van koper en tin."
+        },
+        {
+         "vraag": "Waardoor kon er arbeidsverdeling ontstaan?",
+         "opties": [
+          "Door de uitvinding van de auto",
+          "Door een voedseloverschot",
+          "Door de val van Rome"
+         ],
+         "antwoord": 1,
+         "uitleg": "Als er genoeg eten was, moest niet iedereen boer zijn."
+        },
+        {
+         "vraag": "Welke volgorde klopt?",
+         "opties": [
+          "Steentijd, bronstijd, ijzertijd",
+          "Bronstijd, steentijd, ijzertijd",
+          "Ijzertijd, bronstijd, steentijd"
+         ],
+         "antwoord": 0,
+         "uitleg": "Eerst steen, dan brons, dan ijzer."
+        },
+        {
+         "vraag": "Wat betekent sedentair?",
+         "opties": [
+          "Jagend",
+          "Rondtrekkend",
+          "Op één plaats wonend"
+         ],
+         "antwoord": 2,
+         "uitleg": "Sedentaire mensen wonen vast op één plaats."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mesopotamie",
+     "titel": "Mesopotamië: tussen twee rivieren",
+     "samenvatting": "De eerste steden en het eerste schrift ontstonden in het land van Eufraat en Tigris.",
+     "lessen": [
+      {
+       "id": "steden-en-schrift-sumer",
+       "titel": "Eerste steden en eerste schrift",
+       "uitleg": "Mesopotamië betekent 'land tussen de rivieren'. Het lag tussen de Eufraat en de Tigris, in het huidige Irak. Door de overstromingen van de rivieren was de grond vruchtbaar. Boeren leerden het water te beheersen met kanalen: dat heet irrigatie. Zo konden ze veel graan telen.\n\nRond 3500 v.C. ontstonden hier de eerste steden, zoals Uruk en Ur, gebouwd door de Sumeriërs. Elke stad had een eigen bestuurder en een grote tempel, de ziggoerat. In de stad woonden boeren, ambachtslui, handelaars, priesters en schrijvers.\n\nOngeveer 3300 v.C. vonden de Sumeriërs het schrift uit: het spijkerschrift. Ze drukten tekens met een rietstengel in natte klei. Schrijvers hielden zo de voorraden en de handel bij. Met de uitvinding van het schrift begint de oudheid. Het beroemdste verhaal uit die tijd is het Gilgamesj-epos, een heldendicht.",
+       "woorden": [
+        {
+         "nl": "irrigatie",
+         "doel": "water via kanalen naar de akkers leiden",
+         "voorbeeld": "Sumeriërs groeven kanalen vanuit de Eufraat."
+        },
+        {
+         "nl": "spijkerschrift",
+         "doel": "schrift met wigvormige tekens in klei",
+         "voorbeeld": "Een kleitablet met spijkerschrift."
+        },
+        {
+         "nl": "ziggoerat",
+         "doel": "trapvormige tempeltoren",
+         "voorbeeld": "De ziggoerat van Ur."
+        },
+        {
+         "nl": "Sumeriërs",
+         "doel": "volk in het zuiden van Mesopotamië dat de eerste steden bouwde",
+         "voorbeeld": "Zij vonden het schrift uit."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Tussen welke rivieren lag Mesopotamië?",
+         "opties": [
+          "Eufraat en Tigris",
+          "Nijl en Jordaan",
+          "Rijn en Maas"
+         ],
+         "antwoord": 0,
+         "uitleg": "Mesopotamië betekent land tussen Eufraat en Tigris."
+        },
+        {
+         "vraag": "Wat is irrigatie?",
+         "opties": [
+          "Water naar de akkers leiden",
+          "Het bouwen van tempels",
+          "Het schrijven op klei"
+         ],
+         "antwoord": 0,
+         "uitleg": "Met kanalen werd water over de velden verdeeld."
+        },
+        {
+         "vraag": "Wat gebruikten de Sumeriërs om te schrijven?",
+         "opties": [
+          "Rietstengel en natte klei",
+          "Papyrus en inkt",
+          "Perkament en veer"
+         ],
+         "antwoord": 0,
+         "uitleg": "Spijkerschrift werd in klei gedrukt."
+        },
+        {
+         "vraag": "Wat was een ziggoerat?",
+         "opties": [
+          "Een trapvormige tempeltoren",
+          "Een koning",
+          "Een soort schip"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een ziggoerat was een tempel in de vorm van een trappentoren."
+        },
+        {
+         "vraag": "Welk volk bouwde de eerste steden in Mesopotamië?",
+         "opties": [
+          "De Romeinen",
+          "De Grieken",
+          "De Sumeriërs"
+         ],
+         "antwoord": 2,
+         "uitleg": "Uruk en Ur waren Sumerische steden."
+        }
+       ]
+      },
+      {
+       "id": "hammoerabi-en-wetten",
+       "titel": "Koning Hammoerabi en zijn wetten",
+       "uitleg": "In Mesopotamië ontstonden rijken met sterke koningen. Een van de bekendste was Hammoerabi, koning van Babylon, die ongeveer 1792 tot 1750 v.C. regeerde. Hij is beroemd om zijn wetten.\n\nDie wetten liet hij in een zwarte steen uithouwen, zodat iedereen ze kon lezen. We noemen dit de wetten van Hammoerabi. Ze regelden handel, huwelijk, eigendom en straffen. Veel straffen waren hard, en ze hingen af van je stand: een rijke werd anders gestraft dan een slaaf.\n\nVoor ons is zo'n wettekst een schriftelijke bron die veel vertelt over het dagelijks leven. Het idee dat wetten opgeschreven moeten worden, zodat de koning niet zomaar kan beslissen, was een belangrijke stap. De Mesopotamiërs waren ook goed in wiskunde en sterrenkunde: van hen komt de verdeling van een uur in 60 minuten.",
+       "woorden": [
+        {
+         "nl": "Hammoerabi",
+         "doel": "koning van Babylon die bekend is om zijn wetten",
+         "voorbeeld": "Ongeveer 1792-1750 v.C."
+        },
+        {
+         "nl": "wet",
+         "doel": "regel die voor iedereen in een land geldt",
+         "voorbeeld": "Een wet over diefstal."
+        },
+        {
+         "nl": "Babylon",
+         "doel": "belangrijke stad in Mesopotamië",
+         "voorbeeld": "De hoofdstad van Hammoerabi."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarom is Hammoerabi beroemd?",
+         "opties": [
+          "Om zijn wetten",
+          "Om zijn piramide",
+          "Om zijn zeereizen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zijn wetten zijn bewaard op een steen."
+        },
+        {
+         "vraag": "Waarom liet hij de wetten opschrijven?",
+         "opties": [
+          "Zodat iedereen ze kon kennen",
+          "Als decoratie voor zijn kamer",
+          "Om ze geheim te houden"
+         ],
+         "antwoord": 0,
+         "uitleg": "Opgeschreven wetten zijn voor iedereen zichtbaar en moeilijker te omzeilen."
+        },
+        {
+         "vraag": "Welke stad was de hoofdstad van Hammoerabi?",
+         "opties": [
+          "Babylon",
+          "Memphis",
+          "Athene"
+         ],
+         "antwoord": 0,
+         "uitleg": "Hammoerabi was koning van Babylon."
+        },
+        {
+         "vraag": "Wat leert zo'n wettekst ons?",
+         "opties": [
+          "Niets",
+          "Hoe het dagelijks leven was",
+          "Alleen wat de weersomstandigheden waren"
+         ],
+         "antwoord": 1,
+         "uitleg": "Wetten laten zien welke problemen en regels er waren."
+        },
+        {
+         "vraag": "Welke uitvinding van de Mesopotamiërs gebruiken wij nog?",
+         "opties": [
+          "De drukpers",
+          "Het kompas",
+          "Het uur van 60 minuten"
+         ],
+         "antwoord": 2,
+         "uitleg": "De verdeling in 60 komt uit Mesopotamië."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "egypte",
+     "titel": "Het oude Egypte",
+     "samenvatting": "Een beschaving langs de Nijl met farao's, piramides en hiërogliefen.",
+     "lessen": [
+      {
+       "id": "nijl-en-farao",
+       "titel": "De Nijl en de farao",
+       "uitleg": "Egypte noemen we een geschenk van de Nijl. Elk jaar overstroomde de rivier en liet vruchtbaar slib achter. Rondom de Nijl lag de woestijn, die het land beschermde. Rond 3100 v.C. werden Boven- en Beneden-Egypte verenigd tot één rijk.\n\nDe koning heette de farao. Hij werd als een god op aarde beschouwd en had alle macht: hij was tegelijk koning, rechter, legeraanvoerder en hogepriester. We noemen dat een theocratie. Onder de farao stonden de vizier (een soort eerste minister), priesters, schrijvers en ambtenaren. De meeste mensen waren boeren. Ze betaalden belasting in graan en werkten soms mee aan grote bouwwerken.\n\nBekende farao's zijn Cheops (ongeveer 2600 v.C., piramide van Gizeh), Hatsjepsoet (een vrouwelijke farao, ongeveer 1470 v.C.) en Toetanchamon (ongeveer 1330 v.C., bekend door zijn onaangeroerde graf).",
+       "woorden": [
+        {
+         "nl": "farao",
+         "doel": "koning van het oude Egypte, gezien als een god",
+         "voorbeeld": "Cheops liet de grootste piramide bouwen."
+        },
+        {
+         "nl": "slib",
+         "doel": "vruchtbare modder die de Nijl achterliet",
+         "voorbeeld": "Het slib maakte de grond geschikt voor landbouw."
+        },
+        {
+         "nl": "vizier",
+         "doel": "hoogste ambtenaar onder de farao",
+         "voorbeeld": "De vizier hield toezicht op de belastingen."
+        },
+        {
+         "nl": "theocratie",
+         "doel": "bestuur waarbij de heerser ook als godheid of door god gekozen geldt",
+         "voorbeeld": "Egypte onder de farao's."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat deed de Nijl elk jaar?",
+         "opties": [
+          "Hij droogde uit",
+          "Hij overstroomde en liet slib achter",
+          "Hij bevroor"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat slib maakte het land vruchtbaar."
+        },
+        {
+         "vraag": "Wie had de meeste macht in Egypte?",
+         "opties": [
+          "De vizier",
+          "De boeren",
+          "De farao"
+         ],
+         "antwoord": 2,
+         "uitleg": "De farao werd als god beschouwd en had alle macht."
+        },
+        {
+         "vraag": "Wat was de belangrijkste beroepsgroep in Egypte?",
+         "opties": [
+          "Soldaten",
+          "Boeren",
+          "Zeelui"
+         ],
+         "antwoord": 1,
+         "uitleg": "De meeste Egyptenaren werkten op het land."
+        },
+        {
+         "vraag": "Wie was Hatsjepsoet?",
+         "opties": [
+          "Een Romeinse keizer",
+          "Een Griekse god",
+          "Een vrouwelijke farao"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zij regeerde als farao rond 1470 v.C."
+        },
+        {
+         "vraag": "Wat beschermde Egypte tegen aanvallen?",
+         "opties": [
+          "Een muur van beton",
+          "Hoge bergen en sneeuw",
+          "De woestijn rondom"
+         ],
+         "antwoord": 2,
+         "uitleg": "De woestijn maakte het moeilijk om Egypte binnen te vallen."
+        }
+       ]
+      },
+      {
+       "id": "piramides-schrift-geloof",
+       "titel": "Piramides, hiërogliefen en geloof",
+       "uitleg": "De Egyptenaren geloofden in een leven na de dood. Het lichaam moest bewaard blijven, dus maakten ze mummies: ze balsemden het lijk en wikkelden het in linnen. De farao werd begraven in een groot graf. In het Oude Rijk bouwde men daarvoor piramides, zoals de piramide van Cheops bij Gizeh (ongeveer 2600 v.C.). Later liet men zich begraven in rotsgraven in de Vallei der Koningen.\n\nDe Egyptenaren hadden veel goden, zoals Ra (de zon), Osiris (god van de doden) en Isis. Dat noemen we veelgodendom of polytheïsme.\n\nHun schrift heette hiërogliefen: tekens die voor woorden of klanken staan. Ze schreven op papyrus, een soort papier uit een rietplant. Lang kon niemand hiërogliefen lezen. In 1799 vond men de steen van Rosetta, met dezelfde tekst in drie schriften. Jean-François Champollion kon daardoor in 1822 het hiërogliefenschrift ontcijferen.",
+       "woorden": [
+        {
+         "nl": "mummie",
+         "doel": "gebalsemd en ingewikkeld lijk",
+         "voorbeeld": "De mummie van een farao."
+        },
+        {
+         "nl": "hiërogliefen",
+         "doel": "Egyptisch beeldschrift",
+         "voorbeeld": "Tekens op tempelmuren."
+        },
+        {
+         "nl": "papyrus",
+         "doel": "schrijfmateriaal gemaakt van een rietplant",
+         "voorbeeld": "Een rol papyrus met een verhaal."
+        },
+        {
+         "nl": "polytheïsme",
+         "doel": "geloof in meerdere goden",
+         "voorbeeld": "De Egyptenaren aanbaden Ra en Isis."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarom maakten de Egyptenaren mummies?",
+         "opties": [
+          "Als versiering voor huizen",
+          "Om hun dieren te verkopen",
+          "Omdat ze in een leven na de dood geloofden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het lichaam moest bewaard blijven voor het hiernamaals."
+        },
+        {
+         "vraag": "Waarvoor diende de piramide van Cheops?",
+         "opties": [
+          "Als sterrenwacht voor het volk",
+          "Als graf voor de farao",
+          "Als paleis"
+         ],
+         "antwoord": 1,
+         "uitleg": "Piramides waren grafmonumenten."
+        },
+        {
+         "vraag": "Wat is papyrus?",
+         "opties": [
+          "Een Egyptische god",
+          "Een schrijfmateriaal uit een rietplant",
+          "Een soort brood"
+         ],
+         "antwoord": 1,
+         "uitleg": "Papyrus is het papier van de Egyptenaren."
+        },
+        {
+         "vraag": "Wat hielp om hiërogliefen te ontcijferen?",
+         "opties": [
+          "De steen van Rosetta",
+          "De Gilgamesj-klei",
+          "Een Romeinse wet"
+         ],
+         "antwoord": 0,
+         "uitleg": "De Rosettasteen heeft dezelfde tekst in drie schriften."
+        },
+        {
+         "vraag": "Wat is polytheïsme?",
+         "opties": [
+          "Geloof in één god",
+          "Geen geloof",
+          "Geloof in meerdere goden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Poly betekent veel; de Egyptenaren hadden veel goden."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "grieken",
+     "titel": "De oude Grieken",
+     "samenvatting": "Stadstaten, democratie, goden en cultuur van de Grieken.",
+     "lessen": [
+      {
+       "id": "polis-athene-sparta",
+       "titel": "De polis: Athene en Sparta",
+       "uitleg": "Griekenland bestaat uit bergen en eilanden. Daardoor ontstond geen groot rijk, maar waren er veel kleine stadstaten, polis genoemd (meervoud: poleis). Elke polis had een eigen bestuur, een eigen leger en eigen wetten. Toch voelden de Grieken zich één volk: ze spraken Grieks, hadden dezelfde goden en hielden samen de Olympische Spelen, voor het eerst ongeveer 776 v.C.\n\nAthene en Sparta waren twee heel verschillende poleis. Athene was een handelsstad met een democratie, een bestuur door het volk. In Sparta draaide alles om het leger. Spartaanse jongens werden vanaf zeven jaar militair opgeleid. Sparta werd bestuurd door twee koningen en een raad van oudsten.\n\nGriekenland werd twee keer door de Perzen aangevallen: bij Marathon (490 v.C.) en bij Salamis (480 v.C.) wonnen de Grieken. In 431 v.C. begon een lange oorlog tussen Athene en Sparta, de Peloponnesische Oorlog, die Sparta won.",
+       "woorden": [
+        {
+         "nl": "polis",
+         "doel": "Griekse stadstaat",
+         "voorbeeld": "Athene en Sparta waren poleis."
+        },
+        {
+         "nl": "democratie",
+         "doel": "bestuur door het volk",
+         "voorbeeld": "In Athene mochten vrije mannen stemmen."
+        },
+        {
+         "nl": "stadstaat",
+         "doel": "stad met eigen bestuur en gebied errond",
+         "voorbeeld": "Korinthe was een stadstaat."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een polis?",
+         "opties": [
+          "Een Griekse stadstaat",
+          "Een Griekse god",
+          "Een soort schip"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een polis is een stad met eigen bestuur en gebied."
+        },
+        {
+         "vraag": "Waarom ontstonden er veel kleine stadstaten in Griekenland?",
+         "opties": [
+          "Door bergen en eilanden",
+          "Omdat er geen water was",
+          "Omdat de Perzen ze stichtten"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het landschap verdeelde de regio in kleine gebieden."
+        },
+        {
+         "vraag": "Waar draaide het leven in Sparta vooral om?",
+         "opties": [
+          "De handel",
+          "Kunst en theater",
+          "Het leger"
+         ],
+         "antwoord": 2,
+         "uitleg": "Spartanen waren militair opgevoed."
+        },
+        {
+         "vraag": "Wat hielden alle Grieken samen?",
+         "opties": [
+          "De Olympische Spelen",
+          "Een jaarlijkse reis naar Egypte",
+          "Een volksstemming over oorlog"
+         ],
+         "antwoord": 0,
+         "uitleg": "De Spelen waren een gemeenschappelijk feest voor alle Grieken."
+        },
+        {
+         "vraag": "Welke polis won de Peloponnesische Oorlog?",
+         "opties": [
+          "Athene",
+          "Sparta",
+          "Troje"
+         ],
+         "antwoord": 1,
+         "uitleg": "Sparta won rond 404 v.C."
+        }
+       ]
+      },
+      {
+       "id": "atheense-democratie",
+       "titel": "De Atheense democratie",
+       "uitleg": "Het woord democratie komt van het Grieks: demos (volk) en kratos (macht). Rond 508 v.C. voerde Kleisthenes in Athene een democratie in. De belangrijkste beslissingen werden genomen in de volksvergadering, waar elke Atheense burger mocht stemmen en spreken.\n\nNiet iedereen was burger. Alleen volwassen vrije mannen die uit Athene afkomstig waren, mochten meebeslissen. Vrouwen, slaven en buitenlanders hadden geen stemrecht. Dat was dus een beperkte democratie, heel anders dan onze moderne democratie waar alle volwassenen mogen stemmen.\n\nIn Athene werd veel gewerkt met loting: een aantal functies werd door het lot toegewezen. Een bekende leider was Perikles (ongeveer 495 tot 429 v.C.), onder wie Athene bloeide en de Akropolis met de Parthenon werd gebouwd.",
+       "woorden": [
+        {
+         "nl": "burger",
+         "doel": "volwaardig lid van de polis met politieke rechten",
+         "voorbeeld": "In Athene: alleen vrije Atheense mannen."
+        },
+        {
+         "nl": "volksvergadering",
+         "doel": "bijeenkomst waar burgers besluiten namen",
+         "voorbeeld": "De volksvergadering op de Pnyx."
+        },
+        {
+         "nl": "Perikles",
+         "doel": "Atheens leider tijdens de bloeiperiode",
+         "voorbeeld": "Onder hem werd de Parthenon gebouwd."
+        },
+        {
+         "nl": "Kleisthenes",
+         "doel": "Atheens politicus die rond 508 v.C. de democratie invoerde",
+         "voorbeeld": "Vader van de Atheense democratie."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent democratie letterlijk?",
+         "opties": [
+          "Macht van de priesters",
+          "Macht van de koning",
+          "Macht van het volk"
+         ],
+         "antwoord": 2,
+         "uitleg": "Demos = volk, kratos = macht."
+        },
+        {
+         "vraag": "Wie mocht stemmen in Athene?",
+         "opties": [
+          "Alle inwoners",
+          "Vrije mannelijke burgers",
+          "Alle volwassenen behalve slaven"
+         ],
+         "antwoord": 1,
+         "uitleg": "Alleen vrije Atheense mannen waren burgers."
+        },
+        {
+         "vraag": "Welke groep mocht niet stemmen?",
+         "opties": [
+          "Vrouwen",
+          "Soldaten die burger waren",
+          "Burgers"
+         ],
+         "antwoord": 0,
+         "uitleg": "Vrouwen, slaven en vreemdelingen waren uitgesloten."
+        },
+        {
+         "vraag": "Wie voerde rond 508 v.C. de democratie in Athene in?",
+         "opties": [
+          "Kleisthenes",
+          "Caesar",
+          "Hammoerabi"
+         ],
+         "antwoord": 0,
+         "uitleg": "Kleisthenes hervormde het bestuur van Athene."
+        },
+        {
+         "vraag": "Waar werd de Parthenon gebouwd?",
+         "opties": [
+          "In Rome",
+          "In Sparta",
+          "Op de Akropolis"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Parthenon staat op de Akropolis van Athene."
+        }
+       ]
+      },
+      {
+       "id": "grieks-leven-en-cultuur",
+       "titel": "Goden, theater en wetenschap",
+       "uitleg": "De Grieken geloofden in veel goden, die op de berg Olympus woonden. Zeus was de hoogste god, Athena de godin van de wijsheid en patroon van Athene, Poseidon de god van de zee. De goden leken op mensen: ze hadden ruzies en liefdes. Verhalen over goden en helden noemen we mythen. Homerus schreef de Ilias en de Odyssee.\n\nDe Grieken bouwden tempels met zuilen en bedachten het theater. Toeschouwers keken naar tragedies (ernstige stukken) en komedies (grappige stukken) in openluchttheaters.\n\nGrieken zochten ook verklaringen zonder goden. Filosofen als Socrates, Plato en Aristoteles stelden vragen over mens en wereld. Hippocrates wordt de vader van de geneeskunde genoemd. Pythagoras en Euclides hielden zich bezig met wiskunde. Veel van ons denken, zoals het woord 'democratie', komt van hen.",
+       "woorden": [
+        {
+         "nl": "mythe",
+         "doel": "verhaal over goden en helden",
+         "voorbeeld": "Het verhaal van Odysseus."
+        },
+        {
+         "nl": "filosoof",
+         "doel": "denker die vragen stelt over mens, wereld en kennis",
+         "voorbeeld": "Socrates ondervroeg mensen op straat."
+        },
+        {
+         "nl": "tragedie",
+         "doel": "ernstig toneelstuk met een droevige afloop",
+         "voorbeeld": "Griekse tragedies in het theater van Epidaurus."
+        },
+        {
+         "nl": "Zeus",
+         "doel": "hoogste god van de Grieken",
+         "voorbeeld": "Hij woonde op de Olympus."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waar woonden de Griekse goden volgens de mythen?",
+         "opties": [
+          "In Rome",
+          "Op de berg Olympus",
+          "In de Nijl"
+         ],
+         "antwoord": 1,
+         "uitleg": "De Olympus was de woonplaats van de goden."
+        },
+        {
+         "vraag": "Wie was de hoogste Griekse god?",
+         "opties": [
+          "Ra",
+          "Zeus",
+          "Poseidon"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zeus was de leider van de goden."
+        },
+        {
+         "vraag": "Wat is een filosoof?",
+         "opties": [
+          "Een bouwmeester",
+          "Een denker die vragen stelt over de wereld",
+          "Een soldaat"
+         ],
+         "antwoord": 1,
+         "uitleg": "Filosofie betekent liefde voor wijsheid."
+        },
+        {
+         "vraag": "Wat is een tragedie?",
+         "opties": [
+          "Een tempel",
+          "Een grappig stuk",
+          "Een ernstig toneelstuk met droevige afloop"
+         ],
+         "antwoord": 2,
+         "uitleg": "Komedies zijn de grappige stukken."
+        },
+        {
+         "vraag": "Wie schreef de Ilias en de Odyssee?",
+         "opties": [
+          "Plato",
+          "Hippocrates",
+          "Homerus"
+         ],
+         "antwoord": 2,
+         "uitleg": "Homerus is de dichter van beide epen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "romeinen",
+     "titel": "De Romeinen",
+     "samenvatting": "Van kleine stad tot wereldrijk: republiek en keizerrijk.",
+     "lessen": [
+      {
+       "id": "rome-republiek",
+       "titel": "Rome wordt een republiek en een groot rijk",
+       "uitleg": "Volgens de legende werd Rome gesticht in 753 v.C. door Romulus. Het was eerst een koninkrijk. In 509 v.C. werd de laatste koning verjaagd en werd Rome een republiek. Het woord komt van res publica, 'zaak van het volk'. In de republiek bestuurden gekozen magistraten, zoals twee consuls, samen met de senaat, een raad van rijke en invloedrijke mannen.\n\nRome had een sterk leger van legioenen. Dankzij dat leger veroverde Rome eerst Italië en daarna rond de Middellandse Zee. De Romeinen noemden de Middellandse Zee 'mare nostrum': onze zee. Tegen Carthago, een rijke stad in Noord-Afrika, voerde Rome de Punische Oorlogen. De Carthaagse generaal Hannibal stak met olifanten de Alpen over, maar Rome won uiteindelijk en verwoestte Carthago in 146 v.C.\n\nDe veroveringen brachten rijkdom, maar ook slaven en conflicten tussen arm en rijk. Dat leidde tot burgeroorlogen.",
+       "woorden": [
+        {
+         "nl": "republiek",
+         "doel": "staat zonder koning waar gekozen leiders besturen",
+         "voorbeeld": "Rome vanaf 509 v.C."
+        },
+        {
+         "nl": "senaat",
+         "doel": "raad van invloedrijke Romeinen",
+         "voorbeeld": "De senaat adviseerde de consuls."
+        },
+        {
+         "nl": "legioen",
+         "doel": "grote eenheid soldaten in het Romeinse leger",
+         "voorbeeld": "Een legioen telde duizenden soldaten."
+        },
+        {
+         "nl": "consul",
+         "doel": "hoogste gekozen bestuurder van de Romeinse republiek",
+         "voorbeeld": "Er waren er jaarlijks twee."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie bestuurde Rome in de republiek?",
+         "opties": [
+          "Gekozen magistraten en de senaat",
+          "Een Griekse volksvergadering",
+          "Een farao"
+         ],
+         "antwoord": 0,
+         "uitleg": "De republiek werd bestuurd door gekozen ambten en de senaat."
+        },
+        {
+         "vraag": "In welk jaar werd Rome een republiek?",
+         "opties": [
+          "476 n.C.",
+          "509 v.C.",
+          "27 v.C."
+         ],
+         "antwoord": 1,
+         "uitleg": "De laatste koning werd rond 509 v.C. verjaagd."
+        },
+        {
+         "vraag": "Wie stak met olifanten de Alpen over?",
+         "opties": [
+          "Augustus",
+          "Caesar",
+          "Hannibal"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hannibal was de Carthaagse generaal."
+        },
+        {
+         "vraag": "Wat noemden de Romeinen 'mare nostrum'?",
+         "opties": [
+          "De Middellandse Zee",
+          "De Rijn",
+          "De Noordzee"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het betekent 'onze zee'."
+        },
+        {
+         "vraag": "Wat was Carthago?",
+         "opties": [
+          "Een Romeinse weg",
+          "Een Griekse god",
+          "Een rivaliserende stad in Noord-Afrika"
+         ],
+         "antwoord": 2,
+         "uitleg": "Rome vernietigde Carthago in 146 v.C."
+        }
+       ]
+      },
+      {
+       "id": "rome-keizerrijk",
+       "titel": "Caesar, Augustus en het keizerrijk",
+       "uitleg": "Door de burgeroorlogen kwamen machtige generaals aan de top. Gaius Julius Caesar veroverde Gallië, het gebied van het huidige Frankrijk en België (58 tot 50 v.C.), en nam in Rome de macht. In 44 v.C. werd hij door senatoren vermoord, omdat zij vreesden dat hij koning wilde worden.\n\nDaarna won zijn adoptiefzoon Octavianus de strijd om de macht. In 27 v.C. kreeg hij de titel Augustus en werd hij de eerste keizer. Rome was nu een keizerrijk: een staat met één machtshebber, de keizer. Augustus bracht rust na de burgeroorlogen. Dit was het begin van de Pax Romana, een lange periode van vrede binnen het rijk.\n\nHet rijk was in de 2e eeuw n.C. op zijn grootst. De hoofdstad Rome had ongeveer een miljoen inwoners. Rond 313 n.C. liet keizer Constantijn het christendom toe, en in 380 n.C. werd het de staatsgodsdienst. In 395 n.C. werd het rijk in twee delen gesplitst. Het West-Romeinse Rijk viel in 476 n.C.",
+       "woorden": [
+        {
+         "nl": "keizer",
+         "doel": "alleenheerser van het Romeinse keizerrijk",
+         "voorbeeld": "Augustus was de eerste keizer."
+        },
+        {
+         "nl": "Pax Romana",
+         "doel": "Romeinse vrede binnen het rijk",
+         "voorbeeld": "Handel bloeide tijdens de Pax Romana."
+        },
+        {
+         "nl": "Gallië",
+         "doel": "gebied van het huidige Frankrijk en België",
+         "voorbeeld": "Caesar veroverde Gallië."
+        },
+        {
+         "nl": "Augustus",
+         "doel": "eerste Romeinse keizer",
+         "voorbeeld": "Hij kreeg die titel in 27 v.C."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie was de eerste Romeinse keizer?",
+         "opties": [
+          "Augustus",
+          "Caesar",
+          "Nero"
+         ],
+         "antwoord": 0,
+         "uitleg": "Octavianus kreeg in 27 v.C. de titel Augustus."
+        },
+        {
+         "vraag": "Wat veroverde Caesar tussen 58 en 50 v.C.?",
+         "opties": [
+          "Gallië",
+          "Egypte",
+          "Griekenland"
+         ],
+         "antwoord": 0,
+         "uitleg": "Dat is zijn bekende Gallische Oorlog."
+        },
+        {
+         "vraag": "Wat betekent Pax Romana?",
+         "opties": [
+          "Romeinse vrede",
+          "Romeinse godsdienst",
+          "Romeinse oorlog"
+         ],
+         "antwoord": 0,
+         "uitleg": "Pax betekent vrede."
+        },
+        {
+         "vraag": "Wanneer viel het West-Romeinse Rijk?",
+         "opties": [
+          "27 v.C.",
+          "1066 n.C.",
+          "476 n.C."
+         ],
+         "antwoord": 2,
+         "uitleg": "476 n.C. is het einde van de oudheid."
+        },
+        {
+         "vraag": "Waarom werd Caesar vermoord?",
+         "opties": [
+          "Hij verloor een oorlog",
+          "Hij werd ziek",
+          "Senatoren vreesden dat hij koning wilde worden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hij werd in 44 v.C. door senatoren neergestoken."
+        }
+       ]
+      },
+      {
+       "id": "romeins-dagelijks-leven",
+       "titel": "Leven in het Romeinse Rijk",
+       "uitleg": "Het Romeinse rijk was groot en had goede wegen. Die wegen waren voor soldaten, boodschappers en handelaars. Het rijk werd bijeengehouden door een gemeenschappelijke taal, het Latijn, en door recht, munt en leger. Veel van onze woorden en ons recht komen uit het Latijn.\n\nIn de stad woonden rijke mensen in een domus (huis met binnenplaats), gewone mensen in huurflats (insulae). Voor vermaak waren er thermen (badhuizen), theaters en de arena, waar gladiatoren vochten. Een gladiator was vaak een slaaf of krijgsgevangene. Een aquaduct bracht vers water naar de stad.\n\nDe maatschappij was in standen verdeeld: patriciërs (adel), plebejers (gewone burgers) en slaven. Slaven hadden geen rechten en werkten in huizen, mijnen en op landgoederen. Belangrijke Romeinse uitvindingen zijn beton, de boog en het aquaduct.",
+       "woorden": [
+        {
+         "nl": "aquaduct",
+         "doel": "brug of leiding waarover water naar een stad wordt gevoerd",
+         "voorbeeld": "Het aquaduct van Segovia."
+        },
+        {
+         "nl": "gladiator",
+         "doel": "man die in de arena vocht voor publiek",
+         "voorbeeld": "Vaak een slaaf of krijgsgevangene."
+        },
+        {
+         "nl": "Latijn",
+         "doel": "taal van de Romeinen",
+         "voorbeeld": "Het Latijn leeft voort in o.a. het Frans en het Italiaans."
+        },
+        {
+         "nl": "slaaf",
+         "doel": "mens die eigendom is van een ander",
+         "voorbeeld": "Slaven werkten op landgoederen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een aquaduct?",
+         "opties": [
+          "Een weg",
+          "Een tempel",
+          "Een waterleiding naar de stad"
+         ],
+         "antwoord": 2,
+         "uitleg": "Aquaducten brachten vers water."
+        },
+        {
+         "vraag": "Welke taal spraken de Romeinen?",
+         "opties": [
+          "Grieks",
+          "Latijn",
+          "Frans"
+         ],
+         "antwoord": 1,
+         "uitleg": "Latijn was de taal van Rome."
+        },
+        {
+         "vraag": "Wat deden gladiatoren?",
+         "opties": [
+          "Wegen aanleggen",
+          "Wetten schrijven",
+          "Vechten in de arena"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ze vochten voor het publiek."
+        },
+        {
+         "vraag": "Wat waren thermen?",
+         "opties": [
+          "Een leger",
+          "Een badhuis",
+          "Een gevangenis"
+         ],
+         "antwoord": 1,
+         "uitleg": "Thermen waren openbare badhuizen en ontmoetingsplaatsen."
+        },
+        {
+         "vraag": "Welke uitvinding is typisch Romeins?",
+         "opties": [
+          "Beton",
+          "De drukpers",
+          "Het schrift"
+         ],
+         "antwoord": 0,
+         "uitleg": "Romeinen bouwden veel met beton."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "romeinen-in-onze-gewesten",
+     "titel": "De Romeinen in onze gewesten",
+     "samenvatting": "Hoe Caesar onze streken veroverde en wat de Romeinen hier achterlieten.",
+     "lessen": [
+      {
+       "id": "caesar-en-de-belgen",
+       "titel": "Caesar verovert onze streken",
+       "uitleg": "Voor de Romeinen kwamen, woonden hier Kelten en Germanen. Het gebied heette Gallië. In de Gallische Oorlog (58 tot 50 v.C.) veroverde Julius Caesar heel Gallië. Hij schreef er zelf over in zijn boek De Bello Gallico. Daarin staat de beroemde zin dat 'de Belgen de dapperste van alle Galliërs zijn', omdat ze het verst van de Romeinse beschaving woonden.\n\nBelangrijke volkeren in onze streken waren de Nerviërs, de Menapiërs en de Eburonen. De Eburonen kwamen onder leiding van Ambiorix in opstand (54 v.C.) en doodden een Romeins legerdeel. Caesar wreekte zich hard op hen.\n\nRond 50 v.C. was het gebied veroverd. Het werd een Romeinse provincie: Gallia Belgica. Later werd het gebied tussen de Rijn en de zee gesplitst; ons gebied behoorde bij Gallia Belgica en Germania Inferior.",
+       "woorden": [
+        {
+         "nl": "provincie",
+         "doel": "veroverd gebied van het Romeinse Rijk met eigen bestuurder",
+         "voorbeeld": "Gallia Belgica."
+        },
+        {
+         "nl": "Ambiorix",
+         "doel": "leider van de Eburonen die tegen Rome in opstand kwam",
+         "voorbeeld": "Opstand in 54 v.C."
+        },
+        {
+         "nl": "De Bello Gallico",
+         "doel": "boek van Caesar over de Gallische Oorlog",
+         "voorbeeld": "Een primaire bron."
+        },
+        {
+         "nl": "Kelten",
+         "doel": "volk dat in Gallië woonde",
+         "voorbeeld": "De Belgen waren Keltisch-Germaanse stammen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie veroverde Gallië?",
+         "opties": [
+          "Augustus",
+          "Hannibal",
+          "Julius Caesar"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Gallische Oorlog duurde van 58 tot 50 v.C."
+        },
+        {
+         "vraag": "Wat is De Bello Gallico?",
+         "opties": [
+          "Boek van Caesar over de oorlog",
+          "Een Keltische god",
+          "Een Romeinse wet"
+         ],
+         "antwoord": 0,
+         "uitleg": "Caesar schreef het zelf; het is een belangrijke bron."
+        },
+        {
+         "vraag": "Wie was Ambiorix?",
+         "opties": [
+          "Leider van de Eburonen",
+          "Een Romeinse keizer",
+          "Een Griekse filosoof"
+         ],
+         "antwoord": 0,
+         "uitleg": "Hij leidde in 54 v.C. de opstand."
+        },
+        {
+         "vraag": "Hoe noemde de Romeinen ons gebied?",
+         "opties": [
+          "Germania Magna",
+          "Britannia",
+          "Gallia Belgica"
+         ],
+         "antwoord": 2,
+         "uitleg": "Gallia Belgica was een Romeinse provincie."
+        },
+        {
+         "vraag": "Wat zegt Caesar over de Belgen?",
+         "opties": [
+          "Dat ze de dapperste Galliërs waren",
+          "Dat ze niets deden",
+          "Dat ze zwak waren"
+         ],
+         "antwoord": 0,
+         "uitleg": "Hij roemde hun moed."
+        }
+       ]
+      },
+      {
+       "id": "romeins-leven-in-onze-streken",
+       "titel": "Romeinse sporen bij ons",
+       "uitleg": "De Romeinen veranderden onze streken. Ze legden verharde wegen aan, zoals de heirbaan Boulogne-Keulen langs Bavay en Tongeren. Tongeren (Atuatuca Tungrorum) is de oudste stad van ons land. Er stond ook een Romeins legerkamp en later een stad met stadsmuur, waarvan nog resten bestaan.\n\nIn het zuiden van Vlaanderen en Wallonië bouwden Romeinen veel villa's: grote boerderijen met landgoed, geleid door rijke grondbezitters. De lokale bevolking nam gaandeweg de Romeinse gewoonten over. Dit noemen we romanisering. Mensen aten er Romeins eten, gebruikten Romeins aardewerk en spraken Latijn.\n\nDe Romeinen verdedigden de noordgrens langs de Rijn, de limes. Tegen het einde van de 3e eeuw n.C. kwamen Germaanse Franken binnen. In de 5e eeuw trokken de Romeinse legers weg en kwam de Frankische bevolking vaker voor.",
+       "woorden": [
+        {
+         "nl": "romanisering",
+         "doel": "overname van de Romeinse cultuur door veroverde volkeren",
+         "voorbeeld": "Latijn, wegen, villa's."
+        },
+        {
+         "nl": "heirbaan",
+         "doel": "Romeinse verharde weg",
+         "voorbeeld": "Boulogne-Tongeren-Keulen."
+        },
+        {
+         "nl": "villa",
+         "doel": "grote Romeinse boerderij met landgoed",
+         "voorbeeld": "Resten van een villa bij Rumst."
+        },
+        {
+         "nl": "limes",
+         "doel": "grens van het Romeinse Rijk",
+         "voorbeeld": "De Rijn was een limes."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de oudste stad van België?",
+         "opties": [
+          "Tongeren",
+          "Gent",
+          "Brussel"
+         ],
+         "antwoord": 0,
+         "uitleg": "Tongeren werd gesticht door de Romeinen."
+        },
+        {
+         "vraag": "Wat is romanisering?",
+         "opties": [
+          "Een Romeinse tempel",
+          "Overname van de Romeinse cultuur",
+          "Een oorlog"
+         ],
+         "antwoord": 1,
+         "uitleg": "Veroverde volkeren namen Romeinse gewoonten over."
+        },
+        {
+         "vraag": "Wat was een villa?",
+         "opties": [
+          "Een grote boerderij met landgoed",
+          "Een badhuis",
+          "Een legerkamp"
+         ],
+         "antwoord": 0,
+         "uitleg": "Villa's waren landbouwbedrijven."
+        },
+        {
+         "vraag": "Wat noemt men de grens van het rijk?",
+         "opties": [
+          "Dijk",
+          "Aquaduct",
+          "Limes"
+         ],
+         "antwoord": 2,
+         "uitleg": "De limes liep langs de Rijn."
+        },
+        {
+         "vraag": "Wie kwam er na de Romeinen binnen?",
+         "opties": [
+          "De Egyptenaren",
+          "De Grieken",
+          "De Franken"
+         ],
+         "antwoord": 2,
+         "uitleg": "Germaanse Franken vestigden zich bij ons."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "einde-oudheid",
+     "titel": "Het einde van de oudheid",
+     "samenvatting": "Waarom het West-Romeinse Rijk viel en wat daarna gebeurde.",
+     "lessen": [
+      {
+       "id": "val-van-rome",
+       "titel": "De val van het West-Romeinse Rijk",
+       "uitleg": "Het Romeinse Rijk was in de 3e eeuw n.C. in crisis. Er waren vaak burgeroorlogen tussen generaals, de economie ging achteruit en de grenzen werden steeds moeilijker te verdedigen. In 395 n.C. werd het rijk definitief in twee delen verdeeld: het West-Romeinse Rijk met Rome en het Oost-Romeinse Rijk met Constantinopel.\n\nGermaanse volkeren, zoals de Goten, Vandalen en Franken, drongen het rijk binnen. Dat noemen we de volksverhuizingen. Sommige Germanen kwamen als vijand, andere werden in het Romeinse leger opgenomen. In 476 n.C. zette de Germaanse leider Odoaker de laatste West-Romeinse keizer af. Dat jaar geldt als het einde van de oudheid.\n\nHet Oost-Romeinse Rijk, ook Byzantijnse Rijk genoemd, bleef nog bijna 1000 jaar bestaan en viel in 1453 toen de Turken Constantinopel veroverden.",
+       "woorden": [
+        {
+         "nl": "volksverhuizing",
+         "doel": "tocht van Germaanse volkeren het Romeinse Rijk in",
+         "voorbeeld": "Goten, Vandalen en Franken."
+        },
+        {
+         "nl": "Constantinopel",
+         "doel": "hoofdstad van het Oost-Romeinse Rijk",
+         "voorbeeld": "Nu Istanbul."
+        },
+        {
+         "nl": "Odoaker",
+         "doel": "Germaanse leider die in 476 de laatste West-Romeinse keizer afzette",
+         "voorbeeld": "Einde van de oudheid."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welk jaar viel het West-Romeinse Rijk?",
+         "opties": [
+          "800 n.C.",
+          "476 n.C.",
+          "27 v.C."
+         ],
+         "antwoord": 1,
+         "uitleg": "476 is het einde van de oudheid."
+        },
+        {
+         "vraag": "Wat was de hoofdstad van het Oost-Romeinse Rijk?",
+         "opties": [
+          "Athene",
+          "Rome",
+          "Constantinopel"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het latere Istanbul."
+        },
+        {
+         "vraag": "Wat waren de volksverhuizingen?",
+         "opties": [
+          "Romeinen die naar Egypte verhuisden",
+          "Germaanse volkeren die het rijk binnentrokken",
+          "Boeren die stad verlieten"
+         ],
+         "antwoord": 1,
+         "uitleg": "Germaanse volkeren trokken Romeins gebied binnen."
+        },
+        {
+         "vraag": "Wat viel pas in 1453?",
+         "opties": [
+          "Het West-Romeinse Rijk",
+          "Het Egyptische Rijk",
+          "Het Oost-Romeinse Rijk"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Turken veroverden Constantinopel."
+        },
+        {
+         "vraag": "Welk tijdvak begint na 476?",
+         "opties": [
+          "De prehistorie",
+          "De middeleeuwen",
+          "De nieuwste tijd"
+         ],
+         "antwoord": 1,
+         "uitleg": "Na de oudheid volgen de middeleeuwen."
+        }
+       ]
+      },
+      {
+       "id": "christendom-in-rome",
+       "titel": "Het christendom en Rome",
+       "uitleg": "Het christendom ontstond in de eerste eeuw n.C. in het Romeinse Rijk, rond Jezus van Nazareth. Christenen geloven in één God, wat anders was dan het Romeinse veelgodendom. Ze weigerden de keizer als god te vereren, dus werden ze soms vervolgd.\n\nIn 313 n.C. verleende keizer Constantijn, met het Edict van Milaan, godsdienstvrijheid aan de christenen. In 380 n.C. maakte keizer Theodosius het christendom de staatsgodsdienst. Het geloof verspreidde zich over het hele rijk.\n\nDe christelijke kerk had bisschoppen die een stad of streek leidden, en de bisschop van Rome, de paus, kreeg steeds meer gezag. Toen het Romeinse bestuur verzwakte, nam de kerk veel taken over. Dat verklaart waarom de kerk zo machtig werd in de middeleeuwen.",
+       "woorden": [
+        {
+         "nl": "christendom",
+         "doel": "godsdienst gebaseerd op het leven en onderricht van Jezus",
+         "voorbeeld": "Zijn volgelingen zijn christenen."
+        },
+        {
+         "nl": "bisschop",
+         "doel": "leider van een christelijke gemeenschap in een stad of streek",
+         "voorbeeld": "De bisschop van Tongeren."
+        },
+        {
+         "nl": "staatsgodsdienst",
+         "doel": "godsdienst die door de staat wordt erkend en gesteund",
+         "voorbeeld": "Vanaf 380 in Rome."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welke eeuw ontstond het christendom?",
+         "opties": [
+          "5e eeuw v.C.",
+          "1e eeuw n.C.",
+          "10e eeuw n.C."
+         ],
+         "antwoord": 1,
+         "uitleg": "Het ontstond rond Jezus in de 1e eeuw."
+        },
+        {
+         "vraag": "Wat bepaalde het Edict van Milaan (313)?",
+         "opties": [
+          "Verbod op het Latijn",
+          "Godsdienstvrijheid voor christenen",
+          "Het einde van het rijk"
+         ],
+         "antwoord": 1,
+         "uitleg": "Constantijn liet christenen vrij hun geloof beleven."
+        },
+        {
+         "vraag": "Wie leidde een christelijke gemeenschap in een stad?",
+         "opties": [
+          "Een consul",
+          "Een farao",
+          "Een bisschop"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een bisschop heeft de leiding over het bisdom."
+        },
+        {
+         "vraag": "Wat gebeurde er in 380 n.C.?",
+         "opties": [
+          "Het christendom werd staatsgodsdienst",
+          "Rome werd gesticht",
+          "Caesar werd vermoord"
+         ],
+         "antwoord": 0,
+         "uitleg": "Keizer Theodosius maakte dat besluit."
+        },
+        {
+         "vraag": "Hoeveel goden kent het christendom?",
+         "opties": [
+          "Duizenden",
+          "Twaalf",
+          "Eén"
+         ],
+         "antwoord": 2,
+         "uitleg": "Christenen geloven in één God."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "jaar": 2,
+   "themas": [
+    {
+     "id": "vroege-middeleeuwen",
+     "titel": "De vroege middeleeuwen",
+     "samenvatting": "Na de val van Rome: de Franken, Karel de Grote en de Vikingen.",
+     "lessen": [
+      {
+       "id": "franken-clovis",
+       "titel": "De Franken en Clovis",
+       "uitleg": "Na 476 n.C. verdween het Romeinse bestuur in West-Europa. In onze streken namen de Franken de macht, een Germaans volk. Hun leider Clovis (ongeveer 466 tot 511) maakte van de Franken een groot koninkrijk. Hij werd ongeveer 496 gedoopt en werd christen. Daardoor kreeg hij de steun van de kerk en de Gallo-Romeinse bevolking.\n\nZijn familie heette de Merovingen. Zij regeerden over een rijk dat ze verdeelden onder hun zonen. Dat verzwakte het koninkrijk. Echte macht kwam steeds meer in handen van de hofmeier, de hoogste ambtenaar aan het hof. Karel Martel, een hofmeier, versloeg in 732 de moslims bij Poitiers.\n\nIn onze streken werden missionarissen actief, zoals Sint-Amandus en Sint-Eligius (7e eeuw). Zij verspreidden het christendom en stichtten abdijen. In die tijd werd er weinig geschreven en verdwenen veel steden. Het leven werd vooral landelijk.",
+       "woorden": [
+        {
+         "nl": "Franken",
+         "doel": "Germaans volk dat West-Europa na Rome overnam",
+         "voorbeeld": "Clovis was Frankisch koning."
+        },
+        {
+         "nl": "Merovingen",
+         "doel": "eerste Frankische koningsdynastie",
+         "voorbeeld": "Clovis stamt uit deze familie."
+        },
+        {
+         "nl": "hofmeier",
+         "doel": "hoogste ambtenaar aan het Frankische hof",
+         "voorbeeld": "Karel Martel."
+        },
+        {
+         "nl": "missionaris",
+         "doel": "persoon die een godsdienst verspreidt",
+         "voorbeeld": "Sint-Amandus."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie maakte van de Franken een groot koninkrijk?",
+         "opties": [
+          "Clovis",
+          "Caesar",
+          "Odoaker"
+         ],
+         "antwoord": 0,
+         "uitleg": "Clovis legde de basis van het Frankische rijk."
+        },
+        {
+         "vraag": "Wat gebeurde er rond 496 met Clovis?",
+         "opties": [
+          "Hij ging naar Rome",
+          "Hij liet zich dopen",
+          "Hij werd verjaagd"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zijn doop gaf hem steun van de kerk."
+        },
+        {
+         "vraag": "Waarom verzwakte het Merovingische rijk?",
+         "opties": [
+          "Het had geen land",
+          "Er was geen leger",
+          "Het werd telkens verdeeld onder zonen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Verdelingen leidden tot ruzie en verzwakking."
+        },
+        {
+         "vraag": "Wie was de hofmeier die in 732 bij Poitiers won?",
+         "opties": [
+          "Karel Martel",
+          "Odoaker",
+          "Clovis"
+         ],
+         "antwoord": 0,
+         "uitleg": "Hij versloeg een moslimleger."
+        },
+        {
+         "vraag": "Wat deden missionarissen?",
+         "opties": [
+          "Het christendom verspreiden",
+          "Belastingen innen",
+          "Wegen bouwen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zij brachten het christelijk geloof en stichtten abdijen."
+        }
+       ]
+      },
+      {
+       "id": "karel-de-grote",
+       "titel": "Karel de Grote",
+       "uitleg": "Karel de Grote (ongeveer 742 tot 814) was koning van de Franken uit de familie van de Karolingen. Hij veroverde een groot rijk: het huidige Frankrijk, Duitsland, Noord-Italië en meer. Op Kerstdag in het jaar 800 kroonde de paus hem in Rome tot keizer. Hij werd zo de opvolger van de Romeinse keizers.\n\nOm zijn groot rijk te besturen, verdeelde Karel het in graafschappen. Een graaf bestuurde zo'n gebied namens de koning. Koninklijke boden, de missi dominici, controleerden de graven. Karel hield zijn hof in Aken, nu in Duitsland. Hij liet scholen openen aan kloosters en hof om schrijvers op te leiden. De Karolingische minuskel is een duidelijk lettertype dat we nog steeds kennen.\n\nNa de dood van Karel werd het rijk verdeeld. Het Verdrag van Verdun (843) splitste het in drie delen onder zijn kleinzonen. Zo ontstonden de basis van latere landen: Frankrijk en Duitsland, en daartussen ons gebied.",
+       "woorden": [
+        {
+         "nl": "Karolingen",
+         "doel": "Frankische koningsdynastie waartoe Karel de Grote behoorde",
+         "voorbeeld": "Opvolgers van de Merovingen."
+        },
+        {
+         "nl": "graaf",
+         "doel": "bestuurder van een gebied in naam van de koning",
+         "voorbeeld": "Graaf van Vlaanderen later."
+        },
+        {
+         "nl": "keizer",
+         "doel": "hoogste vorst, oorspronkelijk Romeins",
+         "voorbeeld": "Karel werd keizer in 800."
+        },
+        {
+         "nl": "Verdrag van Verdun",
+         "doel": "overeenkomst in 843 die het Karolingische rijk verdeelde in drie",
+         "voorbeeld": "Splitsing onder drie kleinzonen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welk jaar werd Karel keizer gekroond?",
+         "opties": [
+          "476",
+          "1066",
+          "800"
+         ],
+         "antwoord": 2,
+         "uitleg": "Op Kerstdag 800 kroonde de paus hem."
+        },
+        {
+         "vraag": "Hoe bestuurde Karel zijn rijk?",
+         "opties": [
+          "Via een volksvergadering",
+          "Via een democratie",
+          "Via graven in graafschappen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Graven bestuurden namens de koning."
+        },
+        {
+         "vraag": "Wat deden de missi dominici?",
+         "opties": [
+          "Graven controleren",
+          "Oorlog voeren",
+          "Kerken bouwen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het waren koninklijke boden."
+        },
+        {
+         "vraag": "Wat gebeurde in 843?",
+         "opties": [
+          "Rome viel",
+          "Het rijk werd verdeeld",
+          "Karel werd vermoord"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het Verdrag van Verdun splitste het rijk."
+        },
+        {
+         "vraag": "Waar hield Karel zijn hof?",
+         "opties": [
+          "Athene",
+          "Aken",
+          "Brugge"
+         ],
+         "antwoord": 1,
+         "uitleg": "Aken lag in het huidige Duitsland."
+        }
+       ]
+      },
+      {
+       "id": "vikingen",
+       "titel": "De Vikingen",
+       "uitleg": "Vanaf ongeveer 800 trokken Vikingen uit Scandinavië (Denemarken, Noorwegen, Zweden) per schip naar het zuiden en westen. Ze gebruikten snelle langschepen met weinig diepgang, waarmee ze ook rivieren opvaren. Ze plunderden kloosters en steden, maar waren ook handelaars en kolonisten.\n\nOok onze streken werden aangevallen. In de 9e eeuw plunderden Vikingen langs de Schelde, onder meer rond Gent, waar ze overwinterden. Ze vestigden zich in Normandië, het gebied van de 'Noormannen', in Noord-Frankrijk (911). Andere Vikingen bereikten IJsland, Groenland en rond het jaar 1000 zelfs Noord-Amerika.\n\nDe vorsten konden hun gebied niet goed beschermen. Mensen zochten daarom bescherming bij lokale machthebbers, zoals graven met kastelen. Dat versnelde het ontstaan van het leenstelsel, waarover je verderop meer leert.",
+       "woorden": [
+        {
+         "nl": "Vikingen",
+         "doel": "zeevarende krijgers en handelaars uit Scandinavië",
+         "voorbeeld": "Plunderden de Schelde."
+        },
+        {
+         "nl": "langschip",
+         "doel": "smal snel Vikingschip",
+         "voorbeeld": "Ook geschikt voor rivieren."
+        },
+        {
+         "nl": "Noormannen",
+         "doel": "andere naam voor Vikingen die zich in Frankrijk vestigden",
+         "voorbeeld": "Normandië."
+        },
+        {
+         "nl": "plunderen",
+         "doel": "met geweld buit maken",
+         "voorbeeld": "Kloosters werden geplunderd."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waar kwamen de Vikingen vandaan?",
+         "opties": [
+          "Egypte",
+          "Arabië",
+          "Scandinavië"
+         ],
+         "antwoord": 2,
+         "uitleg": "Denemarken, Noorwegen en Zweden."
+        },
+        {
+         "vraag": "Waarom konden Vikingen rivieren opvaren?",
+         "opties": [
+          "Ze hadden stoomboten",
+          "Ze liepen over land",
+          "Hun langschepen waren ondiep"
+         ],
+         "antwoord": 2,
+         "uitleg": "Weinig diepgang liet toe ver het binnenland in te varen."
+        },
+        {
+         "vraag": "Wat gebeurde er in 911?",
+         "opties": [
+          "Noormannen vestigden zich in Normandië",
+          "Rome viel",
+          "Gutenberg vond de drukpers uit"
+         ],
+         "antwoord": 0,
+         "uitleg": "Daar ontstond Normandië."
+        },
+        {
+         "vraag": "Wat was een gevolg van de Vikingaanvallen?",
+         "opties": [
+          "Er kwam een democratie",
+          "Mensen zochten bescherming bij lokale heren",
+          "De steden groeiden"
+         ],
+         "antwoord": 1,
+         "uitleg": "Lokale machthebbers werden belangrijker."
+        },
+        {
+         "vraag": "Welke gebieden bereikten Vikingen ook?",
+         "opties": [
+          "IJsland en Groenland",
+          "Australië",
+          "Zuid-Afrika"
+         ],
+         "antwoord": 0,
+         "uitleg": "Ze bereikten IJsland, Groenland en zelfs Noord-Amerika."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "feodaliteit",
+     "titel": "De feodale maatschappij",
+     "samenvatting": "Koningen, heren, ridders en boeren in het leenstelsel en het domein.",
+     "lessen": [
+      {
+       "id": "leenstelsel",
+       "titel": "Het leenstelsel",
+       "uitleg": "Na de Vikingen en de verdeling van het Karolingische rijk was de koning vaak zwak. Overal ontstond een stelsel van persoonlijke afspraken: het leenstelsel, ook feodaliteit genoemd. Een heer (leenheer) gaf een leen, meestal grond, aan een vazal. In ruil moest de vazal trouw zweren en hulp bieden, vooral militair.\n\nDe trouwbelofte gebeurde in een plechtigheid: de vazal knielde, legde zijn handen in die van de heer (hulde) en zwoer trouw. Een vazal kon zelf een deel van zijn leen doorgeven aan een lagere vazal. Zo ontstond een piramide: koning, hoge adel (hertogen, graven), lagere adel en ridders.\n\nDe belangrijkste groep krijgers waren ridders, zwaar bewapende ruiters. Ze kregen een leen, bouwden een kasteel en volgden een code van eer. Het kasteel was woning, vesting en centrum van bestuur. Oorspronkelijk waren kastelen van hout, later van steen.",
+       "woorden": [
+        {
+         "nl": "leen",
+         "doel": "stuk grond of ambt dat een heer in bruikleen gaf",
+         "voorbeeld": "Een graafschap als leen."
+        },
+        {
+         "nl": "vazal",
+         "doel": "iemand die een leen ontvangt en trouw zweert",
+         "voorbeeld": "Een ridder was vazal."
+        },
+        {
+         "nl": "leenheer",
+         "doel": "heer die een leen geeft",
+         "voorbeeld": "De koning is leenheer van een hertog."
+        },
+        {
+         "nl": "ridder",
+         "doel": "zwaar bewapende edele ruiter",
+         "voorbeeld": "Hij diende zijn heer in oorlogen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat krijgt een vazal van zijn leenheer?",
+         "opties": [
+          "Een leen",
+          "Een salaris in munten",
+          "Een boek"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een leen was meestal grond."
+        },
+        {
+         "vraag": "Wat moest een vazal in ruil doen?",
+         "opties": [
+          "Verhuizen",
+          "Belasting aan de boeren betalen",
+          "Trouw zweren en hulp bieden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Trouw en militaire hulp."
+        },
+        {
+         "vraag": "Waarom ontstond het leenstelsel?",
+         "opties": [
+          "Er waren geen heren",
+          "Er was te veel vrede",
+          "De koning was zwak en bescherming was nodig"
+         ],
+         "antwoord": 2,
+         "uitleg": "Mensen zochten bescherming bij lokale machthebbers."
+        },
+        {
+         "vraag": "Hoe zag de feodale maatschappij eruit?",
+         "opties": [
+          "Een gelijke verdeling",
+          "Een piramide van heer en vazallen",
+          "Een lijn zonder rangen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Elke vazal kon zelf leenheer zijn."
+        },
+        {
+         "vraag": "Waarvan was een eerste kasteel meestal gemaakt?",
+         "opties": [
+          "Beton",
+          "Hout",
+          "Glas"
+         ],
+         "antwoord": 1,
+         "uitleg": "Latere kastelen waren van steen."
+        }
+       ]
+      },
+      {
+       "id": "domein-en-boeren",
+       "titel": "Het domein: de heer en de boeren",
+       "uitleg": "De meeste mensen waren boeren. Ze leefden op het domein, ook hofstelsel genoemd, het landgoed van een heer. Het domein bestond uit het land van de heer (de hoeve, met zijn eigen akkers), het land dat boeren in gebruik hadden, en gemeenschappelijke gronden zoals bossen en weiden.\n\nDe boeren waren meestal horigen. Een horige was niet vrij: hij mocht het domein niet verlaten zonder toestemming. Hij werkte enkele dagen per week op het land van de heer (herendiensten) en gaf een deel van zijn oogst (cijns of tienden). Daar stond bescherming tegenover. De heer was ook rechter over zijn mensen.\n\nHet domein was bijna zelfvoorzienend: men maakte zelf wat men nodig had. Er was weinig handel. De molen en de oven waren van de heer; wie ze gebruikte, moest betalen. Het dagelijks leven was zwaar. Mislukte oogsten leidden vaak tot honger.",
+       "woorden": [
+        {
+         "nl": "domein",
+         "doel": "landgoed van een heer met boeren die er werken",
+         "voorbeeld": "Ook hofstelsel genoemd."
+        },
+        {
+         "nl": "horige",
+         "doel": "boer die niet vrij is en gebonden aan het domein",
+         "voorbeeld": "Mocht niet zomaar vertrekken."
+        },
+        {
+         "nl": "herendiensten",
+         "doel": "gratis arbeid voor de heer",
+         "voorbeeld": "Oogsten op het land van de heer."
+        },
+        {
+         "nl": "zelfvoorzienend",
+         "doel": "alles zelf maken wat men nodig heeft",
+         "voorbeeld": "Een domein was bijna zelfvoorzienend."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een horige?",
+         "opties": [
+          "Een koning",
+          "Een ridder",
+          "Een onvrije boer"
+         ],
+         "antwoord": 2,
+         "uitleg": "Horigen waren gebonden aan het domein."
+        },
+        {
+         "vraag": "Wat zijn herendiensten?",
+         "opties": [
+          "Gebeden in de kerk",
+          "Gratis arbeid voor de heer",
+          "Betalingen aan de koning"
+         ],
+         "antwoord": 1,
+         "uitleg": "Boeren werkten onbetaald op het land van de heer."
+        },
+        {
+         "vraag": "Wat kreeg de boer van de heer?",
+         "opties": [
+          "Loon",
+          "Een kasteel",
+          "Bescherming"
+         ],
+         "antwoord": 2,
+         "uitleg": "De heer beschermde zijn boeren."
+        },
+        {
+         "vraag": "Waarom was er weinig handel op het domein?",
+         "opties": [
+          "Het was verboden",
+          "Het was bijna zelfvoorzienend",
+          "Er waren geen mensen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Men maakte zelf wat nodig was."
+        },
+        {
+         "vraag": "Wie was rechter op het domein?",
+         "opties": [
+          "De burgemeester",
+          "De paus",
+          "De heer"
+         ],
+         "antwoord": 2,
+         "uitleg": "De heer sprak recht over zijn horigen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "kerk-en-geloof",
+     "titel": "De kerk en het geloof",
+     "samenvatting": "De rol van kerk, kloosters, de islam en de kruistochten.",
+     "lessen": [
+      {
+       "id": "kerk-en-kloosters",
+       "titel": "De machtige kerk en de kloosters",
+       "uitleg": "In de middeleeuwen was bijna iedereen in West-Europa christen. De kerk was heel machtig en bepaalde het leven van de mensen. De kerkelijke leider is de paus. Onder hem stonden bisschoppen en priesters. De kerk hield de bevolking bij (doop, huwelijk, begrafenis), richtte scholen op en hielp de armen. De mensen moesten de tienden betalen: een tiende van hun oogst.\n\nKloosters waren een belangrijk deel van het leven. Monniken leefden er volgens vaste regels, bijvoorbeeld de regel van Benedictus (ora et labora: bid en werk). Ze schreven boeken met de hand over, verbouwden gewassen en verzorgden zieken. Een groot klooster heet abdij; de leider is een abt. Ook bij ons waren belangrijke abdijen, zoals Sint-Pieters in Gent.\n\nIn de 11e en 12e eeuw bouwde men grote stenen kerken in de romaanse stijl, met ronde bogen en dikke muren. Later kwam de gotiek met spitse bogen, grote ramen en hoge torens, zoals de kathedralen van Reims en Antwerpen.",
+       "woorden": [
+        {
+         "nl": "paus",
+         "doel": "hoofd van de katholieke kerk",
+         "voorbeeld": "Woont in Rome."
+        },
+        {
+         "nl": "monnik",
+         "doel": "man die in een klooster leeft volgens vaste regels",
+         "voorbeeld": "Benedictijnen."
+        },
+        {
+         "nl": "abdij",
+         "doel": "groot klooster geleid door een abt",
+         "voorbeeld": "Sint-Pietersabdij in Gent."
+        },
+        {
+         "nl": "gotiek",
+         "doel": "bouwstijl met spitse bogen en grote ramen",
+         "voorbeeld": "Kathedralen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie is het hoofd van de katholieke kerk?",
+         "opties": [
+          "De paus",
+          "De graaf",
+          "De abt"
+         ],
+         "antwoord": 0,
+         "uitleg": "De paus leidt de kerk."
+        },
+        {
+         "vraag": "Wat betekent 'ora et labora'?",
+         "opties": [
+          "Lees en schrijf",
+          "Vecht en win",
+          "Bid en werk"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat was het motto van de Benedictijnen."
+        },
+        {
+         "vraag": "Wat deden monniken met oude boeken?",
+         "opties": [
+          "Boeken met de hand kopiëren",
+          "Munten slaan",
+          "Wapens maken"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo bleven veel teksten bewaard."
+        },
+        {
+         "vraag": "Waaraan herken je gotiek?",
+         "opties": [
+          "Platte daken",
+          "Spitse bogen en grote ramen",
+          "Ronde bogen en dikke muren"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat is het verschil met de romaanse stijl."
+        },
+        {
+         "vraag": "Wat waren tienden?",
+         "opties": [
+          "Tien dagen werk",
+          "Een soort kerkdienst",
+          "Een tiende deel van de oogst voor de kerk"
+         ],
+         "antwoord": 2,
+         "uitleg": "Mensen gaven de kerk een deel van hun oogst."
+        }
+       ]
+      },
+      {
+       "id": "kruistochten",
+       "titel": "De kruistochten",
+       "uitleg": "In 1095 riep paus Urbanus II op om het Heilige Land te bevrijden. Jeruzalem was voor christenen, joden en moslims een heilige stad en was in handen van moslims. De tochten die volgden noemen we kruistochten, omdat de deelnemers een kruis droegen. De Eerste Kruistocht (1096 tot 1099) veroverde Jeruzalem.\n\nVeel mensen gingen mee: ridders, boeren en avonturiers. Ze wilden hun geloof verdedigen, hun zonden vergeven zien, of rijkdom en grond krijgen. Ook Vlamingen namen deel; een bekende is Godfried van Bouillon, een van de leiders van de Eerste Kruistocht, die voogd van Jeruzalem werd.\n\nDe kruistochten duurden tot ongeveer 1291. Politiek bleef het resultaat beperkt, maar de gevolgen waren groot. De handel met het Oosten groeide, Europeanen leerden nieuwe producten kennen (specerijen, suiker) en nieuwe kennis (wiskunde en geneeskunde uit de islamitische wereld). Er waren echter ook veel slachtoffers en conflicten tussen godsdiensten.",
+       "woorden": [
+        {
+         "nl": "kruistocht",
+         "doel": "middeleeuwse oorlogstocht naar het Heilige Land",
+         "voorbeeld": "De Eerste Kruistocht (1096-1099)."
+        },
+        {
+         "nl": "Heilige Land",
+         "doel": "streek rond Jeruzalem, heilig voor meerdere godsdiensten",
+         "voorbeeld": "Doel van de kruistochten."
+        },
+        {
+         "nl": "specerijen",
+         "doel": "kruiden uit het Oosten zoals peper en kaneel",
+         "voorbeeld": "Veel gewild in Europa."
+        },
+        {
+         "nl": "Godfried van Bouillon",
+         "doel": "leider van de Eerste Kruistocht, voogd van Jeruzalem",
+         "voorbeeld": "Kwam uit onze streken."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat was het doel van de eerste kruistocht?",
+         "opties": [
+          "Rome bevrijden",
+          "Amerika ontdekken",
+          "Jeruzalem veroveren"
+         ],
+         "antwoord": 2,
+         "uitleg": "De christenen wilden het Heilige Land veroveren."
+        },
+        {
+         "vraag": "Wie riep in 1095 op tot een kruistocht?",
+         "opties": [
+          "Luther",
+          "Karel de Grote",
+          "Paus Urbanus II"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hij sprak in Clermont."
+        },
+        {
+         "vraag": "Welk gevolg hadden de kruistochten?",
+         "opties": [
+          "Een nieuwe taal",
+          "Het einde van de kerk",
+          "Meer handel met het Oosten"
+         ],
+         "antwoord": 2,
+         "uitleg": "Europa kreeg nieuwe producten en kennis."
+        },
+        {
+         "vraag": "Wat droegen de kruisvaarders?",
+         "opties": [
+          "Een kroon",
+          "Een kruis",
+          "Een zwaard van goud"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het kruis gaf de tochten hun naam."
+        },
+        {
+         "vraag": "Welke stad was het hoofddoel?",
+         "opties": [
+          "Jeruzalem",
+          "Brugge",
+          "Parijs"
+         ],
+         "antwoord": 0,
+         "uitleg": "Jeruzalem werd in 1099 ingenomen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "steden-en-handel",
+     "titel": "Steden en handel",
+     "samenvatting": "Waarom steden groeiden, hoe ambachtslieden zich organiseerden en wat de Vlaamse steden bijzonder maakte.",
+     "lessen": [
+      {
+       "id": "opkomst-van-de-steden",
+       "titel": "De opkomst van de steden",
+       "uitleg": "Vanaf ongeveer het jaar 1000 groeide de bevolking, door betere landbouw (zoals het drieslagstelsel en de zware ploeg) en minder invallen. Er was meer voedsel en handel. Handelaars vestigden zich bij veilige plaatsen zoals kastelen, abdijen of rivierkruisingen. Zo groeiden steden.\n\nSteden hadden stadsmuren, een markt en een kerk. De inwoners, poorters, waren vrij. Er bestond een gezegde: 'stadslucht maakt vrij'. Een horige die lang genoeg in de stad woonde, werd er vrij. Steden kregen stadsrechten of een charter van de heer: ze mochten zichzelf besturen, markt houden en eigen rechters hebben. Het stadsbestuur heette schepenen, met aan het hoofd een burgemeester.\n\nIn de stad werkten ambachtslieden en kooplieden. De handel werd verder mogelijk door geldgebruik, het uitvinden van wissels en kredietverlening.",
+       "woorden": [
+        {
+         "nl": "stad",
+         "doel": "plaats met markt, stadsmuur en eigen bestuur",
+         "voorbeeld": "Gent, Brugge, Ieper."
+        },
+        {
+         "nl": "poorter",
+         "doel": "vrije inwoner van een stad",
+         "voorbeeld": "Handelaars en ambachtslieden."
+        },
+        {
+         "nl": "stadsrechten",
+         "doel": "voorrechten die een stad van haar heer krijgt",
+         "voorbeeld": "Eigen rechtspraak en markt."
+        },
+        {
+         "nl": "schepen",
+         "doel": "stadsbestuurder",
+         "voorbeeld": "Ze beslisten over de stad."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent 'stadslucht maakt vrij'?",
+         "opties": [
+          "De lucht is gezond",
+          "Wie lang in de stad woont, wordt vrij",
+          "Steden mochten geen muren"
+         ],
+         "antwoord": 1,
+         "uitleg": "Horigen konden in de stad vrij worden."
+        },
+        {
+         "vraag": "Waar ontstonden vaak steden?",
+         "opties": [
+          "Op bergtoppen",
+          "Bij kastelen, abdijen of rivieren",
+          "Midden in bossen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Daar waren veiligheid en handel."
+        },
+        {
+         "vraag": "Wat deden schepenen?",
+         "opties": [
+          "Gebeden zeggen",
+          "De stad besturen",
+          "Het land bewerken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zij vormden het stadsbestuur."
+        },
+        {
+         "vraag": "Waardoor groeide de bevolking rond 1000?",
+         "opties": [
+          "Meer pest",
+          "Betere landbouw en minder invallen",
+          "Meer oorlogen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Er was meer voedsel."
+        },
+        {
+         "vraag": "Wat kregen steden van hun heer?",
+         "opties": [
+          "Stadsrechten",
+          "Een leger",
+          "Een kasteel"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zoals markt- en bestuursrechten."
+        }
+       ]
+      },
+      {
+       "id": "gilden-en-ambachten",
+       "titel": "Ambachten, gilden en markten",
+       "uitleg": "In de stad hadden ambachtslieden zich verenigd in gilden of ambachten, bijvoorbeeld de bakkers, wevers en smeden. Een gilde bepaalde de prijs en kwaliteit van de producten en hielp leden in nood. Wie in een ambacht wilde werken, begon als leerling bij een meester, werd gezel en kon later zelf meester worden door een meesterproef af te leggen.\n\nKooplieden verenigden zich in een hanze of koopmansgilde. Op de markt werden goederen verhandeld en op grote jaarmarkten kwamen kooplieden uit heel Europa. Geld wisselen deden geldwisselaars; later ontstonden bankiers.\n\nOpstanden kwamen voor: ambachtslieden ontevreden met het bestuur door rijke patriciërs eisten inspraak. In de 14e eeuw kregen ambachten in veel steden politieke macht.",
+       "woorden": [
+        {
+         "nl": "gilde",
+         "doel": "vereniging van ambachtslieden of handelaars",
+         "voorbeeld": "Het bakkersgilde."
+        },
+        {
+         "nl": "gezel",
+         "doel": "geschoold arbeider die nog geen meester is",
+         "voorbeeld": "Hij werkte bij een meester."
+        },
+        {
+         "nl": "meesterproef",
+         "doel": "werkstuk om meester te worden",
+         "voorbeeld": "Een wever liet zijn beste doek zien."
+        },
+        {
+         "nl": "patriciër",
+         "doel": "rijke koopman of grondbezitter in de stad",
+         "voorbeeld": "Zij bestuurden vaak de stad."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat deed een gilde?",
+         "opties": [
+          "Kerken bouwen",
+          "Oorlogen voeren",
+          "Prijs en kwaliteit bewaken"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het regelde het beroep."
+        },
+        {
+         "vraag": "Wat is de juiste volgorde?",
+         "opties": [
+          "Leerling, gezel, meester",
+          "Gezel, leerling, meester",
+          "Meester, gezel, leerling"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo klom je op in het ambacht."
+        },
+        {
+         "vraag": "Wat moest een gezel doen om meester te worden?",
+         "opties": [
+          "Een kasteel kopen",
+          "Een meesterproef afleggen",
+          "Naar Rome gaan"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zijn werk werd beoordeeld."
+        },
+        {
+         "vraag": "Waar ontmoetten kooplieden elkaar?",
+         "opties": [
+          "Alleen in kerken",
+          "Op markten en jaarmarkten",
+          "Op boerderijen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Daar werd handel gedreven."
+        },
+        {
+         "vraag": "Wie bestuurde steden eerst vaak?",
+         "opties": [
+          "Boeren",
+          "Horigen",
+          "Rijke patriciërs"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ambachten eisten later ook inspraak."
+        }
+       ]
+      },
+      {
+       "id": "vlaamse-steden-en-lakennijverheid",
+       "titel": "Vlaanderen: laken, Brugge en de Guldensporenslag",
+       "uitleg": "Vlaanderen was in de middeleeuwen een van de rijkste en meest verstedelijkte gebieden van Europa. De Vlaamse steden, zoals Gent, Brugge en Ieper, werden rijk door de lakennijverheid: het weven van wollen laken. De wol kwam grotendeels uit Engeland. Het laken werd verkocht in heel Europa.\n\nBrugge was een grote havenstad en handelscentrum waar kooplieden uit heel Europa kwamen. De graaf van Vlaanderen was een leenman van de Franse koning. In 1302 kwam het tot een conflict: Franse ridders wilden de macht van de koning in Vlaanderen versterken. Op 11 juli 1302 versloegen Vlaamse ambachtslieden en boeren het Franse ridderleger bij Kortrijk. Dit is de Guldensporenslag, genoemd naar de gouden sporen van gesneuvelde Franse ridders. Het toonde dat voetvolk een ridderleger kon verslaan.\n\nLater kreeg Frankrijk toch weer greep op Vlaanderen. 11 juli is nu de feestdag van de Vlaamse Gemeenschap.",
+       "woorden": [
+        {
+         "nl": "laken",
+         "doel": "wollen stof",
+         "voorbeeld": "Gentse en Ieperse lakens."
+        },
+        {
+         "nl": "Guldensporenslag",
+         "doel": "slag bij Kortrijk op 11 juli 1302",
+         "voorbeeld": "Vlamingen versloegen Franse ridders."
+        },
+        {
+         "nl": "havenstad",
+         "doel": "stad met haven voor handel",
+         "voorbeeld": "Brugge."
+        },
+        {
+         "nl": "graaf van Vlaanderen",
+         "doel": "bestuurder van het graafschap Vlaanderen",
+         "voorbeeld": "Leenman van de Franse koning."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarmee werd Vlaanderen rijk?",
+         "opties": [
+          "Goud uit mijnen",
+          "Olie",
+          "Lakennijverheid"
+         ],
+         "antwoord": 2,
+         "uitleg": "Wollen laken was de topexport."
+        },
+        {
+         "vraag": "Wanneer was de Guldensporenslag?",
+         "opties": [
+          "11 juli 1302",
+          "14 juli 1789",
+          "25 december 800"
+         ],
+         "antwoord": 0,
+         "uitleg": "De slag vond plaats bij Kortrijk."
+        },
+        {
+         "vraag": "Wie won de Guldensporenslag?",
+         "opties": [
+          "De Franse ridders",
+          "De Vlaamse ambachtslieden",
+          "De Engelsen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Voetvolk versloeg een ridderleger."
+        },
+        {
+         "vraag": "Waar kwam veel wol vandaan?",
+         "opties": [
+          "Engeland",
+          "Egypte",
+          "Amerika"
+         ],
+         "antwoord": 0,
+         "uitleg": "Engelse wol was belangrijk voor de Vlaamse weverijen."
+        },
+        {
+         "vraag": "Welke Vlaamse stad was een belangrijke haven?",
+         "opties": [
+          "Brugge",
+          "Tongeren",
+          "Namen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Brugge was een internationaal handelscentrum."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "late-middeleeuwen",
+     "titel": "De late middeleeuwen",
+     "samenvatting": "Crisis, pest, oorlog en de Bourgondiërs in onze gewesten.",
+     "lessen": [
+      {
+       "id": "zwarte-dood",
+       "titel": "De Zwarte Dood",
+       "uitleg": "In de 14e eeuw kwam Europa in crisis. Er waren misoogsten en honger, oorlogen en ziekten. De zwaarste ramp was de pest, ook de Zwarte Dood genoemd, die in Europa woedde van 1347 tot ongeveer 1352. De ziekte kwam via handelsschepen uit Azië en werd verspreid door vlooien op ratten. Mensen kenden toen de oorzaak niet; sommigen dachten dat het een straf van God was.\n\nWaarschijnlijk stierf ongeveer een derde van de Europese bevolking. Steden waren extra kwetsbaar door vuil en drukte. De pest kwam ook later terug in golven.\n\nDe gevolgen waren groot. Er waren minder arbeiders, waardoor loon en positie van boeren verbeterden. Sommige mensen zochten zondebokken, zoals joden, die vaak vervolgd werden. Er kwamen nieuwe religieuze bewegingen. De economie herstelde maar langzaam.",
+       "woorden": [
+        {
+         "nl": "pest",
+         "doel": "besmettelijke ziekte die in de 14e eeuw massaal slachtoffers maakte",
+         "voorbeeld": "Zwarte Dood."
+        },
+        {
+         "nl": "epidemie",
+         "doel": "uitbraak van een besmettelijke ziekte in een streek",
+         "voorbeeld": "De pest."
+        },
+        {
+         "nl": "zondebok",
+         "doel": "iemand die ten onrechte de schuld krijgt",
+         "voorbeeld": "Joden werden beschuldigd."
+        },
+        {
+         "nl": "misoogst",
+         "doel": "slechte oogst",
+         "voorbeeld": "Leidt tot hongersnood."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wanneer woedde de Zwarte Dood in Europa?",
+         "opties": [
+          "800-850",
+          "1789-1815",
+          "1347-1352"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat is de grote pestgolf."
+        },
+        {
+         "vraag": "Hoeveel mensen stierven ongeveer?",
+         "opties": [
+          "Een tiende",
+          "Bijna niemand",
+          "Een derde"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ongeveer een derde van de bevolking."
+        },
+        {
+         "vraag": "Hoe verspreidde de pest zich?",
+         "opties": [
+          "Via boeken",
+          "Via vlooien op ratten en handelsschepen",
+          "Via kerkklokken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Hygiëne en handel speelden mee."
+        },
+        {
+         "vraag": "Wat was een gevolg van de pest?",
+         "opties": [
+          "Meer arbeiders dan werk",
+          "Boeren kregen meer onderhandelingsmacht",
+          "Steden groeiden sterk"
+         ],
+         "antwoord": 1,
+         "uitleg": "Arbeidskrachten werden schaars."
+        },
+        {
+         "vraag": "Wie werden vaak beschuldigd?",
+         "opties": [
+          "Priesters",
+          "Joden",
+          "Koningen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ten onrechte kregen zij de schuld."
+        }
+       ]
+      },
+      {
+       "id": "de-bourgondiers",
+       "titel": "De Bourgondiërs in onze gewesten",
+       "uitleg": "In de 14e en 15e eeuw kwamen onze gewesten stap voor stap in handen van de hertogen van Bourgondië, een machtige Franse familie. Filips de Stoute werd graaf van Vlaanderen in 1384 door huwelijk. Zijn opvolgers breidden het rijk uit, vooral Filips de Goede (1419-1467). Tegen het einde omvatte het Bourgondische rijk grote delen van de huidige Nederlanden, België en Noord-Frankrijk.\n\nDe Bourgondiërs wilden de gewesten verenigen. Ze richtten centrale instellingen op, zoals de Staten-Generaal (vergadering van afgevaardigden uit verschillende gewesten, vanaf 1464) en de Grote Raad. Hun hof was rijk en praalziek; kunst bloeide, onder meer de schilderkunst van Jan van Eyck en Rogier van der Weyden. Dit noemen we de Vlaamse Primitieven.\n\nKarel de Stoute, zoon van Filips de Goede, sneuvelde in 1477 bij Nancy. Zijn dochter Maria van Bourgondië trouwde met Maximiliaan van Oostenrijk (Habsburg). Daardoor kwamen onze gewesten onder de Habsburgers.",
+       "woorden": [
+        {
+         "nl": "Bourgondiërs",
+         "doel": "hertogen van Bourgondië die onze gewesten verenigden",
+         "voorbeeld": "Filips de Goede."
+        },
+        {
+         "nl": "Staten-Generaal",
+         "doel": "vergadering van afgevaardigden uit verschillende gewesten",
+         "voorbeeld": "Voor het eerst in 1464."
+        },
+        {
+         "nl": "Habsburgers",
+         "doel": "machtig vorstenhuis uit Oostenrijk",
+         "voorbeeld": "Maximiliaan."
+        },
+        {
+         "nl": "Vlaamse Primitieven",
+         "doel": "Vlaamse schilderkunst uit de 15e eeuw",
+         "voorbeeld": "Jan van Eyck."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie was Filips de Goede?",
+         "opties": [
+          "Koning van Frankrijk",
+          "Paus",
+          "Hertog van Bourgondië"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hij regeerde van 1419 tot 1467."
+        },
+        {
+         "vraag": "Wat probeerden de Bourgondiërs te doen met de gewesten?",
+         "opties": [
+          "Verlaten",
+          "Verenigen",
+          "Uit elkaar halen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zij creëerden centraal bestuur."
+        },
+        {
+         "vraag": "Wie schilderde in de 15e eeuw in Vlaanderen?",
+         "opties": [
+          "Rembrandt",
+          "Jan van Eyck",
+          "Michelangelo"
+         ],
+         "antwoord": 1,
+         "uitleg": "Van Eyck was een Vlaamse primitief."
+        },
+        {
+         "vraag": "Wie trouwde met Maria van Bourgondië?",
+         "opties": [
+          "Maximiliaan van Oostenrijk",
+          "Karel de Stoute",
+          "Lodewijk XIV"
+         ],
+         "antwoord": 0,
+         "uitleg": "Daarmee kwamen de gewesten naar de Habsburgers."
+        },
+        {
+         "vraag": "In welk jaar sneuvelde Karel de Stoute?",
+         "opties": [
+          "1477",
+          "1517",
+          "1302"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij Nancy."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "renaissance-humanisme",
+     "titel": "Renaissance en humanisme",
+     "samenvatting": "Een nieuwe kijk op de mens, kunst en wetenschap vanaf de 14e-15e eeuw.",
+     "lessen": [
+      {
+       "id": "renaissance",
+       "titel": "De Renaissance",
+       "uitleg": "Renaissance betekent 'wedergeboorte'. Rond 1400 begonnen kunstenaars en denkers in Italië, vooral Florence, de kunst en cultuur van de oude Grieken en Romeinen opnieuw te bestuderen en na te volgen. Italiaanse steden waren rijk door handel; rijke families, zoals de Medici in Florence, betaalden kunstenaars (mecenassen).\n\nIn de Renaissance stond de mens centraal. Kunstenaars schilderden en beeldhouwden realistisch en gebruikten perspectief om diepte te tonen. Bekende namen zijn Leonardo da Vinci (Mona Lisa), Michelangelo (Sixtijnse Kapel, David) en Rafaël. In het noorden schilderden Pieter Bruegel de Oude en Jan van Eyck.\n\nOok de wetenschap veranderde. Nicolaas Copernicus stelde dat de aarde rond de zon draait, en Galileo Galilei steunde dat met waarnemingen door een telescoop. Zo werd het idee dat de aarde het middelpunt is, uitgedaagd.",
+       "woorden": [
+        {
+         "nl": "Renaissance",
+         "doel": "wedergeboorte van de klassieke Griekse en Romeinse cultuur",
+         "voorbeeld": "Florence rond 1400."
+        },
+        {
+         "nl": "mecenas",
+         "doel": "rijke beschermer van kunstenaars",
+         "voorbeeld": "De familie Medici."
+        },
+        {
+         "nl": "perspectief",
+         "doel": "schildertechniek om diepte te tonen",
+         "voorbeeld": "Wegen die in de verte kleiner worden."
+        },
+        {
+         "nl": "Copernicus",
+         "doel": "astronoom die stelde dat de aarde rond de zon draait",
+         "voorbeeld": "Heliocentrisch wereldbeeld."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent Renaissance?",
+         "opties": [
+          "Oorlog",
+          "Handel",
+          "Wedergeboorte"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het verwijst naar herleving van klassieke cultuur."
+        },
+        {
+         "vraag": "Waar begon de Renaissance?",
+         "opties": [
+          "Italië",
+          "Engeland",
+          "Egypte"
+         ],
+         "antwoord": 0,
+         "uitleg": "Vooral Florence."
+        },
+        {
+         "vraag": "Wie schilderde de Mona Lisa?",
+         "opties": [
+          "Leonardo da Vinci",
+          "Jan van Eyck",
+          "Michelangelo"
+         ],
+         "antwoord": 0,
+         "uitleg": "Leonardo da Vinci."
+        },
+        {
+         "vraag": "Wat stelde Copernicus?",
+         "opties": [
+          "De aarde is plat",
+          "De aarde draait rond de zon",
+          "De zon draait rond de aarde"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat was een nieuw wereldbeeld."
+        },
+        {
+         "vraag": "Wat doet een mecenas?",
+         "opties": [
+          "Schilderijen verbranden",
+          "Kunstenaars financieel steunen",
+          "Kerken bouwen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Rijke families betaalden kunstenaars."
+        }
+       ]
+      },
+      {
+       "id": "humanisme-en-drukpers",
+       "titel": "Humanisme en de drukpers",
+       "uitleg": "Humanisten waren geleerden die de mens en zijn verstand centraal zetten. Ze lazen oude Griekse en Latijnse teksten en vonden dat mensen zelf moesten nadenken. De bekendste humanist uit onze streken was Desiderius Erasmus (ongeveer 1466 tot 1536), geboren in Rotterdam. Hij schreef 'Lof der zotheid', waarin hij spot met misbruiken van de kerk. Thomas More schreef 'Utopia'.\n\nRond 1450 vond Johannes Gutenberg in Mainz de drukpers met losse letters uit. Boeken konden nu snel en goedkoop worden gemaakt, waar monniken ze eerder met de hand kopieerden. Ideeën verspreidden zich razendsnel en meer mensen leerden lezen.\n\nIn de Zuidelijke Nederlanden bloeide Antwerpen als drukkerij- en handelsstad. Christoffel Plantijn vestigde er in de 16e eeuw zijn beroemde drukkerij, nu het Museum Plantin-Moretus. De drukpers droeg bij tot de Renaissance en later tot de Reformatie.",
+       "woorden": [
+        {
+         "nl": "humanisme",
+         "doel": "stroming die de mens en zijn verstand centraal stelt",
+         "voorbeeld": "Erasmus."
+        },
+        {
+         "nl": "drukpers",
+         "doel": "machine om boeken te drukken met losse letters",
+         "voorbeeld": "Uitgevonden door Gutenberg."
+        },
+        {
+         "nl": "Erasmus",
+         "doel": "Nederlandse humanist (ca. 1466-1536)",
+         "voorbeeld": "Schreef Lof der zotheid."
+        },
+        {
+         "nl": "Plantijn",
+         "doel": "Antwerpse drukker uit de 16e eeuw",
+         "voorbeeld": "Plantin-Moretus."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie vond rond 1450 de drukpers uit?",
+         "opties": [
+          "Luther",
+          "Gutenberg",
+          "Columbus"
+         ],
+         "antwoord": 1,
+         "uitleg": "In Mainz."
+        },
+        {
+         "vraag": "Wat veranderde de drukpers?",
+         "opties": [
+          "Alleen monniken konden drukken",
+          "Boeken werden sneller en goedkoper gemaakt",
+          "Er kwamen minder boeken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Kennis kon zich sneller verspreiden."
+        },
+        {
+         "vraag": "Wie was Erasmus?",
+         "opties": [
+          "Een ridder",
+          "Een humanist",
+          "Een paus"
+         ],
+         "antwoord": 1,
+         "uitleg": "Hij was een geleerde denker."
+        },
+        {
+         "vraag": "Waar vestigde Plantijn zijn drukkerij?",
+         "opties": [
+          "Gent",
+          "Parijs",
+          "Antwerpen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Nu een museum."
+        },
+        {
+         "vraag": "Wat leerden humanisten?",
+         "opties": [
+          "Alleen bidden",
+          "Geen boeken lezen",
+          "Zelf nadenken en oude teksten lezen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zij stelden het verstand centraal."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ontdekkingsreizen",
+     "titel": "De ontdekkingsreizen",
+     "samenvatting": "Europese zeevaarders zoeken nieuwe routes en ontmoeten andere werelddelen.",
+     "lessen": [
+      {
+       "id": "waarom-en-hoe",
+       "titel": "Waarom en hoe Europa de zee op ging",
+       "uitleg": "In de 15e en 16e eeuw begonnen Europeanen aan lange zeereizen, de ontdekkingsreizen. Waarom? Specerijen als peper, kaneel en nootmuskaat waren duur, en de handel met Azië liep via Arabische en Italiaanse tussenhandelaars. Nadat de Turken Constantinopel in 1453 veroverden, werd de landroute moeilijker. Europese vorsten zochten een zeeroute naar Indië. Daarnaast speelden zucht naar goud, nieuwsgierigheid en het verspreiden van het christendom een rol.\n\nNieuwe technieken maakten reizen mogelijk. De karveel was een schip met meerdere masten en driehoekige zeilen dat goed tegen de wind kon zeilen. Zeevaarders gebruikten het kompas, de astrolabium om de breedtegraad te bepalen, en betere kaarten.\n\nPortugal begon: prins Hendrik de Zeevaarder liet vanaf het begin van de 15e eeuw ontdekkingsreizen langs de Afrikaanse kust organiseren. Bartolomeu Dias bereikte in 1488 de zuidpunt van Afrika.",
+       "woorden": [
+        {
+         "nl": "specerijen",
+         "doel": "dure kruiden uit Azië",
+         "voorbeeld": "Peper, kaneel."
+        },
+        {
+         "nl": "karveel",
+         "doel": "wendbaar zeilschip met meerdere masten",
+         "voorbeeld": "Gebruikt door de Portugezen."
+        },
+        {
+         "nl": "kompas",
+         "doel": "instrument dat het noorden aanwijst",
+         "voorbeeld": "Zeevaarders gebruikten het."
+        },
+        {
+         "nl": "astrolabium",
+         "doel": "instrument om de hoogte van sterren te meten",
+         "voorbeeld": "Bepaalt de breedtegraad."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarom zochten Europeanen een zeeroute naar Indië?",
+         "opties": [
+          "Voor sneeuw",
+          "Voor specerijen en rijkdom",
+          "Voor boeken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Specerijen waren zeer waardevol."
+        },
+        {
+         "vraag": "Wat gebeurde in 1453?",
+         "opties": [
+          "Columbus ontdekte Amerika",
+          "De Turken veroverden Constantinopel",
+          "Luther schreef 95 stellingen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat bemoeilijkte de landroute."
+        },
+        {
+         "vraag": "Welk schip was typisch voor de Portugezen?",
+         "opties": [
+          "De karveel",
+          "Het langschip",
+          "De trireem"
+         ],
+         "antwoord": 0,
+         "uitleg": "Karvelen konden goed tegen de wind zeilen."
+        },
+        {
+         "vraag": "Welk land startte als eerste met grote reizen?",
+         "opties": [
+          "Rusland",
+          "Zweden",
+          "Portugal"
+         ],
+         "antwoord": 2,
+         "uitleg": "Onder Hendrik de Zeevaarder."
+        },
+        {
+         "vraag": "Wie bereikte in 1488 de zuidpunt van Afrika?",
+         "opties": [
+          "Magellaan",
+          "Cook",
+          "Bartolomeu Dias"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hij bereikte Kaap de Goede Hoop."
+        }
+       ]
+      },
+      {
+       "id": "columbus-da-gama-magellaan",
+       "titel": "Columbus, Da Gama en Magellaan",
+       "uitleg": "In 1492 zeilde Christoffel Columbus in dienst van Spanje westwaarts, in de hoop Indië te bereiken. Hij kwam aan in de Caraïben, op een werelddeel dat Europeanen niet kenden: Amerika. Hij dacht dat hij in Indië was; daarom noemt men de bewoners 'indianen'. Vanaf 1498 voer Vasco da Gama rond Afrika en bereikte India: de zeeroute naar Indië was gevonden.\n\nVan 1519 tot 1522 voer een expeditie onder leiding van Ferdinand Magellaan rond de wereld. Magellaan zelf stierf in 1521 in de Filipijnen; slechts één schip onder Elcano keerde terug. Zo bewezen ze dat de aarde rond is en dat de oceanen verbonden zijn.\n\nSpanje en Portugal verdeelden de nieuwe gebieden met het Verdrag van Tordesillas (1494). Spaanse conquistadores zoals Hernán Cortés (Azteken, 1521) en Francisco Pizarro (Inca's, 1532) veroverden machtige rijken in Amerika.",
+       "woorden": [
+        {
+         "nl": "Columbus",
+         "doel": "zeevaarder die in 1492 Amerika bereikte",
+         "voorbeeld": "In dienst van Spanje."
+        },
+        {
+         "nl": "conquistador",
+         "doel": "Spaanse veroveraar in Amerika",
+         "voorbeeld": "Cortés."
+        },
+        {
+         "nl": "Verdrag van Tordesillas",
+         "doel": "verdrag in 1494 waarmee Spanje en Portugal de wereld verdeelden",
+         "voorbeeld": "Lijn in de Atlantische Oceaan."
+        },
+        {
+         "nl": "omvaart",
+         "doel": "reis rond de wereld",
+         "voorbeeld": "Magellaan en Elcano."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welk jaar bereikte Columbus Amerika?",
+         "opties": [
+          "1789",
+          "1492",
+          "1066"
+         ],
+         "antwoord": 1,
+         "uitleg": "In 1492 kwam hij aan in de Caraïben."
+        },
+        {
+         "vraag": "Wie vond de zeeroute naar India?",
+         "opties": [
+          "Dias",
+          "Columbus",
+          "Vasco da Gama"
+         ],
+         "antwoord": 2,
+         "uitleg": "In 1498."
+        },
+        {
+         "vraag": "Wie leidde de eerste reis rond de wereld?",
+         "opties": [
+          "Cook",
+          "Magellaan",
+          "Cortés"
+         ],
+         "antwoord": 1,
+         "uitleg": "Hij kwam niet zelf terug, Elcano wel."
+        },
+        {
+         "vraag": "Wat bewees de omvaart?",
+         "opties": [
+          "De zon draait",
+          "De aarde is plat",
+          "De aarde is rond"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het schip kwam aan waar het vertrok."
+        },
+        {
+         "vraag": "Welke rijken veroverden de Spanjaarden?",
+         "opties": [
+          "Romeinen",
+          "Azteken en Inca's",
+          "Egyptenaren en Perzen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Cortés en Pizarro."
+        }
+       ]
+      },
+      {
+       "id": "gevolgen-ontdekkingen",
+       "titel": "De gevolgen van de ontdekkingen",
+       "uitleg": "De ontdekkingsreizen veranderden de wereld. Europa kreeg nieuwe producten: aardappelen, mais, tomaten, tabak en cacao uit Amerika; suiker en koffie werden belangrijk. Dit noemen we de Columbiaanse uitwisseling. Ook kwamen Europese dieren en planten naar Amerika, zoals paarden.\n\nVoor de bewoners van Amerika waren de gevolgen dramatisch. Veel volken stierven aan Europese ziekten, zoals pokken, en door geweld en dwangarbeid. Hun rijken werden veroverd en kolonies gesticht, gebieden bestuurd door een vreemde macht.\n\nOm op plantages te werken haalden Europeanen vanaf de 16e eeuw miljoenen Afrikanen als slaven naar Amerika. Dit was de trans-Atlantische slavenhandel, die eeuwen duurde. De handel verschoof van de Middellandse Zee naar de Atlantische Oceaan. Havens zoals Antwerpen, en later Amsterdam, werden rijk. In het begin van de 16e eeuw was Antwerpen de rijkste handelsstad van Noord-Europa.",
+       "woorden": [
+        {
+         "nl": "kolonie",
+         "doel": "gebied bestuurd door een vreemde staat",
+         "voorbeeld": "Spaanse kolonies."
+        },
+        {
+         "nl": "plantage",
+         "doel": "grote boerderij voor één gewas, vaak met slaven",
+         "voorbeeld": "Suikerplantage."
+        },
+        {
+         "nl": "Columbiaanse uitwisseling",
+         "doel": "uitwisseling van planten, dieren en ziekten tussen Amerika en Europa",
+         "voorbeeld": "Aardappel naar Europa."
+        },
+        {
+         "nl": "slavenhandel",
+         "doel": "handel in mensen als slaven",
+         "voorbeeld": "Afrikanen werden naar Amerika gebracht."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk product kwam uit Amerika naar Europa?",
+         "opties": [
+          "Aardappel",
+          "Peper",
+          "Rijst"
+         ],
+         "antwoord": 0,
+         "uitleg": "Aardappel, mais en tomaat komen uit Amerika."
+        },
+        {
+         "vraag": "Waaraan stierven veel Amerikaanse volken?",
+         "opties": [
+          "Europese ziekten",
+          "Zware winters",
+          "Hongersnood door pest in Azië"
+         ],
+         "antwoord": 0,
+         "uitleg": "Ze hadden geen weerstand tegen bijvoorbeeld pokken."
+        },
+        {
+         "vraag": "Wat is een kolonie?",
+         "opties": [
+          "Een zeeroute",
+          "Gebied bestuurd door een vreemde staat",
+          "Een wapen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Europese landen bestuurden gebieden overzee."
+        },
+        {
+         "vraag": "Waarom werden Afrikanen als slaven vervoerd?",
+         "opties": [
+          "Om op plantages te werken",
+          "Om Europa te beschermen",
+          "Om te handelen met goud"
+         ],
+         "antwoord": 0,
+         "uitleg": "Er was veel arbeid nodig."
+        },
+        {
+         "vraag": "Welke stad was rond 1550 een rijke handelsstad?",
+         "opties": [
+          "Tongeren",
+          "Antwerpen",
+          "Parijs"
+         ],
+         "antwoord": 1,
+         "uitleg": "Antwerpen was een centrum van wereldhandel."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reformatie",
+     "titel": "Reformatie en godsdienstoorlogen",
+     "samenvatting": "Scheuring in de kerk en de gevolgen voor de Nederlanden.",
+     "lessen": [
+      {
+       "id": "luther-en-calvijn",
+       "titel": "Luther en Calvijn",
+       "uitleg": "In 1517 protesteerde de Duitse monnik Maarten Luther tegen misbruiken in de kerk, vooral tegen de aflaten. Een aflaat was een bewijs waarvoor je geld betaalde om straf voor je zonden te verminderen. Luther schreef 95 stellingen en zei dat de Bijbel belangrijker is dan de paus en dat het geloof genoeg is om gered te worden. Dankzij de drukpers verspreidden zijn ideeën zich snel.\n\nDe kerk veroordeelde hem. Hij werd uit de kerk gezet, maar vond steun bij Duitse vorsten. Zo ontstond het protestantisme. Ook Jean Calvijn (Genève) was een belangrijke hervormer. Zijn volgelingen noemen we calvinisten. Zij geloofden in predestinatie: God bepaalt vooraf wie gered wordt.\n\nDe beweging heet Reformatie, 'hervorming'. West-Europa was nu verdeeld in katholieken en protestanten. Als antwoord hervormde de katholieke kerk zichzelf: de Contrareformatie, met het Concilie van Trente (1545-1563) en de nieuwe orde van de jezuïeten.",
+       "woorden": [
+        {
+         "nl": "aflaat",
+         "doel": "bewijs waarmee je straf voor zonden kon verminderen",
+         "voorbeeld": "Luther kritiseerde de verkoop."
+        },
+        {
+         "nl": "protestantisme",
+         "doel": "christelijke stroming die uit de Reformatie ontstond",
+         "voorbeeld": "Lutheranen en calvinisten."
+        },
+        {
+         "nl": "Contrareformatie",
+         "doel": "katholiek antwoord op de Reformatie",
+         "voorbeeld": "Concilie van Trente."
+        },
+        {
+         "nl": "Luther",
+         "doel": "Duitse monnik die in 1517 de Reformatie startte",
+         "voorbeeld": "95 stellingen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welk jaar schreef Luther zijn 95 stellingen?",
+         "opties": [
+          "1302",
+          "1517",
+          "1492"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat was 1517."
+        },
+        {
+         "vraag": "Waartegen protesteerde Luther vooral?",
+         "opties": [
+          "De uitvinding van de drukpers",
+          "De verkoop van aflaten",
+          "Het gebruik van het Latijn in Rome"
+         ],
+         "antwoord": 1,
+         "uitleg": "Aflaten waren een misbruik volgens hem."
+        },
+        {
+         "vraag": "Waarvoor stond Calvijn bekend?",
+         "opties": [
+          "Predestinatie",
+          "Zeereizen",
+          "De drukpers"
+         ],
+         "antwoord": 0,
+         "uitleg": "God bepaalt vooraf wie gered wordt."
+        },
+        {
+         "vraag": "Wat betekent Reformatie?",
+         "opties": [
+          "Ontdekking",
+          "Hervorming",
+          "Wedergeboorte"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het was een hervorming van de kerk."
+        },
+        {
+         "vraag": "Wie kwam met de Contrareformatie?",
+         "opties": [
+          "De calvinisten",
+          "De katholieke kerk",
+          "De Vikingen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het was de katholieke reactie."
+        }
+       ]
+      },
+      {
+       "id": "beeldenstorm-en-opstand",
+       "titel": "De Beeldenstorm en de Tachtigjarige Oorlog",
+       "uitleg": "In 1555 droeg keizer Karel V de Nederlanden over aan zijn zoon Filips II, koning van Spanje. Filips was een streng katholiek en liet protestanten vervolgen met de inquisitie. De Nederlanden betaalden hoge belastingen, en de adel (zoals Willem van Oranje en graaf Egmont) was ontevreden.\n\nIn 1566 brak de Beeldenstorm uit: calvinisten braken beelden en versieringen in kerken, begonnen in Steenvoorde en verspreid over de Nederlanden. Filips II stuurde de hertog van Alva, die streng optrad. Egmont en Hoorne werden in 1568 onthoofd. Willem van Oranje leidde de opstand, het begin van de Tachtigjarige Oorlog (1568 tot 1648).\n\nIn 1585 veroverden Spaanse troepen Antwerpen. Veel protestanten vluchtten naar het noorden. Zo ontstond een splitsing: de Zuidelijke Nederlanden (ongeveer België) bleven Spaans en katholiek, de Noordelijke werden de Republiek der Zeven Verenigde Nederlanden. Dit werd erkend in 1648 (Vrede van Münster).",
+       "woorden": [
+        {
+         "nl": "Beeldenstorm",
+         "doel": "vernieling van beelden in kerken door calvinisten in 1566",
+         "voorbeeld": "Begon in Steenvoorde."
+        },
+        {
+         "nl": "inquisitie",
+         "doel": "kerkelijke rechtbank tegen ketters",
+         "voorbeeld": "Filips II."
+        },
+        {
+         "nl": "Willem van Oranje",
+         "doel": "leider van de opstand tegen Filips II",
+         "voorbeeld": "Vader des Vaderlands."
+        },
+        {
+         "nl": "Tachtigjarige Oorlog",
+         "doel": "opstand tegen Spanje van 1568 tot 1648",
+         "voorbeeld": "Leidde tot de Republiek."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie werd na Karel V heer van de Nederlanden?",
+         "opties": [
+          "Napoleon",
+          "Filips II",
+          "Lodewijk XIV"
+         ],
+         "antwoord": 1,
+         "uitleg": "Filips II volgde zijn vader op."
+        },
+        {
+         "vraag": "Wat gebeurde er in 1566?",
+         "opties": [
+          "De Guldensporenslag",
+          "De Franse Revolutie",
+          "De Beeldenstorm"
+         ],
+         "antwoord": 2,
+         "uitleg": "Calvinisten vernielden beelden."
+        },
+        {
+         "vraag": "Wie leidde de opstand?",
+         "opties": [
+          "Egmont",
+          "Alva",
+          "Willem van Oranje"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hij werd de leider van de opstand."
+        },
+        {
+         "vraag": "Wat gebeurde in 1585?",
+         "opties": [
+          "Antwerpen viel in Spaanse handen",
+          "Brugge werd gesticht",
+          "Luther stierf"
+         ],
+         "antwoord": 0,
+         "uitleg": "Veel protestanten trokken naar het noorden."
+        },
+        {
+         "vraag": "Welke twee delen ontstonden?",
+         "opties": [
+          "Frankrijk en Duitsland",
+          "Oost en West",
+          "Zuidelijke en Noordelijke Nederlanden"
+         ],
+         "antwoord": 2,
+         "uitleg": "De scheiding bepaalt de latere grens."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "verlichting-en-revolutie",
+     "titel": "Absolutisme, Verlichting en Franse Revolutie",
+     "samenvatting": "Van almachtige koningen naar burgers met rechten.",
+     "lessen": [
+      {
+       "id": "absolutisme-lodewijk-xiv",
+       "titel": "Het absolutisme: Lodewijk XIV",
+       "uitleg": "In de 17e en 18e eeuw heersten veel koningen als absolute vorsten: hun macht was onbeperkt en ze moesten voor niemand verantwoording afleggen. Dit noemen we absolutisme. De bekendste absolute vorst was Lodewijk XIV van Frankrijk (1643 tot 1715), de Zonnekoning.\n\nHij zou hebben gezegd: 'De staat, dat ben ik.' Hij liet het paleis van Versailles bouwen, waar de adel aan zijn hof moest wonen zodat hij die kon controleren. Hij had een groot leger, voerde veel oorlogen (ook in onze gewesten) en liet hoge belastingen innen. Alleen de katholieke godsdienst was toegestaan.\n\nDe maatschappij was in drie standen verdeeld: de geestelijkheid, de adel en de derde stand (burgers, boeren). Die laatste groep betaalde bijna alle belastingen, terwijl de eerste twee voorrechten hadden. Dat wordt het Ancien Régime genoemd, het 'oude bestel'.",
+       "woorden": [
+        {
+         "nl": "absolutisme",
+         "doel": "regeringsvorm waarbij de koning onbeperkte macht heeft",
+         "voorbeeld": "Lodewijk XIV."
+        },
+        {
+         "nl": "Zonnekoning",
+         "doel": "bijnaam van Lodewijk XIV",
+         "voorbeeld": "Versailles."
+        },
+        {
+         "nl": "Ancien Régime",
+         "doel": "maatschappij van voor de Franse Revolutie met drie standen",
+         "voorbeeld": "Adel had voorrechten."
+        },
+        {
+         "nl": "derde stand",
+         "doel": "burgers en boeren, de grootste groep zonder voorrechten",
+         "voorbeeld": "Betaalde de meeste belastingen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie was de Zonnekoning?",
+         "opties": [
+          "Karel de Grote",
+          "Napoleon",
+          "Lodewijk XIV"
+         ],
+         "antwoord": 2,
+         "uitleg": "Lodewijk XIV."
+        },
+        {
+         "vraag": "Wat betekent absolutisme?",
+         "opties": [
+          "Macht van het volk",
+          "Macht van de kerk",
+          "Onbeperkte macht van de koning"
+         ],
+         "antwoord": 2,
+         "uitleg": "De koning legt aan niemand verantwoording af."
+        },
+        {
+         "vraag": "Waarom woonde de adel in Versailles?",
+         "opties": [
+          "De koning wilde ze controleren",
+          "Het was gratis",
+          "Er was geen ander paleis"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo hield hij hen onder zijn oog."
+        },
+        {
+         "vraag": "Welke stand betaalde de meeste belastingen?",
+         "opties": [
+          "De adel",
+          "De geestelijkheid",
+          "De derde stand"
+         ],
+         "antwoord": 2,
+         "uitleg": "Burgers en boeren droegen de lasten."
+        },
+        {
+         "vraag": "Hoeveel standen had het Ancien Régime?",
+         "opties": [
+          "Vijf",
+          "Twee",
+          "Drie"
+         ],
+         "antwoord": 2,
+         "uitleg": "Geestelijkheid, adel en derde stand."
+        }
+       ]
+      },
+      {
+       "id": "verlichting",
+       "titel": "De Verlichting",
+       "uitleg": "In de 18e eeuw gebruikten denkers het verstand om kritisch na te denken over samenleving en macht. Die beweging heet de Verlichting. Verlichte denkers vonden dat alle mensen rechten hebben, dat macht beperkt moet worden en dat de wereld met verstand te begrijpen is.\n\nVoltaire verdedigde vrijheid van meningsuiting en kritiseerde de kerk. Montesquieu bedacht de scheiding der machten: wetgevende, uitvoerende en rechterlijke macht moeten gescheiden zijn zodat niemand te veel macht krijgt. Jean-Jacques Rousseau schreef over de volkssoevereiniteit: de macht komt van het volk. Denis Diderot maakte een grote encyclopedie met kennis voor iedereen.\n\nDeze ideeën verspreidden zich via boeken, salons en koffiehuizen. Ze inspireerden de Amerikaanse onafhankelijkheid (1776) en de Franse Revolutie. Veel van onze huidige rechten, zoals vrijheid van meningsuiting, komen uit de Verlichting.",
+       "woorden": [
+        {
+         "nl": "Verlichting",
+         "doel": "18e-eeuwse beweging die het verstand en rechten van de mens benadrukt",
+         "voorbeeld": "Voltaire."
+        },
+        {
+         "nl": "scheiding der machten",
+         "doel": "verdeling van de macht over wetgevend, uitvoerend en rechterlijk",
+         "voorbeeld": "Montesquieu."
+        },
+        {
+         "nl": "volkssoevereiniteit",
+         "doel": "idee dat de macht van het volk komt",
+         "voorbeeld": "Rousseau."
+        },
+        {
+         "nl": "encyclopedie",
+         "doel": "boekwerk met kennis over allerlei onderwerpen",
+         "voorbeeld": "Van Diderot."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wie bedacht de scheiding der machten?",
+         "opties": [
+          "Montesquieu",
+          "Rousseau",
+          "Voltaire"
+         ],
+         "antwoord": 0,
+         "uitleg": "Montesquieu schreef daarover."
+        },
+        {
+         "vraag": "Welk idee hoorde bij de Verlichting?",
+         "opties": [
+          "Vrijheid en rechten voor iedereen",
+          "Feodaliteit",
+          "Absolutisme"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het verstand en rechten stonden centraal."
+        },
+        {
+         "vraag": "Wie schreef over volkssoevereiniteit?",
+         "opties": [
+          "Luther",
+          "Diderot",
+          "Rousseau"
+         ],
+         "antwoord": 2,
+         "uitleg": "De macht komt van het volk."
+        },
+        {
+         "vraag": "Waar verspreidden de ideeën zich?",
+         "opties": [
+          "Via telefoons",
+          "Via boeken en salons",
+          "Via de radio"
+         ],
+         "antwoord": 1,
+         "uitleg": "Boeken, salons en koffiehuizen."
+        },
+        {
+         "vraag": "Welke gebeurtenis werd geïnspireerd door de Verlichting?",
+         "opties": [
+          "De Franse Revolutie",
+          "De val van Rome",
+          "De Kruistochten"
+         ],
+         "antwoord": 0,
+         "uitleg": "De revolutionairen gebruikten deze ideeën."
+        }
+       ]
+      },
+      {
+       "id": "franse-revolutie",
+       "titel": "De Franse Revolutie",
+       "uitleg": "Eind 18e eeuw had Frankrijk grote problemen: de staat was bijna bankroet, er waren misoogsten en het brood was duur. De derde stand was ontevreden over de belastingen en de voorrechten van adel en geestelijkheid. Koning Lodewijk XVI riep in 1789 de Staten-Generaal bijeen. De derde stand verklaarde zich tot Nationale Vergadering.\n\nOp 14 juli 1789 bestormde het volk de Bastille, een staatsgevangenis in Parijs. Dat is het symbool van de revolutie en nu de Franse nationale feestdag. In augustus 1789 volgde de Verklaring van de Rechten van de Mens en de Burger, met vrijheid, gelijkheid en broederlijkheid. Zo eindigde het Ancien Régime.\n\nLodewijk XVI werd in 1793 geëxecuteerd. Frankrijk werd een republiek. Later nam Napoleon Bonaparte de macht en kroonde zich in 1804 tot keizer. Hij werd definitief verslagen in 1815 bij Waterloo, in ons land. Onze gewesten werden door Frankrijk ingelijfd (1795) en kenden de Franse wetten en bestuur.\n\nMet de Franse Revolutie begint de nieuwste tijd.",
+       "woorden": [
+        {
+         "nl": "revolutie",
+         "doel": "snelle, ingrijpende omwenteling van het bestuur",
+         "voorbeeld": "Frankrijk 1789."
+        },
+        {
+         "nl": "Bastille",
+         "doel": "Parijse gevangenis die op 14 juli 1789 bestormd werd",
+         "voorbeeld": "Symbool van de revolutie."
+        },
+        {
+         "nl": "Verklaring van de Rechten van de Mens",
+         "doel": "tekst met rechten voor alle burgers uit 1789",
+         "voorbeeld": "Vrijheid, gelijkheid."
+        },
+        {
+         "nl": "Napoleon",
+         "doel": "Franse generaal en later keizer (1804)",
+         "voorbeeld": "Verslagen bij Waterloo (1815)."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wanneer begon de Franse Revolutie?",
+         "opties": [
+          "1517",
+          "1492",
+          "1789"
+         ],
+         "antwoord": 2,
+         "uitleg": "Met de Bastille op 14 juli 1789."
+        },
+        {
+         "vraag": "Wat was de Bastille?",
+         "opties": [
+          "Een staatsgevangenis",
+          "Een kasteel in Gent",
+          "Een kerk"
+         ],
+         "antwoord": 0,
+         "uitleg": "Ze werd bestormd door het volk."
+        },
+        {
+         "vraag": "Wat staat in de Verklaring van de Rechten van de Mens?",
+         "opties": [
+          "Standen",
+          "Vrijheid en gelijkheid",
+          "Absolute macht"
+         ],
+         "antwoord": 1,
+         "uitleg": "Alle burgers kregen rechten."
+        },
+        {
+         "vraag": "Waar werd Napoleon in 1815 definitief verslagen?",
+         "opties": [
+          "Waterloo",
+          "Versailles",
+          "Kortrijk"
+         ],
+         "antwoord": 0,
+         "uitleg": "Waterloo ligt in België."
+        },
+        {
+         "vraag": "Welk tijdvak begint met de Franse Revolutie?",
+         "opties": [
+          "De nieuwste tijd",
+          "De oudheid",
+          "De middeleeuwen"
+         ],
+         "antwoord": 0,
+         "uitleg": "1789 markeert het begin van de nieuwste tijd."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
