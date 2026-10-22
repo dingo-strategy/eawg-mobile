@@ -723,6 +723,75 @@
     return n < 0 ? 'toets voorbij' : n === 0 ? 'toets vandaag' : 'toets over ' + n + (n === 1 ? ' dag' : ' dagen');
   }
 
+  // ---------- foto's van je cursus ----------
+  // De foto wordt op je toestel gelezen met Tesseract (gratis, open source, uit de map ocr/). Er wordt niets verstuurd.
+  var OCR_TAAL = { nederlands: 'nld', engels: 'eng', frans: 'fra' };
+  function taalVanVak(v) { return v === 'engels' ? 'eng' : v === 'frans' ? 'fra' : 'nld'; }
+  function laadScript(src) {
+    return new Promise(function (ok, nok) {
+      var sc = document.createElement('script'); sc.src = src; sc.onload = ok; sc.onerror = function () { nok(new Error('script')); };
+      document.head.appendChild(sc);
+    });
+  }
+  var ocrWorkers = {}, ocrVoortgang = null;
+  function ocrWorker(taal) {
+    if (ocrWorkers[taal]) return ocrWorkers[taal];
+    var p = (window.Tesseract ? Promise.resolve() : laadScript('ocr/tesseract.min.js')).then(function () {
+      return Tesseract.createWorker(taal, 1, {
+        workerPath: 'ocr/worker.min.js', corePath: 'ocr', langPath: 'ocr/lang',
+        logger: function (m) { if (ocrVoortgang) ocrVoortgang(m); }
+      });
+    });
+    ocrWorkers[taal] = p; p.catch(function () { delete ocrWorkers[taal]; });
+    return p;
+  }
+  // Foto verkleinen en leesbaarder maken (grijs, meer contrast); een kleine versie bewaren we bij de les.
+  function bereidFotoVoor(file) {
+    return new Promise(function (ok, nok) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        try {
+          function maak(max, filter) {
+            var f = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight)), c = document.createElement('canvas');
+            c.width = Math.round(img.naturalWidth * f); c.height = Math.round(img.naturalHeight * f);
+            var x = c.getContext('2d'); if (filter) { try { x.filter = filter; } catch (e) {} }
+            x.drawImage(img, 0, 0, c.width, c.height); return c;
+          }
+          var groot = maak(2000, 'grayscale(1) contrast(1.35)'), klein = maak(1100, '');
+          URL.revokeObjectURL(url);
+          ok({ canvas: groot, klein: klein.toDataURL('image/jpeg', 0.7) });
+        } catch (e) { nok(e); }
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); nok(new Error('foto')); };
+      img.src = url;
+    });
+  }
+  function schoonOcr(t) {
+    return String(t || '').replace(/-\n(?=[a-zà-ÿ])/g, '')
+      .split('\n').map(function (r) { return r.split(/\s+/).filter(function (w) { return !/^[|°‚`~^_<>\\\/«»]+$/.test(w); }).join(' ').trim(); })
+      .join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  }
+
+  // Foto's blijven in de browser (IndexedDB), niet in de gewone opslag, want die is te klein.
+  function fotoDb() {
+    return new Promise(function (ok, nok) {
+      try {
+        var r = indexedDB.open('leren-fotos', 1);
+        r.onupgradeneeded = function () { r.result.createObjectStore('f'); };
+        r.onsuccess = function () { ok(r.result); }; r.onerror = function () { nok(r.error); };
+      } catch (e) { nok(e); }
+    });
+  }
+  function fotoDoe(modus, sleutel, waarde) {
+    return fotoDb().then(function (db) {
+      return new Promise(function (ok, nok) {
+        var tx = db.transaction('f', modus === 'lees' ? 'readonly' : 'readwrite'), st = tx.objectStore('f');
+        var rq = modus === 'lees' ? st.get(sleutel) : modus === 'wis' ? st.delete(sleutel) : st.put(waarde, sleutel);
+        rq.onsuccess = function () { ok(rq.result || []); }; rq.onerror = function () { nok(rq.error); };
+      });
+    }).catch(function () { return []; });
+  }
+
   function mijnLijst() {
     leeg();
     root.appendChild(terug('#/', 'Start'));
@@ -760,10 +829,54 @@
     function bewaar(les) {
       var tt = titel.value.trim() || les.titel || 'Mijn les';
       if (!eigenVoegToe(tt, vs.value, dt.value ? dt.value.replace(/-0(\d)/g, '-$1') : '', les)) { melding.textContent = 'Je hebt al 30 eigen lessen. Verwijder eerst een les.'; return; }
-      location.hash = '#/mijn/' + les.id;
+      (fotos.length ? fotoDoe('schrijf', les.id, fotos) : Promise.resolve()).then(function () { location.hash = '#/mijn/' + les.id; });
     }
 
-    var d1 = el('details'); d1.open = true; d1.appendChild(el('summary', '', '✍️ Tekst plakken (de app maakt de oefeningen)'));
+    // --- foto's ---
+    var fotos = [], dF = el('details'); dF.open = true;
+    dF.appendChild(el('summary', '', '📷 Foto van je cursus'));
+    dF.appendChild(el('p', 'sub', 'Neem een foto van de bladzijde (goed licht, recht boven de tekst). De app leest de tekst op je toestel; er wordt niets verstuurd. Controleer daarna de tekst hieronder: lezen is nooit helemaal perfect, zeker bij handschrift.'));
+    var tl = el('select', 'invul'); tl.id = 'foto-taal'; tl.setAttribute('aria-label', 'Taal van de tekst');
+    [['nld', 'Tekst in het Nederlands'], ['eng', 'Tekst in het Engels'], ['fra', 'Tekst in het Frans']].forEach(function (x) { var o = el('option', '', x[1]); o.value = x[0]; tl.appendChild(o); });
+    vs.addEventListener('change', function () { tl.value = taalVanVak(vs.value); });
+    dF.appendChild(tl);
+    function fotoInput(capture, multiple) {
+      var i = el('input'); i.type = 'file'; i.accept = 'image/*'; i.hidden = true; if (capture) i.setAttribute('capture', 'environment'); if (multiple) i.multiple = true;
+      i.addEventListener('change', function () { verwerk(Array.prototype.slice.call(i.files)); i.value = ''; }); return i;
+    }
+    var inNemen = fotoInput(true, false), inKies = fotoInput(false, true); inNemen.id = 'foto-nemen'; inKies.id = 'foto-kiezen';
+    var fk = el('div', 'spelknoppen');
+    fk.appendChild(knop('btn', '📸 Foto nemen', function () { inNemen.click(); }));
+    fk.appendChild(knop('btn zacht', '🖼️ Foto kiezen', function () { inKies.click(); }));
+    dF.appendChild(fk); dF.appendChild(inNemen); dF.appendChild(inKies);
+    var strook = el('div', 'fotostrook'), fstatus = el('p', 'sub'); fstatus.setAttribute('role', 'status');
+    dF.appendChild(strook); dF.appendChild(fstatus);
+    function verwerk(bestanden) {
+      var rij = Promise.resolve();
+      bestanden.forEach(function (f, n) {
+        rij = rij.then(function () {
+          fstatus.textContent = 'Foto ' + (n + 1) + ' van ' + bestanden.length + ' voorbereiden…';
+          return bereidFotoVoor(f).then(function (fp) {
+            fotos.push(fp.klein);
+            var im = el('img', 'thumb'); im.src = fp.klein; im.alt = 'Foto ' + fotos.length; strook.appendChild(im);
+            fstatus.textContent = 'Tekst lezen uit foto ' + (n + 1) + '… (de eerste keer wordt het taalmodel geladen)';
+            ocrVoortgang = function (m) { if (m.status === 'recognizing text') fstatus.textContent = 'Tekst lezen uit foto ' + (n + 1) + '… ' + Math.round(m.progress * 100) + '%'; };
+            return ocrWorker(tl.value).then(function (w) { return w.recognize(fp.canvas); }).then(function (r) {
+              var t = schoonOcr(r.data && r.data.text);
+              if (!t) { fstatus.textContent = 'Er is geen tekst herkend in foto ' + (n + 1) + '. Probeer een scherpere foto met meer licht.'; return; }
+              ta.value = (ta.value.trim() ? ta.value.trim() + '\n\n' : '') + t;
+              fstatus.textContent = 'Klaar. Controleer de tekst hieronder en verbeter wat fout gelezen is.';
+              ta.focus();
+            }, function () {
+              fstatus.textContent = 'Tekst lezen lukt hier niet (de foto is wel bewaard). Typ of plak de tekst zelf, of stuur de foto aan Claude voor de beste kwaliteit.';
+            });
+          }, function () { fstatus.textContent = 'Die foto kan ik niet openen. Probeer een andere foto.'; });
+        });
+      });
+    }
+    root.appendChild(dF);
+
+    var d1 = el('details'); d1.open = true; d1.appendChild(el('summary', '', '✍️ Tekst controleren of plakken (de app maakt de oefeningen)'));
     d1.appendChild(el('p', 'sub', 'Foto van je cursus? Houd je vinger op de tekst in de foto en kies kopiëren (iPhone: Live Text, Android: Google Lens). Plak ze hier. Regels als "begrip: uitleg" worden woordkaartjes.'));
     var ta = el('textarea', 'code tekstveld'); ta.id = 'les-tekst'; ta.placeholder = 'Plak of typ hier de tekst van je les'; ta.setAttribute('aria-label', 'Tekst van je les');
     d1.appendChild(ta);
@@ -806,6 +919,15 @@
     var les = e.les, v = e.vak && vak(e.vak);
     root.appendChild(el('h1', '', e.titel));
     var t = toetsTekst(e.toets); if (t) root.appendChild(el('p', 'melding', '📅 ' + t.charAt(0).toUpperCase() + t.slice(1)));
+    var fotoPlek = el('div'); root.appendChild(fotoPlek);
+    fotoDoe('lees', e.id).then(function (lijst) {
+      if (!lijst.length) return;
+      var dt = el('details'); dt.appendChild(el('summary', '', '📷 Mijn foto\'s (' + lijst.length + ')'));
+      lijst.forEach(function (u, i) {
+        var im = el('img', 'foto'); im.src = u; im.alt = 'Foto ' + (i + 1) + ' van mijn cursus'; dt.appendChild(im);
+      });
+      fotoPlek.appendChild(dt);
+    });
     if (les.uitleg) String(les.uitleg).split(/\n\s*\n/).forEach(function (a) { if (a.trim()) root.appendChild(el('p', 'uitleg', a.trim())); });
     if (les.woorden && les.woorden.length) {
       root.appendChild(el('h2', '', 'Begrippen'));
@@ -847,6 +969,7 @@
       wis.appendChild(el('p', 'sub', 'Zeker? Deze les en haar herhalingsvragen verdwijnen.'));
       wis.appendChild(knop('btn gevaar', 'Ja, verwijderen', function () {
         S.eigen = S.eigen.filter(function (x) { return x.id !== e.id; });
+        fotoDoe('wis', e.id);
         Object.keys(S.fout).forEach(function (k) { if (S.fout[k].n === 'E' && S.fout[k].l === e.id) delete S.fout[k]; });
         save(); location.hash = '#/mijn'; route();
       }));
