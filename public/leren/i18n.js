@@ -200,7 +200,10 @@ window.LEREN_I18N = {
   "2e middelbaar · B-stroom": "2e secondaire · filière B",
   "3e middelbaar": "3e secondaire",
   "4e middelbaar": "4e secondaire",
-  "Welkom bij Leerliga! 👋": "Bienvenue sur Leerliga ! 👋"
+  "Welkom bij Leerliga! 👋": "Bienvenue sur Leerliga ! 👋",
+  "Over Leerliga": "À propos de Leerliga",
+  "Leerliga is gemaakt met hulp van AI. De lessen zijn nog niet nagekeken door een leerkracht en kunnen fouten bevatten. Twijfel je? Vraag het aan je leerkracht of in je cursus.": "Leerliga a été créé avec l'aide de l'IA. Les leçons n'ont pas encore été relues par un enseignant et peuvent contenir des erreurs. Tu doutes ? Demande à ton enseignant ou regarde dans ton cours.",
+  "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte et rien n'est envoyé."
  },
  "en": {
   "Alle vakken": "All subjects",
@@ -402,6 +405,9 @@ window.LEREN_I18N = {
   "2e middelbaar · B-stroom": "Secondary year 2 · B stream",
   "3e middelbaar": "Secondary year 3",
   "4e middelbaar": "Secondary year 4",
-  "Welkom bij Leerliga! 👋": "Welcome to Leerliga! 👋"
+  "Welkom bij Leerliga! 👋": "Welcome to Leerliga! 👋",
+  "Over Leerliga": "About Leerliga",
+  "Leerliga is gemaakt met hulp van AI. De lessen zijn nog niet nagekeken door een leerkracht en kunnen fouten bevatten. Twijfel je? Vraag het aan je leerkracht of in je cursus.": "Leerliga was made with the help of AI. The lessons have not yet been checked by a teacher and may contain mistakes. Not sure? Ask your teacher or look in your course.",
+  "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Everything you do stays on this device. There is no account and nothing is sent anywhere."
  }
 };

@@ -1053,6 +1053,9 @@
     root.appendChild(gr);
     root.appendChild(el('h2', '', Tr('Profiel')));
     root.appendChild(knop('btn zacht', Tr('Mijn profiel en klas'), function () { location.hash = '#/profiel'; }));
+    root.appendChild(el('h2', '', Tr('Over Leerliga')));
+    root.appendChild(el('p', 'sub', Tr('Leerliga is gemaakt met hulp van AI. De lessen zijn nog niet nagekeken door een leerkracht en kunnen fouten bevatten. Twijfel je? Vraag het aan je leerkracht of in je cursus.')));
+    root.appendChild(el('p', 'sub', Tr('Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.')));
   }
 
   function route() {

@@ -1,0 +1,7 @@
+# Alleen Leerliga online zetten (niet het voetbalspel):
+#   npx wrangler deploy -c wrangler.leerliga.toml
+name = "leerliga"
+compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./public/leren"
