@@ -1113,6 +1113,17 @@ function loadS() {
   S = newSave();
 }
 function saveS() { try { localStorage.setItem('goalrush2', JSON.stringify(S)); } catch (e) {} }
+// Munten uit de leer-app (public/leren) komen via een brievenbus binnen, zodat twee open tabbladen elkaar niet overschrijven.
+let lerenToast = null;
+function claimLeren() {
+  try {
+    const o = JSON.parse(localStorage.getItem('leren-tegoed'));
+    if (!o || !(o.coins > 0) || !S) return;
+    localStorage.setItem('leren-tegoed', JSON.stringify({ coins: 0 }));
+    S.coins += o.coins; saveS(); lerenToast = { n: o.coins, t: performance.now() };
+  } catch (e) {}
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) claimLeren(); });
 const cardById = id => S.cards.find(c => c.id === id);
 const lineCard = i => cardById(S.lineup[i]);
 function objs() {
@@ -1935,9 +1946,11 @@ function loop(now) {
   if (state === 'play' && document.body.classList.contains('portrait')) state = 'pause';
   { const lb = (ctrl && ball && ball.owner !== ctrl) ? 'TAKEL' : 'PASS'; if (lb !== pLab) { pLab = lb; bP.textContent = lb; } }
   { const ch = charging ? Math.min(1, charge / 0.7) : 0, v = Math.round(ch * 10); if (v !== bsV) { bsV = v; bS.style.boxShadow = v ? '0 0 0 ' + (3 + v) + 'px rgba(255,212,0,' + (0.5 + ch * 0.5) + ')' : ''; } }
-  draw(); requestAnimationFrame(loop);
+  draw();
+  if (lerenToast) { const age = performance.now() - lerenToast.t; if (age > 5000) lerenToast = null; else { cx.globalAlpha = Math.min(1, (5000 - age) / 600); txt('+' + lerenToast.n + ' munten van leren!', SW / 2, 74, 18, '#ffd400', 'center', '900'); cx.globalAlpha = 1; } }
+  requestAnimationFrame(loop);
 }
-loadSet(); loadS(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(localStorage.getItem('krakRoster2'))); } catch (e) {} try { if (typeof EMB === 'object' && EMB) applyRoster(EMB); } catch (e) {} if (!COMPS) { COMPS = [{ name: 'WEST-VLAANDEREN A', teams: KITS.slice() }]; } applyComp(compIdx); applyKits(); cx.imageSmoothingQuality = 'high'; resize(); makeShadow(); mk();
+loadSet(); loadS(); claimLeren(); loadT(); loadAl(); phLoad(); try { applyRoster(JSON.parse(localStorage.getItem('krakRoster2'))); } catch (e) {} try { if (typeof EMB === 'object' && EMB) applyRoster(EMB); } catch (e) {} if (!COMPS) { COMPS = [{ name: 'WEST-VLAANDEREN A', teams: KITS.slice() }]; } applyComp(compIdx); applyKits(); cx.imageSmoothingQuality = 'high'; resize(); makeShadow(); mk();
 setTimeout(() => { buildGrass(); const l = document.getElementById('load'); if (l) l.remove(); last = performance.now(); requestAnimationFrame(loop); }, 60);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
