@@ -1,5 +1,5 @@
 {
- "version": 7,
+ "version": 8,
  "competitions": [
   {
    "name": "WEST-VLAANDEREN A",
@@ -1001,6 +1001,358 @@
      "trim": "#17191F",
      "ts": 64,
      "logo": "logos/borussia-monchengladbach.png"
+    }
+   ]
+  },
+  {
+   "name": "LIGUE 1",
+   "teams": [
+    {
+     "name": "PARIS SAINT-GERMAIN",
+     "code": "PSG",
+     "shirt": "#004170",
+     "shorts": "#004170",
+     "sock": "#004170",
+     "trim": "#DA291C",
+     "ts": 86
+    },
+    {
+     "name": "OLYMPIQUE MARSEILLE",
+     "code": "OM",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#2FAEE0",
+     "ts": 82
+    },
+    {
+     "name": "AS MONACO",
+     "code": "MON",
+     "shirt": "#E4002B",
+     "shorts": "#FFFFFF",
+     "sock": "#E4002B",
+     "trim": "#FFFFFF",
+     "ts": 81
+    },
+    {
+     "name": "LOSC LILLE",
+     "code": "LIL",
+     "shirt": "#E2001A",
+     "shorts": "#1B2A5C",
+     "sock": "#E2001A",
+     "trim": "#1B2A5C",
+     "ts": 80
+    },
+    {
+     "name": "OLYMPIQUE LYON",
+     "code": "LYO",
+     "shirt": "#FFFFFF",
+     "shorts": "#1F3C88",
+     "sock": "#FFFFFF",
+     "trim": "#DA2127",
+     "ts": 80
+    },
+    {
+     "name": "RC LENS",
+     "code": "LEN",
+     "shirt": "#F5C400",
+     "shorts": "#F5C400",
+     "sock": "#D81E1E",
+     "trim": "#D81E1E",
+     "ts": 79
+    },
+    {
+     "name": "OGC NICE",
+     "code": "NIC",
+     "shirt": "#E3001B",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#111111",
+     "ts": 78
+    },
+    {
+     "name": "STADE RENNAIS",
+     "code": "REN",
+     "shirt": "#E2001A",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#111111",
+     "ts": 77
+    },
+    {
+     "name": "RC STRASBOURG",
+     "code": "STR",
+     "shirt": "#0066B3",
+     "shorts": "#FFFFFF",
+     "sock": "#0066B3",
+     "trim": "#FFFFFF",
+     "ts": 74
+    },
+    {
+     "name": "STADE BRESTOIS",
+     "code": "BRE",
+     "shirt": "#E30613",
+     "shorts": "#FFFFFF",
+     "sock": "#E30613",
+     "trim": "#FFFFFF",
+     "ts": 73
+    },
+    {
+     "name": "TOULOUSE FC",
+     "code": "TFC",
+     "shirt": "#5B2A86",
+     "shorts": "#FFFFFF",
+     "sock": "#5B2A86",
+     "trim": "#FFFFFF",
+     "ts": 72
+    },
+    {
+     "name": "FC NANTES",
+     "code": "NAN",
+     "shirt": "#FFD500",
+     "shorts": "#00873C",
+     "sock": "#FFD500",
+     "trim": "#00873C",
+     "ts": 70
+    },
+    {
+     "name": "AJ AUXERRE",
+     "code": "AUX",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#0F5FA6",
+     "ts": 69
+    },
+    {
+     "name": "ANGERS SCO",
+     "code": "ANG",
+     "shirt": "#111111",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#FFFFFF",
+     "ts": 66
+    },
+    {
+     "name": "LE HAVRE AC",
+     "code": "HAV",
+     "shirt": "#6FB7E8",
+     "shorts": "#0A3C73",
+     "sock": "#6FB7E8",
+     "trim": "#0A3C73",
+     "ts": 66
+    },
+    {
+     "name": "FC LORIENT",
+     "code": "LOR",
+     "shirt": "#F58220",
+     "shorts": "#111111",
+     "sock": "#F58220",
+     "trim": "#111111",
+     "ts": 66
+    },
+    {
+     "name": "PARIS FC",
+     "code": "PFC",
+     "shirt": "#1B4DA0",
+     "shorts": "#1B4DA0",
+     "sock": "#1B4DA0",
+     "trim": "#FFFFFF",
+     "ts": 65
+    },
+    {
+     "name": "FC METZ",
+     "code": "MET",
+     "shirt": "#8A1538",
+     "shorts": "#8A1538",
+     "sock": "#8A1538",
+     "trim": "#FFFFFF",
+     "ts": 64
+    }
+   ]
+  },
+  {
+   "name": "LA LIGA",
+   "teams": [
+    {
+     "name": "REAL MADRID",
+     "code": "RMA",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#FEBE10",
+     "ts": 88
+    },
+    {
+     "name": "FC BARCELONA",
+     "code": "BAR",
+     "shirt": "#A50044",
+     "shorts": "#004D98",
+     "sock": "#004D98",
+     "trim": "#EDBB00",
+     "ts": 87
+    },
+    {
+     "name": "ATLETICO MADRID",
+     "code": "ATM",
+     "shirt": "#CB3524",
+     "shorts": "#1B2C5C",
+     "sock": "#1B2C5C",
+     "trim": "#FFFFFF",
+     "ts": 84
+    },
+    {
+     "name": "ATHLETIC CLUB",
+     "code": "ATH",
+     "shirt": "#D4001F",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#FFFFFF",
+     "ts": 80
+    },
+    {
+     "name": "VILLARREAL CF",
+     "code": "VIL",
+     "shirt": "#F7D108",
+     "shorts": "#F7D108",
+     "sock": "#F7D108",
+     "trim": "#0A4C9E",
+     "ts": 79
+    },
+    {
+     "name": "REAL SOCIEDAD",
+     "code": "RSO",
+     "shirt": "#0067B1",
+     "shorts": "#FFFFFF",
+     "sock": "#0067B1",
+     "trim": "#FFFFFF",
+     "ts": 78
+    },
+    {
+     "name": "REAL BETIS",
+     "code": "BET",
+     "shirt": "#0BB363",
+     "shorts": "#FFFFFF",
+     "sock": "#0BB363",
+     "trim": "#FFFFFF",
+     "ts": 78
+    },
+    {
+     "name": "SEVILLA FC",
+     "code": "SEV",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#D4001F",
+     "ts": 76
+    },
+    {
+     "name": "GIRONA FC",
+     "code": "GIR",
+     "shirt": "#D6001C",
+     "shorts": "#0B2F6B",
+     "sock": "#D6001C",
+     "trim": "#FFFFFF",
+     "ts": 75
+    },
+    {
+     "name": "VALENCIA CF",
+     "code": "VAL",
+     "shirt": "#FFFFFF",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#F58220",
+     "ts": 75
+    },
+    {
+     "name": "CELTA VIGO",
+     "code": "CEL",
+     "shirt": "#7DB7E8",
+     "shorts": "#7DB7E8",
+     "sock": "#7DB7E8",
+     "trim": "#E4002B",
+     "ts": 74
+    },
+    {
+     "name": "CA OSASUNA",
+     "code": "OSA",
+     "shirt": "#C8102E",
+     "shorts": "#1B2A5C",
+     "sock": "#1B2A5C",
+     "trim": "#FFFFFF",
+     "ts": 72
+    },
+    {
+     "name": "GETAFE CF",
+     "code": "GET",
+     "shirt": "#0B4DA2",
+     "shorts": "#0B4DA2",
+     "sock": "#0B4DA2",
+     "trim": "#FFFFFF",
+     "ts": 72
+    },
+    {
+     "name": "RAYO VALLECANO",
+     "code": "RAY",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#D4001F",
+     "ts": 71
+    },
+    {
+     "name": "RCD MALLORCA",
+     "code": "MAL",
+     "shirt": "#D4001F",
+     "shorts": "#111111",
+     "sock": "#111111",
+     "trim": "#111111",
+     "ts": 71
+    },
+    {
+     "name": "DEPORTIVO ALAVES",
+     "code": "ALA",
+     "shirt": "#0057A8",
+     "shorts": "#FFFFFF",
+     "sock": "#0057A8",
+     "trim": "#FFFFFF",
+     "ts": 69
+    },
+    {
+     "name": "RCD ESPANYOL",
+     "code": "ESP",
+     "shirt": "#0A4FA3",
+     "shorts": "#FFFFFF",
+     "sock": "#0A4FA3",
+     "trim": "#FFFFFF",
+     "ts": 68
+    },
+    {
+     "name": "ELCHE CF",
+     "code": "ELC",
+     "shirt": "#FFFFFF",
+     "shorts": "#FFFFFF",
+     "sock": "#FFFFFF",
+     "trim": "#00A05A",
+     "ts": 66
+    },
+    {
+     "name": "LEVANTE UD",
+     "code": "LEV",
+     "shirt": "#B3123C",
+     "shorts": "#0B2F6B",
+     "sock": "#0B2F6B",
+     "trim": "#0B2F6B",
+     "ts": 65
+    },
+    {
+     "name": "REAL OVIEDO",
+     "code": "OVI",
+     "shirt": "#0057A8",
+     "shorts": "#FFFFFF",
+     "sock": "#0057A8",
+     "trim": "#FFFFFF",
+     "ts": 64
     }
    ]
   }
