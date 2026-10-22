@@ -1925,7 +1925,7 @@ function applyComp(i) {
   COMPS[i].teams.forEach((t, j) => { KITS[j] = { name: String(t.name).slice(0, 24), code: String(t.code || t.name).slice(0, 3).toUpperCase(), shirt: t.shirt, shorts: t.shorts || '#ffffff', sock: t.sock || t.shirt, trim: t.trim || '#ffffff' }; if (t.ts > 40 && t.ts < 95) TS[j] = t.ts; });
   applyKits();
 }
-const insBtn = document.getElementById('install');
+const insBtn = document.getElementById('install'), leerLink = document.getElementById('leerlink');
 function degrade() {
   if (dprCap > 1 && (window.devicePixelRatio || 1) > 1) { dprCap = Math.max(1, dprCap - 0.5); resize(); }
   else if (Q < 2) { Q++; TXL = [2, 1.3, 1][Q]; resize(); buildGrass(); }
@@ -1942,7 +1942,7 @@ function loop(now) {
   const vis = SW / 2 / (zoom * (SF + SN) / 2);
   const target = Math.max(vis - 70, Math.min(W - vis + 70, ball.x + ball.vx * 0.22));
   camX += (target - camX) * Math.min(1, 4 * dt);
-  const sh = state === 'play' || state === 'goal'; bS.classList.toggle('hide', !sh); bP.classList.toggle('hide', !sh); if (insBtn) insBtn.classList.toggle('hide', sh);
+  const sh = state === 'play' || state === 'goal'; bS.classList.toggle('hide', !sh); bP.classList.toggle('hide', !sh); if (insBtn) insBtn.classList.toggle('hide', sh); if (leerLink) leerLink.classList.toggle('hide', sh);
   if (state === 'play' && document.body.classList.contains('portrait')) state = 'pause';
   { const lb = (ctrl && ball && ball.owner !== ctrl) ? 'TAKEL' : 'PASS'; if (lb !== pLab) { pLab = lb; bP.textContent = lb; } }
   { const ch = charging ? Math.min(1, charge / 0.7) : 0, v = Math.round(ch * 10); if (v !== bsV) { bsV = v; bS.style.boxShadow = v ? '0 0 0 ' + (3 + v) + 'px rgba(255,212,0,' + (0.5 + ch * 0.5) + ')' : ''; } }

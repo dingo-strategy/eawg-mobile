@@ -33,11 +33,12 @@
 <div id="load" style="position:fixed;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;color:#fff;font:800 26px system-ui,sans-serif;background:#07260f;z-index:9">EAWG Mobile laden...</div>
 <button class="btn" id="bShoot">SCHIET</button>
 <button class="btn" id="bPass">PASS</button>
-<button id="install" style="display:none;position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px">Installeer app</button>
-<div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm". <b id="iosx" style="float:right;padding-left:12px">X</b></div>
+<button id="install" style="display:block;position:fixed;top:calc(max(10px,env(safe-area-inset-top)) + 54px);right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px">&#11015; Download app</button>
+<a id="leerlink" href="leren/" style="display:block;position:fixed;top:calc(max(10px,env(safe-area-inset-top)) + 104px);right:10px;z-index:5;padding:10px 14px;border-radius:12px;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px;text-decoration:none">&#128218; Leerliga</a>
+<div id="ios" style="display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:5;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.8);color:#fff;font-size:14px"><span id="iostxt">Installeren op iPhone: tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm".</span> <b id="iosx" style="float:right;padding-left:12px">X</b></div>
 <div id="rot" style="display:none;position:fixed;inset:0;z-index:30;background:#06130a;color:#fff;font:800 22px system-ui,sans-serif;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:24px"><div style="font-size:64px">&#8635;</div><div>Draai je gsm naar liggend</div><div style="font-size:15px;font-weight:600;opacity:.7">EAWG Mobile speel je horizontaal</div></div>
 <script>(function(){var r=document.getElementById("rot");function f(){var p=innerHeight>innerWidth*1.1&&matchMedia("(pointer:coarse)").matches;r.style.display=p?"flex":"none";document.body.classList.toggle("portrait",p)}addEventListener("resize",f);addEventListener("orientationchange",f);f()})()</script>
-<script src="game.js?v=34"></script>
+<script src="game.js?v=35"></script>
 <script>
 // Eerste tik op een gsm: volledig scherm en liggend vastzetten (Android; iPhone negeert het)
 (function () {
@@ -57,22 +58,23 @@
 <script>
 (function () {
   var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
-  if (standalone) return;
   var btn = document.getElementById('install'), dp = null;
+  if (standalone) { btn.style.display = 'none'; return; }
   addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); dp = e; btn.style.display = 'block'; });
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent), box = document.getElementById('ios');
   btn.addEventListener('click', function () {
-    if (!dp) return; dp.prompt();
-    dp.userChoice.then(function () { dp = null; btn.style.display = 'none'; });
+    if (dp) { dp.prompt(); dp.userChoice.then(function () { dp = null; btn.style.display = 'none'; }); return; }
+    document.getElementById('iostxt').textContent = ios
+      ? 'Installeren op iPhone: open dit in Safari, tik op Deel (vierkantje met pijl) en kies "Zet op beginscherm".'
+      : 'Installeren: open het menu van je browser (drie puntjes) en kies "App installeren" of "Toevoegen aan startscherm".';
+    box.style.display = 'block'; setTimeout(function () { box.style.display = 'none'; }, 12000);
   });
   addEventListener('appinstalled', function () { btn.style.display = 'none'; });
-  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent), box = document.getElementById('ios');
   var seen = false; try { seen = localStorage.getItem('iosTip'); } catch (e) {}
-  if (ios && !seen) {
-    box.style.display = 'block'; setTimeout(function () { box.style.display = 'none'; }, 9000);
-    document.getElementById('iosx').addEventListener('click', function () {
-      box.style.display = 'none'; try { localStorage.setItem('iosTip', '1'); } catch (e) {}
-    });
-  }
+  document.getElementById('iosx').addEventListener('click', function () {
+    box.style.display = 'none'; try { localStorage.setItem('iosTip', '1'); } catch (e) {}
+  });
+  if (ios && !seen) { box.style.display = 'block'; setTimeout(function () { box.style.display = 'none'; }, 9000); }
 })();
 </script>
 </body>
