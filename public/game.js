@@ -2508,11 +2508,12 @@ function drawSettings() {
     ['GELUID', () => muted ? 'UIT' : 'AAN', () => act('snd'), 1],
     ['COMPETITIE', () => COMPS[compIdx].name, () => { if (S.season && !S.season.done) { ban = null; return; } let n = compIdx; do { n = (n + 1) % COMPS.length; } while (COMPS[n].teams.length !== 8); applyComp(n); }, 1],
     ['TEAM (kick-off)', () => KITS[kitSel].name, () => { kitSel = (kitSel + 1) % KITS.length; applyKits(); }, 1],
-    ['MEETSCHERM', () => DBG ? 'AAN' : 'UIT', () => { DBG = !DBG; try { localStorage.setItem('eawg-debug', DBG ? '1' : '0'); } catch (e) {} }, 1]
+    ['MEETSCHERM', () => DBG ? 'AAN' : 'UIT', () => { DBG = !DBG; try { localStorage.setItem('eawg-debug', DBG ? '1' : '0'); } catch (e) {} }, 1],
+    ['UPDATE (v' + gameVer() + ')', () => updMsg || 'ZOEK NAAR UPDATE', () => checkUpdate(), 1]
   ].filter(r => r[3] === (tab || 0));
   rows.forEach((r, i) => {
-    const y = 112 + i * 64; cx.fillStyle = 'rgba(255,255,255,.07)'; rr(X0 + 40, y, 720, 56, 10); cx.fill();
-    txt(r[0], X0 + 64, y + 35, 19, '#fff', 'left', '800'); pill(X0 + 440, y + 4, 300, 48, r[1](), () => { r[2](); saveSet(); }, true, 18);
+    const y = 112 + i * (rows.length > 6 ? 58 : 64); cx.fillStyle = 'rgba(255,255,255,.07)'; rr(X0 + 40, y, 720, 52, 10); cx.fill();
+    txt(r[0], X0 + 64, y + 33, 19, '#fff', 'left', '800'); pill(X0 + 440, y + 3, 300, 46, r[1](), () => { r[2](); saveSet(); }, true, 18);
   });
   txt(tab ? 'Competitie wisselen kan niet tijdens een lopend seizoen.' : 'Scheidsrechter: kans op overtreding bij een tackle. Gele kaart, bij de tweede een rode.', X0 + 40, 560, 15, 'rgba(255,255,255,.7)', 'left', '600');
 }
@@ -2717,11 +2718,28 @@ function showUpdate(sw) {
   if (updBar) return;
   updBar = document.createElement('button'); updBar.type = 'button'; updBar.textContent = 'Nieuwe versie beschikbaar, tik om te vernieuwen';
   updBar.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);top:max(8px,env(safe-area-inset-top));z-index:40;padding:9px 14px;border-radius:12px;border:2px solid #ffd400;background:rgba(8,16,50,.92);color:#fff;font:700 14px system-ui,sans-serif';
-  updBar.onclick = () => { updBar.textContent = 'Even geduld...'; let done = false; const go = () => { if (!done) { done = true; location.reload(); } };
-    navigator.serviceWorker.addEventListener('controllerchange', go); try { sw.postMessage('skip'); } catch (e) {} setTimeout(go, 2500); };
+  updBar.onclick = () => { updBar.textContent = 'Even geduld...'; applyUpd(sw); };
   document.body.appendChild(updBar);
 }
+function applyUpd(sw) {
+  let done = false; const go = () => { if (!done) { done = true; location.reload(); } };
+  navigator.serviceWorker.addEventListener('controllerchange', go); try { sw.postMessage('skip'); } catch (e) {} setTimeout(go, 2500);
+}
+let swReg = null, updMsg = '';
+function gameVer() { try { const m = /v=(\d+)/.exec(document.querySelector('script[src*="game.js"]').getAttribute('src')); return m ? m[1] : '?'; } catch (e) { return '?'; } }
+// update-knop: haalt alles vers van de server (cache en service worker leeg, daarna herladen). Voortgang blijft in localStorage en in je account.
+function checkUpdate() {
+  if (!navigator.onLine) { updMsg = 'GEEN INTERNET'; setTimeout(() => { updMsg = ''; }, 4000); return; }
+  updMsg = 'VERNIEUWEN...';
+  fetch('sw.js', { cache: 'no-store' }).then(r => { if (!r.ok) throw 0; return r.text(); }).then(t => {
+    const nv = /VERSIE = (\d+)/.exec(t); const wipe = [];
+    if (window.caches) wipe.push(caches.keys().then(ks => Promise.all(ks.map(k => caches.delete(k)))));
+    if (navigator.serviceWorker) wipe.push(navigator.serviceWorker.getRegistrations().then(rs => Promise.all(rs.map(r => r.unregister()))));
+    return Promise.all(wipe).then(() => { updMsg = nv && nv[1] !== gameVer() ? 'NIEUWE VERSIE v' + nv[1] + '...' : 'LAATSTE VERSIE LADEN...'; setTimeout(() => location.reload(), 600); });
+  }).catch(() => { updMsg = 'LUKT NU NIET, PROBEER LATER'; setTimeout(() => { updMsg = ''; }, 4000); });
+}
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').then(reg => {
+  swReg = reg;
   const watch = w => { if (!w) return; w.addEventListener('statechange', () => { if (w.state === 'installed' && navigator.serviceWorker.controller) showUpdate(w); }); };
   if (reg.waiting && navigator.serviceWorker.controller) showUpdate(reg.waiting);
   watch(reg.installing); reg.addEventListener('updatefound', () => watch(reg.installing));
