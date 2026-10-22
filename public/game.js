@@ -2043,7 +2043,7 @@ function streakClaim() {
 function redeemDialog(pre) {
   const d = authOverlay(), f = document.createElement('form'); f.style.cssText = LGP; d.appendChild(f);
   const t = document.createElement('div'); t.style.cssText = 'font:900 20px system-ui,sans-serif;text-align:center;margin-bottom:8px'; t.textContent = 'CODE INWISSELEN'; f.appendChild(t);
-  const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.8);margin-bottom:6px'; x.textContent = 'Heb je een muntcode gekregen, bijvoorbeeld in de leerapp? Typ of plak hem hier. Elke code werkt een keer per account en is 30 dagen geldig. Je moet aangemeld zijn.'; f.appendChild(x);
+  const x = document.createElement('div'); x.style.cssText = 'font:500 14px system-ui,sans-serif;line-height:1.45;color:rgba(255,255,255,.8);margin-bottom:6px'; x.textContent = 'Heb je een muntcode gekregen, bijvoorbeeld in Leerliga? Typ of plak hem hier. Elke code werkt een keer per account en is 30 dagen geldig. Je moet aangemeld zijn.'; f.appendChild(x);
   const i = document.createElement('input'); i.style.cssText = LGI + ';font-family:ui-monospace,Consolas,monospace'; i.placeholder = 'Typ of plak hier je code'; i.maxLength = 64; i.autocomplete = 'off'; i.autocapitalize = 'characters'; i.spellcheck = false; f.appendChild(i);
   const m = document.createElement('div'); m.style.cssText = 'min-height:20px;font:600 14px system-ui,sans-serif;color:#ff8a8a;margin:6px 0'; f.appendChild(m);
   const ok = document.createElement('button'); ok.type = 'submit'; ok.style.cssText = LGB; ok.textContent = 'INWISSELEN'; f.appendChild(ok);
@@ -2243,7 +2243,7 @@ function drawReeksBanner(x, y, w) {
   const h = 62;
   cx.fillStyle = 'rgba(255,255,255,.1)'; rr(x, y, w, h, 12); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.22)'; cx.lineWidth = 1.5; cx.stroke();
   flame(x + 34, y + 33, 1, true);
-  txt('DAGREEKS IN DE LEERAPP', x + 64, y + 27, 20, '#fff', 'left', '900');
+  txt('DAGREEKS IN LEERLIGA', x + 64, y + 27, 20, '#fff', 'left', '900');
   txt('Maak elke dag 2 lessen en krijg ' + LEERMUNTEN + ' munten', x + 64, y + 50, 14, '#b8c6ff', 'left', '700');
   pill(x + w - 186, y + 11, 172, 40, 'HOE WERKT HET', () => goTo('reeks'), false, 15);
   hits.push({ x, y, w: w - 190, h, fn: () => goTo('reeks') });
@@ -2253,9 +2253,9 @@ const LEERMUNTEN = 75;
 function drawReeks() {
   const X0 = screenBG('DAGREEKS EN MUNTEN');
   flame(X0 + 44, 92, 0.9, true);
-  txt('Elke dag munten via de leerapp', X0 + 72, 100, 20, '#fff', 'left', '900');
+  txt('Elke dag munten via Leerliga', X0 + 72, 100, 20, '#fff', 'left', '900');
   cx.fillStyle = 'rgba(255,255,255,.08)'; rr(X0 + 30, 122, 740, 250, 12); cx.fill();
-  const L = [['1', 'Open de leerapp (Leer-app homepage Engels) en maak 2 lessen.'], ['2', 'Na je tweede les krijg je een muntcode of een knop.'], ['3', 'Tik op de knop of plak de code hier bij CODE INWISSELEN.'], ['4', 'Je krijgt ' + LEERMUNTEN + ' munten voor die dag.']];
+  const L = [['1', 'Open de leerapp (Leerliga) en maak 2 lessen.'], ['2', 'Na je tweede les krijg je een muntcode of een knop.'], ['3', 'Tik op de knop of plak de code hier bij CODE INWISSELEN.'], ['4', 'Je krijgt ' + LEERMUNTEN + ' munten voor die dag.']];
   L.forEach((r, i) => { const y = 160 + i * 52; cx.fillStyle = '#ffd400'; cx.beginPath(); cx.arc(X0 + 70, y - 6, 16, 0, 6.2832); cx.fill(); txt(r[0], X0 + 70, y, 18, '#1b1b1b', 'center', '900'); txt(r[1], X0 + 102, y, 16, '#fff', 'left', '700'); });
   txt('Meer dan 2 lessen op een dag geeft geen extra munten.', X0 + 400, 388, 15, '#ffd400', 'center', '900');
   txt('De volgende dag maak je weer 2 lessen en krijg je weer munten.', X0 + 400, 414, 15, 'rgba(255,255,255,.85)', 'center', '700');
