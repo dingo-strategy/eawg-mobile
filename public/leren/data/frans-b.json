@@ -1,0 +1,2897 @@
+{
+  "vak": "frans",
+  "naam": "Frans",
+  "niveau": "B",
+  "bronnen": [
+    {
+      "titel": "GO! onderwijs - Lessentabel eerste graad A-stroom (Frans in de basisvorming)",
+      "url": "https://pro.g-o.be/download/GOPRO-1830562155-28847/Lessentabel eerste graad A-stroom"
+    },
+    {
+      "titel": "GO! SO 1ste graad A-stroom - leerplan Basisvorming",
+      "url": "https://pro.g-o.be/download/GOPRO-1830562155-27333/GO! SO 1ste graad A-stroom - leerplan Basisvorming"
+    },
+    {
+      "titel": "Vlaamse overheid - eindtermen eerste graad secundair onderwijs (Themis)",
+      "url": "https://themis.vlaanderen.be/files/1c4821b0-d653-11e9-99f3-0242ac1b0003/download"
+    }
+  ],
+  "dekking": "Vereenvoudigde versie voor de B-stroom (1B en 2e jaar beroepsvoorbereidend), afgeleid van de A-versie: enkel de kern (overlevingsfrans, hoogfrequente woorden, eenvoudige zinnen). Niet getoetst aan de B-stroom-leerplannen en niet door een Franse moedertaalspreker nagelezen. Ontbreekt: leesteksten, luisteroefeningen, passé composé met être, vergelijken en de meeste uitbreidingen uit de A-versie.",
+  "leerjaren": [
+    {
+      "jaar": 1,
+      "themas": [
+        {
+          "id": "se-presenter",
+          "titel": "Se présenter",
+          "samenvatting": "Groeten, jezelf voorstellen en zeggen hoe oud je bent.",
+          "lessen": [
+            {
+              "id": "groeten-en-voorstellen",
+              "titel": "Bonjour ! Je m'appelle...",
+              "uitleg": "Je begint een gesprek met een groet. Bonjour zeg je overdag tegen iedereen. Salut zeg je tegen een vriend. Au revoir zeg je als je weggaat.\n\nJe zegt je naam zo: Je m'appelle Lola. Je vraagt aan een vriend: Comment tu t'appelles ?\n\nHoe gaat het? Dat vraag je met Ça va ? Je antwoordt: Ça va bien, merci. Merci betekent bedankt.",
+              "woorden": [
+                {
+                  "nl": "goeiedag",
+                  "doel": "bonjour",
+                  "voorbeeld": "Bonjour, madame !"
+                },
+                {
+                  "nl": "dag (informeel)",
+                  "doel": "salut",
+                  "voorbeeld": "Salut, Tom !"
+                },
+                {
+                  "nl": "tot ziens",
+                  "doel": "au revoir",
+                  "voorbeeld": "Au revoir, monsieur !"
+                },
+                {
+                  "nl": "goedenavond",
+                  "doel": "bonsoir",
+                  "voorbeeld": "Bonsoir, Léa !"
+                },
+                {
+                  "nl": "bedankt",
+                  "doel": "merci",
+                  "voorbeeld": "Merci beaucoup !"
+                },
+                {
+                  "nl": "alsjeblieft (vragen)",
+                  "doel": "s'il te plaît",
+                  "voorbeeld": "Un stylo, s'il te plaît."
+                },
+                {
+                  "nl": "ja",
+                  "doel": "oui",
+                  "voorbeeld": "Oui, ça va."
+                },
+                {
+                  "nl": "nee",
+                  "doel": "non",
+                  "voorbeeld": "Non, merci."
+                },
+                {
+                  "nl": "hoe heet je?",
+                  "doel": "Comment tu t'appelles ?",
+                  "voorbeeld": "Salut ! Comment tu t'appelles ?"
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat zeg je aan een vriend als je binnenkomt?",
+                  "opties": [
+                    "Au revoir",
+                    "Salut",
+                    "Merci"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Salut is een informele groet voor vrienden."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik heet Sam'?",
+                  "opties": [
+                    "Je m'appelle Sam",
+                    "Ça va Sam",
+                    "Merci Sam"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Je m'appelle betekent ik heet."
+                },
+                {
+                  "vraag": "Wat betekent 'merci'?",
+                  "opties": [
+                    "sorry",
+                    "tot ziens",
+                    "bedankt"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Merci betekent bedankt."
+                },
+                {
+                  "vraag": "Wat zeg je 's avonds?",
+                  "opties": [
+                    "Bonsoir",
+                    "Bonjour",
+                    "Au revoir"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bonsoir betekent goedenavond."
+                },
+                {
+                  "vraag": "Hoe vraag je 'Hoe gaat het?'",
+                  "opties": [
+                    "Comment tu t'appelles ?",
+                    "Ça va ?",
+                    "Tu as quel âge ?"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Ça va ? betekent hoe gaat het?"
+                }
+              ]
+            },
+            {
+              "id": "etre-en-leeftijd",
+              "titel": "Être, avoir en je leeftijd",
+              "uitleg": "Être betekent zijn. Je zegt: je suis, tu es, il est, elle est, nous sommes, vous êtes, ils sont. Voorbeeld: Je suis belge.\n\nAvoir betekent hebben. Je zegt: j'ai, tu as, il a, elle a, nous avons, vous avez, ils ont.\n\nVoor je leeftijd gebruik je avoir. Je zegt: J'ai douze ans. Letterlijk: ik heb twaalf jaar.",
+              "woorden": [
+                {
+                  "nl": "jongen",
+                  "doel": "le garçon",
+                  "voorbeeld": "Le garçon est belge."
+                },
+                {
+                  "nl": "meisje",
+                  "doel": "la fille",
+                  "voorbeeld": "La fille a douze ans."
+                },
+                {
+                  "nl": "vriend",
+                  "doel": "l'ami",
+                  "voorbeeld": "Paul est mon ami."
+                },
+                {
+                  "nl": "vriendin",
+                  "doel": "l'amie",
+                  "voorbeeld": "Léa est mon amie."
+                },
+                {
+                  "nl": "België",
+                  "doel": "la Belgique",
+                  "voorbeeld": "J'habite en Belgique."
+                },
+                {
+                  "nl": "Frankrijk",
+                  "doel": "la France",
+                  "voorbeeld": "Paris est en France."
+                },
+                {
+                  "nl": "ik woon",
+                  "doel": "j'habite",
+                  "voorbeeld": "J'habite à Gand."
+                },
+                {
+                  "nl": "jaar (leeftijd)",
+                  "doel": "un an",
+                  "voorbeeld": "J'ai un an."
+                },
+                {
+                  "nl": "leerling",
+                  "doel": "l'élève",
+                  "voorbeeld": "Je suis élève."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Hoe zeg je 'ik ben'?",
+                  "opties": [
+                    "j'ai",
+                    "je suis",
+                    "je vais"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Je suis komt van être (zijn)."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik ben twaalf'?",
+                  "opties": [
+                    "Je suis douze ans",
+                    "Je vais douze ans",
+                    "J'ai douze ans"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Voor je leeftijd gebruik je avoir: J'ai douze ans."
+                },
+                {
+                  "vraag": "Vul in: Elle ___ belge.",
+                  "opties": [
+                    "est",
+                    "a",
+                    "sont"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij elle gebruik je est (van être)."
+                },
+                {
+                  "vraag": "Wat betekent 'la fille'?",
+                  "opties": [
+                    "de jongen",
+                    "het meisje",
+                    "de vriend"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "La fille is het meisje."
+                },
+                {
+                  "vraag": "Vul in: Nous ___ élèves.",
+                  "opties": [
+                    "avons",
+                    "êtes",
+                    "sommes"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij nous hoort sommes (être)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "la-famille",
+          "titel": "La famille",
+          "samenvatting": "De familieleden en de woordjes mon, ma en mes.",
+          "lessen": [
+            {
+              "id": "les-membres-de-la-famille",
+              "titel": "Les membres de la famille",
+              "uitleg": "Elk Frans zelfstandig naamwoord is mannelijk of vrouwelijk. Mannelijk: le of un. Vrouwelijk: la of une.\n\nVoorbeelden: le père (de vader), la mère (de moeder), le frère (de broer), la sœur (de zus).\n\nMeervoud maak je met een s: les frères. Les parents zijn de ouders. Il y a betekent er is.",
+              "woorden": [
+                {
+                  "nl": "de vader",
+                  "doel": "le père",
+                  "voorbeeld": "Mon père est grand."
+                },
+                {
+                  "nl": "de moeder",
+                  "doel": "la mère",
+                  "voorbeeld": "Ma mère travaille."
+                },
+                {
+                  "nl": "de broer",
+                  "doel": "le frère",
+                  "voorbeeld": "J'ai un frère."
+                },
+                {
+                  "nl": "de zus",
+                  "doel": "la sœur",
+                  "voorbeeld": "J'ai une sœur."
+                },
+                {
+                  "nl": "de ouders",
+                  "doel": "les parents",
+                  "voorbeeld": "Mes parents sont là."
+                },
+                {
+                  "nl": "de grootvader",
+                  "doel": "le grand-père",
+                  "voorbeeld": "Mon grand-père a 70 ans."
+                },
+                {
+                  "nl": "de grootmoeder",
+                  "doel": "la grand-mère",
+                  "voorbeeld": "Ma grand-mère habite à Gand."
+                },
+                {
+                  "nl": "de oom",
+                  "doel": "l'oncle",
+                  "voorbeeld": "Mon oncle est gentil."
+                },
+                {
+                  "nl": "de tante",
+                  "doel": "la tante",
+                  "voorbeeld": "Ma tante habite à Liège."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'la mère'?",
+                  "opties": [
+                    "de moeder",
+                    "de zus",
+                    "de tante"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La mère is de moeder."
+                },
+                {
+                  "vraag": "Wat is 'les parents'?",
+                  "opties": [
+                    "de kinderen",
+                    "de ouders",
+                    "de broers"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Les parents zijn de ouders."
+                },
+                {
+                  "vraag": "Welk lidwoord past bij 'sœur'?",
+                  "opties": [
+                    "le",
+                    "les",
+                    "la"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Sœur is vrouwelijk, dus la sœur."
+                },
+                {
+                  "vraag": "Hoe zeg je 'de broer'?",
+                  "opties": [
+                    "le frère",
+                    "la frère",
+                    "le père"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Frère is mannelijk: le frère."
+                },
+                {
+                  "vraag": "Wat betekent 'il y a'?",
+                  "opties": [
+                    "hij heeft",
+                    "er is",
+                    "hij gaat"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Il y a betekent er is of er zijn."
+                }
+              ]
+            },
+            {
+              "id": "avoir-et-possessifs",
+              "titel": "Avoir en mon, ma, mes",
+              "uitleg": "Mijn zeg je met mon, ma of mes. Mon gebruik je bij een mannelijk woord: mon père. Ma gebruik je bij een vrouwelijk woord: ma mère.\n\nMes gebruik je bij meer dan één: mes parents. Het woord mon, ma of mes past zich aan het woord erna.\n\nJe zegt ook: J'ai un frère. Je n'ai pas de sœur. Dat betekent: ik heb geen zus.",
+              "woorden": [
+                {
+                  "nl": "mijn (m.)",
+                  "doel": "mon",
+                  "voorbeeld": "Mon frère s'appelle Max."
+                },
+                {
+                  "nl": "mijn (v.)",
+                  "doel": "ma",
+                  "voorbeeld": "Ma sœur s'appelle Zoé."
+                },
+                {
+                  "nl": "mijn (mv.)",
+                  "doel": "mes",
+                  "voorbeeld": "Mes parents sont gentils."
+                },
+                {
+                  "nl": "jouw (m.)",
+                  "doel": "ton",
+                  "voorbeeld": "Ton père est là ?"
+                },
+                {
+                  "nl": "jouw (v.)",
+                  "doel": "ta",
+                  "voorbeeld": "Ta mère est belge ?"
+                },
+                {
+                  "nl": "jouw (mv.)",
+                  "doel": "tes",
+                  "voorbeeld": "Tes amis sont là."
+                },
+                {
+                  "nl": "zijn / haar (m.)",
+                  "doel": "son",
+                  "voorbeeld": "Son frère a dix ans."
+                },
+                {
+                  "nl": "zijn / haar (v.)",
+                  "doel": "sa",
+                  "voorbeeld": "Sa sœur a huit ans."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Vul in: ___ mère est gentille.",
+                  "opties": [
+                    "Mon",
+                    "Ma",
+                    "Mes"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Mère is vrouwelijk, dus ma."
+                },
+                {
+                  "vraag": "Vul in: ___ frère s'appelle Tom.",
+                  "opties": [
+                    "Mes",
+                    "Ma",
+                    "Mon"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Frère is mannelijk, dus mon."
+                },
+                {
+                  "vraag": "Vul in: ___ parents sont là.",
+                  "opties": [
+                    "Mes",
+                    "Mon",
+                    "Ma"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Parents is meervoud, dus mes."
+                },
+                {
+                  "vraag": "Wat betekent 'Je n'ai pas de sœur'?",
+                  "opties": [
+                    "Ik heb een zus",
+                    "Ik heb geen zus",
+                    "Ik ben een zus"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Ne ... pas maakt de zin ontkennend."
+                },
+                {
+                  "vraag": "Wat betekent 'ton père'?",
+                  "opties": [
+                    "jouw vader",
+                    "mijn vader",
+                    "zijn moeder"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Ton betekent jouw (mannelijk)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l-ecole",
+          "titel": "L'école",
+          "samenvatting": "Schoolspullen, de ontkenning en wat de leerkracht zegt.",
+          "lessen": [
+            {
+              "id": "le-materiel-scolaire",
+              "titel": "Le matériel scolaire",
+              "uitleg": "Op school gebruik je veel spullen. Elk Frans woord heeft een lidwoord: le, la of les. Dat zijn de bepaalde lidwoorden.\n\nUn, une en des zijn de onbepaalde lidwoorden. Un stylo betekent een pen. Une règle betekent een liniaal.\n\nJe vraagt: Qu'est-ce que c'est ? Je antwoordt: C'est un stylo.",
+              "woorden": [
+                {
+                  "nl": "de pen",
+                  "doel": "le stylo",
+                  "voorbeeld": "C'est un stylo."
+                },
+                {
+                  "nl": "het potlood",
+                  "doel": "le crayon",
+                  "voorbeeld": "J'ai un crayon."
+                },
+                {
+                  "nl": "de gom",
+                  "doel": "la gomme",
+                  "voorbeeld": "Voilà une gomme."
+                },
+                {
+                  "nl": "de liniaal",
+                  "doel": "la règle",
+                  "voorbeeld": "La règle est sur la table."
+                },
+                {
+                  "nl": "het schrift",
+                  "doel": "le cahier",
+                  "voorbeeld": "Mon cahier est bleu."
+                },
+                {
+                  "nl": "het boek",
+                  "doel": "le livre",
+                  "voorbeeld": "Ouvrez le livre."
+                },
+                {
+                  "nl": "de schooltas",
+                  "doel": "le cartable",
+                  "voorbeeld": "Mon cartable est lourd."
+                },
+                {
+                  "nl": "het bord",
+                  "doel": "le tableau",
+                  "voorbeeld": "Regardez le tableau."
+                },
+                {
+                  "nl": "de leerkracht",
+                  "doel": "le professeur",
+                  "voorbeeld": "Le professeur est gentil."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'le cahier'?",
+                  "opties": [
+                    "het schrift",
+                    "de pen",
+                    "het boek"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le cahier is het schrift."
+                },
+                {
+                  "vraag": "Wat is 'la règle'?",
+                  "opties": [
+                    "de gom",
+                    "het potlood",
+                    "de liniaal"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "La règle is de liniaal."
+                },
+                {
+                  "vraag": "Hoe zeg je 'een pen'?",
+                  "opties": [
+                    "une stylo",
+                    "un stylo",
+                    "des stylo"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Stylo is mannelijk, dus un stylo."
+                },
+                {
+                  "vraag": "Wat vraag je met 'Qu'est-ce que c'est ?'",
+                  "opties": [
+                    "Wie is dat?",
+                    "Hoe oud ben je?",
+                    "Wat is dat?"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Qu'est-ce que c'est ? betekent wat is dat?"
+                },
+                {
+                  "vraag": "Wat is 'le tableau'?",
+                  "opties": [
+                    "het bord",
+                    "de tafel",
+                    "de stoel"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le tableau is het bord in de klas."
+                }
+              ]
+            },
+            {
+              "id": "negation-en-consignes",
+              "titel": "La négation et les consignes",
+              "uitleg": "Een Franse ontkenning heeft twee delen: ne ... pas. Je zet ne voor het werkwoord en pas erachter. Je parle français wordt Je ne parle pas français.\n\nVoor een klinker schrijf je n': Je n'aime pas les maths. Na pas verandert un of une in de: Je n'ai pas de stylo.\n\nDe leerkracht zegt: Ouvrez votre livre (open je boek). Ook: Écoutez, Lisez, Écrivez, Regardez. Handig voor jou: Je ne comprends pas (ik begrijp het niet).",
+              "woorden": [
+                {
+                  "nl": "ik begrijp het niet",
+                  "doel": "je ne comprends pas",
+                  "voorbeeld": "Pardon, je ne comprends pas."
+                },
+                {
+                  "nl": "ik weet het niet",
+                  "doel": "je ne sais pas",
+                  "voorbeeld": "Je ne sais pas."
+                },
+                {
+                  "nl": "open!",
+                  "doel": "ouvrez",
+                  "voorbeeld": "Ouvrez votre livre."
+                },
+                {
+                  "nl": "sluit!",
+                  "doel": "fermez",
+                  "voorbeeld": "Fermez la porte."
+                },
+                {
+                  "nl": "schrijf!",
+                  "doel": "écrivez",
+                  "voorbeeld": "Écrivez votre nom."
+                },
+                {
+                  "nl": "lees!",
+                  "doel": "lisez",
+                  "voorbeeld": "Lisez le texte."
+                },
+                {
+                  "nl": "kijk!",
+                  "doel": "regardez",
+                  "voorbeeld": "Regardez le tableau."
+                },
+                {
+                  "nl": "de vraag",
+                  "doel": "la question",
+                  "voorbeeld": "J'ai une question."
+                },
+                {
+                  "nl": "het antwoord",
+                  "doel": "la réponse",
+                  "voorbeeld": "La réponse est oui."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Welke zin is ontkennend?",
+                  "opties": [
+                    "Je parle français",
+                    "Je ne parle pas français",
+                    "Tu parles français"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Ne ... pas maakt een zin ontkennend."
+                },
+                {
+                  "vraag": "Wat betekent 'Écoutez' ?",
+                  "opties": [
+                    "Luister!",
+                    "Lees!",
+                    "Schrijf!"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Écoutez betekent luister."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik heb geen pen'?",
+                  "opties": [
+                    "Je n'ai pas un stylo",
+                    "Je n'ai pas de stylo",
+                    "Je pas ai de stylo"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Na pas wordt un een de: pas de stylo."
+                },
+                {
+                  "vraag": "Wat betekent 'Je ne comprends pas'?",
+                  "opties": [
+                    "Ik weet het niet",
+                    "Ik hoor je niet",
+                    "Ik begrijp het niet"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Comprendre betekent begrijpen."
+                },
+                {
+                  "vraag": "Wat betekent 'Lisez' ?",
+                  "opties": [
+                    "Lees!",
+                    "Kijk!",
+                    "Sluit!"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Lisez betekent lees."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nombres-et-temps",
+          "titel": "Les nombres et le temps",
+          "samenvatting": "Getallen, dagen en maanden.",
+          "lessen": [
+            {
+              "id": "les-nombres",
+              "titel": "Les nombres de 0 à 60",
+              "uitleg": "Eerst de getallen van 0 tot 10: zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix.\n\nDan: onze (11), douze (12), treize (13), quatorze (14), quinze (15), seize (16). Daarna dix-sept (17), dix-huit (18), dix-neuf (19).\n\nDe tientallen zijn: vingt (20), trente (30), quarante (40), cinquante (50), soixante (60). Je schrijft: vingt-deux (22).",
+              "woorden": [
+                {
+                  "nl": "elf",
+                  "doel": "onze",
+                  "voorbeeld": "J'ai onze ans."
+                },
+                {
+                  "nl": "twaalf",
+                  "doel": "douze",
+                  "voorbeeld": "J'ai douze ans."
+                },
+                {
+                  "nl": "vijftien",
+                  "doel": "quinze",
+                  "voorbeeld": "Il y a quinze élèves."
+                },
+                {
+                  "nl": "zestien",
+                  "doel": "seize",
+                  "voorbeeld": "Elle a seize ans."
+                },
+                {
+                  "nl": "twintig",
+                  "doel": "vingt",
+                  "voorbeeld": "Vingt élèves sont là."
+                },
+                {
+                  "nl": "dertig",
+                  "doel": "trente",
+                  "voorbeeld": "Trente minutes."
+                },
+                {
+                  "nl": "veertig",
+                  "doel": "quarante",
+                  "voorbeeld": "Quarante euros."
+                },
+                {
+                  "nl": "vijftig",
+                  "doel": "cinquante",
+                  "voorbeeld": "Cinquante élèves."
+                },
+                {
+                  "nl": "zestig",
+                  "doel": "soixante",
+                  "voorbeeld": "Soixante minutes."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'douze' ?",
+                  "opties": [
+                    "12",
+                    "20",
+                    "2"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Douze is twaalf."
+                },
+                {
+                  "vraag": "Hoe zeg je 20?",
+                  "opties": [
+                    "dix",
+                    "vingt",
+                    "trente"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Vingt is twintig."
+                },
+                {
+                  "vraag": "Wat is 'quinze' ?",
+                  "opties": [
+                    "50",
+                    "5",
+                    "15"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Quinze is vijftien."
+                },
+                {
+                  "vraag": "Hoe zeg je 30?",
+                  "opties": [
+                    "trente",
+                    "treize",
+                    "quarante"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Trente is dertig; treize is dertien."
+                },
+                {
+                  "vraag": "Wat is 'vingt-deux' ?",
+                  "opties": [
+                    "12",
+                    "22",
+                    "20"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Vingt (20) en deux (2) is 22."
+                }
+              ]
+            },
+            {
+              "id": "jours-mois-dates",
+              "titel": "Les jours, les mois et la date",
+              "uitleg": "De dagen zijn: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Je schrijft ze met een kleine letter.\n\nDe maanden zijn: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre.\n\nJe vraagt de datum zo: Quelle est la date ? Je antwoordt: C'est le trois mai. Mijn verjaardag is le douze juin.",
+              "woorden": [
+                {
+                  "nl": "maandag",
+                  "doel": "lundi",
+                  "voorbeeld": "Lundi, j'ai gym."
+                },
+                {
+                  "nl": "dinsdag",
+                  "doel": "mardi",
+                  "voorbeeld": "Mardi, j'ai français."
+                },
+                {
+                  "nl": "woensdag",
+                  "doel": "mercredi",
+                  "voorbeeld": "Mercredi, je suis libre."
+                },
+                {
+                  "nl": "donderdag",
+                  "doel": "jeudi",
+                  "voorbeeld": "Jeudi, j'ai sport."
+                },
+                {
+                  "nl": "vrijdag",
+                  "doel": "vendredi",
+                  "voorbeeld": "Vendredi, c'est super !"
+                },
+                {
+                  "nl": "zaterdag",
+                  "doel": "samedi",
+                  "voorbeeld": "Samedi, je joue au foot."
+                },
+                {
+                  "nl": "zondag",
+                  "doel": "dimanche",
+                  "voorbeeld": "Dimanche, je me repose."
+                },
+                {
+                  "nl": "vandaag",
+                  "doel": "aujourd'hui",
+                  "voorbeeld": "Aujourd'hui, c'est lundi."
+                },
+                {
+                  "nl": "morgen",
+                  "doel": "demain",
+                  "voorbeeld": "Demain, c'est mardi."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'samedi' ?",
+                  "opties": [
+                    "zondag",
+                    "zaterdag",
+                    "vrijdag"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Samedi is zaterdag."
+                },
+                {
+                  "vraag": "Wat is de eerste dag van de Franse week?",
+                  "opties": [
+                    "lundi",
+                    "dimanche",
+                    "mardi"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "De week begint op lundi."
+                },
+                {
+                  "vraag": "Wat is 'mai' ?",
+                  "opties": [
+                    "maart",
+                    "mei",
+                    "juni"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Mai is mei; mars is maart."
+                },
+                {
+                  "vraag": "Wat betekent 'demain' ?",
+                  "opties": [
+                    "vandaag",
+                    "gisteren",
+                    "morgen"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Demain is morgen."
+                },
+                {
+                  "vraag": "Hoe schrijf je een dag in het Frans?",
+                  "opties": [
+                    "met kleine letter",
+                    "met hoofdletter",
+                    "in kapitalen"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Dagen en maanden schrijf je met een kleine letter."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "la-nourriture",
+          "titel": "La nourriture",
+          "samenvatting": "Eten en drinken en iets bestellen.",
+          "lessen": [
+            {
+              "id": "manger-et-boire",
+              "titel": "Manger et boire",
+              "uitleg": "Manger betekent eten. Boire betekent drinken. Je zegt: Je mange du pain. Je bois de l'eau.\n\nVoor eten en drinken zeg je vaak du, de la of de l'. Du pain betekent (wat) brood. De la soupe betekent (wat) soep.\n\nJe zegt wat je graag hebt met aimer: J'aime les frites. Je n'aime pas les carottes.",
+              "woorden": [
+                {
+                  "nl": "het brood",
+                  "doel": "le pain",
+                  "voorbeeld": "Je mange du pain."
+                },
+                {
+                  "nl": "de kaas",
+                  "doel": "le fromage",
+                  "voorbeeld": "J'aime le fromage."
+                },
+                {
+                  "nl": "de appel",
+                  "doel": "la pomme",
+                  "voorbeeld": "Je mange une pomme."
+                },
+                {
+                  "nl": "de soep",
+                  "doel": "la soupe",
+                  "voorbeeld": "La soupe est chaude."
+                },
+                {
+                  "nl": "het water",
+                  "doel": "l'eau",
+                  "voorbeeld": "Je bois de l'eau."
+                },
+                {
+                  "nl": "de melk",
+                  "doel": "le lait",
+                  "voorbeeld": "Je bois du lait."
+                },
+                {
+                  "nl": "de frietjes",
+                  "doel": "les frites",
+                  "voorbeeld": "J'adore les frites."
+                },
+                {
+                  "nl": "het ei",
+                  "doel": "l'œuf",
+                  "voorbeeld": "Je mange un œuf."
+                },
+                {
+                  "nl": "de chocolade",
+                  "doel": "le chocolat",
+                  "voorbeeld": "J'aime le chocolat."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat betekent 'boire' ?",
+                  "opties": [
+                    "eten",
+                    "drinken",
+                    "koken"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Boire betekent drinken."
+                },
+                {
+                  "vraag": "Wat is 'le lait' ?",
+                  "opties": [
+                    "de melk",
+                    "het water",
+                    "de soep"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le lait is de melk."
+                },
+                {
+                  "vraag": "Wat is 'la pomme' ?",
+                  "opties": [
+                    "de peer",
+                    "de appel",
+                    "de kaas"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "La pomme is de appel."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik eet brood'?",
+                  "opties": [
+                    "Je bois du pain",
+                    "Je vais du pain",
+                    "Je mange du pain"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Manger is eten."
+                },
+                {
+                  "vraag": "Wat betekent 'J'aime les frites' ?",
+                  "opties": [
+                    "Ik hou van frietjes",
+                    "Ik eet geen frietjes",
+                    "Ik koop frietjes"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Aimer betekent houden van."
+                }
+              ]
+            },
+            {
+              "id": "prendre-et-restaurant",
+              "titel": "Prendre et au restaurant",
+              "uitleg": "Prendre betekent nemen. Je zegt: je prends, tu prends, il prend, nous prenons, vous prenez, ils prennent. Voorbeeld: Je prends un sandwich.\n\nBeleefd bestellen doe je met je voudrais (ik zou willen): Je voudrais une soupe, s'il vous plaît.\n\nJe vraagt de prijs met C'est combien ? Je vraagt de rekening met L'addition, s'il vous plaît.",
+              "woorden": [
+                {
+                  "nl": "ik zou willen",
+                  "doel": "je voudrais",
+                  "voorbeeld": "Je voudrais un café."
+                },
+                {
+                  "nl": "de kaart / het menu",
+                  "doel": "la carte",
+                  "voorbeeld": "La carte, s'il vous plaît."
+                },
+                {
+                  "nl": "de ober",
+                  "doel": "le serveur",
+                  "voorbeeld": "Le serveur est gentil."
+                },
+                {
+                  "nl": "de rekening",
+                  "doel": "l'addition",
+                  "voorbeeld": "L'addition, s'il vous plaît."
+                },
+                {
+                  "nl": "de koffie",
+                  "doel": "le café",
+                  "voorbeeld": "Un café, s'il vous plaît."
+                },
+                {
+                  "nl": "de pannenkoek",
+                  "doel": "la crêpe",
+                  "voorbeeld": "Je prends une crêpe."
+                },
+                {
+                  "nl": "de wafel",
+                  "doel": "la gaufre",
+                  "voorbeeld": "Je voudrais une gaufre."
+                },
+                {
+                  "nl": "het broodje",
+                  "doel": "le sandwich",
+                  "voorbeeld": "Je prends un sandwich."
+                },
+                {
+                  "nl": "hoeveel kost dat?",
+                  "doel": "C'est combien ?",
+                  "voorbeeld": "Pardon, c'est combien ?"
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat betekent 'Je voudrais' ?",
+                  "opties": [
+                    "Ik zou willen",
+                    "Ik heb",
+                    "Ik ga"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Je voudrais is een beleefde manier om te bestellen."
+                },
+                {
+                  "vraag": "Hoe vraag je de rekening?",
+                  "opties": [
+                    "La carte, s'il vous plaît",
+                    "L'addition, s'il vous plaît",
+                    "Un café, s'il vous plaît"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "L'addition is de rekening."
+                },
+                {
+                  "vraag": "Vul in: Nous ___ une crêpe.",
+                  "opties": [
+                    "prends",
+                    "prennent",
+                    "prenons"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij nous hoort prenons."
+                },
+                {
+                  "vraag": "Wat vraag je met 'C'est combien ?'",
+                  "opties": [
+                    "Hoe laat is het?",
+                    "Wat is dat?",
+                    "Hoeveel kost het?"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Combien betekent hoeveel."
+                },
+                {
+                  "vraag": "Wat is 'la gaufre' ?",
+                  "opties": [
+                    "de wafel",
+                    "de koffie",
+                    "de pannenkoek"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La gaufre is de wafel."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "la-maison",
+          "titel": "La maison",
+          "samenvatting": "De kamers en het meubilair.",
+          "lessen": [
+            {
+              "id": "les-pieces-et-les-meubles",
+              "titel": "Les pièces et les meubles",
+              "uitleg": "Een huis heeft kamers. Une pièce is een kamer. La cuisine is de keuken. Le salon is de woonkamer. La chambre is de slaapkamer.\n\nIn een kamer staan meubels. Le lit is het bed. La table is de tafel. La chaise is de stoel. Le canapé is de zetel.\n\nJe zegt waar iets is met il y a: Dans ma chambre, il y a un lit. Dans betekent in.",
+              "woorden": [
+                {
+                  "nl": "de keuken",
+                  "doel": "la cuisine",
+                  "voorbeeld": "Maman est dans la cuisine."
+                },
+                {
+                  "nl": "de woonkamer",
+                  "doel": "le salon",
+                  "voorbeeld": "Le salon est grand."
+                },
+                {
+                  "nl": "de slaapkamer",
+                  "doel": "la chambre",
+                  "voorbeeld": "Ma chambre est petite."
+                },
+                {
+                  "nl": "de badkamer",
+                  "doel": "la salle de bains",
+                  "voorbeeld": "La salle de bains est en haut."
+                },
+                {
+                  "nl": "de tuin",
+                  "doel": "le jardin",
+                  "voorbeeld": "Il y a un jardin."
+                },
+                {
+                  "nl": "het bed",
+                  "doel": "le lit",
+                  "voorbeeld": "Le lit est dans ma chambre."
+                },
+                {
+                  "nl": "de tafel",
+                  "doel": "la table",
+                  "voorbeeld": "La table est dans la cuisine."
+                },
+                {
+                  "nl": "de stoel",
+                  "doel": "la chaise",
+                  "voorbeeld": "Il y a six chaises."
+                },
+                {
+                  "nl": "de zetel",
+                  "doel": "le canapé",
+                  "voorbeeld": "Le canapé est dans le salon."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'la cuisine' ?",
+                  "opties": [
+                    "de keuken",
+                    "de tuin",
+                    "de kamer"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La cuisine is de keuken."
+                },
+                {
+                  "vraag": "Waar slaap je?",
+                  "opties": [
+                    "dans le salon",
+                    "dans la chambre",
+                    "dans le jardin"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "La chambre is de slaapkamer."
+                },
+                {
+                  "vraag": "Wat is 'le lit' ?",
+                  "opties": [
+                    "de tafel",
+                    "de stoel",
+                    "het bed"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Le lit is het bed."
+                },
+                {
+                  "vraag": "Wat betekent 'Dans ma chambre, il y a un lit' ?",
+                  "opties": [
+                    "In mijn slaapkamer staat een bed",
+                    "Ik slaap in de keuken",
+                    "Mijn bed is nieuw"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Dans is in, il y a is er is."
+                },
+                {
+                  "vraag": "Wat is 'le jardin' ?",
+                  "opties": [
+                    "de zetel",
+                    "de tuin",
+                    "de badkamer"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Le jardin is de tuin."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "couleurs-animaux-description",
+          "titel": "Couleurs et animaux",
+          "samenvatting": "De kleuren en de dieren.",
+          "lessen": [
+            {
+              "id": "les-couleurs",
+              "titel": "Les couleurs",
+              "uitleg": "De kleuren zijn: rouge, bleu, vert, jaune, noir, blanc, gris, rose, orange.\n\nEen kleur staat na het woord: un stylo rouge, une pomme verte. Bij een vrouwelijk woord komt er vaak een e bij.\n\nVoorbeelden: vert wordt verte, blanc wordt blanche, noir wordt noire. Rouge, jaune en rose blijven hetzelfde.",
+              "woorden": [
+                {
+                  "nl": "rood",
+                  "doel": "rouge",
+                  "voorbeeld": "Le stylo est rouge."
+                },
+                {
+                  "nl": "blauw",
+                  "doel": "bleu",
+                  "voorbeeld": "Le ciel est bleu."
+                },
+                {
+                  "nl": "groen",
+                  "doel": "vert",
+                  "voorbeeld": "L'herbe est verte."
+                },
+                {
+                  "nl": "geel",
+                  "doel": "jaune",
+                  "voorbeeld": "Le soleil est jaune."
+                },
+                {
+                  "nl": "zwart",
+                  "doel": "noir",
+                  "voorbeeld": "Le chat est noir."
+                },
+                {
+                  "nl": "wit",
+                  "doel": "blanc",
+                  "voorbeeld": "La neige est blanche."
+                },
+                {
+                  "nl": "grijs",
+                  "doel": "gris",
+                  "voorbeeld": "Le mur est gris."
+                },
+                {
+                  "nl": "roze",
+                  "doel": "rose",
+                  "voorbeeld": "La robe est rose."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Welke kleur is 'jaune' ?",
+                  "opties": [
+                    "groen",
+                    "geel",
+                    "grijs"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Jaune is geel."
+                },
+                {
+                  "vraag": "Welke kleur is 'noir' ?",
+                  "opties": [
+                    "wit",
+                    "blauw",
+                    "zwart"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Noir is zwart."
+                },
+                {
+                  "vraag": "Vul in: une pomme ___.",
+                  "opties": [
+                    "vert",
+                    "verte",
+                    "verts"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Pomme is vrouwelijk, dus verte."
+                },
+                {
+                  "vraag": "Welke kleur is 'blanc' ?",
+                  "opties": [
+                    "wit",
+                    "rood",
+                    "roze"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Blanc is wit."
+                },
+                {
+                  "vraag": "Waar staat de kleur in 'un stylo rouge' ?",
+                  "opties": [
+                    "voor het woord",
+                    "na het woord",
+                    "nergens"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "In het Frans staat de kleur meestal na het woord."
+                }
+              ]
+            },
+            {
+              "id": "les-animaux",
+              "titel": "Les animaux",
+              "uitleg": "Een dier is un animal. Een huisdier is un animal domestique. Veel mensen hebben een hond of een kat.\n\nVoorbeelden: le chien (de hond), le chat (de kat), le cheval (het paard), l'oiseau (de vogel), le poisson (de vis).\n\nJe zegt: J'ai un chien. Il est noir. Je n'ai pas de chat.",
+              "woorden": [
+                {
+                  "nl": "de hond",
+                  "doel": "le chien",
+                  "voorbeeld": "J'ai un chien."
+                },
+                {
+                  "nl": "de kat",
+                  "doel": "le chat",
+                  "voorbeeld": "Le chat est noir."
+                },
+                {
+                  "nl": "het paard",
+                  "doel": "le cheval",
+                  "voorbeeld": "Le cheval est grand."
+                },
+                {
+                  "nl": "de vogel",
+                  "doel": "l'oiseau",
+                  "voorbeeld": "L'oiseau chante."
+                },
+                {
+                  "nl": "de vis",
+                  "doel": "le poisson",
+                  "voorbeeld": "Le poisson est rouge."
+                },
+                {
+                  "nl": "de koe",
+                  "doel": "la vache",
+                  "voorbeeld": "La vache est blanche."
+                },
+                {
+                  "nl": "het konijn",
+                  "doel": "le lapin",
+                  "voorbeeld": "Le lapin est petit."
+                },
+                {
+                  "nl": "het dier",
+                  "doel": "l'animal",
+                  "voorbeeld": "Un chien est un animal."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'le chien' ?",
+                  "opties": [
+                    "de kat",
+                    "de hond",
+                    "het paard"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Le chien is de hond."
+                },
+                {
+                  "vraag": "Wat is 'le chat' ?",
+                  "opties": [
+                    "de kat",
+                    "de vis",
+                    "de koe"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le chat is de kat."
+                },
+                {
+                  "vraag": "Wat is 'le cheval' ?",
+                  "opties": [
+                    "het konijn",
+                    "de vogel",
+                    "het paard"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Le cheval is het paard."
+                },
+                {
+                  "vraag": "Wat betekent 'J'ai un chien' ?",
+                  "opties": [
+                    "Ik ben een hond",
+                    "Ik heb een hond",
+                    "Ik zie een hond"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "J'ai komt van avoir (hebben)."
+                },
+                {
+                  "vraag": "Wat is 'le poisson' ?",
+                  "opties": [
+                    "de vis",
+                    "de vogel",
+                    "de koe"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le poisson is de vis."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "les-loisirs",
+          "titel": "Les loisirs",
+          "samenvatting": "Hobby's en uitstapjes.",
+          "lessen": [
+            {
+              "id": "les-verbes-en-er",
+              "titel": "Les verbes en -er",
+              "uitleg": "Veel Franse werkwoorden eindigen op -er. Voorbeeld: parler (spreken). Je haalt -er weg en voegt iets toe.\n\nJe zegt: je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent. Voor een klinker schrijf je j': j'aime.\n\nHobby's: Je joue au foot. Je regarde la télé. J'écoute de la musique. Je danse.",
+              "woorden": [
+                {
+                  "nl": "spreken",
+                  "doel": "parler",
+                  "voorbeeld": "Je parle français."
+                },
+                {
+                  "nl": "houden van",
+                  "doel": "aimer",
+                  "voorbeeld": "J'aime le sport."
+                },
+                {
+                  "nl": "spelen",
+                  "doel": "jouer",
+                  "voorbeeld": "Je joue au foot."
+                },
+                {
+                  "nl": "kijken",
+                  "doel": "regarder",
+                  "voorbeeld": "Je regarde la télé."
+                },
+                {
+                  "nl": "luisteren",
+                  "doel": "écouter",
+                  "voorbeeld": "J'écoute de la musique."
+                },
+                {
+                  "nl": "dansen",
+                  "doel": "danser",
+                  "voorbeeld": "Je danse bien."
+                },
+                {
+                  "nl": "zingen",
+                  "doel": "chanter",
+                  "voorbeeld": "Elle chante."
+                },
+                {
+                  "nl": "tekenen",
+                  "doel": "dessiner",
+                  "voorbeeld": "Je dessine un chat."
+                },
+                {
+                  "nl": "werken",
+                  "doel": "travailler",
+                  "voorbeeld": "Papa travaille."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat betekent 'jouer' ?",
+                  "opties": [
+                    "spelen",
+                    "kijken",
+                    "dansen"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Jouer betekent spelen."
+                },
+                {
+                  "vraag": "Vul in: Je ___ la télé.",
+                  "opties": [
+                    "regardons",
+                    "regardent",
+                    "regarde"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij je eindigt regarder op -e."
+                },
+                {
+                  "vraag": "Vul in: Nous ___ français.",
+                  "opties": [
+                    "parlons",
+                    "parle",
+                    "parlez"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij nous eindigt het werkwoord op -ons."
+                },
+                {
+                  "vraag": "Wat betekent 'J'écoute de la musique' ?",
+                  "opties": [
+                    "Ik maak muziek",
+                    "Ik luister naar muziek",
+                    "Ik zing een lied"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Écouter betekent luisteren."
+                },
+                {
+                  "vraag": "Waarom schrijf je 'j'aime' ?",
+                  "opties": [
+                    "Aimer begint met een klinker",
+                    "Het is een fout",
+                    "Het is mannelijk"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Voor een klinker wordt je j'."
+                }
+              ]
+            },
+            {
+              "id": "aller-et-sorties",
+              "titel": "Aller et les sorties",
+              "uitleg": "Aller betekent gaan. Je zegt: je vais, tu vas, il va, nous allons, vous allez, ils vont.\n\nNa aller zeg je à voor een plaats. À + le wordt au: Je vais au cinéma. À la blijft à la: Je vais à la piscine.\n\nVoor een stad zeg je à: Je vais à Bruxelles. Chez betekent bij of naar iemand: Je vais chez ma grand-mère.",
+              "woorden": [
+                {
+                  "nl": "gaan",
+                  "doel": "aller",
+                  "voorbeeld": "Je vais à l'école."
+                },
+                {
+                  "nl": "de bioscoop",
+                  "doel": "le cinéma",
+                  "voorbeeld": "Je vais au cinéma."
+                },
+                {
+                  "nl": "het zwembad",
+                  "doel": "la piscine",
+                  "voorbeeld": "Nous allons à la piscine."
+                },
+                {
+                  "nl": "het park",
+                  "doel": "le parc",
+                  "voorbeeld": "Je vais au parc."
+                },
+                {
+                  "nl": "de winkel",
+                  "doel": "le magasin",
+                  "voorbeeld": "Elle va au magasin."
+                },
+                {
+                  "nl": "bij (iemand)",
+                  "doel": "chez",
+                  "voorbeeld": "Je vais chez Paul."
+                },
+                {
+                  "nl": "met",
+                  "doel": "avec",
+                  "voorbeeld": "Je vais avec mes amis."
+                },
+                {
+                  "nl": "vanavond",
+                  "doel": "ce soir",
+                  "voorbeeld": "Ce soir, je vais au cinéma."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Vul in: Je ___ au parc.",
+                  "opties": [
+                    "vais",
+                    "vas",
+                    "va"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij je hoort vais."
+                },
+                {
+                  "vraag": "Vul in: Je vais ___ cinéma.",
+                  "opties": [
+                    "à la",
+                    "au",
+                    "aux"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "À + le wordt au."
+                },
+                {
+                  "vraag": "Vul in: Elle ___ à la piscine.",
+                  "opties": [
+                    "vais",
+                    "vont",
+                    "va"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij elle hoort va."
+                },
+                {
+                  "vraag": "Wat betekent 'chez' ?",
+                  "opties": [
+                    "bij iemand thuis",
+                    "in de stad",
+                    "met"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Chez betekent bij of naar iemand."
+                },
+                {
+                  "vraag": "Wat betekent 'ce soir' ?",
+                  "opties": [
+                    "morgen",
+                    "vanavond",
+                    "gisteren"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Ce soir is vanavond."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "jaar": 2,
+      "themas": [
+        {
+          "id": "les-vetements",
+          "titel": "Les vêtements",
+          "samenvatting": "Kledij benoemen en zeggen wat je draagt.",
+          "lessen": [
+            {
+              "id": "vocabulaire-vetements",
+              "titel": "Les vêtements",
+              "uitleg": "Les vêtements zijn de kleren. Porter betekent dragen. Je zegt: Je porte un pull.\n\nVoorbeelden: le pantalon (de broek), la jupe (de rok), la robe (de jurk), le manteau (de jas), les chaussures (de schoenen).\n\nKleren hebben vaak een kleur. Je zegt: un pantalon noir, une robe rouge.",
+              "woorden": [
+                {
+                  "nl": "de broek",
+                  "doel": "le pantalon",
+                  "voorbeeld": "Je porte un pantalon noir."
+                },
+                {
+                  "nl": "de rok",
+                  "doel": "la jupe",
+                  "voorbeeld": "La jupe est bleue."
+                },
+                {
+                  "nl": "de jurk",
+                  "doel": "la robe",
+                  "voorbeeld": "Elle porte une robe rouge."
+                },
+                {
+                  "nl": "de trui",
+                  "doel": "le pull",
+                  "voorbeeld": "Mon pull est vert."
+                },
+                {
+                  "nl": "het T-shirt",
+                  "doel": "le t-shirt",
+                  "voorbeeld": "Je porte un t-shirt blanc."
+                },
+                {
+                  "nl": "de jas",
+                  "doel": "le manteau",
+                  "voorbeeld": "Il fait froid : prends ton manteau."
+                },
+                {
+                  "nl": "de schoenen",
+                  "doel": "les chaussures",
+                  "voorbeeld": "Mes chaussures sont neuves."
+                },
+                {
+                  "nl": "de sokken",
+                  "doel": "les chaussettes",
+                  "voorbeeld": "Tes chaussettes sont grises."
+                },
+                {
+                  "nl": "dragen",
+                  "doel": "porter",
+                  "voorbeeld": "Je porte une veste."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat betekent 'porter' ?",
+                  "opties": [
+                    "kopen",
+                    "dragen",
+                    "wassen"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Porter betekent dragen."
+                },
+                {
+                  "vraag": "Wat is 'la robe' ?",
+                  "opties": [
+                    "de rok",
+                    "de broek",
+                    "de jurk"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "La robe is de jurk."
+                },
+                {
+                  "vraag": "Wat is 'le manteau' ?",
+                  "opties": [
+                    "de jas",
+                    "de trui",
+                    "de sok"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le manteau is de jas."
+                },
+                {
+                  "vraag": "Wat zijn 'les chaussures' ?",
+                  "opties": [
+                    "de sokken",
+                    "de schoenen",
+                    "de broeken"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Les chaussures zijn de schoenen."
+                },
+                {
+                  "vraag": "Vul in: Je ___ un pull.",
+                  "opties": [
+                    "porte",
+                    "portes",
+                    "portent"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij je eindigt porter op -e."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "la-ville",
+          "titel": "La ville",
+          "samenvatting": "Plaatsen in de stad en de weg vragen.",
+          "lessen": [
+            {
+              "id": "lieux-en-ville",
+              "titel": "Les lieux en ville",
+              "uitleg": "In een stad zijn veel plaatsen. La gare is het station. La poste is het postkantoor. La mairie is het stadhuis.\n\nJe zegt waar iets is met il y a: Il y a une pharmacie dans la rue. Een rue is een straat.\n\nÀ côté de betekent naast. En face de betekent tegenover. Voorbeeld: La poste est à côté de la gare.",
+              "woorden": [
+                {
+                  "nl": "het station",
+                  "doel": "la gare",
+                  "voorbeeld": "La gare est grande."
+                },
+                {
+                  "nl": "het postkantoor",
+                  "doel": "la poste",
+                  "voorbeeld": "La poste est fermée."
+                },
+                {
+                  "nl": "het stadhuis",
+                  "doel": "la mairie",
+                  "voorbeeld": "La mairie est au centre."
+                },
+                {
+                  "nl": "de bakkerij",
+                  "doel": "la boulangerie",
+                  "voorbeeld": "Je vais à la boulangerie."
+                },
+                {
+                  "nl": "de apotheek",
+                  "doel": "la pharmacie",
+                  "voorbeeld": "La pharmacie est ici."
+                },
+                {
+                  "nl": "de supermarkt",
+                  "doel": "le supermarché",
+                  "voorbeeld": "Le supermarché est ouvert."
+                },
+                {
+                  "nl": "de bibliotheek",
+                  "doel": "la bibliothèque",
+                  "voorbeeld": "Je vais à la bibliothèque."
+                },
+                {
+                  "nl": "de straat",
+                  "doel": "la rue",
+                  "voorbeeld": "La rue est calme."
+                },
+                {
+                  "nl": "naast",
+                  "doel": "à côté de",
+                  "voorbeeld": "La poste est à côté de la gare."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'la gare' ?",
+                  "opties": [
+                    "het station",
+                    "het park",
+                    "de winkel"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La gare is het station."
+                },
+                {
+                  "vraag": "Waar koop je brood?",
+                  "opties": [
+                    "à la poste",
+                    "à la mairie",
+                    "à la boulangerie"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "La boulangerie is de bakkerij."
+                },
+                {
+                  "vraag": "Wat is 'la pharmacie' ?",
+                  "opties": [
+                    "de bakkerij",
+                    "de apotheek",
+                    "de bibliotheek"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "La pharmacie is de apotheek."
+                },
+                {
+                  "vraag": "Wat betekent 'à côté de' ?",
+                  "opties": [
+                    "tegenover",
+                    "naast",
+                    "achter"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "À côté de betekent naast."
+                },
+                {
+                  "vraag": "Wat is 'la rue' ?",
+                  "opties": [
+                    "de straat",
+                    "de stad",
+                    "het huis"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La rue is de straat."
+                }
+              ]
+            },
+            {
+              "id": "demander-le-chemin",
+              "titel": "Demander le chemin",
+              "uitleg": "Zo vraag je de weg: Excusez-moi, où est la gare, s'il vous plaît ? Où betekent waar.\n\nHet antwoord is een bevel. Allez tout droit (ga rechtdoor). Tournez à gauche (draai links). Tournez à droite (draai rechts).\n\nOok handig: C'est près d'ici (het is dichtbij). C'est loin (het is ver).",
+              "woorden": [
+                {
+                  "nl": "rechtdoor",
+                  "doel": "tout droit",
+                  "voorbeeld": "Allez tout droit."
+                },
+                {
+                  "nl": "links",
+                  "doel": "à gauche",
+                  "voorbeeld": "Tournez à gauche."
+                },
+                {
+                  "nl": "rechts",
+                  "doel": "à droite",
+                  "voorbeeld": "Tournez à droite."
+                },
+                {
+                  "nl": "afslaan",
+                  "doel": "tourner",
+                  "voorbeeld": "Tournez à la rue."
+                },
+                {
+                  "nl": "de straat oversteken",
+                  "doel": "traverser la rue",
+                  "voorbeeld": "Traversez la rue."
+                },
+                {
+                  "nl": "dichtbij",
+                  "doel": "près d'ici",
+                  "voorbeeld": "C'est près d'ici."
+                },
+                {
+                  "nl": "ver",
+                  "doel": "loin",
+                  "voorbeeld": "C'est loin."
+                },
+                {
+                  "nl": "excuseer mij",
+                  "doel": "excusez-moi",
+                  "voorbeeld": "Excusez-moi, où est la poste ?"
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat betekent 'tout droit' ?",
+                  "opties": [
+                    "links",
+                    "rechtdoor",
+                    "rechts"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Tout droit is rechtdoor."
+                },
+                {
+                  "vraag": "Wat betekent 'à gauche' ?",
+                  "opties": [
+                    "links",
+                    "rechts",
+                    "rechtdoor"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "À gauche is links."
+                },
+                {
+                  "vraag": "Wat betekent 'où' ?",
+                  "opties": [
+                    "wie",
+                    "wat",
+                    "waar"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Où betekent waar."
+                },
+                {
+                  "vraag": "Hoe zeg je 'het is ver'?",
+                  "opties": [
+                    "C'est près",
+                    "C'est loin",
+                    "C'est ici"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Loin betekent ver."
+                },
+                {
+                  "vraag": "Hoe begin je beleefd een vraag naar de weg?",
+                  "opties": [
+                    "Excusez-moi",
+                    "Au revoir",
+                    "Bonne nuit"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Excusez-moi betekent excuseer mij."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "les-achats",
+          "titel": "Les achats",
+          "samenvatting": "Prijzen en dingen vragen of kopen.",
+          "lessen": [
+            {
+              "id": "les-prix-et-les-grands-nombres",
+              "titel": "Les prix et les grands nombres",
+              "uitleg": "Je kent de getallen tot 60. Dan: septante (70), quatre-vingts (80), nonante (90). Septante en nonante zeggen we in België.\n\nDaarna: cent (100) en mille (1000). De prijs zeg je met euros: C'est dix euros.\n\nJe vraagt de prijs met Combien ça coûte ? of C'est combien ?",
+              "woorden": [
+                {
+                  "nl": "zeventig (België)",
+                  "doel": "septante",
+                  "voorbeeld": "Septante euros."
+                },
+                {
+                  "nl": "tachtig",
+                  "doel": "quatre-vingts",
+                  "voorbeeld": "Quatre-vingts euros."
+                },
+                {
+                  "nl": "negentig (België)",
+                  "doel": "nonante",
+                  "voorbeeld": "Nonante euros."
+                },
+                {
+                  "nl": "honderd",
+                  "doel": "cent",
+                  "voorbeeld": "Cent euros."
+                },
+                {
+                  "nl": "duizend",
+                  "doel": "mille",
+                  "voorbeeld": "Mille euros."
+                },
+                {
+                  "nl": "de euro",
+                  "doel": "l'euro",
+                  "voorbeeld": "Cinq euros, s'il vous plaît."
+                },
+                {
+                  "nl": "de prijs",
+                  "doel": "le prix",
+                  "voorbeeld": "Quel est le prix ?"
+                },
+                {
+                  "nl": "betalen",
+                  "doel": "payer",
+                  "voorbeeld": "Je paie par carte."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'cent' ?",
+                  "opties": [
+                    "10",
+                    "1000",
+                    "100"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Cent is honderd."
+                },
+                {
+                  "vraag": "Wat is 'septante' in België?",
+                  "opties": [
+                    "60",
+                    "70",
+                    "90"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Septante is zeventig."
+                },
+                {
+                  "vraag": "Wat is 'nonante' ?",
+                  "opties": [
+                    "90",
+                    "19",
+                    "80"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Nonante is negentig in België."
+                },
+                {
+                  "vraag": "Wat vraag je met 'Combien ça coûte ?'",
+                  "opties": [
+                    "Wanneer is het?",
+                    "Waar is het?",
+                    "Hoeveel kost het?"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Combien betekent hoeveel."
+                },
+                {
+                  "vraag": "Wat is 'mille' ?",
+                  "opties": [
+                    "duizend",
+                    "honderd",
+                    "een miljoen"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Mille is duizend."
+                }
+              ]
+            },
+            {
+              "id": "vouloir-pouvoir",
+              "titel": "Vouloir et pouvoir",
+              "uitleg": "Vouloir betekent willen. Je zegt: je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent.\n\nPouvoir betekent kunnen of mogen. Je zegt: je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent.\n\nNa deze werkwoorden komt een infinitief: Je veux manger. Je peux entrer ? Beleefd zeg je Je voudrais.",
+              "woorden": [
+                {
+                  "nl": "willen",
+                  "doel": "vouloir",
+                  "voorbeeld": "Je veux un sandwich."
+                },
+                {
+                  "nl": "kunnen / mogen",
+                  "doel": "pouvoir",
+                  "voorbeeld": "Je peux sortir ?"
+                },
+                {
+                  "nl": "ik wil",
+                  "doel": "je veux",
+                  "voorbeeld": "Je veux une glace."
+                },
+                {
+                  "nl": "ik zou willen",
+                  "doel": "je voudrais",
+                  "voorbeeld": "Je voudrais un pull."
+                },
+                {
+                  "nl": "ik kan / mag",
+                  "doel": "je peux",
+                  "voorbeeld": "Je peux payer par carte ?"
+                },
+                {
+                  "nl": "de winkel",
+                  "doel": "le magasin",
+                  "voorbeeld": "Le magasin est ouvert."
+                },
+                {
+                  "nl": "kopen",
+                  "doel": "acheter",
+                  "voorbeeld": "Je veux acheter un pull."
+                },
+                {
+                  "nl": "het ijsje",
+                  "doel": "la glace",
+                  "voorbeeld": "Je veux une glace."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Vul in: Je ___ une glace.",
+                  "opties": [
+                    "veux",
+                    "veut",
+                    "veulent"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij je hoort veux."
+                },
+                {
+                  "vraag": "Wat betekent 'pouvoir' ?",
+                  "opties": [
+                    "willen",
+                    "kunnen of mogen",
+                    "hebben"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Pouvoir betekent kunnen of mogen."
+                },
+                {
+                  "vraag": "Wat is beleefd?",
+                  "opties": [
+                    "Je veux un café",
+                    "Donne-moi un café",
+                    "Je voudrais un café"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Je voudrais is beleefd."
+                },
+                {
+                  "vraag": "Vul in: Il ___ venir.",
+                  "opties": [
+                    "peux",
+                    "peut",
+                    "pouvons"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Bij il hoort peut."
+                },
+                {
+                  "vraag": "Wat betekent 'Je peux entrer ?'",
+                  "opties": [
+                    "Mag ik binnenkomen?",
+                    "Ik moet buiten blijven",
+                    "Ik ga weg"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Je peux betekent ik mag of ik kan."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "le-corps-et-la-sante",
+          "titel": "Le corps et la santé",
+          "samenvatting": "Lichaamsdelen en zeggen wat pijn doet.",
+          "lessen": [
+            {
+              "id": "les-parties-du-corps",
+              "titel": "Les parties du corps",
+              "uitleg": "Le corps is het lichaam. Een lichaamsdeel heeft een lidwoord. Voorbeelden: la tête (het hoofd), le bras (de arm), la main (de hand).\n\nNog meer: la jambe (het been), le pied (de voet), le dos (de rug), le ventre (de buik).\n\nSommige woorden zijn meervoud: les yeux (de ogen), les dents (de tanden). Un œil is één oog.",
+              "woorden": [
+                {
+                  "nl": "het hoofd",
+                  "doel": "la tête",
+                  "voorbeeld": "J'ai mal à la tête."
+                },
+                {
+                  "nl": "de arm",
+                  "doel": "le bras",
+                  "voorbeeld": "Mon bras est long."
+                },
+                {
+                  "nl": "de hand",
+                  "doel": "la main",
+                  "voorbeeld": "Lave tes mains."
+                },
+                {
+                  "nl": "het been",
+                  "doel": "la jambe",
+                  "voorbeeld": "Ma jambe fait mal."
+                },
+                {
+                  "nl": "de voet",
+                  "doel": "le pied",
+                  "voorbeeld": "J'ai mal au pied."
+                },
+                {
+                  "nl": "de rug",
+                  "doel": "le dos",
+                  "voorbeeld": "Mon dos fait mal."
+                },
+                {
+                  "nl": "de buik",
+                  "doel": "le ventre",
+                  "voorbeeld": "J'ai mal au ventre."
+                },
+                {
+                  "nl": "de ogen",
+                  "doel": "les yeux",
+                  "voorbeeld": "Elle a les yeux bleus."
+                },
+                {
+                  "nl": "de tanden",
+                  "doel": "les dents",
+                  "voorbeeld": "Je brosse mes dents."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'la tête' ?",
+                  "opties": [
+                    "het hoofd",
+                    "de hand",
+                    "de voet"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La tête is het hoofd."
+                },
+                {
+                  "vraag": "Wat is 'la main' ?",
+                  "opties": [
+                    "de arm",
+                    "de rug",
+                    "de hand"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "La main is de hand."
+                },
+                {
+                  "vraag": "Wat zijn 'les yeux' ?",
+                  "opties": [
+                    "de oren",
+                    "de ogen",
+                    "de tanden"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Les yeux zijn de ogen."
+                },
+                {
+                  "vraag": "Wat is 'le dos' ?",
+                  "opties": [
+                    "de buik",
+                    "de rug",
+                    "het been"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Le dos is de rug."
+                },
+                {
+                  "vraag": "Wat is 'la jambe' ?",
+                  "opties": [
+                    "het been",
+                    "de voet",
+                    "de arm"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "La jambe is het been."
+                }
+              ]
+            },
+            {
+              "id": "avoir-mal-et-chez-le-medecin",
+              "titel": "Avoir mal à et chez le médecin",
+              "uitleg": "Zo zeg je wat pijn doet: J'ai mal à la tête. Letterlijk: ik heb pijn aan het hoofd. Je zegt: à la, au, à l' of aux.\n\nBij een mannelijk woord zeg je au: J'ai mal au dos. Bij een vrouwelijk woord zeg je à la: J'ai mal à la jambe. Bij meervoud zeg je aux: J'ai mal aux dents.\n\nBij de dokter zeg je: Je suis malade (ik ben ziek). De dokter vraagt: Qu'est-ce qui ne va pas ? Dat betekent: wat scheelt er?",
+              "woorden": [
+                {
+                  "nl": "de dokter",
+                  "doel": "le médecin",
+                  "voorbeeld": "Le médecin est gentil."
+                },
+                {
+                  "nl": "ziek",
+                  "doel": "malade",
+                  "voorbeeld": "Je suis malade."
+                },
+                {
+                  "nl": "de apotheek",
+                  "doel": "la pharmacie",
+                  "voorbeeld": "Je vais à la pharmacie."
+                },
+                {
+                  "nl": "het medicijn",
+                  "doel": "le médicament",
+                  "voorbeeld": "Je prends un médicament."
+                },
+                {
+                  "nl": "de koorts",
+                  "doel": "la fièvre",
+                  "voorbeeld": "J'ai de la fièvre."
+                },
+                {
+                  "nl": "pijn hebben",
+                  "doel": "avoir mal",
+                  "voorbeeld": "J'ai mal au ventre."
+                },
+                {
+                  "nl": "moe",
+                  "doel": "fatigué",
+                  "voorbeeld": "Je suis fatigué."
+                },
+                {
+                  "nl": "Wat scheelt er?",
+                  "doel": "Qu'est-ce qui ne va pas ?",
+                  "voorbeeld": "Qu'est-ce qui ne va pas ?"
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Hoe zeg je 'ik heb hoofdpijn'?",
+                  "opties": [
+                    "J'ai mal à la tête",
+                    "Je suis mal à la tête",
+                    "Je vais mal tête"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Avoir mal à betekent pijn hebben aan."
+                },
+                {
+                  "vraag": "Vul in: J'ai mal ___ dos.",
+                  "opties": [
+                    "à la",
+                    "aux",
+                    "au"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Dos is mannelijk, dus au."
+                },
+                {
+                  "vraag": "Vul in: J'ai mal ___ dents.",
+                  "opties": [
+                    "au",
+                    "aux",
+                    "à la"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Dents is meervoud, dus aux."
+                },
+                {
+                  "vraag": "Wat betekent 'malade' ?",
+                  "opties": [
+                    "ziek",
+                    "moe",
+                    "blij"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Malade betekent ziek."
+                },
+                {
+                  "vraag": "Wat vraagt de dokter met 'Qu'est-ce qui ne va pas ?'",
+                  "opties": [
+                    "Hoe oud ben je?",
+                    "Hoe heet je?",
+                    "Wat scheelt er?"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "De dokter vraagt wat er scheelt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "le-temps-et-les-saisons",
+          "titel": "Le temps et les saisons",
+          "samenvatting": "Het weer.",
+          "lessen": [
+            {
+              "id": "la-meteo",
+              "titel": "La météo",
+              "uitleg": "La météo is het weerbericht. Je vraagt: Quel temps fait-il ? Dat betekent: hoe is het weer?\n\nJe antwoordt met il fait: Il fait beau (mooi weer). Il fait chaud (warm). Il fait froid (koud). Il fait mauvais (slecht weer).\n\nSoms gebruik je een werkwoord: Il pleut (het regent). Il neige (het sneeuwt). Je zegt ook: Il y a du vent (het waait).",
+              "woorden": [
+                {
+                  "nl": "mooi weer",
+                  "doel": "il fait beau",
+                  "voorbeeld": "Aujourd'hui, il fait beau."
+                },
+                {
+                  "nl": "slecht weer",
+                  "doel": "il fait mauvais",
+                  "voorbeeld": "Demain, il fait mauvais."
+                },
+                {
+                  "nl": "het is warm",
+                  "doel": "il fait chaud",
+                  "voorbeeld": "En été, il fait chaud."
+                },
+                {
+                  "nl": "het is koud",
+                  "doel": "il fait froid",
+                  "voorbeeld": "En hiver, il fait froid."
+                },
+                {
+                  "nl": "het regent",
+                  "doel": "il pleut",
+                  "voorbeeld": "Il pleut souvent en Belgique."
+                },
+                {
+                  "nl": "het sneeuwt",
+                  "doel": "il neige",
+                  "voorbeeld": "En hiver, il neige."
+                },
+                {
+                  "nl": "de zon",
+                  "doel": "le soleil",
+                  "voorbeeld": "Le soleil brille."
+                },
+                {
+                  "nl": "de wind",
+                  "doel": "le vent",
+                  "voorbeeld": "Il y a du vent."
+                },
+                {
+                  "nl": "de wolk",
+                  "doel": "le nuage",
+                  "voorbeeld": "Il y a un nuage."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Hoe vraag je naar het weer?",
+                  "opties": [
+                    "Quel temps fait-il ?",
+                    "Quelle heure est-il ?",
+                    "Quel âge as-tu ?"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Quel temps fait-il ? betekent hoe is het weer?"
+                },
+                {
+                  "vraag": "Wat betekent 'il pleut' ?",
+                  "opties": [
+                    "het sneeuwt",
+                    "het regent",
+                    "het is warm"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Il pleut betekent het regent."
+                },
+                {
+                  "vraag": "Wat betekent 'il fait froid' ?",
+                  "opties": [
+                    "het is warm",
+                    "het is mooi weer",
+                    "het is koud"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Froid betekent koud."
+                },
+                {
+                  "vraag": "Wat is 'le soleil' ?",
+                  "opties": [
+                    "de zon",
+                    "de wind",
+                    "de wolk"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le soleil is de zon."
+                },
+                {
+                  "vraag": "Wat betekent 'il neige' ?",
+                  "opties": [
+                    "het regent",
+                    "het sneeuwt",
+                    "er is wind"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Neiger betekent sneeuwen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vacances-et-transports",
+          "titel": "Vacances et transports",
+          "samenvatting": "Vervoer en zeggen wat je gaat doen.",
+          "lessen": [
+            {
+              "id": "les-transports",
+              "titel": "Les transports",
+              "uitleg": "Les transports zijn de vervoersmiddelen. Voorbeelden: le train, le bus, le vélo, la voiture (de auto), l'avion (het vliegtuig).\n\nJe zegt hoe je reist met en of à. En train, en bus, en voiture, en avion. Maar: à vélo, à pied (te voet).\n\nVoorbeeld: Je vais à l'école à vélo. Mon père va au travail en voiture.",
+              "woorden": [
+                {
+                  "nl": "de trein",
+                  "doel": "le train",
+                  "voorbeeld": "Je prends le train."
+                },
+                {
+                  "nl": "de bus",
+                  "doel": "le bus",
+                  "voorbeeld": "Le bus est en retard."
+                },
+                {
+                  "nl": "de fiets",
+                  "doel": "le vélo",
+                  "voorbeeld": "Je vais à l'école à vélo."
+                },
+                {
+                  "nl": "de auto",
+                  "doel": "la voiture",
+                  "voorbeeld": "Papa a une voiture."
+                },
+                {
+                  "nl": "het vliegtuig",
+                  "doel": "l'avion",
+                  "voorbeeld": "Nous prenons l'avion."
+                },
+                {
+                  "nl": "het schip / de boot",
+                  "doel": "le bateau",
+                  "voorbeeld": "Le bateau est grand."
+                },
+                {
+                  "nl": "de tram",
+                  "doel": "le tram",
+                  "voorbeeld": "Je prends le tram."
+                },
+                {
+                  "nl": "te voet",
+                  "doel": "à pied",
+                  "voorbeeld": "Je vais à l'école à pied."
+                },
+                {
+                  "nl": "de vakantie",
+                  "doel": "les vacances",
+                  "voorbeeld": "J'aime les vacances."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Wat is 'le vélo' ?",
+                  "opties": [
+                    "de fiets",
+                    "de auto",
+                    "de trein"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Le vélo is de fiets."
+                },
+                {
+                  "vraag": "Hoe zeg je 'met de trein'?",
+                  "opties": [
+                    "à train",
+                    "en train",
+                    "au train"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Je zegt en train."
+                },
+                {
+                  "vraag": "Hoe zeg je 'te voet'?",
+                  "opties": [
+                    "en pied",
+                    "à vélo",
+                    "à pied"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "À pied betekent te voet."
+                },
+                {
+                  "vraag": "Wat is 'l'avion' ?",
+                  "opties": [
+                    "het vliegtuig",
+                    "het schip",
+                    "de bus"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "L'avion is het vliegtuig."
+                },
+                {
+                  "vraag": "Hoe zeg je 'met de fiets'?",
+                  "opties": [
+                    "en vélo",
+                    "à vélo",
+                    "au vélo"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Je zegt à vélo."
+                }
+              ]
+            },
+            {
+              "id": "le-futur-proche",
+              "titel": "Le futur proche",
+              "uitleg": "Het futur proche is de nabije toekomst. Zo zeg je wat je binnenkort gaat doen.\n\nJe gebruikt aller + een infinitief. Je vais manger. Tu vas jouer. Il va partir. Nous allons voyager. Ils vont venir.\n\nJe ontkent rond aller: Je ne vais pas manger. Tijdswoorden: demain (morgen), bientôt (binnenkort), ce soir (vanavond).",
+              "woorden": [
+                {
+                  "nl": "morgen",
+                  "doel": "demain",
+                  "voorbeeld": "Demain, je vais voyager."
+                },
+                {
+                  "nl": "binnenkort",
+                  "doel": "bientôt",
+                  "voorbeeld": "Bientôt, c'est l'été."
+                },
+                {
+                  "nl": "vanavond",
+                  "doel": "ce soir",
+                  "voorbeeld": "Ce soir, je vais manger."
+                },
+                {
+                  "nl": "volgende week",
+                  "doel": "la semaine prochaine",
+                  "voorbeeld": "La semaine prochaine, nous partons."
+                },
+                {
+                  "nl": "reizen",
+                  "doel": "voyager",
+                  "voorbeeld": "Je vais voyager en train."
+                },
+                {
+                  "nl": "bezoeken",
+                  "doel": "visiter",
+                  "voorbeeld": "Nous allons visiter Paris."
+                },
+                {
+                  "nl": "vertrekken",
+                  "doel": "partir",
+                  "voorbeeld": "Il va partir."
+                },
+                {
+                  "nl": "de koffer",
+                  "doel": "la valise",
+                  "voorbeeld": "Ma valise est lourde."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Hoe vorm je het futur proche?",
+                  "opties": [
+                    "avoir + infinitief",
+                    "aller + infinitief",
+                    "être + infinitief"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Aller + infinitief geeft de nabije toekomst."
+                },
+                {
+                  "vraag": "Vul in: Je ___ manger.",
+                  "opties": [
+                    "vas",
+                    "va",
+                    "vais"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij je hoort vais."
+                },
+                {
+                  "vraag": "Wat betekent 'Il va partir' ?",
+                  "opties": [
+                    "Hij is vertrokken",
+                    "Hij gaat vertrekken",
+                    "Hij wil vertrekken"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Il va partir betekent hij gaat vertrekken."
+                },
+                {
+                  "vraag": "Wat betekent 'demain' ?",
+                  "opties": [
+                    "morgen",
+                    "gisteren",
+                    "vandaag"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Demain is morgen."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik ga niet eten'?",
+                  "opties": [
+                    "Je ne mange pas va",
+                    "Je ne vais pas manger",
+                    "Je vais ne pas manger"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Ne en pas staan rond aller."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "le-passe-compose",
+          "titel": "Le passé composé",
+          "samenvatting": "Vertellen wat al gebeurd is, met avoir.",
+          "lessen": [
+            {
+              "id": "passe-compose-avec-avoir",
+              "titel": "Le passé composé avec avoir",
+              "uitleg": "Het passé composé gebruik je voor iets wat al gebeurd is. Je vormt het met avoir + het voltooid deelwoord.\n\nBij werkwoorden op -er maak je het deelwoord met -é. Parler wordt parlé. Jouer wordt joué. Voorbeeld: J'ai joué au foot.\n\nJe ontkent rond avoir: Je n'ai pas mangé. Tijdswoorden: hier (gisteren), la semaine dernière (vorige week).",
+              "woorden": [
+                {
+                  "nl": "gisteren",
+                  "doel": "hier",
+                  "voorbeeld": "Hier, j'ai joué au foot."
+                },
+                {
+                  "nl": "vorige week",
+                  "doel": "la semaine dernière",
+                  "voorbeeld": "La semaine dernière, j'ai voyagé."
+                },
+                {
+                  "nl": "gespeeld",
+                  "doel": "joué",
+                  "voorbeeld": "J'ai joué."
+                },
+                {
+                  "nl": "gegeten",
+                  "doel": "mangé",
+                  "voorbeeld": "Tu as mangé."
+                },
+                {
+                  "nl": "gesproken",
+                  "doel": "parlé",
+                  "voorbeeld": "Il a parlé."
+                },
+                {
+                  "nl": "gekeken",
+                  "doel": "regardé",
+                  "voorbeeld": "Nous avons regardé un film."
+                },
+                {
+                  "nl": "het huiswerk",
+                  "doel": "les devoirs",
+                  "voorbeeld": "J'ai fait mes devoirs."
+                },
+                {
+                  "nl": "gedaan / gemaakt",
+                  "doel": "fait",
+                  "voorbeeld": "J'ai fait mes devoirs."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Vul in: Hier, j'___ joué.",
+                  "opties": [
+                    "ai",
+                    "as",
+                    "a"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Bij j' hoort ai."
+                },
+                {
+                  "vraag": "Wat is het deelwoord van 'manger' ?",
+                  "opties": [
+                    "mangeur",
+                    "mangé",
+                    "mange"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Bij -er maak je het deelwoord met -é."
+                },
+                {
+                  "vraag": "Vul in: Tu ___ regardé la télé.",
+                  "opties": [
+                    "ai",
+                    "a",
+                    "as"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bij tu hoort as."
+                },
+                {
+                  "vraag": "Wat betekent 'la semaine dernière' ?",
+                  "opties": [
+                    "volgende week",
+                    "vorige week",
+                    "deze week"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "Dernière betekent vorige."
+                },
+                {
+                  "vraag": "Hoe zeg je 'ik heb niet gegeten'?",
+                  "opties": [
+                    "Je n'ai pas mangé",
+                    "Je ai pas mangé",
+                    "Je ne mange pas ai"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "Ne en pas staan rond avoir."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "belgique-et-france",
+          "titel": "La Belgique et la France",
+          "samenvatting": "Een beetje cultuur over België.",
+          "lessen": [
+            {
+              "id": "la-belgique",
+              "titel": "La Belgique",
+              "uitleg": "België heeft drie officiële talen: Nederlands, Frans en Duits. In Vlaanderen spreekt men Nederlands. In Wallonië spreekt men Frans.\n\nBrussel is de hoofdstad van België. Daar spreekt men Nederlands en Frans. La capitale is de hoofdstad.\n\nIn België eten we frites, gaufres en chocolat. In het Belgisch Frans zegt men septante en nonante.",
+              "woorden": [
+                {
+                  "nl": "de taal",
+                  "doel": "la langue",
+                  "voorbeeld": "Le français est une langue."
+                },
+                {
+                  "nl": "de hoofdstad",
+                  "doel": "la capitale",
+                  "voorbeeld": "Bruxelles est la capitale."
+                },
+                {
+                  "nl": "tweetalig",
+                  "doel": "bilingue",
+                  "voorbeeld": "Bruxelles est bilingue."
+                },
+                {
+                  "nl": "Wallonië",
+                  "doel": "la Wallonie",
+                  "voorbeeld": "On parle français en Wallonie."
+                },
+                {
+                  "nl": "de wafel",
+                  "doel": "la gaufre",
+                  "voorbeeld": "J'aime la gaufre."
+                },
+                {
+                  "nl": "de chocolade",
+                  "doel": "le chocolat",
+                  "voorbeeld": "Le chocolat belge est bon."
+                },
+                {
+                  "nl": "de frietjes",
+                  "doel": "les frites",
+                  "voorbeeld": "Les frites sont belges."
+                },
+                {
+                  "nl": "Kuifje",
+                  "doel": "Tintin",
+                  "voorbeeld": "Tintin est belge."
+                }
+              ],
+              "oefeningen": [
+                {
+                  "vraag": "Hoeveel officiële talen heeft België?",
+                  "opties": [
+                    "twee",
+                    "drie",
+                    "vier"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "België heeft Nederlands, Frans en Duits."
+                },
+                {
+                  "vraag": "Welke taal spreekt men in Wallonië?",
+                  "opties": [
+                    "Frans",
+                    "Duits",
+                    "Engels"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "In Wallonië spreekt men Frans."
+                },
+                {
+                  "vraag": "Wat is de hoofdstad van België?",
+                  "opties": [
+                    "Gand",
+                    "Liège",
+                    "Bruxelles"
+                  ],
+                  "antwoord": 2,
+                  "uitleg": "Bruxelles (Brussel) is de hoofdstad."
+                },
+                {
+                  "vraag": "Wat zegt men in België voor 70?",
+                  "opties": [
+                    "septante",
+                    "soixante-dix",
+                    "soixante"
+                  ],
+                  "antwoord": 0,
+                  "uitleg": "In België zegt men septante."
+                },
+                {
+                  "vraag": "Wat is 'la gaufre' ?",
+                  "opties": [
+                    "de frietjes",
+                    "de wafel",
+                    "de chocolade"
+                  ],
+                  "antwoord": 1,
+                  "uitleg": "La gaufre is de wafel."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
