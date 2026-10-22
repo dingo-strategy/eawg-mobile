@@ -155,3 +155,7 @@ button.tile:active,.hero:active{transform:scale(.98)}
 .code{width:100%;min-height:84px;margin:8px 0;font:inherit;font-size:14px;padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--text)}
 .btn.gevaar{background:#b3261e;color:#fff}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* nieuwe vakken */
+.v-wo-mens{--c1:#0f766e;--c2:#2bb6a3;--tint:#d9f4ef}
+@media (prefers-color-scheme:dark){.v-wo-mens{--tint:#12373a}}
