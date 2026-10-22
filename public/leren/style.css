@@ -178,4 +178,17 @@ html.groot{font-size:122%}
 .taalrij{font-weight:700;font-size:1.15rem;text-align:left;min-height:56px}
 
 /* merknaam */
-.merk{margin:0 0 6px;font-weight:800;letter-spacing:.02em;color:var(--accent)}
+.merk{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-weight:800;letter-spacing:.02em;color:var(--accent)}
+
+/* logo en opstartscherm */
+.logo{display:inline-block;line-height:0;flex:none}
+.logo svg{display:block;width:100%;height:auto}
+.welkomlogo{display:grid;place-items:center;margin:12px 0 6px}
+#splash{position:fixed;inset:0;z-index:99;display:grid;place-content:center;justify-items:center;gap:16px;
+  background:linear-gradient(160deg,#1f3fbf,#4b2fb8);color:#fff;transition:opacity .5s ease,visibility .5s}
+#splash.weg{opacity:0;visibility:hidden}
+#splash .logo{width:min(46vw,190px);animation:splash-in .8s cubic-bezier(.2,1.4,.4,1) both;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+#splash b{font:800 clamp(2rem,9vw,2.8rem)/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.03em;animation:splash-tekst .8s .25s ease both}
+@keyframes splash-in{from{transform:scale(.55) translateY(12px);opacity:0}to{transform:none;opacity:1}}
+@keyframes splash-tekst{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#splash .logo,#splash b{animation:none}#splash{transition:none}}

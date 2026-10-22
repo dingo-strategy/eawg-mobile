@@ -165,6 +165,22 @@
     return { klaar: k, totaal: l.length };
   }
 
+  // ---------- logo ----------
+  var LOGO = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 234" role="img" aria-label="Leerliga"><defs><linearGradient id="PFXa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f74ff"/><stop offset="1" stop-color="#6a3fe0"/></linearGradient><linearGradient id="PFXb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe58f"/><stop offset="1" stop-color="#ffb11f"/></linearGradient></defs><path d="M100 4C128 19 159 23 192 21V116C192 171 149 210 100 229C51 210 8 171 8 116V21C41 23 72 19 100 4Z" fill="url(#PFXb)"/><path d="M100 15C126 28 153 32 181 30V116C181 164 143 199 100 216C57 199 19 164 19 116V30C47 32 74 28 100 15Z" fill="url(#PFXa)"/><path d="M100 22C124 34 148 38 173 36V116C173 158 139 190 100 206C61 190 27 158 27 116V36C52 38 76 34 100 22Z" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.6"/><polygon points="100.0,37.0 104.5,49.9 118.1,50.1 107.2,58.3 111.2,71.4 100.0,63.6 88.8,71.4 92.8,58.3 81.9,50.1 95.5,49.9" fill="url(#PFXb)" stroke="#fff" stroke-opacity=".7" stroke-width="1.2" stroke-linejoin="round"/><path d="M37 95V148C61 142 86 142 100 152C114 142 139 142 163 148V95Z" fill="#1f2f9e"/><path d="M100 98C86 88 63 88 43 94V140C63 134 86 134 100 144Z" fill="#e4eaff"/><path d="M100 98C114 88 137 88 157 94V140C137 134 114 134 100 144Z" fill="#fff"/><g stroke="#7f98ff" stroke-width="3" stroke-linecap="round" fill="none"><path d="M53 105C65 102 76 103 88 108"/><path d="M53 118C65 115 76 116 88 121"/><path d="M112 108C124 103 135 102 147 105"/><path d="M112 121C124 116 135 115 147 118"/></g><path d="M100 98V144" stroke="#9fb2ff" stroke-width="2"/><g><circle cx="100" cy="181" r="17" fill="#fff" stroke="#16215f" stroke-width="2.4"/><g stroke="#16215f" stroke-width="1.8" stroke-linecap="round"><line x1="100.0" y1="173.9" x2="100.0" y2="164.9"/><line x1="106.8" y1="178.8" x2="115.3" y2="176.0"/><line x1="104.2" y1="186.8" x2="109.4" y2="194.0"/><line x1="95.8" y1="186.8" x2="90.6" y2="194.0"/><line x1="93.2" y1="178.8" x2="84.7" y2="176.0"/></g><polygon points="100.0,173.9 106.8,178.8 104.2,186.8 95.8,186.8 93.2,178.8" fill="#16215f"/></g></svg>';
+  var logoTeller = 0;
+  function logoEl(px) {
+    var sp = el('span', 'logo'); sp.style.width = px + 'px';
+    sp.innerHTML = LOGO.replace(/PFX/g, 'lg' + (++logoTeller));   // vaste eigen tekening, geen gebruikersinvoer
+    return sp;
+  }
+  function merkRegel() { var p = el('p', 'merk'); p.appendChild(logoEl(26)); p.appendChild(document.createTextNode(' Leerliga')); return p; }
+  // Opstartscherm: blijft minstens even staan zodat je het logo ziet, en glijdt dan weg.
+  function verbergSplash() {
+    var sp = document.getElementById('splash'); if (!sp) return;
+    var min = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 500 : 1200;
+    setTimeout(function () { sp.classList.add('weg'); setTimeout(function () { if (sp.parentNode) sp.parentNode.removeChild(sp); }, 600); }, Math.max(0, min - performance.now()));
+  }
+
   function bar(pct) { var b = el('div', 'bar'); var i = el('i'); i.style.width = pct + '%'; b.appendChild(i); return b; }
   function begroeting() { var u = new Date().getHours(); return u < 12 ? Tr('Goeiemorgen') : u < 18 ? Tr('Goeiemiddag') : Tr('Goeienavond'); }
   function leeg(id) {
@@ -177,7 +193,7 @@
   // ---------- schermen ----------
   function home() {
     leeg();
-    root.appendChild(el('p', 'merk', '🏆 Leerliga'));
+    root.appendChild(merkRegel());
     var top = el('div', 'top'), kop = el('div');
     kop.appendChild(el('h1', '', begroeting() + '! 👋'));
     kop.appendChild(el('p', 'sub', Tr('Wat leren we vandaag?')));
@@ -1010,7 +1026,7 @@
   // Eerste scherm: iedereen moet eerst zijn taal kunnen kiezen, in de talen zelf.
   function taalScherm() {
     leeg();
-    root.appendChild(el('p', 'merk', '🏆 Leerliga'));
+    var lg = el('div', 'welkomlogo'); lg.appendChild(logoEl(96)); root.appendChild(lg);
     root.appendChild(el('h1', '', 'Taal · Langue · Language'));
     root.appendChild(el('p', 'sub', 'Kies je taal · Choisis ta langue · Choose your language'));
     var lijst = el('div', 'lijst');
@@ -1061,5 +1077,6 @@
     if (k) KL = k;
     if (PR.actief && PR.lijst.some(function (x) { return x.id === PR.actief; })) activeer(PR.actief); else PR.actief = null;
     route();
+    verbergSplash();
   });
 })();
