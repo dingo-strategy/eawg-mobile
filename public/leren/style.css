@@ -159,3 +159,11 @@ button.tile:active,.hero:active{transform:scale(.98)}
 /* nieuwe vakken */
 .v-wo-mens{--c1:#0f766e;--c2:#2bb6a3;--tint:#d9f4ef}
 @media (prefers-color-scheme:dark){.v-wo-mens{--tint:#12373a}}
+
+/* eigen lessen */
+.mijnkaart{display:flex;flex-direction:column;gap:2px;width:100%;margin-top:14px;text-align:left;font:inherit;color:#fff;border:0;border-radius:var(--radius);padding:14px 18px;cursor:pointer;background:linear-gradient(135deg,#0f766e,#2bb6a3);box-shadow:0 8px 20px -8px #0f766e}
+.mijnkaart span{opacity:.92;font-size:.9rem}
+.tekstveld{min-height:180px}
+details{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+summary{font-weight:700;cursor:pointer}
+select.invul{appearance:auto}

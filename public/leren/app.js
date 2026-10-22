@@ -23,7 +23,7 @@
   function savePR() { schrijf(PKEY, PR); }
   function vulS() {
     S.scores = S.scores || {};   // "vak/lesid" -> beste aantal juist (0..1)
-    S.dagen = S.dagen || {}; S.betaald = S.betaald || {}; S.mijl = S.mijl || {}; S.freeze = S.freeze || {}; S.fout = S.fout || {};
+    S.dagen = S.dagen || {}; S.betaald = S.betaald || {}; S.mijl = S.mijl || {}; S.freeze = S.freeze || {}; S.fout = S.fout || {}; S.eigen = S.eigen || [];
   }
   function activeer(id) { PR.actief = id; savePR(); S = lees('leren-p-' + id) || {}; vulS(); }
   vulS();
@@ -184,6 +184,12 @@
       hk.appendChild(el('span', '', Math.min(tehe, HERHALING_MAX) + ' vragen om te herhalen'));
       root.appendChild(hk);
     }
+    var nl = S.eigen.length, dichtst = null;
+    S.eigen.forEach(function (e) { if (e.toets) { var n = dagNr(e.toets) - dagNr(vandaag()); if (n >= 0 && (dichtst === null || n < dichtst)) dichtst = n; } });
+    var mk = knop('mijnkaart', '', function () { location.hash = '#/mijn'; });
+    mk.appendChild(el('strong', '', '📝 Mijn lessen en toetsen'));
+    mk.appendChild(el('span', '', nl ? nl + (nl === 1 ? ' eigen les' : ' eigen lessen') + (dichtst !== null ? ' · volgende toets over ' + dichtst + (dichtst === 1 ? ' dag' : ' dagen') : '') : 'Maak oefeningen van je eigen les of toets'));
+    root.appendChild(mk);
     var kk = klas();
     root.appendChild(knop('klaschip', '📚 ' + (kk ? kk.naam : 'Kies je klas') + ' · wijzigen', function () { location.hash = '#/profiel'; }));
     if (kk && kk.reeks === 'B') root.appendChild(el('p', 'uitlegje', 'B-stroom: kortere uitleg en makkelijkere vragen.'));
@@ -243,6 +249,18 @@
         });
         plek.appendChild(lijst);
       });
+      var eigenHier = S.eigen.filter(function (e) { return e.vak === id; });
+      if (eigenHier.length) {
+        plek.appendChild(el('h2', '', 'Mijn lessen'));
+        var el1 = el('div', 'lijst');
+        eigenHier.forEach(function (e) {
+          var r = el('button', 'rij'); r.appendChild(el('b', '', e.titel));
+          r.appendChild(el('span', 'badge', e.les.oefeningen.length + ' vragen'));
+          r.addEventListener('click', function () { location.hash = '#/mijn/' + e.id; });
+          el1.appendChild(r);
+        });
+        plek.appendChild(el1);
+      }
       if (d.bronnen && d.bronnen.length) {
         var b = el('details', 'bronnen'); b.appendChild(el('summary', '', 'Bronnen'));
         d.bronnen.forEach(function (x) {
@@ -409,6 +427,11 @@
     if (!keys.length) { plek.appendChild(el('p', 'uitleg', 'Niets te herhalen vandaag. Goed bezig! 🎉')); return; }
     Promise.all(keys.map(function (k) {
       var f = S.fout[k];
+      if (f.n === 'E') {
+        var e = S.eigen.filter(function (x) { return x.les.id === f.l; })[0];
+        if (!e || !e.les.oefeningen[f.i]) { delete S.fout[k]; return Promise.resolve(null); }
+        return Promise.resolve({ k: k, f: f, o: e.les.oefeningen[f.i], label: 'Mijn les' });
+      }
       return laad(f.v, f.n).then(function (d) {
         var les = d && alleLessen(d).filter(function (l) { return l.id === f.l; })[0];
         if (!les || !les.oefeningen[f.i]) { delete S.fout[k]; return null; }
@@ -629,11 +652,215 @@
     toonWis(0); root.appendChild(wis);
   }
 
+  // ---------- eigen lessen en toetsvoorbereiding ----------
+  // Foto van je les? Kopieer de tekst uit de foto (iPhone: Live Text, Android: Google Lens) en plak ze hier.
+  // De oefeningen worden op je toestel gemaakt: er wordt niets verstuurd. Voor de beste kwaliteit kan Claude ze maken; plak dan de code.
+  var STOP = ' zoals daarom omdat waarbij tussen tijdens hebben werden worden kunnen andere meestal altijd vooral sommige verschillende doordat wanneer bijvoorbeeld natuurlijk gebruikt gebruiken gebeurt gebeurde '.split(' ');
+  function woordenVan(z) { return z.split(/\s+/).map(function (w) { return w.replace(/^[^A-Za-zÀ-ÿ0-9]+|[^A-Za-zÀ-ÿ0-9]+$/g, ''); }).filter(Boolean); }
+  function kiesDoel(woorden) {
+    var i, w;
+    for (i = 0; i < woorden.length; i++) if (/^\d[\d.,]*$/.test(woorden[i])) return { w: woorden[i], k: 'getal' };
+    for (i = 1; i < woorden.length; i++) { w = woorden[i]; if (/^[A-ZÀ-Þ][a-zà-ÿ]{3,}$/.test(w)) return { w: w, k: 'naam' }; }
+    var best = null;
+    woorden.forEach(function (x) { if (x.length >= 7 && STOP.indexOf(x.toLowerCase()) < 0 && (!best || x.length > best.length)) best = x; });
+    return best ? { w: best, k: 'woord' } : null;
+  }
+  function maakLes(titel, tekst) {
+    tekst = tekst.replace(/\r/g, '').slice(0, 20000);
+    var regels = tekst.split('\n').map(function (r) { return r.trim(); }).filter(Boolean), woorden = [], rest = [], kopjes = [];
+    regels.forEach(function (r) {
+      var m = r.match(/^(.{2,40}?)\s*(?::|=|\s-\s|\s–\s)\s*(.{3,160})$/);
+      if (m && m[1].split(/\s+/).length <= 5) woorden.push({ nl: m[1].trim(), doel: m[2].trim(), voorbeeld: '' });
+      else if (r.split(/\s+/).length <= 4 && !/[.!?:]$/.test(r)) kopjes.push(r);   // een kopje, geen zin
+      else rest.push(r);
+    });
+    var zinnen = rest.join(' ').replace(/([.!?])\s+/g, '$1|').split('|').map(function (z) { return z.trim(); })
+      .filter(function (z) { var n = z.split(/\s+/).length; return n >= 6 && n <= 30; });
+    var pool = { getal: [], naam: [], woord: [] }, doelen = zinnen.map(function (z) { var d = kiesDoel(woordenVan(z)); if (d) pool[d.k].push(d.w); return d; });
+    var vragen = [];
+    function mix(juist, fout) {
+      var opties = schud([juist].concat(fout)); return { opties: opties, antwoord: opties.indexOf(juist) };
+    }
+    zinnen.forEach(function (z, i) {
+      var d = doelen[i]; if (!d) return;
+      var andere = pool[d.k].filter(function (x) { return x !== d.w; }).filter(function (x, j, a) { return a.indexOf(x) === j; }), fout;
+      if (d.k === 'getal') {
+        var n = parseFloat(d.w.replace(/\./g, '').replace(',', '.'));
+        var kand = [n + 1, n - 1, n + 10, n - 10, n * 2].filter(function (x) { return x !== n && x > 0; }).map(function (x) { return String(x).replace('.', ','); });
+        fout = andere.slice(0, 2); for (var k = 0; fout.length < 2 && k < kand.length; k++) if (fout.indexOf(kand[k]) < 0) fout.push(kand[k]);
+      } else fout = schud(andere).slice(0, 2);
+      if (fout.length < 2) return;
+      var m = mix(d.w, fout);
+      vragen.push({ vraag: 'Vul aan: ' + z.replace(d.w, '_____'), opties: m.opties, antwoord: m.antwoord, uitleg: 'Zo staat het in je les: ' + z });
+    });
+    if (woorden.length >= 3) woorden.forEach(function (w, i) {
+      var ander = schud(woorden.filter(function (x, j) { return j !== i; })).slice(0, 2), m;
+      if (i % 2 === 0) { m = mix(w.doel, ander.map(function (x) { return x.doel; })); vragen.push({ vraag: 'Wat betekent "' + w.nl + '"?', opties: m.opties, antwoord: m.antwoord, uitleg: w.nl + ': ' + w.doel }); }
+      else { m = mix(w.nl, ander.map(function (x) { return x.nl; })); vragen.push({ vraag: 'Welk begrip hoort bij: "' + w.doel + '"?', opties: m.opties, antwoord: m.antwoord, uitleg: w.nl + ': ' + w.doel }); }
+    });
+    vragen = schud(vragen).slice(0, 15);
+    return { id: 'e' + Date.now().toString(36), titel: titel, uitleg: kopjes.concat(rest).join('\n\n').slice(0, 6000), woorden: woorden.slice(0, 40), oefeningen: vragen };
+  }
+  function schoonLes(o) {   // controleert een geplakte code of JSON
+    function t(x, n) { return String(x == null ? '' : x).slice(0, n); }
+    var oef = (o.oefeningen || o.o || []).slice(0, 60).map(function (q) {
+      var opt = (q.opties || []).slice(0, 5).map(function (x) { return t(x, 200); });
+      if (opt.length < 2 || typeof q.antwoord !== 'number' || q.antwoord < 0 || q.antwoord >= opt.length) return null;
+      return { vraag: t(q.vraag, 400), opties: opt, antwoord: q.antwoord, uitleg: t(q.uitleg, 300) };
+    }).filter(Boolean);
+    if (oef.length < 1) return null;
+    return { titel: t(o.titel || o.t || 'Mijn les', 60), vak: t(o.vak || '', 30), toets: t(o.toets || '', 12), les: {
+      id: 'e' + Date.now().toString(36), titel: t(o.titel || o.t || 'Mijn les', 60), uitleg: t(o.uitleg || o.u, 8000),
+      woorden: (o.woorden || o.w || []).slice(0, 60).map(function (w) { return { nl: t(w.nl, 80), doel: t(w.doel, 200), voorbeeld: t(w.voorbeeld, 200) }; }), oefeningen: oef } };
+  }
+  function eigenVoegToe(titel, vakId, toets, les) {
+    if (S.eigen.length >= 30) return false;
+    les.titel = titel; S.eigen.push({ id: les.id, titel: titel, vak: vakId, toets: toets, les: les }); save(); return true;
+  }
+  function dagenTot(toets) { return toets ? dagNr(toets) - dagNr(vandaag()) : null; }
+  function toetsTekst(toets) {
+    var n = dagenTot(toets); if (n === null) return '';
+    return n < 0 ? 'toets voorbij' : n === 0 ? 'toets vandaag' : 'toets over ' + n + (n === 1 ? ' dag' : ' dagen');
+  }
+
+  function mijnLijst() {
+    leeg();
+    root.appendChild(terug('#/', 'Start'));
+    root.appendChild(el('h1', '', '📝 Mijn lessen en toetsen'));
+    root.appendChild(el('p', 'sub', 'Oefen met je eigen les of een toets die eraan komt. Je lessen blijven op dit toestel.'));
+    root.appendChild(knop('btn', '＋ Nieuwe les', function () { location.hash = '#/mijn/nieuw'; }));
+    if (!S.eigen.length) { root.appendChild(el('p', 'uitleg', 'Nog geen eigen lessen. Maak er een van de tekst in je cursus.')); return; }
+    root.appendChild(el('h2', '', 'Mijn lessen'));
+    var lijst = el('div', 'lijst');
+    S.eigen.slice().sort(function (a, b) { return (dagenTot(a.toets) === null ? 1e9 : dagenTot(a.toets)) - (dagenTot(b.toets) === null ? 1e9 : dagenTot(b.toets)); }).forEach(function (e) {
+      var r = el('button', 'rij'), v = e.vak && vak(e.vak);
+      r.appendChild(el('b', '', (v ? v.icoon + ' ' : '') + e.titel));
+      r.appendChild(el('span', 'badge', e.les.oefeningen.length + ' vragen'));
+      var t = toetsTekst(e.toets); if (t) r.appendChild(el('span', 's', t));
+      r.addEventListener('click', function () { location.hash = '#/mijn/' + e.id; });
+      lijst.appendChild(r);
+    });
+    root.appendChild(lijst);
+  }
+
+  function nieuweLes() {
+    leeg();
+    root.appendChild(terug('#/mijn', 'Mijn lessen'));
+    root.appendChild(el('h1', '', 'Nieuwe les'));
+    var titel = el('input', 'invul'); titel.type = 'text'; titel.id = 'les-titel'; titel.maxLength = 60; titel.placeholder = 'Titel, bv. Toets geschiedenis: Romeinen'; titel.setAttribute('aria-label', 'Titel');
+    root.appendChild(titel);
+    var vs = el('select', 'invul'); vs.id = 'les-vak'; vs.setAttribute('aria-label', 'Vak');
+    var o0 = el('option', '', 'Ander vak'); o0.value = ''; vs.appendChild(o0);
+    vakkenKlas().forEach(function (v) { var o = el('option', '', v.naam); o.value = v.id; vs.appendChild(o); });
+    root.appendChild(vs);
+    root.appendChild(el('p', 'groep', 'Datum van de toets (mag leeg)'));
+    var dt = el('input', 'invul'); dt.type = 'date'; dt.id = 'les-datum'; dt.setAttribute('aria-label', 'Datum toets'); root.appendChild(dt);
+    var melding = el('p', 'sub'); melding.setAttribute('role', 'status');
+
+    function bewaar(les) {
+      var tt = titel.value.trim() || les.titel || 'Mijn les';
+      if (!eigenVoegToe(tt, vs.value, dt.value ? dt.value.replace(/-0(\d)/g, '-$1') : '', les)) { melding.textContent = 'Je hebt al 30 eigen lessen. Verwijder eerst een les.'; return; }
+      location.hash = '#/mijn/' + les.id;
+    }
+
+    var d1 = el('details'); d1.open = true; d1.appendChild(el('summary', '', '✍️ Tekst plakken (de app maakt de oefeningen)'));
+    d1.appendChild(el('p', 'sub', 'Foto van je cursus? Houd je vinger op de tekst in de foto en kies kopiëren (iPhone: Live Text, Android: Google Lens). Plak ze hier. Regels als "begrip: uitleg" worden woordkaartjes.'));
+    var ta = el('textarea', 'code tekstveld'); ta.id = 'les-tekst'; ta.placeholder = 'Plak of typ hier de tekst van je les'; ta.setAttribute('aria-label', 'Tekst van je les');
+    d1.appendChild(ta);
+    d1.appendChild(knop('btn', 'Maak oefeningen', function () {
+      if (ta.value.trim().length < 80) { melding.textContent = 'Plak wat meer tekst (minstens een paar zinnen).'; return; }
+      var les = maakLes(titel.value.trim(), ta.value);
+      if (les.oefeningen.length < 3) { melding.textContent = 'Uit deze tekst kon ik te weinig oefeningen maken. Plak meer tekst, schrijf begrippen als "begrip: uitleg", of laat Claude de oefeningen maken en plak de code hieronder.'; return; }
+      les.titel = titel.value.trim() || 'Mijn les';
+      bewaar(les);
+    }));
+    root.appendChild(d1);
+
+    var d2 = el('details'); d2.appendChild(el('summary', '', '🤖 Code van Claude plakken (beste kwaliteit)'));
+    d2.appendChild(el('p', 'sub', 'Stuur Claude foto\'s van je cursus of toets. Claude maakt er een les met oefeningen van en geeft je een code. Plak die code hier.'));
+    var tc = el('textarea', 'code'); tc.id = 'les-code'; tc.placeholder = 'Plak hier de code'; tc.setAttribute('aria-label', 'Code van Claude');
+    d2.appendChild(tc);
+    d2.appendChild(knop('btn', 'Importeren', function () {
+      try {
+        var raw = tc.value.trim(), json = raw.charAt(0) === '{' ? raw : decodeURIComponent(escape(atob(raw.replace(/^LES1:/, ''))));
+        var o = schoonLes(JSON.parse(json)); if (!o) throw 0;
+        if (!titel.value.trim()) titel.value = o.titel;
+        if (!vs.value && o.vak && vs.querySelector('option[value="' + o.vak.replace(/[^a-z-]/g, '') + '"]')) vs.value = o.vak;
+        if (!dt.value && o.toets) dt.value = '';
+        bewaar(o.les);
+      } catch (e) { melding.textContent = 'Die code werkt niet. Controleer of je ze helemaal gekopieerd hebt.'; }
+    }));
+    root.appendChild(d2); root.appendChild(melding);
+  }
+
+  function noteerFoutEigen(e, i) {
+    S.fout['E|' + e.les.id + '|' + i] = { v: e.vak || '', n: 'E', l: e.les.id, i: i, stap: 0, due: dagNr(vandaag()) + INTERVALLEN[0] };
+    save();
+  }
+
+  function eigenLesScherm(id) {
+    var e = S.eigen.filter(function (x) { return x.id === id; })[0];
+    leeg(e && e.vak || undefined);
+    root.appendChild(terug('#/mijn', 'Mijn lessen'));
+    if (!e) { root.appendChild(el('p', 'sub', 'Les niet gevonden.')); return; }
+    var les = e.les, v = e.vak && vak(e.vak);
+    root.appendChild(el('h1', '', e.titel));
+    var t = toetsTekst(e.toets); if (t) root.appendChild(el('p', 'melding', '📅 ' + t.charAt(0).toUpperCase() + t.slice(1)));
+    if (les.uitleg) String(les.uitleg).split(/\n\s*\n/).forEach(function (a) { if (a.trim()) root.appendChild(el('p', 'uitleg', a.trim())); });
+    if (les.woorden && les.woorden.length) {
+      root.appendChild(el('h2', '', 'Begrippen'));
+      var w = el('div', 'woorden');
+      les.woorden.forEach(function (x) {
+        var r = el('div', 'woord'); r.appendChild(el('b', '', x.nl)); r.appendChild(el('span', '', x.doel));
+        if (x.voorbeeld) r.appendChild(el('i', '', x.voorbeeld)); w.appendChild(r);
+      });
+      root.appendChild(w);
+      if (les.woorden.length >= 4) {
+        root.appendChild(el('h2', '', 'Spelletjes'));
+        var spel = el('div', 'spel'), sk2 = el('div', 'spelknoppen');
+        sk2.appendChild(knop('btn', '🔗 Koppelspel', function () { koppelspel(spel, les.woorden); }));
+        root.appendChild(sk2); root.appendChild(spel);
+      }
+    }
+    root.appendChild(el('h2', '', 'Toets jezelf'));
+    var q = el('div'); root.appendChild(q);
+    ronde(q, schud(les.oefeningen.map(function (o) { return { o: o, i: les.oefeningen.indexOf(o) }; })), {
+      onAntwoord: function (it, goed) { if (!goed) noteerFoutEigen(e, it.i); },
+      onKlaar: function (h, juist, n, snel, opnieuw) {
+        h.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist' + (juist === n ? ' – perfect! 🎉' : '.')));
+        if (juist < n) h.appendChild(el('p', 'sub', 'De fouten komen terug bij "Herhaling", zodat je ze tegen de toets zeker kent.'));
+        h.appendChild(el('p', 'sub', 'Eigen lessen geven geen munten. Wel de gewone lessen.'));
+        h.appendChild(knop('btn', 'Opnieuw', opnieuw));
+      }
+    });
+    root.appendChild(el('h2', '', 'Delen en wissen'));
+    var code = el('textarea', 'code'); code.readOnly = true; code.hidden = true; code.setAttribute('aria-label', 'Code van deze les');
+    root.appendChild(knop('btn zacht', 'Toon code van deze les', function () {
+      try { code.value = 'LES1:' + btoa(unescape(encodeURIComponent(JSON.stringify({ t: e.titel, vak: e.vak, u: les.uitleg, w: les.woorden, o: les.oefeningen })))); } catch (x) { code.value = 'Code maken lukt niet.'; }
+      code.hidden = false; code.select();
+    }));
+    root.appendChild(code);
+    var wis = el('div');
+    function toonWis(stap) {
+      wis.textContent = '';
+      if (!stap) { wis.appendChild(knop('btn zacht', 'Verwijder deze les', function () { toonWis(1); })); return; }
+      wis.appendChild(el('p', 'sub', 'Zeker? Deze les en haar herhalingsvragen verdwijnen.'));
+      wis.appendChild(knop('btn gevaar', 'Ja, verwijderen', function () {
+        S.eigen = S.eigen.filter(function (x) { return x.id !== e.id; });
+        Object.keys(S.fout).forEach(function (k) { if (S.fout[k].n === 'E' && S.fout[k].l === e.id) delete S.fout[k]; });
+        save(); location.hash = '#/mijn'; route();
+      }));
+      wis.appendChild(knop('btn zacht', 'Annuleren', function () { toonWis(0); }));
+    }
+    toonWis(0); root.appendChild(wis);
+  }
+
   function route() {
     var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if (!PR.actief) return nieuwProfiel();
     if (p[0] === 'nieuw') return nieuwProfiel();
     if (p[0] === 'profiel') return profielScherm();
+    if (p[0] === 'mijn') return p[1] === 'nieuw' ? nieuweLes() : p[1] ? eigenLesScherm(p[1]) : mijnLijst();
     if (!klas()) return profielScherm();
     if (!p.length) return home();
     if (p[0] === 'herhaling') return herhalingScherm();
