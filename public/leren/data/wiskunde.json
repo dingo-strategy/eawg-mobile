@@ -1631,7 +1631,7 @@
       {
        "id": "j2-lettertermen",
        "titel": "Termen samennemen",
-       "uitleg": "Een lettereerm als 3a bestaat uit een coëfficiënt (3) en een letterdeel (a). Gelijksoortige termen hebben hetzelfde letterdeel en mag je samennemen: 3a + 5a = 8a.\n\nVoorbeeld: 4x + 2 - x + 7. Neem de x-termen samen: 4x - x = 3x. Neem de getallen samen: 2 + 7 = 9. Het resultaat is 3x + 9.\n\nVermenigvuldigen: 2a x 3b = 6ab (getallen maal getallen, letters maal letters). En a x a = a^2.\n\nNiet-gelijksoortige termen kan je niet samennemen: 3a + 2b blijft 3a + 2b, en 3a + 4 blijft 3a + 4.",
+       "uitleg": "Een letterterm als 3a bestaat uit een coëfficiënt (3) en een letterdeel (a). Gelijksoortige termen hebben hetzelfde letterdeel en mag je samennemen: 3a + 5a = 8a.\n\nVoorbeeld: 4x + 2 - x + 7. Neem de x-termen samen: 4x - x = 3x. Neem de getallen samen: 2 + 7 = 9. Het resultaat is 3x + 9.\n\nVermenigvuldigen: 2a x 3b = 6ab (getallen maal getallen, letters maal letters). En a x a = a^2.\n\nNiet-gelijksoortige termen kan je niet samennemen: 3a + 2b blijft 3a + 2b, en 3a + 4 blijft 3a + 4.",
        "oefeningen": [
         {
          "vraag": "Vereenvoudig 3a + 5a.",
