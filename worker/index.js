@@ -3,7 +3,9 @@
 // Geen npm-pakketten: alleen WebCrypto (crypto.subtle) en de D1-binding DB.
 // Belangrijk: nooit wachtwoorden, herstelcodes of tokens loggen.
 
-const PBKDF2_ITER = 100000;                 // maximum dat Workers toelaat
+export { Room } from "./room.js";
+
+const PBKDF2_ITER = 100000;                // maximum dat Workers toelaat
 const SESSION_DAYS = 30;
 const SESSION_MS = SESSION_DAYS * 24 * 60 * 60 * 1000;
 const COOKIE = "eawg_sid";
@@ -446,7 +448,79 @@ async function deleteAccount(request, env) {
   return json(200, { ok: true }, { "Set-Cookie": clearCookie() });
 }
 
+// ---------- online kamers (Durable Object ROOM, zie room.js) ----------
+
+const ROOM_CODE_LEN = 6;
+const ROOM_CODE_RE = /^[23456789ABCDEFGHJKMNPQRSTUVWXYZ]{6}$/;
+const LIMIT_ROOMS = 20;        // nieuwe kamers per gebruiker per uur
+const ROOM_RESERVED = new Set(["CREATE"]); // botst met het pad /api/room/create
+
+function newRoomCode() {
+  let code = "";
+  while (code.length < ROOM_CODE_LEN) {
+    for (const b of randomBytes(16)) {
+      if (b < 248 && code.length < ROOM_CODE_LEN) code += RC_ALPHABET[b % RC_ALPHABET.length];
+    }
+  }
+  return code;
+}
+
+async function createRoom(request, env) {
+  const s = await requireSession(request, env);
+  await readJson(request, MAX_BODY);
+  const now = Date.now();
+  const r = await env.DB.prepare(
+    "SELECT COUNT(*) AS n, MIN(ts) AS first FROM attempts WHERE kind = 'room' AND key = ? AND ts > ?"
+  ).bind(s.username_lc, now - 60 * MIN).first();
+  if (r.n >= LIMIT_ROOMS) {
+    const sec = Math.max(1, Math.ceil((r.first + 60 * MIN - now) / 1000));
+    throw new HttpError(429, "Te veel nieuwe kamers. Probeer het later opnieuw.", { "Retry-After": String(sec) });
+  }
+  for (let i = 0; i < 5; i++) {
+    const code = newRoomCode();
+    if (ROOM_RESERVED.has(code)) continue;
+    const stub = env.ROOM.get(env.ROOM.idFromName(code));
+    const res = await stub.fetch("https://room/init", { method: "POST", headers: { "X-EAWG-User": s.username } });
+    if (res.status === 201) {
+      await env.DB.prepare("INSERT INTO attempts (kind, ip, key, ts) VALUES ('room', ?, ?, ?)")
+        .bind(clientIp(request), s.username_lc, now).run();
+      return json(201, { code });
+    }
+    if (res.status !== 409) throw new Error("kamer-init");
+  }
+  throw new HttpError(503, "Geen vrije kamercode gevonden. Probeer opnieuw.");
+}
+
+// GET /api/room/<code> met Upgrade: websocket.
+async function joinRoom(request, env, url, rawCode) {
+  if (request.method !== "GET") return fail(405, "Methode niet toegestaan.", { Allow: "GET" });
+  const origin = request.headers.get("Origin");
+  if (!origin || origin !== url.origin) return fail(403, "Verzoek van een andere herkomst geweigerd.");
+  const s = await getSession(request, env);
+  if (!s) return fail(401, "Niet ingelogd.");
+  const code = String(rawCode).toUpperCase();
+  if (!ROOM_CODE_RE.test(code) || ROOM_RESERVED.has(code)) return fail(404, "Kamer bestaat niet.");
+  const stub = env.ROOM.get(env.ROOM.idFromName(code));
+  // Nieuwe kopjes: de gebruikersnaam komt van de server, nooit van de speler zelf.
+  const headers = new Headers();
+  headers.set("X-EAWG-User", s.username);
+  const up = request.headers.get("Upgrade");
+  if (up) headers.set("Upgrade", up);
+  for (const h of ["Sec-WebSocket-Key", "Sec-WebSocket-Version", "Sec-WebSocket-Extensions", "Sec-WebSocket-Protocol", "Connection"]) {
+    const v = request.headers.get(h);
+    if (v) headers.set(h, v);
+  }
+  const res = await stub.fetch("https://room/connect", { method: "GET", headers });
+  if (res.status === 101) return res;
+  const body = await res.text();
+  return new Response(body, {
+    status: res.status,
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" },
+  });
+}
+
 const ROUTES = {
+  "/api/room/create": { POST: createRoom },
   "/api/register": { POST: register },
   "/api/login": { POST: login },
   "/api/logout": { POST: logout },
@@ -459,7 +533,19 @@ const ROUTES = {
 
 async function handleApi(request, env, ctx, url) {
   const route = ROUTES[url.pathname];
-  if (!route) return fail(404, "Onbekend adres.");
+  if (!route) {
+    const m = url.pathname.match(/^\/api\/room\/([^/]{1,16})$/);
+    if (m) {
+      try {
+        return await joinRoom(request, env, url, m[1]);
+      } catch (e) {
+        if (e instanceof HttpError) return fail(e.status, e.message, e.headers);
+        console.error("api-fout", "/api/room", e && e.name);
+        return fail(500, "Serverfout. Probeer het later opnieuw.");
+      }
+    }
+    return fail(404, "Onbekend adres.");
+  }
   const handler = route[request.method];
   if (!handler) return fail(405, "Methode niet toegestaan.", { Allow: Object.keys(route).join(", ") });
   try {

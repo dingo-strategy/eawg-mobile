@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#060c24">
+<title>Online meetproef</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#060c24;color:#fff;font-family:system-ui,sans-serif;-webkit-user-select:none;user-select:none;touch-action:none;overscroll-behavior:none}
+  #app{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+  .box{width:min(440px,100%);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:18px}
+  h1{font:900 22px system-ui;margin:0 0 6px;text-align:center}
+  p{font:500 14px/1.45 system-ui;color:rgba(255,255,255,.8);margin:6px 0}
+  input,button{width:100%;font:700 17px system-ui;padding:13px;margin:5px 0;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.35);color:#fff}
+  button{border:0;background:#f2f4f8;color:#0b1b4d;cursor:pointer}
+  button.g{background:rgba(255,255,255,.14);color:#fff}
+  button:disabled{opacity:.45}
+  #msg{min-height:20px;font:600 14px system-ui;color:#ff8a8a;margin:4px 0}
+  #code{font:900 38px ui-monospace,Consolas,monospace;letter-spacing:4px;text-align:center;background:rgba(0,0,0,.4);border-radius:10px;padding:12px;margin:8px 0}
+  #speel{position:fixed;inset:0;background:#060c24;display:none}
+  canvas{position:absolute;inset:0;width:100%;height:100%}
+  #stat{position:absolute;left:8px;top:calc(8px + env(safe-area-inset-top));font:700 12px/1.35 ui-monospace,Consolas,monospace;background:rgba(0,0,0,.65);padding:8px 10px;border-radius:8px;white-space:pre;pointer-events:none}
+  #bar{position:absolute;right:8px;top:calc(8px + env(safe-area-inset-top));display:flex;flex-direction:column;gap:6px;width:150px}
+  #bar button{padding:9px;font-size:13px;margin:0}
+  #rep{display:none;position:absolute;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));font:700 13px/1.4 ui-monospace,Consolas,monospace;background:rgba(0,0,0,.85);padding:10px;border-radius:10px;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div id="app">
+ <div class="box" id="login">
+  <h1>Online meetproef</h1>
+  <p>Dit is een testpagina, geen spel. Ze meet hoe snel berichten heen en weer gaan tussen twee toestellen. Er wordt niets bewaard behalve een tijdelijk testaccount dat je aan het eind kunt wissen.</p>
+  <button id="bnew">MAAK EEN TIJDELIJK TESTACCOUNT</button>
+  <p style="text-align:center">of meld je aan met een bestaand account</p>
+  <input id="u" placeholder="Gebruikersnaam" autocomplete="username" autocapitalize="off" spellcheck="false">
+  <input id="p" type="password" placeholder="Wachtwoord" autocomplete="current-password">
+  <button class="g" id="blog">AANMELDEN</button>
+  <div id="msg"></div>
+ </div>
+ <div class="box" id="kies" style="display:none">
+  <h1>Kies je rol</h1>
+  <p id="wie"></p>
+  <button id="bhost">IK BEN DE HOST (kamer maken)</button>
+  <input id="cin" placeholder="Kamercode van de host" maxlength="6" autocapitalize="characters" autocomplete="off" spellcheck="false">
+  <button class="g" id="bgast">IK BEN DE GAST (meedoen)</button>
+  <button class="g" id="bdel">WIS MIJN TESTACCOUNT</button>
+  <div id="msg2"></div>
+ </div>
+ <div class="box" id="wacht" style="display:none">
+  <h1>Kamercode</h1>
+  <div id="code">------</div>
+  <p id="wst">Wachten op de gast...</p>
+ </div>
+</div>
+<div id="speel"><canvas id="cv"></canvas><div id="stat"></div><div id="bar"><button id="bmode">VOORSPELLING: AAN</button><button id="brep" class="g">RESULTATEN TONEN</button><button id="bstop" class="g">STOP</button></div><div id="rep"></div></div>
+<script>
+(function () {
+'use strict';
+var W = 800, H = 440, SPEED = 180, TICK = 1000 / 60, SNAPMS = 1000 / 30;
+var $ = function (id) { return document.getElementById(id); };
+var role = null, ws = null, code = '', me = '', creds = null, running = false, roomCode = '';
+var t0 = 0, seq = 0, sent = {}, lastAck = 0;
+var snaps = [], offset = null, bufMs = 100, predOn = true, myPos = [W * 0.7, H / 2], inp = [0, 0];
+var A = { ack: [], gap: [], rtt: [] }, lastArr = 0, lastQ = -1, lost = 0, got = 0, under = 0, errSum = 0, errN = 0;
+var events = [], hiddenAt = 0, repTimer = 0, tickTimer = 0, snapTimer = 0, kaTimer = 0, uiTimer = 0, rafId = 0;
+var host = { p: [], v: [], ball: [W / 2, H / 2, 120, 70], inX: 0, inY: 0, ack: 0, q: 0, gp: [W * 0.7, H / 2] };
+
+function msg(el, t, ok) { var e = $(el); e.style.color = ok ? '#9dffb0' : '#ff8a8a'; e.textContent = t || ''; }
+function log(t) { events.push(((performance.now() - t0) / 1000).toFixed(1) + 's ' + t); if (events.length > 30) events.shift(); }
+function pct(a, p) { if (!a.length) return 0; var s = a.slice().sort(function (x, y) { return x - y; }); return s[Math.min(s.length - 1, Math.floor(s.length * p))]; }
+function show(id) { ['login', 'kies', 'wacht'].forEach(function (k) { $(k).style.display = k === id ? '' : 'none'; }); }
+function api(path, method, body) {
+  return fetch(path, { method: method, credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : (method === 'GET' ? undefined : '{}') })
+    .then(function (r) { return r.json().catch(function () { return null; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); });
+}
+function rnd(n) { var a = 'abcdefghjkmnpqrstuvwxyz23456789', s = '', c = new Uint8Array(n); crypto.getRandomValues(c); for (var i = 0; i < n; i++) s += a[c[i] % a.length]; return s; }
+
+// ---------- aanmelden ----------
+function done(u) { me = u; $('wie').textContent = 'Ingelogd als ' + u + '.'; show('kies'); }
+$('bnew').onclick = function () {
+  var u = 'proef' + rnd(5), p = rnd(12); msg('msg', 'Bezig...', true);
+  api('/api/register', 'POST', { username: u, password: p }).then(function (r) {
+    if (!r.ok) { msg('msg', (r.j && r.j.error) || 'Mislukt.'); return; }
+    creds = { u: u, p: p }; done(u); msg('msg2', 'Tijdelijk account ' + u + ' met wachtwoord ' + p + ' (nodig om het te wissen).', true);
+  });
+};
+$('blog').onclick = function () {
+  var u = $('u').value.trim(), p = $('p').value; if (!u || !p) { msg('msg', 'Vul beide in.'); return; }
+  api('/api/login', 'POST', { username: u, password: p }).then(function (r) { if (!r.ok) { msg('msg', (r.j && r.j.error) || 'Mislukt.'); return; } creds = { u: u, p: p }; done(r.j.username || u); });
+};
+$('bdel').onclick = function () {
+  if (!creds) { msg('msg2', 'Wissen kan alleen met het account dat je hier maakte of waarmee je inlogde.'); return; }
+  api('/api/account', 'DELETE', { password: creds.p }).then(function (r) { msg('msg2', r.ok ? 'Account gewist.' : ((r.j && r.j.error) || 'Mislukt.'), r.ok); if (r.ok) { creds = null; show('login'); } });
+};
+api('/api/me', 'GET').then(function (r) { if (r.ok && r.j && r.j.username) done(r.j.username); });
+
+// ---------- verbinden ----------
+function wsUrl(c) { return (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/api/room/' + c; }
+function open(c, onhello) {
+  ws = new WebSocket(wsUrl(c)); roomCode = c;
+  ws.onopen = function () { log('verbonden'); };
+  ws.onmessage = function (e) { var m; try { m = JSON.parse(e.data); } catch (x) { return; } onMsg(m, onhello); };
+  ws.onclose = function (e) { log('socket dicht ' + e.code); if (running && !hiddenAt) tryReconnect(); };
+  ws.onerror = function () { log('socketfout'); };
+}
+function send(o) { if (ws && ws.readyState === 1) { try { ws.send(JSON.stringify(o)); } catch (e) {} } }
+$('bhost').onclick = function () {
+  msg('msg2', 'Kamer maken...', true);
+  api('/api/room/create', 'POST', {}).then(function (r) {
+    if (!r.ok) { msg('msg2', (r.j && r.j.error) || 'Mislukt.'); return; }
+    code = r.j.code; $('code').textContent = code; show('wacht'); role = 'host'; open(code, null); window.__code = code;
+  });
+};
+$('bgast').onclick = function () {
+  var c = $('cin').value.trim().toUpperCase(); if (c.length !== 6) { msg('msg2', 'Typ de 6 tekens van de host.'); return; }
+  msg('msg2', 'Verbinden...', true);
+  fetch('/api/room/' + c, { credentials: 'same-origin' }).then(function (r) {
+    if (r.status === 404) { msg('msg2', 'Deze code bestaat niet of is verlopen.'); return; }
+    if (r.status === 401) { msg('msg2', 'Je bent niet ingelogd.'); return; }
+    role = 'guest'; code = c; open(c, null);
+  });
+};
+function onMsg(m, onhello) {
+  if (m.t === 'hello') { role = m.role; log('hello ' + m.role); if (role === 'guest') startRun(); else if (m.peerOnline) startRun(); }
+  else if (m.t === 'peer-join') { log('gast erbij: ' + m.name); if (role === 'host') startRun(); }
+  else if (m.t === 'peer-left') { log('de ander is weg (respijt ' + (m.graceMs || 0) + ' ms)'); }
+  else if (m.t === 'peer-back') { log('de ander is terug'); if (role === 'host') host.q++; }
+  else if (m.t === 'peer-gone' || m.t === 'closed') { log('einde: ' + (m.reason || m.t)); }
+  else if (m.t === 'pong') { A.rtt.push(performance.now() - m.ts); if (A.rtt.length > 120) A.rtt.shift(); }
+  else if (m.t === 'resync') { if (role === 'host') sendSnap(); }
+  else if (m.t === 'input' && role === 'host') { host.inX = +m.x || 0; host.inY = +m.y || 0; var l = Math.hypot(host.inX, host.inY); if (l > 1) { host.inX /= l; host.inY /= l; } if (m.s > host.ack) host.ack = m.s; }
+  else if (m.t === 'snap' && role === 'guest') onSnap(m);
+  else if (m.t === 'evt' && m.e === 'report' && role === 'host') { window.__lastReport = m.d; $('rep').style.display = 'block'; $('rep').textContent = 'RAPPORT VAN DE GAST\n' + JSON.stringify(m.d); console.log('REPORT ' + JSON.stringify(m.d)); }
+  else if (m.t === 'error') { log('server: ' + m.code); }
+}
+
+// ---------- start ----------
+function startRun() {
+  if (running) return; running = true; show('none'); $('speel').style.display = 'block'; t0 = performance.now(); resize();
+  if (role === 'host') { initHost(); tickTimer = setInterval(hostTick, TICK); snapTimer = setInterval(sendSnap, SNAPMS); }
+  else { setupInput(); }
+  kaTimer = setInterval(function () { send({ t: 'ka' }); send({ t: 'ping', ts: performance.now() }); }, 5000);
+  repTimer = setInterval(function () { if (role === 'guest') sendReport(); }, 10000);
+  uiTimer = setInterval(updateStat, 500); loop();
+}
+$('bstop').onclick = function () { stopRun(); };
+function stopRun() { running = false; clearInterval(tickTimer); clearInterval(snapTimer); clearInterval(kaTimer); clearInterval(repTimer); clearInterval(uiTimer); cancelAnimationFrame(rafId); if (ws) try { ws.close(1000); } catch (e) {} $('speel').style.display = 'none'; show('kies'); }
+$('bmode').onclick = function () { predOn = !predOn; $('bmode').textContent = 'VOORSPELLING: ' + (predOn ? 'AAN' : 'UIT'); log('voorspelling ' + (predOn ? 'aan' : 'uit')); A.ack = []; };
+$('brep').onclick = function () { var r = $('rep'); if (r.style.display === 'block') { r.style.display = 'none'; return; } r.style.display = 'block'; r.textContent = 'RESULTATEN\n' + JSON.stringify(report()) + '\n\n' + events.slice(-8).join('\n'); sendReport(); };
+
+// ---------- host: nepspel ----------
+function initHost() {
+  for (var i = 0; i < 10; i++) { host.p.push([80 + (i % 5) * 150, 70 + (i >> 1) * 75, i]); }
+  host.gp = [W * 0.7, H / 2];
+}
+function hostTick() {
+  var dt = TICK / 1000, t = (performance.now() - t0) / 1000, i;
+  for (i = 0; i < 9; i++) { var b = host.p[i]; b[0] = W / 2 + Math.sin(t * (0.5 + i * 0.07) + i) * (200 + i * 20); b[1] = H / 2 + Math.cos(t * (0.6 + i * 0.05) + i * 2) * (130 + (i % 3) * 20); }
+  host.gp[0] = Math.max(10, Math.min(W - 10, host.gp[0] + host.inX * SPEED * dt)); host.gp[1] = Math.max(10, Math.min(H - 10, host.gp[1] + host.inY * SPEED * dt));
+  var bl = host.ball; bl[0] += bl[2] * dt; bl[1] += bl[3] * dt; if (bl[0] < 5 || bl[0] > W - 5) bl[2] *= -1; if (bl[1] < 5 || bl[1] > H - 5) bl[3] *= -1;
+}
+function sendSnap() {
+  host.q++; var p = [], i; for (i = 0; i < 9; i++) p.push(Math.round(host.p[i][0] * 10) / 10, Math.round(host.p[i][1] * 10) / 10);
+  p.push(Math.round(host.gp[0] * 10) / 10, Math.round(host.gp[1] * 10) / 10);
+  send({ t: 'snap', q: host.q, ts: Math.round(performance.now() * 10) / 10, ack: host.ack, p: p, b: [Math.round(host.ball[0]), Math.round(host.ball[1])], sc: [0, 0] });
+}
+
+// ---------- gast: invoer, ontvangst en weergave ----------
+function setupInput() {
+  var c = $('cv'), id = null, ox = 0, oy = 0;
+  function pt(e) { return e.touches ? e.touches[0] : e; }
+  function down(e) { var q = pt(e); ox = q.clientX; oy = q.clientY; id = 1; e.preventDefault(); }
+  function move(e) { if (id === null) return; var q = pt(e), dx = q.clientX - ox, dy = q.clientY - oy, l = Math.hypot(dx, dy), m = 55; if (l > m) { dx *= m / l; dy *= m / l; } inp[0] = dx / m; inp[1] = dy / m; if (Math.hypot(inp[0], inp[1]) < 0.12) inp[0] = inp[1] = 0; e.preventDefault(); }
+  function up() { id = null; inp[0] = inp[1] = 0; }
+  c.addEventListener('touchstart', down, { passive: false }); c.addEventListener('touchmove', move, { passive: false }); c.addEventListener('touchend', up); c.addEventListener('touchcancel', up);
+  c.addEventListener('mousedown', down); addEventListener('mousemove', move); addEventListener('mouseup', up);
+  window.__setInput = function (x, y) { inp[0] = x; inp[1] = y; };
+  setInterval(function () {
+    if (!running) return; seq++; sent[seq] = performance.now(); delete sent[seq - 300];
+    send({ t: 'input', s: seq, x: Math.round(inp[0] * 100) / 100, y: Math.round(inp[1] * 100) / 100 });
+  }, 1000 / 30);
+}
+function onSnap(m) {
+  var now = performance.now(); got++;
+  if (lastQ >= 0 && m.q > lastQ + 1) lost += m.q - lastQ - 1; lastQ = m.q;
+  if (lastArr) { A.gap.push(now - lastArr); if (A.gap.length > 300) A.gap.shift(); } lastArr = now;
+  var off = now - m.ts; offset = offset === null ? off : Math.min(offset + 0.02, off);
+  snaps.push({ ts: m.ts, p: m.p, b: m.b }); if (snaps.length > 40) snaps.shift();
+  for (var s = lastAck + 1; s <= m.ack; s++) { if (sent[s]) { A.ack.push(now - sent[s]); if (A.ack.length > 300) A.ack.shift(); } } if (m.ack > lastAck) lastAck = m.ack;
+  var hx = m.p[18], hy = m.p[19];
+  if (predOn) { var e = Math.hypot(hx - myPos[0], hy - myPos[1]); errSum += e; errN++; if (e > 40) { myPos[0] = hx; myPos[1] = hy; } else { myPos[0] += (hx - myPos[0]) * 0.12; myPos[1] += (hy - myPos[1]) * 0.12; } }
+  var j = pct(A.gap, 0.95); bufMs = Math.max(70, Math.min(200, 2 * Math.max(0, j - SNAPMS) + SNAPMS + 40));
+}
+var lastF = 0;
+function loop(t) {
+  rafId = requestAnimationFrame(loop); var now = performance.now(), dt = Math.min(0.05, (now - (lastF || now)) / 1000); lastF = now;
+  if (role === 'guest' && predOn) { myPos[0] = Math.max(10, Math.min(W - 10, myPos[0] + inp[0] * SPEED * dt)); myPos[1] = Math.max(10, Math.min(H - 10, myPos[1] + inp[1] * SPEED * dt)); }
+  draw(now);
+}
+function view(now) {
+  if (role === 'host') { var o = []; for (var i = 0; i < 9; i++) o.push(host.p[i][0], host.p[i][1]); o.push(host.gp[0], host.gp[1]); return { p: o, b: host.ball }; }
+  if (!snaps.length || offset === null) return null;
+  var rt = now - offset - bufMs, a = null, b = null, i;
+  for (i = snaps.length - 1; i >= 0; i--) { if (snaps[i].ts <= rt) { a = snaps[i]; b = snaps[i + 1] || null; break; } }
+  if (!a) { a = snaps[0]; b = null; } if (!b) { if (rt > snaps[snaps.length - 1].ts) under++; b = a; }
+  var f = b.ts > a.ts ? Math.max(0, Math.min(1, (rt - a.ts) / (b.ts - a.ts))) : 0, p = [], k;
+  for (k = 0; k < a.p.length; k++) p.push(a.p[k] + (b.p[k] - a.p[k]) * f);
+  return { p: p, b: [a.b[0] + (b.b[0] - a.b[0]) * f, a.b[1] + (b.b[1] - a.b[1]) * f] };
+}
+function draw(now) {
+  var c = $('cv'), g = c.getContext('2d'), v = view(now), w = c.clientWidth, h = c.clientHeight, s = Math.min(w / W, h / H), ox = (w - W * s) / 2, oy = (h - H * s) / 2;
+  g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, c.width, c.height); g.setTransform(c.width / w, 0, 0, c.height / h, 0, 0);
+  g.fillStyle = '#12304a'; g.fillRect(ox, oy, W * s, H * s); g.strokeStyle = 'rgba(255,255,255,.5)'; g.strokeRect(ox, oy, W * s, H * s);
+  if (!v) return; var i, x, y;
+  for (i = 0; i < 10; i++) {
+    x = v.p[i * 2]; y = v.p[i * 2 + 1];
+    if (i === 9 && role === 'guest') { if (predOn) { x = myPos[0]; y = myPos[1]; } }
+    g.fillStyle = i === 9 ? '#ffd400' : (i < 5 ? '#ff5a5a' : '#8fb0ff'); g.beginPath(); g.arc(ox + x * s, oy + y * s, 9 * s, 0, 6.2832); g.fill();
+  }
+  g.fillStyle = '#fff'; g.beginPath(); g.arc(ox + v.b[0] * s, oy + v.b[1] * s, 5 * s, 0, 6.2832); g.fill();
+}
+function resize() { var c = $('cv'), d = Math.min(2, window.devicePixelRatio || 1); c.width = innerWidth * d; c.height = innerHeight * d; }
+addEventListener('resize', function () { if (running) resize(); });
+
+// ---------- resultaten ----------
+function report() {
+  var sec = Math.max(1, (performance.now() - t0) / 1000);
+  return { rol: role, voorspelling: predOn, sec: Math.round(sec), snapPerSec: Math.round(got / sec * 10) / 10, verloren: lost, leegGevallen: under, bufferMs: Math.round(bufMs),
+    bedieningMs: { p50: Math.round(pct(A.ack, 0.5)), p95: Math.round(pct(A.ack, 0.95)), max: Math.round(Math.max.apply(null, A.ack.length ? A.ack : [0])), n: A.ack.length },
+    tussenSnapsMs: { p50: Math.round(pct(A.gap, 0.5)), p95: Math.round(pct(A.gap, 0.95)), max: Math.round(Math.max.apply(null, A.gap.length ? A.gap : [0])) },
+    serverRttMs: { p50: Math.round(pct(A.rtt, 0.5)), p95: Math.round(pct(A.rtt, 0.95)) }, correctieGem: errN ? Math.round(errSum / errN * 10) / 10 : 0,
+    toestel: { ua: navigator.userAgent.slice(0, 90), dpr: window.devicePixelRatio, scherm: screen.width + 'x' + screen.height, net: (navigator.connection && navigator.connection.effectiveType) || '?' }, log: events.slice(-6) };
+}
+function sendReport() { send({ t: 'evt', e: 'report', d: report() }); }
+function updateStat() {
+  var r = report(); $('stat').textContent = (role === 'guest' ? 'GAST' : 'HOST') + '  ' + r.sec + ' s\n' + 'bediening  p50 ' + r.bedieningMs.p50 + '  p95 ' + r.bedieningMs.p95 + ' ms\n' + 'snaps      ' + r.snapPerSec + '/s  verloren ' + r.verloren + '\n' + 'tussen snaps p95 ' + r.tussenSnapsMs.p95 + ' ms\n' + 'buffer ' + r.bufferMs + ' ms  leeg ' + r.leegGevallen + '\n' + 'server RTT p50 ' + r.serverRttMs.p50 + ' ms\n' + 'socket ' + (ws ? ['verbinden', 'open', 'sluit', 'dicht'][ws.readyState] : '-');
+}
+
+// ---------- achtergrond en herverbinden ----------
+document.addEventListener('visibilitychange', function () {
+  if (!running) return;
+  if (document.hidden) { hiddenAt = performance.now(); log('naar de achtergrond'); }
+  else { var ms = Math.round(performance.now() - hiddenAt); hiddenAt = 0; log('terug na ' + ms + ' ms, socket ' + (ws ? ws.readyState : '-')); if (!ws || ws.readyState !== 1) tryReconnect(); else send({ t: 'resync' }); }
+});
+var rcTry = 0;
+function tryReconnect() {
+  if (!running || (ws && ws.readyState === 1) || rcTry > 8) return; rcTry++; var wait = Math.min(4000, 1000 * Math.pow(2, rcTry - 1)); log('opnieuw verbinden over ' + wait + ' ms (poging ' + rcTry + ')');
+  setTimeout(function () {
+    if (!running || (ws && ws.readyState === 1)) return;
+    fetch('/api/room/' + roomCode, { credentials: 'same-origin' }).then(function (r) { if (r.status === 404) { log('kamer bestaat niet meer'); return; } open(roomCode, null); setTimeout(function () { if (ws && ws.readyState === 1) { rcTry = 0; log('herverbonden'); send({ t: 'resync' }); } else tryReconnect(); }, 1500); }).catch(function () { tryReconnect(); });
+  }, wait);
+}
+})();
+</script>
+</body>
+</html>

@@ -13,3 +13,12 @@ binding = "DB"
 database_name = "eawg-accounts"
 # Het echte id van de database, gemaakt met "npx wrangler d1 create eawg-accounts".
 database_id = "10e6ffc0-7fad-4dba-92f8-4da02f944a5e"
+
+# Online spelen: 1 Durable Object per kamer (kamercode = naam). SQLite-gebaseerd, werkt op de gratis laag.
+[[durable_objects.bindings]]
+name = "ROOM"
+class_name = "Room"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Room"]
