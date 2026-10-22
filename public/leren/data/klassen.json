@@ -1,24 +1,194 @@
 {
-  "opmerking": "Voorlopige indeling. De vakkenlijst per klas wordt aangepast na onderzoek naar de officiële leerplannen.",
-  "vakken": {
-    "nederlands": {"naam": "Nederlands", "icoon": "📖", "uitleg": "Taal en spelling"},
-    "frans": {"naam": "Frans", "icoon": "🥐", "uitleg": "Mots et phrases"},
-    "engels": {"naam": "Engels", "icoon": "🇬🇧", "uitleg": "Woorden en zinnen"},
-    "wiskunde": {"naam": "Wiskunde", "icoon": "➗", "uitleg": "Getallen en meetkunde"},
-    "aardrijkskunde": {"naam": "Aardrijkskunde", "icoon": "🌍", "uitleg": "Kaarten en klimaat"},
-    "geschiedenis": {"naam": "Geschiedenis", "icoon": "🏛️", "uitleg": "Van prehistorie tot nu"}
+ "opmerking": "Voorlopige indeling, gebaseerd op onderzoek via zoekresultaten. De officiële leerplannen waren niet raadpleegbaar; laat de indeling per net nakijken.",
+ "vakken": {
+  "nederlands": {
+   "naam": "Nederlands",
+   "icoon": "📖",
+   "uitleg": "Taal en spelling"
   },
-  "klassen": [
-    {"id": "L2", "groep": "Lager onderwijs", "naam": "2e leerjaar", "reeks": "L", "jaar": 2, "vakken": ["nederlands", "wiskunde"]},
-    {"id": "L3", "groep": "Lager onderwijs", "naam": "3e leerjaar", "reeks": "L", "jaar": 3, "vakken": ["nederlands", "wiskunde"]},
-    {"id": "L4", "groep": "Lager onderwijs", "naam": "4e leerjaar", "reeks": "L", "jaar": 4, "vakken": ["nederlands", "wiskunde"]},
-    {"id": "L5", "groep": "Lager onderwijs", "naam": "5e leerjaar", "reeks": "L", "jaar": 5, "vakken": ["nederlands", "wiskunde", "frans"]},
-    {"id": "L6", "groep": "Lager onderwijs", "naam": "6e leerjaar", "reeks": "L", "jaar": 6, "vakken": ["nederlands", "wiskunde", "frans"]},
-    {"id": "S1A", "groep": "Middelbaar", "naam": "1e middelbaar · A-stroom", "reeks": "A", "jaar": 1, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]},
-    {"id": "S2A", "groep": "Middelbaar", "naam": "2e middelbaar · A-stroom", "reeks": "A", "jaar": 2, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]},
-    {"id": "S1B", "groep": "Middelbaar", "naam": "1e middelbaar · B-stroom", "reeks": "B", "jaar": 1, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]},
-    {"id": "S2B", "groep": "Middelbaar", "naam": "2e middelbaar · B-stroom", "reeks": "B", "jaar": 2, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]},
-    {"id": "G3", "groep": "Tweede graad", "naam": "3e middelbaar", "reeks": "G", "jaar": 3, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]},
-    {"id": "G4", "groep": "Tweede graad", "naam": "4e middelbaar", "reeks": "G", "jaar": 4, "vakken": ["nederlands", "frans", "engels", "wiskunde", "aardrijkskunde", "geschiedenis"]}
-  ]
+  "frans": {
+   "naam": "Frans",
+   "icoon": "🥐",
+   "uitleg": "Mots et phrases"
+  },
+  "engels": {
+   "naam": "Engels",
+   "icoon": "🇬🇧",
+   "uitleg": "Woorden en zinnen"
+  },
+  "wiskunde": {
+   "naam": "Wiskunde",
+   "icoon": "➗",
+   "uitleg": "Getallen en meetkunde"
+  },
+  "aardrijkskunde": {
+   "naam": "Aardrijkskunde",
+   "icoon": "🌍",
+   "uitleg": "Kaarten en klimaat"
+  },
+  "geschiedenis": {
+   "naam": "Geschiedenis",
+   "icoon": "🏛️",
+   "uitleg": "Van prehistorie tot nu"
+  },
+  "wo-mens": {
+   "naam": "Mens en maatschappij",
+   "icoon": "🧭",
+   "uitleg": "Buurt, tijd en wereld"
+  }
+ },
+ "klassen": [
+  {
+   "id": "L2",
+   "groep": "Lager onderwijs",
+   "naam": "2e leerjaar",
+   "reeks": "L",
+   "jaar": 2,
+   "vakken": [
+    "nederlands",
+    "wiskunde",
+    "wo-mens"
+   ]
+  },
+  {
+   "id": "L3",
+   "groep": "Lager onderwijs",
+   "naam": "3e leerjaar",
+   "reeks": "L",
+   "jaar": 3,
+   "vakken": [
+    "nederlands",
+    "wiskunde",
+    "wo-mens"
+   ]
+  },
+  {
+   "id": "L4",
+   "groep": "Lager onderwijs",
+   "naam": "4e leerjaar",
+   "reeks": "L",
+   "jaar": 4,
+   "vakken": [
+    "nederlands",
+    "wiskunde",
+    "wo-mens"
+   ]
+  },
+  {
+   "id": "L5",
+   "groep": "Lager onderwijs",
+   "naam": "5e leerjaar",
+   "reeks": "L",
+   "jaar": 5,
+   "vakken": [
+    "nederlands",
+    "wiskunde",
+    "wo-mens",
+    "frans"
+   ]
+  },
+  {
+   "id": "L6",
+   "groep": "Lager onderwijs",
+   "naam": "6e leerjaar",
+   "reeks": "L",
+   "jaar": 6,
+   "vakken": [
+    "nederlands",
+    "wiskunde",
+    "wo-mens",
+    "frans"
+   ]
+  },
+  {
+   "id": "S1A",
+   "groep": "Middelbaar",
+   "naam": "1e middelbaar · A-stroom",
+   "reeks": "A",
+   "jaar": 1,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  },
+  {
+   "id": "S2A",
+   "groep": "Middelbaar",
+   "naam": "2e middelbaar · A-stroom",
+   "reeks": "A",
+   "jaar": 2,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  },
+  {
+   "id": "S1B",
+   "groep": "Middelbaar",
+   "naam": "1e middelbaar · B-stroom",
+   "reeks": "B",
+   "jaar": 1,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  },
+  {
+   "id": "S2B",
+   "groep": "Middelbaar",
+   "naam": "2e middelbaar · B-stroom",
+   "reeks": "B",
+   "jaar": 2,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  },
+  {
+   "id": "G3",
+   "groep": "Tweede graad",
+   "naam": "3e middelbaar",
+   "reeks": "G",
+   "jaar": 3,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  },
+  {
+   "id": "G4",
+   "groep": "Tweede graad",
+   "naam": "4e middelbaar",
+   "reeks": "G",
+   "jaar": 4,
+   "vakken": [
+    "nederlands",
+    "frans",
+    "engels",
+    "wiskunde",
+    "aardrijkskunde",
+    "geschiedenis"
+   ]
+  }
+ ]
 }
