@@ -115,3 +115,29 @@ button.tile:active,.hero:active{transform:scale(.98)}
 .seg.aan{background:var(--accent);color:var(--on-accent)}
 .melding{margin:10px 0;padding:10px 14px;border-radius:14px;background:var(--accent-soft);color:var(--text);font-size:.9rem}
 .uitlegje{color:var(--muted);font-size:.85rem;margin:8px 4px 0;text-align:center}
+
+/* interactie */
+.optie.goed::before{content:'✓ '}
+.optie.fout::before{content:'✗ '}
+.feedback.goed-tekst{color:#146c3a}.feedback.fout-tekst{color:#b3261e}
+@media (prefers-color-scheme:dark){.feedback.goed-tekst{color:#7fe0a5}.feedback.fout-tekst{color:#ff9a92}}
+.herhaling{display:flex;flex-direction:column;gap:2px;width:100%;margin-top:14px;text-align:left;font:inherit;color:#fff;border:0;border-radius:var(--radius);padding:14px 18px;cursor:pointer;
+  background:linear-gradient(135deg,#ff7a3d,#ff4f8b);box-shadow:0 8px 20px -8px #ff4f8b}
+.herhaling span{opacity:.92;font-size:.9rem}
+.woord.met-spreek{padding-right:56px;position:relative}
+.spreek{position:absolute;right:8px;top:8px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:1.1rem;cursor:pointer}
+.spelknoppen{display:flex;flex-wrap:wrap;gap:10px}
+.spel{margin-top:14px}
+.btn.zacht{background:var(--card);color:var(--text);border:1px solid var(--line)}
+[data-vak] .btn.zacht{background:var(--card);color:var(--text)}
+.koppel{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kol{display:flex;flex-direction:column;gap:8px}
+.kop{font:inherit;color:inherit;text-align:left;min-height:48px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer}
+.kop.gekozen{border-color:var(--c1,var(--accent));background:var(--tint,var(--accent-soft))}
+.kop.gevonden{border-color:#1fa25a;background:#d7f5e1;color:#0f4d2a;animation:pop .35s ease}
+.kop.gevonden::before{content:'✓ '}
+.kop.fout{border-color:#d64545;background:#fde3e3;color:#7a1c1c;animation:schud .35s}
+@keyframes schud{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.invul{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--text);margin-bottom:10px}
+.invul:focus{outline:3px solid var(--warm);outline-offset:1px}
+@media (prefers-reduced-motion:reduce){.kop.gevonden,.kop.fout{animation:none}}

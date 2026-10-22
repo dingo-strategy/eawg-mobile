@@ -101,10 +101,11 @@
     return fetch('data/' + bestand + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; });
   }
   // B-stroom: eenvoudigere versie; bestaat die nog niet, dan tonen we de A-versie met een melding.
-  function laad(id) {
-    var sl = id + niveau();
+  function laad(id, niv) {
+    niv = niv || niveau();
+    var sl = id + niv;
     if (sl in data) return Promise.resolve(data[sl]);
-    var p = niveau() === 'B'
+    var p = niv === 'B'
       ? haal(id + '-b').then(function (d) {
           if (d) { d.niveau = 'B'; return d; }
           return haal(id).then(function (a) { if (a) { a.niveau = 'A'; a.terugval = true; } return a; });
@@ -159,6 +160,13 @@
       root.appendChild(h);
     }
 
+    var tehe = teHerhalen().length;
+    if (tehe) {
+      var hk = knop('herhaling', '', function () { location.hash = '#/herhaling'; });
+      hk.appendChild(el('strong', '', '🔁 Herhaling van vandaag'));
+      hk.appendChild(el('span', '', Math.min(tehe, HERHALING_MAX) + ' vragen om te herhalen'));
+      root.appendChild(hk);
+    }
     var sw = el('div', 'niveau'); sw.setAttribute('role', 'group'); sw.setAttribute('aria-label', 'Niveau');
     [['A', 'A-stroom'], ['B', 'B-stroom']].forEach(function (x) {
       var b = knop('seg' + (niveau() === x[0] ? ' aan' : ''), x[1], function () { S.niveau = x[0]; save(); home(); });
@@ -279,55 +287,215 @@
           var r = el('div', 'woord');
           r.appendChild(el('b', '', x.doel)); r.appendChild(el('span', '', x.nl));
           if (x.voorbeeld) r.appendChild(el('i', '', x.voorbeeld));
+          if (TAAL[id] && 'speechSynthesis' in window) {
+            r.classList.add('met-spreek');
+            var sp = knop('spreek', '🔊', function () { spreek(schoon(x.doel), TAAL[id]); });
+            sp.setAttribute('aria-label', 'Uitspreken: ' + schoon(x.doel));
+            r.appendChild(sp);
+          }
           w.appendChild(r);
         });
         plek.appendChild(w);
+        if (les.woorden.length >= 4) {
+          plek.appendChild(el('h2', '', 'Spelletjes'));
+          var sk2 = el('div', 'spelknoppen'), spel = el('div', 'spel');
+          sk2.appendChild(knop('btn', '🔗 Koppelspel', function () { koppelspel(spel, les.woorden); }));
+          if (TAAL[id]) sk2.appendChild(knop('btn', '⌨️ Typ het woord', function () { typSpel(spel, les.woorden); }));
+          plek.appendChild(sk2); plek.appendChild(spel);
+        }
       }
       if (les.oefeningen && les.oefeningen.length) {
         plek.appendChild(el('h2', '', 'Oefenen'));
         var q = el('div'); plek.appendChild(q);
-        quiz(q, d, les);
+        lesQuiz(q, d, les);
       }
     });
   }
 
-  function quiz(host, d, les) {
-    var i = 0, juist = 0, n = les.oefeningen.length, t0 = 0, snel = true;
+  // ---------- vragenronde (gedeeld door les en herhaling) ----------
+  function schud(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+
+  // lijst: [{ o: oefening, label }]; opt.onAntwoord(item, goed), opt.onKlaar(host, juist, n, snel, opnieuw)
+  function ronde(host, lijst, opt) {
+    var i = 0, juist = 0, n = lijst.length, t0 = 0, snel = true;
     function toon() {
       host.textContent = '';
-      if (i >= n) {
-        var score = juist / n, k = sk(d, les.id);
-        if (S.scores[k] == null || score > S.scores[k]) S.scores[k] = score;
-        var br = beloon(k, score, snel);
-        host.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist' + (score === 1 ? ' – perfect! 🎉' : '.')));
-        if (br.munten > 0) host.appendChild(el('div', 'beloning', '🪙 +' + br.munten + ' munten voor EAWG Mobile!'));
-        else host.appendChild(el('p', 'sub', {
-          snel: 'Neem even de tijd om de vragen te lezen, dan krijg je munten.',
-          herhaling: 'Oefenen, geen extra munten meer voor deze les. Goed bezig!',
-          cap: 'Vandaag zijn je lesmunten op. Leren mag altijd, morgen weer munten!'
-        }[br.reden] || ''));
-        if (br.mijl > 0) host.appendChild(el('div', 'beloning', '🔥 ' + br.reeks + ' dagen op rij! Bonus +' + br.mijl + ' munten'));
-        else if (br.msg) host.appendChild(el('p', 'sub', br.msg));
-        host.appendChild(knop('btn', 'Opnieuw proberen', function () { i = 0; juist = 0; snel = true; toon(); }));
-        return;
-      }
-      var o = les.oefeningen[i];
-      host.appendChild(el('p', 'teller', 'Vraag ' + (i + 1) + ' van ' + n));
+      if (i >= n) { opt.onKlaar(host, juist, n, snel, function () { i = 0; juist = 0; snel = true; toon(); }); return; }
+      var item = lijst[i], o = item.o;
+      host.appendChild(el('p', 'teller', 'Vraag ' + (i + 1) + ' van ' + n + (item.label ? ' · ' + item.label : '')));
       host.appendChild(el('p', 'vraag', o.vraag));
-      var vb = el('div', 'opties'), gedaan = false; t0 = performance.now();
-      o.opties.forEach(function (tekst, idx) {
-        var b = knop('optie', tekst, function () {
+      var vb = el('div', 'opties'), gedaan = false, knoppen = {};
+      t0 = performance.now();
+      // De volgorde wordt elke keer geschud, zodat je geen vaste plek van het juiste antwoord kan leren.
+      schud(o.opties.map(function (t, idx) { return idx; })).forEach(function (idx) {
+        var b = knop('optie', o.opties[idx], function () {
           if (gedaan) return; gedaan = true;
           if (performance.now() - t0 >= 2000) snel = false;
           var goed = idx === o.antwoord; if (goed) juist++;
           b.classList.add(goed ? 'goed' : 'fout');
-          if (!goed) vb.children[o.antwoord].classList.add('goed');
-          host.appendChild(el('p', 'feedback', (goed ? '✅ Juist! ' : '❌ Niet juist. ') + (o.uitleg || '')));
+          if (!goed) knoppen[o.antwoord].classList.add('goed');
+          if (opt.onAntwoord) opt.onAntwoord(item, goed);
+          host.appendChild(el('p', 'feedback', (goed ? 'Juist! ' : 'Niet juist. ') + (o.uitleg || '')));
           host.appendChild(knop('btn', i + 1 < n ? 'Volgende' : 'Resultaat', function () { i++; toon(); }));
         });
-        vb.appendChild(b);
+        knoppen[idx] = b; vb.appendChild(b);
       });
       host.appendChild(vb);
+    }
+    toon();
+  }
+
+  function lesQuiz(host, d, les) {
+    var lijst = les.oefeningen.map(function (o, i) { return { o: o, i: i }; });
+    ronde(host, lijst, {
+      onAntwoord: function (it, goed) { if (!goed) noteerFout(d, les, it.i); },
+      onKlaar: function (h, juist, n, snel, opnieuw) {
+        var score = juist / n, k = sk(d, les.id);
+        if (S.scores[k] == null || score > S.scores[k]) S.scores[k] = score;
+        var br = beloon(k, score, snel);
+        h.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist' + (score === 1 ? ' – perfect! 🎉' : '.')));
+        if (br.munten > 0) h.appendChild(el('div', 'beloning', '🪙 +' + br.munten + ' munten voor EAWG Mobile!'));
+        else h.appendChild(el('p', 'sub', {
+          snel: 'Neem even de tijd om de vragen te lezen, dan krijg je munten.',
+          herhaling: 'Oefenen, geen extra munten meer voor deze les. Goed bezig!',
+          cap: 'Vandaag zijn je lesmunten op. Leren mag altijd, morgen weer munten!'
+        }[br.reden] || ''));
+        if (br.mijl > 0) h.appendChild(el('div', 'beloning', '🔥 ' + br.reeks + ' dagen op rij! Bonus +' + br.mijl + ' munten'));
+        else if (br.msg) h.appendChild(el('p', 'sub', br.msg));
+        if (juist < n) h.appendChild(el('p', 'sub', 'De vragen die fout waren, komen morgen terug bij "Herhaling".'));
+        h.appendChild(knop('btn', 'Opnieuw proberen', opnieuw));
+      }
+    });
+  }
+
+  // ---------- gespreide herhaling: foute vragen komen na 1, 3 en 7 dagen terug ----------
+  var INTERVALLEN = [1, 3, 7], HERHALING_MAX = 8;
+  S.fout = S.fout || {};
+  function noteerFout(d, les, i) {
+    S.fout[d.niveau + '|' + d.vak + '|' + les.id + '|' + i] = { v: d.vak, n: d.niveau, l: les.id, i: i, stap: 0, due: dagNr(vandaag()) + INTERVALLEN[0] };
+    save();
+  }
+  function teHerhalen() {
+    var nu = dagNr(vandaag());
+    return Object.keys(S.fout).filter(function (k) { return S.fout[k].due <= nu; });
+  }
+
+  function herhalingScherm() {
+    leeg();
+    root.appendChild(terug('#/', 'Start'));
+    root.appendChild(el('h1', '', '🔁 Herhaling van vandaag'));
+    root.appendChild(el('p', 'sub', 'Vragen die je eerder fout had. Zo blijft het langer hangen.'));
+    var plek = el('div'); root.appendChild(plek);
+    var keys = teHerhalen().slice(0, HERHALING_MAX);
+    if (!keys.length) { plek.appendChild(el('p', 'uitleg', 'Niets te herhalen vandaag. Goed bezig! 🎉')); return; }
+    Promise.all(keys.map(function (k) {
+      var f = S.fout[k];
+      return laad(f.v, f.n).then(function (d) {
+        var les = d && alleLessen(d).filter(function (l) { return l.id === f.l; })[0];
+        if (!les || !les.oefeningen[f.i]) { delete S.fout[k]; return null; }
+        return { k: k, f: f, o: les.oefeningen[f.i], label: vak(f.v).naam };
+      });
+    })).then(function (items) {
+      items = items.filter(Boolean); save();
+      if (!items.length) { plek.appendChild(el('p', 'uitleg', 'Niets te herhalen vandaag.')); return; }
+      ronde(plek, schud(items), {
+        onAntwoord: function (it, goed) {
+          var nu = dagNr(vandaag());
+          if (goed) { it.f.stap++; if (it.f.stap >= INTERVALLEN.length) delete S.fout[it.k]; else it.f.due = nu + INTERVALLEN[it.f.stap]; }
+          else { it.f.stap = 0; it.f.due = nu + INTERVALLEN[0]; }
+          save();
+        },
+        onKlaar: function (h, juist, n) {
+          h.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist. Wat fout was, komt morgen terug.'));
+          h.appendChild(knop('btn', 'Terug naar start', function () { location.hash = '#/'; }));
+        }
+      });
+    });
+  }
+
+  // ---------- woordspelletjes (uit de "woorden" van een les) ----------
+  var TAAL = { engels: 'en-GB', frans: 'fr-FR' };
+  function schoon(t) { return String(t).replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim(); }
+  function spreek(tekst, taal) {
+    try { var u = new SpeechSynthesisUtterance(tekst); u.lang = taal; u.rate = 0.85; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {}
+  }
+
+  // Tik links een woord, dan rechts de juiste betekenis. Geen slepen: dat is op een gsm foutgevoelig.
+  function koppelspel(host, woorden) {
+    var paren = schud(woorden).slice(0, 6), fouten = 0, gevonden = 0, gekozen = null;
+    host.textContent = '';
+    host.appendChild(el('p', 'teller', 'Tik links een woord, dan rechts het juiste.'));
+    var rij = el('div', 'koppel'), L = el('div', 'kol'), R = el('div', 'kol');
+    var idx = paren.map(function (_, i) { return i; });
+    schud(idx).forEach(function (i) {
+      var b = knop('kop', paren[i].nl, function () {
+        if (b.disabled) return;
+        if (gekozen) gekozen.btn.classList.remove('gekozen');
+        gekozen = { i: i, btn: b }; b.classList.add('gekozen');
+      });
+      L.appendChild(b);
+    });
+    schud(idx).forEach(function (i) {
+      var b = knop('kop', schoon(paren[i].doel), function () {
+        if (b.disabled || !gekozen) return;
+        if (gekozen.i === i) {
+          gekozen.btn.classList.remove('gekozen'); gekozen.btn.classList.add('gevonden'); gekozen.btn.disabled = true;
+          b.classList.add('gevonden'); b.disabled = true; gekozen = null; gevonden++;
+          if (gevonden === paren.length) {
+            host.appendChild(el('p', 'feedback', 'Alles gevonden! ' + (fouten ? fouten + ' foutje' + (fouten > 1 ? 's' : '') + '.' : 'Zonder fout! 🎉')));
+            host.appendChild(knop('btn', 'Nog eens', function () { koppelspel(host, woorden); }));
+          }
+        } else { fouten++; b.classList.add('fout'); setTimeout(function () { b.classList.remove('fout'); }, 450); }
+      });
+      R.appendChild(b);
+    });
+    rij.appendChild(L); rij.appendChild(R); host.appendChild(rij);
+  }
+
+  // Typen is sterker dan kiezen: je moet het echt uit je geheugen halen.
+  function norm(t) { return schoon(t).toLowerCase().replace(/’/g, "'").normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function aanvaard(doel) {
+    var lijst = [];
+    schoon(doel).split('/').forEach(function (a) {
+      a = a.trim().toLowerCase(); lijst.push(a);
+      lijst.push(a.replace(/^(le |la |l'|les |un |une |des |du |de la |a |an |the |to )/, ''));
+    });
+    return lijst;
+  }
+  function typSpel(host, woorden) {
+    var kies = schud(woorden.filter(function (w) { return schoon(w.doel).length <= 40; })).slice(0, 5), i = 0, juist = 0;
+    function toon() {
+      host.textContent = '';
+      if (i >= kies.length) {
+        host.appendChild(el('p', 'feedback', 'Klaar! ' + juist + ' van ' + kies.length + ' juist.'));
+        host.appendChild(knop('btn', 'Nog eens', function () { typSpel(host, woorden); }));
+        return;
+      }
+      var w = kies[i], ok = aanvaard(w.doel), klaar = false;
+      host.appendChild(el('p', 'teller', 'Woord ' + (i + 1) + ' van ' + kies.length));
+      host.appendChild(el('p', 'vraag', 'Hoe zeg je: ' + w.nl + '?'));
+      var inp = el('input', 'invul');
+      inp.type = 'text'; inp.setAttribute('autocapitalize', 'off'); inp.setAttribute('autocomplete', 'off');
+      inp.setAttribute('autocorrect', 'off'); inp.setAttribute('spellcheck', 'false'); inp.setAttribute('aria-label', 'Jouw antwoord');
+      host.appendChild(inp);
+      var fb = el('p', 'feedback'), acties = el('div', 'spelknoppen');
+      function controleer() {
+        if (klaar || !inp.value.trim()) return; klaar = true;
+        var invoer = inp.value.trim().toLowerCase(), los = norm(inp.value);
+        var goed = ok.some(function (a) { return norm(a) === los; }), exact = ok.some(function (a) { return a === invoer; });
+        if (goed) juist++;
+        fb.textContent = goed ? (exact ? 'Juist! ' : 'Juist, let op de accenten: ' + schoon(w.doel) + '. ') : 'Niet juist. Het juiste woord is: ' + schoon(w.doel) + '.';
+        fb.className = 'feedback ' + (goed ? 'goed-tekst' : 'fout-tekst');
+        acties.textContent = ''; acties.appendChild(knop('btn', i + 1 < kies.length ? 'Volgende' : 'Resultaat', function () { i++; toon(); }));
+      }
+      acties.appendChild(knop('btn', 'Controleer', controleer));
+      acties.appendChild(knop('btn zacht', 'Hint', function () { var z = schoon(w.doel); fb.textContent = 'Begint met "' + z.charAt(0) + '" en heeft ' + z.length + ' tekens.'; }));
+      inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') controleer(); });
+      host.appendChild(acties); host.appendChild(fb);
     }
     toon();
   }
@@ -335,6 +503,7 @@
   function route() {
     var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if (!p.length) return home();
+    if (p[0] === 'herhaling') return herhalingScherm();
     if (!vak(p[0]) || vak(p[0]).binnenkort) return home();
     if (p.length === 1) return vakScherm(p[0]);
     if (p.length === 2) return themaScherm(p[0], p[1]);
