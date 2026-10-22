@@ -18,14 +18,74 @@
   var S = load();
   S.scores = S.scores || {};   // "vak/lesid" -> beste aantal juist (0..1)
 
+  // ---------- beloningen (munten voor het voetbalspel) ----------
+  // Cijfers volgen het advies van de onderzoeker; het zijn gekalibreerde gokken, na enkele weken bijsturen.
+  var TRAPPEN = [[0.9, 40], [0.7, 30], [0.5, 20], [0, 10]];   // [minimumscore, munten]
+  var MAX_LESSEN_DAG = 3, CAP_DAG = 100, FREEZES_PER_WEEK = 2;
+  var MIJLPALEN = { 3: 30, 7: 75, 14: 150, 30: 300 }, NA_30 = 200;
+  S.dagen = S.dagen || {}; S.betaald = S.betaald || {}; S.mijl = S.mijl || {}; S.freeze = S.freeze || {};
+
   function dag(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-  (function reeks() {
-    var nu = new Date(), v = dag(nu);
-    if (S.laatste === v) return;
-    var g = new Date(nu); g.setDate(nu.getDate() - 1);
-    S.reeks = S.laatste === dag(g) ? (S.reeks || 0) + 1 : 1;
-    S.laatste = v; save();
-  })();
+  function dagNr(key) { var p = key.split('-'); return Date.UTC(+p[0], p[1] - 1, +p[2]) / 864e5; }
+  function weekKey(d) { var m = new Date(d); m.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return dag(m); }
+  function vandaag() { return dag(new Date()); }
+  function muntenVandaag() { return (S.dagen[vandaag()] || {}).munten || 0; }
+
+  // Brievenbus: het voetbalspel haalt dit op en telt het bij zijn munten.
+  function stortMunten(n) {
+    if (n <= 0) return;
+    try {
+      var o = JSON.parse(localStorage.getItem('leren-tegoed')) || {};
+      localStorage.setItem('leren-tegoed', JSON.stringify({ coins: (o.coins || 0) + n }));
+    } catch (e) {}
+    S.totaalMunten = (S.totaalMunten || 0) + n;
+  }
+
+  // Reeks = opeenvolgende dagen met minstens 1 afgeronde les. Zachte regels: 2 gratis vrije dagen per week, en bij een gemiste dag halveert de reeks.
+  function bijwerkenReeks() {
+    var nu = new Date(), v = dag(nu), msg = '';
+    if (S.laatsteLesDag === v) return { msg: msg, extra: 0 };
+    if (!S.laatsteLesDag) S.reeksLes = 1;
+    else {
+      var gemist = dagNr(v) - dagNr(S.laatsteLesDag) - 1;
+      if (gemist <= 0) S.reeksLes = (S.reeksLes || 0) + 1;
+      else {
+        var wk = weekKey(nu);
+        if (S.freeze.week !== wk) S.freeze = { week: wk, gebruikt: 0 };
+        if (gemist <= FREEZES_PER_WEEK - S.freeze.gebruikt) {
+          S.freeze.gebruikt += gemist; S.reeksLes = (S.reeksLes || 0) + 1;
+          msg = 'Je vrije dag werd gebruikt, je reeks blijft behouden.';
+        } else {
+          msg = 'Welkom terug! Je had al ' + (S.reeksLes || 0) + ' dagen gedaan, die tellen nog half mee.';
+          S.reeksLes = Math.ceil((S.reeksLes || 0) / 2) + 1;
+        }
+      }
+    }
+    S.laatsteLesDag = v;
+    var r = S.reeksLes, extra = 0;
+    if (MIJLPALEN[r] && !S.mijl[r]) { S.mijl[r] = 1; extra = MIJLPALEN[r]; }
+    else if (r > 30 && r % 30 === 0 && !S.mijl['r' + r]) { S.mijl['r' + r] = 1; extra = NA_30; }
+    return { msg: msg, extra: extra };
+  }
+
+  // Berekent en betaalt de beloning voor een afgeronde les.
+  function beloon(sleutel, score, tePlezig) {
+    var res = { munten: 0, reden: '', reeks: 0, mijl: 0, msg: '' };
+    var rk = bijwerkenReeks(); res.reeks = S.reeksLes; res.msg = rk.msg; res.mijl = rk.extra;
+    var trap = 0; TRAPPEN.some(function (t) { if (score >= t[0]) { trap = t[1]; return true; } });
+    var d = S.dagen[vandaag()] = S.dagen[vandaag()] || { lessen: 0, munten: 0 };
+    var eerder = S.betaald[sleutel] || 0, verschil = Math.max(0, trap - eerder);
+    if (tePlezig) res.reden = 'snel';
+    else if (verschil === 0) res.reden = 'herhaling';
+    else if (d.lessen >= MAX_LESSEN_DAG || d.munten >= CAP_DAG) res.reden = 'cap';
+    else {
+      res.munten = Math.min(verschil, CAP_DAG - d.munten);
+      d.lessen++; d.munten += res.munten; S.betaald[sleutel] = eerder + res.munten;
+    }
+    stortMunten(res.munten + res.mijl);
+    save();
+    return res;
+  }
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -59,7 +119,11 @@
 
   function bar(pct) { var b = el('div', 'bar'); var i = el('i'); i.style.width = pct + '%'; b.appendChild(i); return b; }
   function begroeting() { var u = new Date().getHours(); return u < 12 ? 'Goeiemorgen' : u < 18 ? 'Goeiemiddag' : 'Goeienavond'; }
-  function leeg() { root.textContent = ''; window.scrollTo(0, 0); }
+  function leeg(id) {
+    root.textContent = ''; window.scrollTo(0, 0);
+    root.className = id ? 'v-' + id : '';
+    if (id) root.setAttribute('data-vak', id); else root.removeAttribute('data-vak');
+  }
   function terug(hash, tekst) { return knop('back', '← ' + (tekst || 'Terug'), function () { location.hash = hash; }); }
 
   // ---------- schermen ----------
@@ -68,12 +132,16 @@
     var top = el('div', 'top'), kop = el('div');
     kop.appendChild(el('h1', '', begroeting() + '! 👋'));
     kop.appendChild(el('p', 'sub', 'Wat leren we vandaag?'));
-    top.appendChild(kop); top.appendChild(el('div', 'streak', '🔥 ' + (S.reeks || 1)));
+    top.appendChild(kop);
+    var chips = el('div', 'chips');
+    chips.appendChild(el('div', 'streak', '🔥 ' + (S.reeksLes || 0)));
+    chips.appendChild(el('div', 'streak', '🪙 ' + muntenVandaag() + '/' + CAP_DAG));
+    top.appendChild(chips);
     root.appendChild(top);
 
     if (S.laatsteLes) {
       var p = S.laatsteLes.split('/');
-      var h = knop('hero', '', function () { location.hash = '#/' + S.laatsteLes; });
+      var h = knop('hero v-' + p[0], '', function () { location.hash = '#/' + S.laatsteLes; });
       h.appendChild(el('small', '', 'Verder doen'));
       h.appendChild(el('strong', '', (vak(p[0]) || {}).naam + ' – ' + (S.laatsteTitel || 'verder')));
       root.appendChild(h);
@@ -82,7 +150,7 @@
     root.appendChild(el('h2', '', 'Vakken'));
     var grid = el('div', 'grid');
     VAKKEN.forEach(function (v) {
-      var t = el(v.binnenkort ? 'div' : 'button', 'tile ' + (v.binnenkort ? 'off' : 'on'));
+      var t = el(v.binnenkort ? 'div' : 'button', 'tile v-' + v.id + ' ' + (v.binnenkort ? 'off' : 'on'));
       t.appendChild(el('span', 'ico', v.icoon));
       t.appendChild(el('b', '', v.naam));
       t.appendChild(el('span', 's', v.uitleg));
@@ -103,10 +171,13 @@
   }
 
   function vakScherm(id) {
-    leeg();
+    leeg(id);
     var v = vak(id);
     root.appendChild(terug('#/', 'Alle vakken'));
-    root.appendChild(el('h1', '', v.icoon + ' ' + v.naam));
+    var ban = el('div', 'banner'), bt = el('div');
+    ban.appendChild(el('span', 'ico', v.icoon));
+    bt.appendChild(el('h1', '', v.naam)); bt.appendChild(el('p', 'sub', v.uitleg));
+    ban.appendChild(bt); root.appendChild(ban);
     var plek = el('div'); root.appendChild(plek);
     laad(id).then(function (d) {
       if (!d) { plek.appendChild(el('p', 'sub', 'De leerstof van dit vak is nog niet klaar.')); return; }
@@ -144,7 +215,7 @@
   }
 
   function themaScherm(id, tid) {
-    leeg();
+    leeg(id);
     root.appendChild(terug('#/' + id, vak(id).naam));
     var plek = el('div'); root.appendChild(plek);
     laad(id).then(function (d) {
@@ -167,7 +238,7 @@
   }
 
   function lesScherm(id, tid, lid) {
-    leeg();
+    leeg(id);
     root.appendChild(terug('#/' + id + '/' + tid, 'Thema'));
     var plek = el('div'); root.appendChild(plek);
     laad(id).then(function (d) {
@@ -199,24 +270,33 @@
   }
 
   function quiz(host, id, les) {
-    var i = 0, juist = 0, n = les.oefeningen.length;
+    var i = 0, juist = 0, n = les.oefeningen.length, t0 = 0, snel = true;
     function toon() {
       host.textContent = '';
       if (i >= n) {
         var score = juist / n, k = id + '/' + les.id;
         if (S.scores[k] == null || score > S.scores[k]) S.scores[k] = score;
-        save();
+        var br = beloon(k, score, snel);
         host.appendChild(el('p', 'uitleg', 'Klaar! ' + juist + ' van ' + n + ' juist' + (score === 1 ? ' – perfect! 🎉' : '.')));
-        host.appendChild(knop('btn', 'Opnieuw proberen', function () { i = 0; juist = 0; toon(); }));
+        if (br.munten > 0) host.appendChild(el('div', 'beloning', '🪙 +' + br.munten + ' munten voor EAWG Mobile!'));
+        else host.appendChild(el('p', 'sub', {
+          snel: 'Neem even de tijd om de vragen te lezen, dan krijg je munten.',
+          herhaling: 'Oefenen, geen extra munten meer voor deze les. Goed bezig!',
+          cap: 'Vandaag zijn je lesmunten op. Leren mag altijd, morgen weer munten!'
+        }[br.reden] || ''));
+        if (br.mijl > 0) host.appendChild(el('div', 'beloning', '🔥 ' + br.reeks + ' dagen op rij! Bonus +' + br.mijl + ' munten'));
+        else if (br.msg) host.appendChild(el('p', 'sub', br.msg));
+        host.appendChild(knop('btn', 'Opnieuw proberen', function () { i = 0; juist = 0; snel = true; toon(); }));
         return;
       }
       var o = les.oefeningen[i];
       host.appendChild(el('p', 'teller', 'Vraag ' + (i + 1) + ' van ' + n));
       host.appendChild(el('p', 'vraag', o.vraag));
-      var vb = el('div', 'opties'), gedaan = false;
+      var vb = el('div', 'opties'), gedaan = false; t0 = performance.now();
       o.opties.forEach(function (tekst, idx) {
         var b = knop('optie', tekst, function () {
           if (gedaan) return; gedaan = true;
+          if (performance.now() - t0 >= 2000) snel = false;
           var goed = idx === o.antwoord; if (goed) juist++;
           b.classList.add(goed ? 'goed' : 'fout');
           if (!goed) vb.children[o.antwoord].classList.add('goed');

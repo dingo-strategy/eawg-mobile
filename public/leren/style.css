@@ -59,3 +59,52 @@ button.tile:active,.hero:active{transform:scale(.98)}
 .btn{margin-top:10px;font:inherit;font-weight:700;border:0;border-radius:14px;padding:12px 22px;cursor:pointer;background:var(--accent);color:var(--on-accent)}
 .bronnen{margin-top:28px;color:var(--muted);font-size:.9rem}
 .bronnen a{color:var(--accent)}
+
+/* ---------- kleuren per vak ---------- */
+.v-engels{--c1:#2f5bea;--c2:#6a49e8;--tint:#e6ecff}
+.v-frans{--c1:#d23a40;--c2:#ee7a3a;--tint:#ffe8e4}
+.v-wiskunde{--c1:#7a46f0;--c2:#c04df0;--tint:#efe6ff}
+.v-aardrijkskunde{--c1:#0e8a4f;--c2:#0fa89a;--tint:#dcf6ea}
+.v-geschiedenis{--c1:#b45f06;--c2:#e69a2e;--tint:#fff0d2}
+.v-nederlands{--c1:#0b86a6;--c2:#3aa8de;--tint:#dcf3fb}
+@media (prefers-color-scheme:dark){
+  .v-engels{--tint:#222c55}.v-frans{--tint:#3d2125}.v-wiskunde{--tint:#2d2352}
+  .v-aardrijkskunde{--tint:#173629}.v-geschiedenis{--tint:#3b2e15}.v-nederlands{--tint:#143441}
+}
+[class*="v-"]{--grad:linear-gradient(135deg,var(--c1),var(--c2))}
+
+/* tegels op de homepage */
+.tile[class*="v-"]{background:var(--tint);border-color:transparent;border-top:5px solid var(--c1)}
+.tile[class*="v-"] .ico{display:grid;place-items:center;width:48px;height:48px;border-radius:16px;font-size:1.7rem;
+  background:var(--card);box-shadow:0 3px 0 var(--c1)}
+.tile[class*="v-"] .bar i{background:var(--grad)}
+.tile.off[class*="v-"]{opacity:.6;filter:saturate(.5)}
+.tile[class*="v-"] .badge{background:var(--card);color:var(--c1)}
+
+/* "verder doen" krijgt de kleur van het vak */
+.hero[class*="v-"]{background:var(--grad);box-shadow:0 8px 20px -6px var(--c1)}
+
+/* binnenin een vak: alles in de kleur van dat vak */
+[data-vak] .back{color:var(--c1)}
+[data-vak] .banner{display:flex;align-items:center;gap:14px;margin:6px 0 4px;padding:18px;border-radius:var(--radius);
+  background:var(--grad);color:#fff;box-shadow:0 8px 20px -8px var(--c1)}
+[data-vak] .banner .ico{display:grid;place-items:center;flex:none;width:56px;height:56px;border-radius:18px;font-size:2rem;background:rgba(255,255,255,.22)}
+[data-vak] .banner h1{font-size:1.45rem}
+[data-vak] .banner .sub{color:rgba(255,255,255,.9)}
+[data-vak] h2{color:var(--c1)}
+@media (prefers-color-scheme:dark){[data-vak] h2{color:var(--text)}}
+[data-vak] .rij{border-left:6px solid var(--c1)}
+[data-vak] .rij .badge{background:var(--tint);color:var(--c1)}
+@media (prefers-color-scheme:dark){[data-vak] .rij .badge{color:var(--text)}}
+[data-vak] .badge.ok{background:#d7f5e1;color:#146c3a}
+[data-vak] .btn{background:var(--grad);color:#fff}
+[data-vak] .woord{border-left:5px solid var(--c2)}
+[data-vak] .woord b{color:var(--c1)}
+@media (prefers-color-scheme:dark){[data-vak] .woord b{color:var(--text)}}
+[data-vak] .optie:active{border-color:var(--c1)}
+[data-vak] .uitleg{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.beloning{margin:16px 0;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#ffd400,#ffae00);color:#4a3600;font-weight:800;
+  text-align:center;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.beloning{animation:none}}
+.chips{display:flex;flex-direction:column;gap:6px;align-items:flex-end}

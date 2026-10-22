@@ -1,0 +1,3932 @@
+{
+ "vak": "engels",
+ "naam": "Engels",
+ "bronnen": [
+  {
+   "titel": "Onderwijsdoelen eerste graad A- en B-stroom (Vlaams Parlement/Onderwijs Vlaanderen) - enkel via zoekresultaat gevonden, inhoud niet kunnen openen",
+   "url": "https://themis.vlaanderen.be/files/bd21e2a0-12e5-11ef-b2af-d9e67d160d68/download"
+  },
+  {
+   "titel": "GO! leerplan Basisvorming 1ste graad A-stroom - enkel via zoekresultaat gevonden, inhoud niet kunnen openen",
+   "url": "https://pro.g-o.be/download/GOPRO-1830562155-27333/GO! SO 1ste graad A-stroom - leerplan Basisvorming"
+  }
+ ],
+ "dekking": "Eigen geschreven leerstof voor Engels in 1e en 2e middelbaar: 8 thema's per jaar met woordenschat, grammatica (to be, have got, present simple/continuous, can, past simple, comparatieven, going to/will, should/must/have to) en functionele zinnen. De officiele leerplannen waren in deze omgeving niet raadpleegbaar (geen verbinding), dus de thema's volgen de gangbare inhoud van de eerste graad maar zijn niet punt voor punt aan de leerplandoelen getoetst. Ontbreekt nog: leesteksten en luisteroefeningen (enkel meerkeuze), schrijfopdrachten en uitspraakoefeningen, present perfect en meer uitbreiding per thema.",
+ "leerjaren": [
+  {
+   "jaar": 1,
+   "themas": [
+    {
+     "id": "j1-kennismaken",
+     "titel": "Kennismaken",
+     "samenvatting": "Je leert jezelf voorstellen, begroeten en het werkwoord to be gebruiken. Ook cijfers en het alfabet komen aan bod.",
+     "lessen": [
+      {
+       "id": "j1-hello-to-be",
+       "titel": "Hello! Ik ben... (to be)",
+       "uitleg": "Om jezelf voor te stellen gebruik je het werkwoord 'to be' (zijn). Een werkwoord is een woord dat zegt wat iemand is of doet.\n\nVervoeging: I am, you are, he is, she is, it is, we are, you are, they are. In de spreektaal maken we het vaak korter: I'm, you're, he's, she's, we're, they're.\n\nOntkenning: zet 'not' na to be. I am not, he is not (isn't), they are not (aren't).\n\nVraag: draai het onderwerp en to be om. You are happy wordt: Are you happy? Antwoorden doe je kort: Yes, I am. / No, I'm not.\n\nNuttige zinnen: Hello, my name is Emma. / Nice to meet you. / How are you? - I'm fine, thanks. / Where are you from? - I'm from Belgium.",
+       "woorden": [
+        {
+         "nl": "hallo",
+         "doel": "hello",
+         "voorbeeld": "Hello, my name is Tom."
+        },
+        {
+         "nl": "dag, tot ziens",
+         "doel": "goodbye",
+         "voorbeeld": "Goodbye, see you tomorrow!"
+        },
+        {
+         "nl": "goedemorgen",
+         "doel": "good morning",
+         "voorbeeld": "Good morning, Mrs Smith."
+        },
+        {
+         "nl": "goedenavond",
+         "doel": "good evening",
+         "voorbeeld": "Good evening, everybody."
+        },
+        {
+         "nl": "Hoe gaat het?",
+         "doel": "How are you?",
+         "voorbeeld": "How are you today?"
+        },
+        {
+         "nl": "goed, dank je",
+         "doel": "fine, thank you",
+         "voorbeeld": "I'm fine, thank you."
+        },
+        {
+         "nl": "aangenaam",
+         "doel": "nice to meet you",
+         "voorbeeld": "Nice to meet you, Sara."
+        },
+        {
+         "nl": "naam",
+         "doel": "name",
+         "voorbeeld": "My name is Lisa."
+        },
+        {
+         "nl": "ik kom uit",
+         "doel": "I'm from",
+         "voorbeeld": "I'm from Belgium."
+        },
+        {
+         "nl": "alsjeblieft",
+         "doel": "please",
+         "voorbeeld": "Sit down, please."
+        },
+        {
+         "nl": "dank je",
+         "doel": "thank you",
+         "voorbeeld": "Thank you very much."
+        },
+        {
+         "nl": "sorry",
+         "doel": "sorry",
+         "voorbeeld": "Sorry, I'm late."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies de juiste vorm: I ___ a student.",
+         "opties": [
+          "am",
+          "is",
+          "are"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij 'I' hoort altijd 'am'."
+        },
+        {
+         "vraag": "Kies de juiste vorm: She ___ from Ghent.",
+         "opties": [
+          "are",
+          "is",
+          "am"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij he, she en it gebruik je 'is'."
+        },
+        {
+         "vraag": "Wat is de vraag bij 'You are tired'?",
+         "opties": [
+          "You are tired?",
+          "Is you tired?",
+          "Are you tired?"
+         ],
+         "antwoord": 2,
+         "uitleg": "In een vraag komt 'to be' voor het onderwerp."
+        },
+        {
+         "vraag": "Hoe zeg je 'Wij zijn niet thuis'?",
+         "opties": [
+          "We aren't at home.",
+          "We isn't at home.",
+          "We not are at home."
+         ],
+         "antwoord": 0,
+         "uitleg": "Ontkenning: to be + not; 'are not' wordt 'aren't'."
+        },
+        {
+         "vraag": "Je ontmoet iemand voor het eerst. Wat zeg je?",
+         "opties": [
+          "See you later.",
+          "Nice to meet you.",
+          "Good night."
+         ],
+         "antwoord": 1,
+         "uitleg": "'Nice to meet you' zeg je bij een eerste ontmoeting."
+        }
+       ]
+      },
+      {
+       "id": "j1-numbers-alphabet",
+       "titel": "Cijfers en alfabet",
+       "uitleg": "Cijfers 1 tot 12 moet je gewoon van buiten leren. Vanaf 13 eindigen ze op -teen (thirteen, fourteen...). De tientallen eindigen op -ty (twenty, thirty, forty...). Let op: four wordt 'forty' (zonder u) en five wordt 'fifty'.\n\nSamengestelde cijfers schrijf je met een streepje: twenty-one, thirty-five.\n\nHet Engelse alfabet klinkt anders dan het Nederlandse. Je moet het kunnen spellen: bijvoorbeeld 'A' spreek je uit als 'ee', 'E' als 'ie', 'I' als 'aai', 'J' als 'djee', 'G' als 'dzjie'. Vraag: How do you spell your name? - M-A-R-I-A.\n\nLeeftijd geef je met to be: I am twelve years old (niet: I have twelve years).",
+       "woorden": [
+        {
+         "nl": "een",
+         "doel": "one",
+         "voorbeeld": "I have one brother."
+        },
+        {
+         "nl": "twee",
+         "doel": "two",
+         "voorbeeld": "Two apples, please."
+        },
+        {
+         "nl": "drie",
+         "doel": "three",
+         "voorbeeld": "She is three."
+        },
+        {
+         "nl": "vier",
+         "doel": "four",
+         "voorbeeld": "There are four chairs."
+        },
+        {
+         "nl": "vijf",
+         "doel": "five",
+         "voorbeeld": "Five minutes left."
+        },
+        {
+         "nl": "zes",
+         "doel": "six",
+         "voorbeeld": "It is six o'clock."
+        },
+        {
+         "nl": "zeven",
+         "doel": "seven",
+         "voorbeeld": "Seven days in a week."
+        },
+        {
+         "nl": "acht",
+         "doel": "eight",
+         "voorbeeld": "He is eight years old."
+        },
+        {
+         "nl": "negen",
+         "doel": "nine",
+         "voorbeeld": "Nine pencils."
+        },
+        {
+         "nl": "tien",
+         "doel": "ten",
+         "voorbeeld": "Count to ten."
+        },
+        {
+         "nl": "twintig",
+         "doel": "twenty",
+         "voorbeeld": "Twenty students."
+        },
+        {
+         "nl": "honderd",
+         "doel": "a hundred",
+         "voorbeeld": "A hundred euros."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe schrijf je 14?",
+         "opties": [
+          "forteen",
+          "fourty",
+          "fourteen"
+         ],
+         "antwoord": 2,
+         "uitleg": "14 = four + teen. Bij 40 schrijf je 'forty' zonder u."
+        },
+        {
+         "vraag": "Hoe schrijf je 40?",
+         "opties": [
+          "forty",
+          "fourty",
+          "fourten"
+         ],
+         "antwoord": 0,
+         "uitleg": "Forty is een uitzondering: geen 'u'."
+        },
+        {
+         "vraag": "Wat is juist? (Ik ben twaalf jaar.)",
+         "opties": [
+          "I have twelve years.",
+          "I am twelve years old.",
+          "I am twelve year."
+         ],
+         "antwoord": 1,
+         "uitleg": "Leeftijd: to be + getal (+ years old)."
+        },
+        {
+         "vraag": "Hoe vraag je naar de spelling van je naam?",
+         "opties": [
+          "How you spell name?",
+          "What is spell your name?",
+          "How do you spell your name?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vaste vraag: How do you spell...?"
+        },
+        {
+         "vraag": "Welk cijfer is 'seventeen'?",
+         "opties": [
+          "17",
+          "70",
+          "7"
+         ],
+         "antwoord": 0,
+         "uitleg": "-teen = 13 tot 19, dus seventeen = 17; seventy = 70."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-school",
+     "titel": "Op school",
+     "samenvatting": "Woorden voor schoolspullen, vakken en de klas. Je leert there is / there are en klaszinnen.",
+     "lessen": [
+      {
+       "id": "j1-school-things",
+       "titel": "Schoolspullen en vakken",
+       "uitleg": "In de klas gebruik je veel woorden voor spullen en vakken. Leer ze met een voorbeeldzin.\n\nEen bijvoeglijk naamwoord (zoals big, red) staat in het Engels VOOR het zelfstandig naamwoord en wordt nooit vervoegd: a red pen, two red pens.\n\nHet meervoud maak je meestal met -s: book - books. Bij woorden op -s, -sh, -ch, -x voeg je -es toe: class - classes. Onregelmatig: child - children, man - men, woman - women.\n\nEen vak zeg je met 'my favourite subject is...': My favourite subject is history.",
+       "woorden": [
+        {
+         "nl": "boek",
+         "doel": "book",
+         "voorbeeld": "Open your book."
+        },
+        {
+         "nl": "schrift",
+         "doel": "notebook",
+         "voorbeeld": "My notebook is blue."
+        },
+        {
+         "nl": "pen",
+         "doel": "pen",
+         "voorbeeld": "I need a pen."
+        },
+        {
+         "nl": "potlood",
+         "doel": "pencil",
+         "voorbeeld": "The pencil is sharp."
+        },
+        {
+         "nl": "gom",
+         "doel": "rubber",
+         "voorbeeld": "Can I borrow your rubber?"
+        },
+        {
+         "nl": "liniaal",
+         "doel": "ruler",
+         "voorbeeld": "The ruler is long."
+        },
+        {
+         "nl": "boekentas",
+         "doel": "schoolbag",
+         "voorbeeld": "My schoolbag is heavy."
+        },
+        {
+         "nl": "bord",
+         "doel": "board",
+         "voorbeeld": "Look at the board."
+        },
+        {
+         "nl": "leraar",
+         "doel": "teacher",
+         "voorbeeld": "The teacher is nice."
+        },
+        {
+         "nl": "leerling",
+         "doel": "pupil",
+         "voorbeeld": "Every pupil has a laptop."
+        },
+        {
+         "nl": "wiskunde",
+         "doel": "maths",
+         "voorbeeld": "I like maths."
+        },
+        {
+         "nl": "aardrijkskunde",
+         "doel": "geography",
+         "voorbeeld": "Geography is interesting."
+        },
+        {
+         "nl": "geschiedenis",
+         "doel": "history",
+         "voorbeeld": "History is my favourite subject."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is 'a ruler'?",
+         "opties": [
+          "een gom",
+          "een liniaal",
+          "een schrift"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ruler = liniaal."
+        },
+        {
+         "vraag": "Meervoud van 'class':",
+         "opties": [
+          "classs",
+          "classies",
+          "classes"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na -s voeg je -es toe."
+        },
+        {
+         "vraag": "Meervoud van 'child':",
+         "opties": [
+          "children",
+          "childs",
+          "childes"
+         ],
+         "antwoord": 0,
+         "uitleg": "Child heeft een onregelmatig meervoud."
+        },
+        {
+         "vraag": "Juiste woordvolgorde:",
+         "opties": [
+          "a pen blue",
+          "a blue pen",
+          "blue a pen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het bijvoeglijk naamwoord staat voor het zelfstandig naamwoord."
+        },
+        {
+         "vraag": "Wat betekent 'My favourite subject is maths'?",
+         "opties": [
+          "Ik haat wiskunde.",
+          "Mijn leraar is goed in wiskunde.",
+          "Mijn lievelingsvak is wiskunde."
+         ],
+         "antwoord": 2,
+         "uitleg": "Favourite subject = lievelingsvak."
+        }
+       ]
+      },
+      {
+       "id": "j1-there-is-are",
+       "titel": "There is / there are en klastaal",
+       "uitleg": "'There is' gebruik je voor een enkelvoud, 'there are' voor een meervoud. Het betekent 'er is' / 'er zijn'.\n\nThere is a book on the desk. There are three books on the desk.\nOntkenning: There isn't a window. There aren't any windows.\nVraag: Is there a clock? - Yes, there is. / Are there any pupils? - No, there aren't.\n\nVoorzetsels van plaats (een voorzetsel zegt waar iets staat): in (in), on (op), under (onder), next to (naast), behind (achter), in front of (voor), between (tussen).\n\nKlastaal: Can I go to the toilet, please? / Can you repeat that, please? / I don't understand. / How do you say ... in English? / Open your books on page ten.",
+       "woorden": [
+        {
+         "nl": "in",
+         "doel": "in",
+         "voorbeeld": "The pen is in the bag."
+        },
+        {
+         "nl": "op",
+         "doel": "on",
+         "voorbeeld": "The book is on the desk."
+        },
+        {
+         "nl": "onder",
+         "doel": "under",
+         "voorbeeld": "The cat is under the chair."
+        },
+        {
+         "nl": "naast",
+         "doel": "next to",
+         "voorbeeld": "I sit next to Tom."
+        },
+        {
+         "nl": "achter",
+         "doel": "behind",
+         "voorbeeld": "The bin is behind the door."
+        },
+        {
+         "nl": "voor",
+         "doel": "in front of",
+         "voorbeeld": "The teacher is in front of the class."
+        },
+        {
+         "nl": "tussen",
+         "doel": "between",
+         "voorbeeld": "I sit between Anna and Ben."
+        },
+        {
+         "nl": "Kan je dat herhalen?",
+         "doel": "Can you repeat that?",
+         "voorbeeld": "Can you repeat that, please?"
+        },
+        {
+         "nl": "Ik begrijp het niet.",
+         "doel": "I don't understand.",
+         "voorbeeld": "Sorry, I don't understand."
+        },
+        {
+         "nl": "Hoe zeg je ... in het Engels?",
+         "doel": "How do you say ... in English?",
+         "voorbeeld": "How do you say 'schoolbord' in English?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: ___ a clock on the wall.",
+         "opties": [
+          "There is",
+          "There are",
+          "They are"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een klok = enkelvoud, dus 'there is'."
+        },
+        {
+         "vraag": "Kies: ___ twenty pupils in my class.",
+         "opties": [
+          "There is",
+          "There are",
+          "It is"
+         ],
+         "antwoord": 1,
+         "uitleg": "Twintig leerlingen = meervoud."
+        },
+        {
+         "vraag": "De pen ligt in de tas. Wat is juist?",
+         "opties": [
+          "The pen is on the bag.",
+          "The pen is under the bag.",
+          "The pen is in the bag."
+         ],
+         "antwoord": 2,
+         "uitleg": "In = in."
+        },
+        {
+         "vraag": "Wat zeg je als je iets niet snapt?",
+         "opties": [
+          "I don't understand.",
+          "I don't know where.",
+          "I am understand."
+         ],
+         "antwoord": 0,
+         "uitleg": "Ontkenning met 'don't' + werkwoord."
+        },
+        {
+         "vraag": "Vraag: 'Is er een leraar?' wordt:",
+         "opties": [
+          "There is a teacher?",
+          "Is there a teacher?",
+          "Are there a teacher?"
+         ],
+         "antwoord": 1,
+         "uitleg": "Enkelvoud: Is there...?"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-familie",
+     "titel": "Familie en vrienden",
+     "samenvatting": "Je leert familiewoorden, have got en het bezit aanduiden met 's en bezittelijke voornaamwoorden.",
+     "lessen": [
+      {
+       "id": "j1-family-have-got",
+       "titel": "Familie en have got",
+       "uitleg": "Familieleden: mother, father, sister, brother, grandmother, grandfather, aunt, uncle, cousin.\n\nOm te zeggen wat je hebt, gebruik je 'have got': I have got, you have got, he/she/it has got, we/you/they have got. Verkort: I've got, she's got.\n\nOntkenning: I haven't got a sister. She hasn't got a dog.\nVraag: Have you got a brother? - Yes, I have. / No, I haven't. Has she got a pet? - Yes, she has.\n\nLet op: bij he, she en it gebruik je 'has', niet 'have'.",
+       "woorden": [
+        {
+         "nl": "moeder",
+         "doel": "mother",
+         "voorbeeld": "My mother is a nurse."
+        },
+        {
+         "nl": "vader",
+         "doel": "father",
+         "voorbeeld": "My father works in Antwerp."
+        },
+        {
+         "nl": "zus",
+         "doel": "sister",
+         "voorbeeld": "I've got one sister."
+        },
+        {
+         "nl": "broer",
+         "doel": "brother",
+         "voorbeeld": "He hasn't got a brother."
+        },
+        {
+         "nl": "grootmoeder",
+         "doel": "grandmother",
+         "voorbeeld": "My grandmother is 70."
+        },
+        {
+         "nl": "grootvader",
+         "doel": "grandfather",
+         "voorbeeld": "My grandfather has got a garden."
+        },
+        {
+         "nl": "tante",
+         "doel": "aunt",
+         "voorbeeld": "My aunt lives in Spain."
+        },
+        {
+         "nl": "oom",
+         "doel": "uncle",
+         "voorbeeld": "Uncle Jim is funny."
+        },
+        {
+         "nl": "neef/nicht",
+         "doel": "cousin",
+         "voorbeeld": "My cousin is twelve."
+        },
+        {
+         "nl": "ouders",
+         "doel": "parents",
+         "voorbeeld": "My parents are at home."
+        },
+        {
+         "nl": "kinderen",
+         "doel": "children",
+         "voorbeeld": "They have got two children."
+        },
+        {
+         "nl": "huisdier",
+         "doel": "pet",
+         "voorbeeld": "Have you got a pet?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: She ___ got a brother.",
+         "opties": [
+          "have",
+          "is",
+          "has"
+         ],
+         "antwoord": 2,
+         "uitleg": "Bij she gebruik je 'has got'."
+        },
+        {
+         "vraag": "Kies: We ___ got two cats.",
+         "opties": [
+          "have",
+          "has",
+          "are"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij we gebruik je 'have got'."
+        },
+        {
+         "vraag": "Maak de ontkenning: He has got a dog.",
+         "opties": [
+          "He haven't got a dog.",
+          "He hasn't got a dog.",
+          "He doesn't has a dog."
+         ],
+         "antwoord": 1,
+         "uitleg": "has + not = hasn't."
+        },
+        {
+         "vraag": "Wat betekent 'cousin'?",
+         "opties": [
+          "oom",
+          "grootvader",
+          "neef of nicht"
+         ],
+         "antwoord": 2,
+         "uitleg": "Cousin is het kind van je oom of tante."
+        },
+        {
+         "vraag": "Antwoord kort: 'Have you got a sister?' (nee)",
+         "opties": [
+          "No, I haven't.",
+          "No, I don't.",
+          "No, I'm not."
+         ],
+         "antwoord": 0,
+         "uitleg": "Kort antwoord herhaalt 'have'."
+        }
+       ]
+      },
+      {
+       "id": "j1-possessives",
+       "titel": "Bezit: 's en my/your/his",
+       "uitleg": "Bezit uitdrukken kan op twee manieren.\n\n1. Met 's bij personen: Tom's bike (de fiets van Tom), my sister's room. Bij een meervoud op -s komt enkel een apostrof: my parents' car.\n\n2. Met bezittelijke voornaamwoorden: my, your, his, her, its, our, their. Ze staan voor een zelfstandig naamwoord: my bag, her book, their house.\n\nPas op: his = van hem, her = van haar. Dat hangt af van de BEZITTER, niet van het voorwerp. Anna's brother = her brother.\n\nVerwar 'its' (van het) niet met 'it's' (= it is).",
+       "woorden": [
+        {
+         "nl": "mijn",
+         "doel": "my",
+         "voorbeeld": "This is my bag."
+        },
+        {
+         "nl": "jouw",
+         "doel": "your",
+         "voorbeeld": "Is this your pen?"
+        },
+        {
+         "nl": "zijn",
+         "doel": "his",
+         "voorbeeld": "His name is Jack."
+        },
+        {
+         "nl": "haar",
+         "doel": "her",
+         "voorbeeld": "Her sister is nice."
+        },
+        {
+         "nl": "ons/onze",
+         "doel": "our",
+         "voorbeeld": "Our teacher is kind."
+        },
+        {
+         "nl": "hun",
+         "doel": "their",
+         "voorbeeld": "Their house is big."
+        },
+        {
+         "nl": "van het",
+         "doel": "its",
+         "voorbeeld": "The dog wags its tail."
+        },
+        {
+         "nl": "vriend",
+         "doel": "friend",
+         "voorbeeld": "Ben is my friend."
+        },
+        {
+         "nl": "beste vriend",
+         "doel": "best friend",
+         "voorbeeld": "Lisa is my best friend."
+        },
+        {
+         "nl": "buurman/buurvrouw",
+         "doel": "neighbour",
+         "voorbeeld": "Our neighbour is friendly."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: Emma is my friend. ___ brother is called Max.",
+         "opties": [
+          "His",
+          "Her",
+          "Their"
+         ],
+         "antwoord": 1,
+         "uitleg": "Emma is een meisje, dus 'her'."
+        },
+        {
+         "vraag": "Kies: Tom and Ben have a dog. ___ dog is big.",
+         "opties": [
+          "Them",
+          "Her",
+          "Their"
+         ],
+         "antwoord": 2,
+         "uitleg": "Voor meerdere bezitters gebruik je 'their'."
+        },
+        {
+         "vraag": "De fiets van Tom:",
+         "opties": [
+          "Tom's bike",
+          "Toms bike",
+          "bike Tom's"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bezit bij een persoon: naam + 's."
+        },
+        {
+         "vraag": "Wat is juist?",
+         "opties": [
+          "The cat drinks it's milk.",
+          "The cat drinks its milk.",
+          "The cat drinks it milk."
+         ],
+         "antwoord": 1,
+         "uitleg": "'its' = van het; 'it's' = it is."
+        },
+        {
+         "vraag": "De auto van mijn ouders:",
+         "opties": [
+          "my parent's car",
+          "my parents car's",
+          "my parents' car"
+         ],
+         "antwoord": 2,
+         "uitleg": "Meervoud op -s: enkel een apostrof."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-eten",
+     "titel": "Eten en drinken",
+     "samenvatting": "Woorden voor eten en drinken, some/any, tellbare en niet-tellbare woorden en bestellen in een café.",
+     "lessen": [
+      {
+       "id": "j1-food-some-any",
+       "titel": "Food, some en any",
+       "uitleg": "Tellbare woorden kan je tellen: an apple, two apples. Niet-tellbare woorden kan je niet tellen: milk, water, bread, rice. Daar zet je geen 'a' voor en ze hebben geen meervoud.\n\nBij niet-tellbare woorden gebruik je 'some' (wat/enkele) in bevestigende zinnen: I have some milk.\nIn ontkenningen en vragen gebruik je 'any': I don't have any milk. Do you have any milk?\nUitzondering: bij aanbiedingen en verzoeken blijft 'some': Would you like some tea?\n\n'How much?' gebruik je bij niet-tellbare woorden, 'how many?' bij tellbare: How many apples? How much water?",
+       "woorden": [
+        {
+         "nl": "appel",
+         "doel": "apple",
+         "voorbeeld": "I eat an apple every day."
+        },
+        {
+         "nl": "brood",
+         "doel": "bread",
+         "voorbeeld": "We need some bread."
+        },
+        {
+         "nl": "kaas",
+         "doel": "cheese",
+         "voorbeeld": "I like cheese."
+        },
+        {
+         "nl": "melk",
+         "doel": "milk",
+         "voorbeeld": "Do you want milk?"
+        },
+        {
+         "nl": "water",
+         "doel": "water",
+         "voorbeeld": "A glass of water, please."
+        },
+        {
+         "nl": "eieren",
+         "doel": "eggs",
+         "voorbeeld": "There are six eggs."
+        },
+        {
+         "nl": "vlees",
+         "doel": "meat",
+         "voorbeeld": "He doesn't eat meat."
+        },
+        {
+         "nl": "groenten",
+         "doel": "vegetables",
+         "voorbeeld": "Eat your vegetables!"
+        },
+        {
+         "nl": "fruit",
+         "doel": "fruit",
+         "voorbeeld": "Fruit is healthy."
+        },
+        {
+         "nl": "sap",
+         "doel": "juice",
+         "voorbeeld": "Orange juice, please."
+        },
+        {
+         "nl": "ontbijt",
+         "doel": "breakfast",
+         "voorbeeld": "I have breakfast at seven."
+        },
+        {
+         "nl": "avondeten",
+         "doel": "dinner",
+         "voorbeeld": "Dinner is ready."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: I'd like ___ water.",
+         "opties": [
+          "some",
+          "any",
+          "an"
+         ],
+         "antwoord": 0,
+         "uitleg": "Water is niet-tellbaar, in een verzoek gebruik je 'some'."
+        },
+        {
+         "vraag": "Kies: We haven't got ___ eggs.",
+         "opties": [
+          "some",
+          "any",
+          "a"
+         ],
+         "antwoord": 1,
+         "uitleg": "In een ontkenning gebruik je 'any'."
+        },
+        {
+         "vraag": "Welk woord is niet-tellbaar?",
+         "opties": [
+          "apple",
+          "egg",
+          "milk"
+         ],
+         "antwoord": 2,
+         "uitleg": "Milk kan je niet tellen."
+        },
+        {
+         "vraag": "Kies: ___ apples are there?",
+         "opties": [
+          "How many",
+          "How much",
+          "How long"
+         ],
+         "antwoord": 0,
+         "uitleg": "Apples zijn tellbaar: how many."
+        },
+        {
+         "vraag": "Kies: Do you have ___ cheese?",
+         "opties": [
+          "some",
+          "any",
+          "an"
+         ],
+         "antwoord": 1,
+         "uitleg": "In een vraag gebruik je 'any'."
+        }
+       ]
+      },
+      {
+       "id": "j1-cafe",
+       "titel": "In het café bestellen",
+       "uitleg": "Beleefd bestellen: Can I have a sandwich, please? / I'd like a hot chocolate, please. (I'd = I would). De ober zegt: What would you like? / Anything else? / Here you are.\n\nJe betaalt met: How much is it? - It's four euros. (euros spreek je 'joeroos' uit.)\n\n'Would you like...?' is beleefder dan 'Do you want...?'. Antwoord: Yes, please. / No, thank you.\n\nEten en drinken kan je ook uitdrukken met like: I like pizza. I don't like fish. She likes pasta. (Bij he/she/it komt er een -s: likes; ontkenning: doesn't like.)",
+       "woorden": [
+        {
+         "nl": "de menukaart",
+         "doel": "the menu",
+         "voorbeeld": "Can I see the menu?"
+        },
+        {
+         "nl": "de rekening",
+         "doel": "the bill",
+         "voorbeeld": "The bill, please."
+        },
+        {
+         "nl": "broodje",
+         "doel": "sandwich",
+         "voorbeeld": "A cheese sandwich, please."
+        },
+        {
+         "nl": "friet",
+         "doel": "chips",
+         "voorbeeld": "I'd like chips."
+        },
+        {
+         "nl": "koffie",
+         "doel": "coffee",
+         "voorbeeld": "A coffee, please."
+        },
+        {
+         "nl": "thee",
+         "doel": "tea",
+         "voorbeeld": "Tea with milk."
+        },
+        {
+         "nl": "warme chocolademelk",
+         "doel": "hot chocolate",
+         "voorbeeld": "Hot chocolate for me."
+        },
+        {
+         "nl": "ijs",
+         "doel": "ice cream",
+         "voorbeeld": "Strawberry ice cream."
+        },
+        {
+         "nl": "Wat wil je?",
+         "doel": "What would you like?",
+         "voorbeeld": "What would you like to drink?"
+        },
+        {
+         "nl": "Alstublieft (bij geven)",
+         "doel": "Here you are.",
+         "voorbeeld": "Here you are, sir."
+        },
+        {
+         "nl": "Hoeveel kost het?",
+         "doel": "How much is it?",
+         "voorbeeld": "How much is the pizza?"
+        },
+        {
+         "nl": "Smakelijk!",
+         "doel": "Enjoy your meal!",
+         "voorbeeld": "Enjoy your meal!"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de beleefdste manier om te bestellen?",
+         "opties": [
+          "Give me tea.",
+          "I want tea now.",
+          "I'd like a tea, please."
+         ],
+         "antwoord": 2,
+         "uitleg": "'I'd like... please' is beleefd."
+        },
+        {
+         "vraag": "Wat zegt de ober?",
+         "opties": [
+          "What would you like?",
+          "How old are you?",
+          "Where are you from?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo vraagt een ober naar je bestelling."
+        },
+        {
+         "vraag": "Vul in: She ___ like fish.",
+         "opties": [
+          "don't",
+          "doesn't",
+          "isn't"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij she gebruik je 'doesn't'."
+        },
+        {
+         "vraag": "Je wil weten wat iets kost. Je vraagt:",
+         "opties": [
+          "How many is it?",
+          "What is it much?",
+          "How much is it?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Prijs = how much."
+        },
+        {
+         "vraag": "Wat betekent 'The bill, please'?",
+         "opties": [
+          "De rekening, alstublieft.",
+          "De menukaart, alstublieft.",
+          "Een broodje, alstublieft."
+         ],
+         "antwoord": 0,
+         "uitleg": "Bill = rekening."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-hobby",
+     "titel": "Hobby's en vrije tijd",
+     "samenvatting": "Je vertelt wat je graag doet met de present simple en wat je kan met can.",
+     "lessen": [
+      {
+       "id": "j1-present-simple",
+       "titel": "Present simple: wat je gewoonlijk doet",
+       "uitleg": "De present simple gebruik je voor gewoontes, feiten en hobby's: I play football on Saturday.\n\nVorm: de stam van het werkwoord. Bij he, she, it komt er -s bij: he plays, she likes. Eindigt het werkwoord op -s, -sh, -ch, -x of -o dan voeg je -es toe: watch - watches, go - goes. Eindigt het op medeklinker + y dan wordt het -ies: study - studies. (Maar play - plays.)\n\nOntkenning: do not (don't) / does not (doesn't) + stam. She doesn't play tennis. Na doesn't komt GEEN -s meer.\n\nVraag: Do you play...? Does he play...? Antwoord: Yes, I do. / No, he doesn't.\n\nTijdsaanduidingen: every day, on Mondays, at the weekend. Met 'like' + -ing kan je zeggen wat je graag doet: I like swimming.",
+       "woorden": [
+        {
+         "nl": "voetballen",
+         "doel": "play football",
+         "voorbeeld": "I play football on Saturdays."
+        },
+        {
+         "nl": "zwemmen",
+         "doel": "swim",
+         "voorbeeld": "She swims every week."
+        },
+        {
+         "nl": "lezen",
+         "doel": "read",
+         "voorbeeld": "He reads comics."
+        },
+        {
+         "nl": "tekenen",
+         "doel": "draw",
+         "voorbeeld": "I draw in my free time."
+        },
+        {
+         "nl": "dansen",
+         "doel": "dance",
+         "voorbeeld": "They dance at school."
+        },
+        {
+         "nl": "fietsen",
+         "doel": "cycle",
+         "voorbeeld": "We cycle to the park."
+        },
+        {
+         "nl": "gamen",
+         "doel": "play video games",
+         "voorbeeld": "He plays video games."
+        },
+        {
+         "nl": "naar muziek luisteren",
+         "doel": "listen to music",
+         "voorbeeld": "I listen to music."
+        },
+        {
+         "nl": "koken",
+         "doel": "cook",
+         "voorbeeld": "My dad cooks on Sunday."
+        },
+        {
+         "nl": "tv kijken",
+         "doel": "watch TV",
+         "voorbeeld": "We watch TV after dinner."
+        },
+        {
+         "nl": "vrije tijd",
+         "doel": "free time",
+         "voorbeeld": "What do you do in your free time?"
+        },
+        {
+         "nl": "turnen",
+         "doel": "do gymnastics",
+         "voorbeeld": "She does gymnastics."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: He ___ football every Saturday.",
+         "opties": [
+          "play",
+          "plays",
+          "playing"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij he komt er een -s bij."
+        },
+        {
+         "vraag": "Kies: She ___ TV after school.",
+         "opties": [
+          "watchs",
+          "watch",
+          "watches"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na -ch komt -es."
+        },
+        {
+         "vraag": "Kies: They ___ like maths.",
+         "opties": [
+          "don't",
+          "doesn't",
+          "aren't"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij they gebruik je 'don't'."
+        },
+        {
+         "vraag": "Wat is juist?",
+         "opties": [
+          "Do he swim on Monday?",
+          "Does he swim on Monday?",
+          "Does he swims on Monday?"
+         ],
+         "antwoord": 1,
+         "uitleg": "Na 'does' komt de stam zonder -s."
+        },
+        {
+         "vraag": "Meervoud/enkelvoud: study bij she:",
+         "opties": [
+          "She studys",
+          "She study",
+          "She studies"
+         ],
+         "antwoord": 2,
+         "uitleg": "Medeklinker + y wordt -ies."
+        }
+       ]
+      },
+      {
+       "id": "j1-can",
+       "titel": "Can: wat kan je?",
+       "uitleg": "'Can' betekent 'kunnen' of 'mogen'. Het is een hulpwerkwoord (een werkwoord dat samen met een ander werkwoord staat). Na 'can' staat altijd de stam, zonder 'to' en zonder -s: She can swim.\n\nOntkenning: can't (cannot). I can't dance.\nVraag: Can you ride a bike? - Yes, I can. / No, I can't.\n\nOok voor vragen om toestemming: Can I open the window? En voor een verzoek: Can you help me, please?\n\nMet 'play' gebruik je bij sport en spel geen 'the' (play football) maar bij muziekinstrumenten wel (play the guitar).",
+       "woorden": [
+        {
+         "nl": "kunnen",
+         "doel": "can",
+         "voorbeeld": "I can swim."
+        },
+        {
+         "nl": "niet kunnen",
+         "doel": "can't",
+         "voorbeeld": "He can't sing."
+        },
+        {
+         "nl": "zingen",
+         "doel": "sing",
+         "voorbeeld": "She can sing very well."
+        },
+        {
+         "nl": "een fiets berijden",
+         "doel": "ride a bike",
+         "voorbeeld": "I can ride a bike."
+        },
+        {
+         "nl": "gitaar spelen",
+         "doel": "play the guitar",
+         "voorbeeld": "He can play the guitar."
+        },
+        {
+         "nl": "schaken",
+         "doel": "play chess",
+         "voorbeeld": "Can you play chess?"
+        },
+        {
+         "nl": "rennen",
+         "doel": "run",
+         "voorbeeld": "I can run fast."
+        },
+        {
+         "nl": "springen",
+         "doel": "jump",
+         "voorbeeld": "Cats can jump high."
+        },
+        {
+         "nl": "helpen",
+         "doel": "help",
+         "voorbeeld": "Can you help me?"
+        },
+        {
+         "nl": "koken",
+         "doel": "cook",
+         "voorbeeld": "I can cook pasta."
+        },
+        {
+         "nl": "goed",
+         "doel": "well",
+         "voorbeeld": "She speaks English well."
+        },
+        {
+         "nl": "snel",
+         "doel": "fast",
+         "voorbeeld": "He runs fast."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: She can ___ the piano.",
+         "opties": [
+          "play",
+          "plays",
+          "to play"
+         ],
+         "antwoord": 0,
+         "uitleg": "Na can staat de stam zonder -s of 'to'."
+        },
+        {
+         "vraag": "Hoe zeg je 'Ik kan niet zwemmen'?",
+         "opties": [
+          "I don't can swim.",
+          "I can't swim.",
+          "I can't to swim."
+         ],
+         "antwoord": 1,
+         "uitleg": "Ontkenning: can't + stam."
+        },
+        {
+         "vraag": "Kies het juiste antwoord: 'Can you cook?'",
+         "opties": [
+          "Yes, I do.",
+          "Yes, I cook.",
+          "Yes, I can."
+         ],
+         "antwoord": 2,
+         "uitleg": "Kort antwoord herhaalt 'can'."
+        },
+        {
+         "vraag": "Wat is juist?",
+         "opties": [
+          "He can play the guitar.",
+          "He can plays the guitar.",
+          "He cans play the guitar."
+         ],
+         "antwoord": 0,
+         "uitleg": "Can verandert nooit."
+        },
+        {
+         "vraag": "Welke zin is een verzoek?",
+         "opties": [
+          "I can open the door.",
+          "Can you open the door, please?",
+          "The door can open."
+         ],
+         "antwoord": 1,
+         "uitleg": "Can you... please? is een beleefde vraag."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-dagelijks-leven",
+     "titel": "Dagelijks leven en tijd",
+     "samenvatting": "Dagen, maanden, het uur en je dagelijkse routine.",
+     "lessen": [
+      {
+       "id": "j1-days-months",
+       "titel": "Dagen en maanden",
+       "uitleg": "Dagen en maanden schrijf je in het Engels altijd met een hoofdletter: Monday, January.\n\nDagen: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.\nMaanden: January, February, March, April, May, June, July, August, September, October, November, December.\n\nVoorzetsels: on + dag (on Monday), in + maand (in May), at + weekend (at the weekend). Datum: on the 5th of May (of: on May 5th).\n\nRangtelwoorden (volgorde) gebruik je bij data: 1st first, 2nd second, 3rd third, 4th fourth ... 12th twelfth, 20th twentieth, 21st twenty-first.\n\nVraag: What day is it today? - It's Tuesday. When is your birthday? - It's on the tenth of June.",
+       "woorden": [
+        {
+         "nl": "maandag",
+         "doel": "Monday",
+         "voorbeeld": "I have maths on Monday."
+        },
+        {
+         "nl": "dinsdag",
+         "doel": "Tuesday",
+         "voorbeeld": "On Tuesday we have PE."
+        },
+        {
+         "nl": "woensdag",
+         "doel": "Wednesday",
+         "voorbeeld": "School finishes early on Wednesday."
+        },
+        {
+         "nl": "donderdag",
+         "doel": "Thursday",
+         "voorbeeld": "Thursday is my music day."
+        },
+        {
+         "nl": "vrijdag",
+         "doel": "Friday",
+         "voorbeeld": "I love Fridays."
+        },
+        {
+         "nl": "zaterdag",
+         "doel": "Saturday",
+         "voorbeeld": "We play football on Saturday."
+        },
+        {
+         "nl": "zondag",
+         "doel": "Sunday",
+         "voorbeeld": "On Sunday we visit Grandma."
+        },
+        {
+         "nl": "januari",
+         "doel": "January",
+         "voorbeeld": "It is cold in January."
+        },
+        {
+         "nl": "juli",
+         "doel": "July",
+         "voorbeeld": "We go on holiday in July."
+        },
+        {
+         "nl": "verjaardag",
+         "doel": "birthday",
+         "voorbeeld": "My birthday is in March."
+        },
+        {
+         "nl": "weekend",
+         "doel": "weekend",
+         "voorbeeld": "What do you do at the weekend?"
+        },
+        {
+         "nl": "vandaag",
+         "doel": "today",
+         "voorbeeld": "Today is Friday."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: My birthday is ___ May.",
+         "opties": [
+          "on",
+          "at",
+          "in"
+         ],
+         "antwoord": 2,
+         "uitleg": "Bij een maand gebruik je 'in'."
+        },
+        {
+         "vraag": "Kies: We have English ___ Monday.",
+         "opties": [
+          "on",
+          "in",
+          "at"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij een dag gebruik je 'on'."
+        },
+        {
+         "vraag": "Hoe schrijf je 'derde'?",
+         "opties": [
+          "threeth",
+          "third",
+          "thirt"
+         ],
+         "antwoord": 1,
+         "uitleg": "3rd = third, een uitzondering."
+        },
+        {
+         "vraag": "Wat is juist?",
+         "opties": [
+          "saturday",
+          "Saterday",
+          "Saturday"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dagen krijgen een hoofdletter en schrijf je correct: Saturday."
+        },
+        {
+         "vraag": "Welke dag komt na Wednesday?",
+         "opties": [
+          "Thursday",
+          "Tuesday",
+          "Friday"
+         ],
+         "antwoord": 0,
+         "uitleg": "Wednesday, Thursday, Friday."
+        }
+       ]
+      },
+      {
+       "id": "j1-telling-time",
+       "titel": "Hoe laat is het? Dagelijkse routine",
+       "uitleg": "Het uur zeg je zo: 3:00 = It's three o'clock. 3:30 = It's half past three. 3:15 = It's a quarter past three. 3:45 = It's a quarter to four. 3:10 = ten past three. 3:50 = ten to four.\n\nLet op: 'half past three' betekent 3:30, in het Nederlands zeggen we 'half vier'. Dat is dus anders!\n\nVraag: What time is it? / What time do you get up? Antwoord met 'at': I get up at seven o'clock.\n\nRoutine met present simple: I get up, I have breakfast, I go to school, I do my homework, I go to bed. Frequentiewoorden: always (altijd), usually (meestal), often (vaak), sometimes (soms), never (nooit). Ze staan voor het hoofdwerkwoord: I often play games.",
+       "woorden": [
+        {
+         "nl": "opstaan",
+         "doel": "get up",
+         "voorbeeld": "I get up at 7 o'clock."
+        },
+        {
+         "nl": "zich wassen",
+         "doel": "have a shower",
+         "voorbeeld": "He has a shower in the morning."
+        },
+        {
+         "nl": "ontbijten",
+         "doel": "have breakfast",
+         "voorbeeld": "We have breakfast together."
+        },
+        {
+         "nl": "naar school gaan",
+         "doel": "go to school",
+         "voorbeeld": "I go to school by bus."
+        },
+        {
+         "nl": "huiswerk maken",
+         "doel": "do homework",
+         "voorbeeld": "She does her homework at five."
+        },
+        {
+         "nl": "avondeten eten",
+         "doel": "have dinner",
+         "voorbeeld": "We have dinner at six."
+        },
+        {
+         "nl": "naar bed gaan",
+         "doel": "go to bed",
+         "voorbeeld": "I go to bed at ten."
+        },
+        {
+         "nl": "altijd",
+         "doel": "always",
+         "voorbeeld": "I always brush my teeth."
+        },
+        {
+         "nl": "meestal",
+         "doel": "usually",
+         "voorbeeld": "He usually walks."
+        },
+        {
+         "nl": "soms",
+         "doel": "sometimes",
+         "voorbeeld": "Sometimes we eat pizza."
+        },
+        {
+         "nl": "nooit",
+         "doel": "never",
+         "voorbeeld": "She never eats fish."
+        },
+        {
+         "nl": "kwart over",
+         "doel": "a quarter past",
+         "voorbeeld": "It's a quarter past two."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe laat is 4:30?",
+         "opties": [
+          "half four",
+          "half past four",
+          "half to five"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het Engelse 'half past four' = 4:30."
+        },
+        {
+         "vraag": "Hoe zeg je 6:45?",
+         "opties": [
+          "a quarter past six",
+          "half past six",
+          "a quarter to seven"
+         ],
+         "antwoord": 2,
+         "uitleg": "Kwart voor zeven = a quarter to seven."
+        },
+        {
+         "vraag": "Wat is juist?",
+         "opties": [
+          "I usually get up at seven.",
+          "I get usually up at seven.",
+          "I usually get up in seven."
+         ],
+         "antwoord": 0,
+         "uitleg": "Het frequentiewoord staat voor het werkwoord; tijdstip met 'at'."
+        },
+        {
+         "vraag": "Kies: She ___ eats breakfast.",
+         "opties": [
+          "don't",
+          "never",
+          "no"
+         ],
+         "antwoord": 1,
+         "uitleg": "'Never' is al een ontkenning; geen 'don't' erbij."
+        },
+        {
+         "vraag": "Welke vraag is juist?",
+         "opties": [
+          "What time you go to bed?",
+          "What time does you go to bed?",
+          "What time do you go to bed?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vraag met 'do' bij you."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-kleren",
+     "titel": "Kleren en kleuren",
+     "samenvatting": "Kleren benoemen, kleuren, this/that/these/those en de present continuous.",
+     "lessen": [
+      {
+       "id": "j1-clothes-colours",
+       "titel": "Kleren, kleuren en this/that",
+       "uitleg": "Kleren: T-shirt, jeans, jumper, jacket, dress, skirt, trousers, shoes, trainers, socks, hat, scarf. Opgelet: jeans, trousers, shorts, socks en shoes zijn altijd meervoud: My jeans are blue. Je zegt 'a pair of jeans'.\n\nKleuren: red, blue, green, yellow, black, white, pink, orange, purple, brown, grey.\n\nAanwijzende voornaamwoorden: this (dit, dichtbij, enkelvoud), that (dat, ver, enkelvoud), these (deze, dichtbij, meervoud), those (die, ver, meervoud). This is my jacket. Those are your shoes.\n\nBeschrijven: She is wearing a red dress. He has got brown eyes.",
+       "woorden": [
+        {
+         "nl": "T-shirt",
+         "doel": "T-shirt",
+         "voorbeeld": "I like your T-shirt."
+        },
+        {
+         "nl": "spijkerbroek",
+         "doel": "jeans",
+         "voorbeeld": "My jeans are new."
+        },
+        {
+         "nl": "trui",
+         "doel": "jumper",
+         "voorbeeld": "Her jumper is warm."
+        },
+        {
+         "nl": "jas",
+         "doel": "jacket",
+         "voorbeeld": "Take your jacket."
+        },
+        {
+         "nl": "jurk",
+         "doel": "dress",
+         "voorbeeld": "She wears a blue dress."
+        },
+        {
+         "nl": "rok",
+         "doel": "skirt",
+         "voorbeeld": "The skirt is short."
+        },
+        {
+         "nl": "schoenen",
+         "doel": "shoes",
+         "voorbeeld": "These shoes are small."
+        },
+        {
+         "nl": "sokken",
+         "doel": "socks",
+         "voorbeeld": "Where are my socks?"
+        },
+        {
+         "nl": "muts",
+         "doel": "hat",
+         "voorbeeld": "He wears a hat in winter."
+        },
+        {
+         "nl": "sjaal",
+         "doel": "scarf",
+         "voorbeeld": "A long scarf."
+        },
+        {
+         "nl": "rood",
+         "doel": "red",
+         "voorbeeld": "Red is my favourite colour."
+        },
+        {
+         "nl": "groen",
+         "doel": "green",
+         "voorbeeld": "The grass is green."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: ___ are my shoes over there.",
+         "opties": [
+          "Those",
+          "That",
+          "This"
+         ],
+         "antwoord": 0,
+         "uitleg": "Meervoud en ver weg: those."
+        },
+        {
+         "vraag": "Kies: ___ is my jacket here in my hand.",
+         "opties": [
+          "That",
+          "This",
+          "These"
+         ],
+         "antwoord": 1,
+         "uitleg": "Enkelvoud en dichtbij: this."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "My jeans is blue.",
+          "My jean are blue.",
+          "My jeans are blue."
+         ],
+         "antwoord": 2,
+         "uitleg": "Jeans is meervoud: are."
+        },
+        {
+         "vraag": "Wat betekent 'jumper'?",
+         "opties": [
+          "trui",
+          "jas",
+          "broek"
+         ],
+         "antwoord": 0,
+         "uitleg": "Jumper = trui."
+        },
+        {
+         "vraag": "Kies: Look at ___ boys over there!",
+         "opties": [
+          "that",
+          "those",
+          "this"
+         ],
+         "antwoord": 1,
+         "uitleg": "Boys is meervoud en ver weg."
+        }
+       ]
+      },
+      {
+       "id": "j1-present-continuous",
+       "titel": "Present continuous: wat gebeurt nu?",
+       "uitleg": "De present continuous gebruik je voor iets dat NU gebeurt of tijdelijk bezig is.\n\nVorm: am / is / are + werkwoord met -ing. I am reading. She is wearing a hat. They are playing.\n\nSpelling: de meeste werkwoorden: stam + ing (play - playing). Eindigt op een stomme e: e weg (make - making). Korte klinker + medeklinker: medeklinker verdubbelen (run - running, swim - swimming).\n\nOntkenning: She isn't sleeping. Vraag: Is she sleeping? - Yes, she is.\n\nSignaalwoorden: now, at the moment, today, look!\n\nLet op het verschil: I play football every Saturday (gewoonte, present simple) maar I am playing football now (bezig, present continuous).",
+       "woorden": [
+        {
+         "nl": "nu",
+         "doel": "now",
+         "voorbeeld": "I'm studying now."
+        },
+        {
+         "nl": "op dit moment",
+         "doel": "at the moment",
+         "voorbeeld": "He is sleeping at the moment."
+        },
+        {
+         "nl": "dragen (kleren)",
+         "doel": "wear",
+         "voorbeeld": "She is wearing a hat."
+        },
+        {
+         "nl": "lopen",
+         "doel": "walk",
+         "voorbeeld": "They are walking to school."
+        },
+        {
+         "nl": "rennen",
+         "doel": "run",
+         "voorbeeld": "The dog is running."
+        },
+        {
+         "nl": "regenen",
+         "doel": "rain",
+         "voorbeeld": "It is raining."
+        },
+        {
+         "nl": "eten",
+         "doel": "eat",
+         "voorbeeld": "We are eating lunch."
+        },
+        {
+         "nl": "schrijven",
+         "doel": "write",
+         "voorbeeld": "I am writing a letter."
+        },
+        {
+         "nl": "zitten",
+         "doel": "sit",
+         "voorbeeld": "He is sitting on the sofa."
+        },
+        {
+         "nl": "slapen",
+         "doel": "sleep",
+         "voorbeeld": "The baby is sleeping."
+        },
+        {
+         "nl": "kijk!",
+         "doel": "look!",
+         "voorbeeld": "Look! It's snowing."
+        },
+        {
+         "nl": "praten",
+         "doel": "talk",
+         "voorbeeld": "They are talking."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: Look! The cat ___ on the sofa.",
+         "opties": [
+          "sleeps",
+          "sleep",
+          "is sleeping"
+         ],
+         "antwoord": 2,
+         "uitleg": "'Look!' wijst op iets dat nu gebeurt."
+        },
+        {
+         "vraag": "Hoe schrijf je 'run' met -ing?",
+         "opties": [
+          "running",
+          "runing",
+          "runnning"
+         ],
+         "antwoord": 0,
+         "uitleg": "Korte klinker + medeklinker: n verdubbelt."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "They playing football now.",
+          "They are playing football now.",
+          "They is playing football now."
+         ],
+         "antwoord": 1,
+         "uitleg": "Present continuous = am/is/are + -ing."
+        },
+        {
+         "vraag": "Kies: I ___ English every Monday.",
+         "opties": [
+          "am having",
+          "having",
+          "have"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een regelmatige gewoonte = present simple."
+        },
+        {
+         "vraag": "Maak een vraag: He is eating.",
+         "opties": [
+          "Is he eating?",
+          "Does he eating?",
+          "He is eating?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Draai 'is' en onderwerp om."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-huis-stad",
+     "titel": "Huis en stad",
+     "samenvatting": "Kamers en meubels beschrijven, de weg vragen en uitleggen.",
+     "lessen": [
+      {
+       "id": "j1-home",
+       "titel": "Mijn huis",
+       "uitleg": "Een huis heeft kamers: living room, kitchen, bedroom, bathroom, garden, garage. Meubels: bed, table, chair, sofa, desk, wardrobe.\n\nJe beschrijft je kamer met there is / there are en voorzetsels: There is a bed next to the window. There are two posters on the wall.\n\nIn het Engels zeg je 'in my bedroom', 'in the kitchen' (in de kamer) maar 'at home' (thuis). Je zegt 'I live in a house / in a flat'. Een flat = appartement.\n\nMet 'has got' kan je vertellen wat er is: My house has got three bedrooms. Er wordt ook veel 'big/small/nice/old/modern' gebruikt als bijvoeglijk naamwoord.",
+       "woorden": [
+        {
+         "nl": "woonkamer",
+         "doel": "living room",
+         "voorbeeld": "We watch TV in the living room."
+        },
+        {
+         "nl": "keuken",
+         "doel": "kitchen",
+         "voorbeeld": "Mum is in the kitchen."
+        },
+        {
+         "nl": "slaapkamer",
+         "doel": "bedroom",
+         "voorbeeld": "My bedroom is small."
+        },
+        {
+         "nl": "badkamer",
+         "doel": "bathroom",
+         "voorbeeld": "The bathroom is upstairs."
+        },
+        {
+         "nl": "tuin",
+         "doel": "garden",
+         "voorbeeld": "We have a big garden."
+        },
+        {
+         "nl": "garage",
+         "doel": "garage",
+         "voorbeeld": "The car is in the garage."
+        },
+        {
+         "nl": "trap",
+         "doel": "stairs",
+         "voorbeeld": "The stairs are steep."
+        },
+        {
+         "nl": "bed",
+         "doel": "bed",
+         "voorbeeld": "My bed is comfortable."
+        },
+        {
+         "nl": "kast",
+         "doel": "wardrobe",
+         "voorbeeld": "My clothes are in the wardrobe."
+        },
+        {
+         "nl": "bureau",
+         "doel": "desk",
+         "voorbeeld": "I do my homework at my desk."
+        },
+        {
+         "nl": "appartement",
+         "doel": "flat",
+         "voorbeeld": "We live in a flat."
+        },
+        {
+         "nl": "raam",
+         "doel": "window",
+         "voorbeeld": "Open the window, please."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waar slaap je?",
+         "opties": [
+          "in the kitchen",
+          "in the bedroom",
+          "in the garage"
+         ],
+         "antwoord": 1,
+         "uitleg": "Slaapkamer = bedroom."
+        },
+        {
+         "vraag": "Kies: There ___ two chairs in the kitchen.",
+         "opties": [
+          "is",
+          "am",
+          "are"
+         ],
+         "antwoord": 2,
+         "uitleg": "Twee stoelen = meervoud."
+        },
+        {
+         "vraag": "Wat betekent 'flat'?",
+         "opties": [
+          "appartement",
+          "vlak",
+          "tuin"
+         ],
+         "antwoord": 0,
+         "uitleg": "In het Brits-Engels is een flat een appartement."
+        },
+        {
+         "vraag": "Hoe zeg je 'Ik ben thuis'?",
+         "opties": [
+          "I am in home.",
+          "I am at home.",
+          "I am on home."
+         ],
+         "antwoord": 1,
+         "uitleg": "Thuis = at home."
+        },
+        {
+         "vraag": "Welk woord hoort niet bij een huis?",
+         "opties": [
+          "kitchen",
+          "bathroom",
+          "airport"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een luchthaven is geen deel van een huis."
+        }
+       ]
+      },
+      {
+       "id": "j1-town-directions",
+       "titel": "In de stad en de weg vragen",
+       "uitleg": "Plaatsen in de stad: bank, library, post office, supermarket, cinema, park, station, hospital, bakery, swimming pool.\n\nDe weg vragen: Excuse me, where is the library? / How do I get to the station? / Is there a bank near here?\n\nDe weg uitleggen (gebiedende wijs, je gebruikt gewoon de stam): Go straight on. Turn left. Turn right. Take the first street on the left. Cross the road. It's on your right. It's opposite the school. It's next to the park.\n\nBeleefd bedanken: Thank you very much. - You're welcome.",
+       "woorden": [
+        {
+         "nl": "bibliotheek",
+         "doel": "library",
+         "voorbeeld": "The library is opposite the school."
+        },
+        {
+         "nl": "postkantoor",
+         "doel": "post office",
+         "voorbeeld": "Is there a post office near here?"
+        },
+        {
+         "nl": "supermarkt",
+         "doel": "supermarket",
+         "voorbeeld": "The supermarket is open."
+        },
+        {
+         "nl": "bioscoop",
+         "doel": "cinema",
+         "voorbeeld": "Let's go to the cinema."
+        },
+        {
+         "nl": "station",
+         "doel": "station",
+         "voorbeeld": "How do I get to the station?"
+        },
+        {
+         "nl": "ziekenhuis",
+         "doel": "hospital",
+         "voorbeeld": "The hospital is big."
+        },
+        {
+         "nl": "rechtdoor",
+         "doel": "straight on",
+         "voorbeeld": "Go straight on."
+        },
+        {
+         "nl": "links",
+         "doel": "left",
+         "voorbeeld": "Turn left."
+        },
+        {
+         "nl": "rechts",
+         "doel": "right",
+         "voorbeeld": "Turn right."
+        },
+        {
+         "nl": "tegenover",
+         "doel": "opposite",
+         "voorbeeld": "It's opposite the bank."
+        },
+        {
+         "nl": "oversteken",
+         "doel": "cross",
+         "voorbeeld": "Cross the road."
+        },
+        {
+         "nl": "dichtbij",
+         "doel": "near",
+         "voorbeeld": "Is there a shop near here?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent 'Turn left'?",
+         "opties": [
+          "Ga links.",
+          "Ga rechts.",
+          "Ga rechtdoor."
+         ],
+         "antwoord": 0,
+         "uitleg": "Left = links."
+        },
+        {
+         "vraag": "Hoe vraag je beleefd de weg?",
+         "opties": [
+          "Hey, station where?",
+          "Excuse me, where is the station?",
+          "Station is where you?"
+         ],
+         "antwoord": 1,
+         "uitleg": "Beleefd beginnen met 'Excuse me'."
+        },
+        {
+         "vraag": "Wat is 'a library'?",
+         "opties": [
+          "een boekhandel",
+          "een bakker",
+          "een bibliotheek"
+         ],
+         "antwoord": 2,
+         "uitleg": "Library = bibliotheek (boekhandel = bookshop)."
+        },
+        {
+         "vraag": "Kies: The cinema is ___ the bank. (tegenover)",
+         "opties": [
+          "opposite",
+          "between",
+          "under"
+         ],
+         "antwoord": 0,
+         "uitleg": "Opposite = tegenover."
+        },
+        {
+         "vraag": "Je antwoordt op 'Thank you very much':",
+         "opties": [
+          "Thank you too.",
+          "You're welcome.",
+          "I'm fine."
+         ],
+         "antwoord": 1,
+         "uitleg": "'You're welcome' = graag gedaan."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "jaar": 2,
+   "themas": [
+    {
+     "id": "j2-verleden",
+     "titel": "Wat gebeurde er? (past simple)",
+     "samenvatting": "Je vertelt over het verleden met regelmatige en onregelmatige werkwoorden.",
+     "lessen": [
+      {
+       "id": "j2-past-regular",
+       "titel": "Past simple: regelmatige werkwoorden",
+       "uitleg": "De past simple (verleden tijd) gebruik je voor iets dat afgelopen is, vaak met een tijdsaanduiding: yesterday, last week, two days ago, in 2020.\n\nRegelmatige werkwoorden krijgen -ed: walk - walked, play - played. Eindigt het op -e, dan alleen -d: like - liked. Medeklinker + y wordt -ied: study - studied. Korte klinker + medeklinker verdubbelt: stop - stopped.\n\nEr is maar EEN vorm voor alle personen: I walked, she walked, they walked.\n\nOntkenning: did not (didn't) + stam: I didn't walk. Vraag: Did you walk? - Yes, I did. / No, I didn't. Na did en didn't staat altijd de stam, nooit -ed.\n\nDe uitspraak van -ed: /t/ na stemloze klanken (walked), /d/ na stemhebbende (played), /id/ na t of d (wanted).",
+       "woorden": [
+        {
+         "nl": "gisteren",
+         "doel": "yesterday",
+         "voorbeeld": "I played football yesterday."
+        },
+        {
+         "nl": "vorige week",
+         "doel": "last week",
+         "voorbeeld": "We visited Bruges last week."
+        },
+        {
+         "nl": "geleden",
+         "doel": "ago",
+         "voorbeeld": "She called two hours ago."
+        },
+        {
+         "nl": "bezoeken",
+         "doel": "visit",
+         "voorbeeld": "They visited their cousin."
+        },
+        {
+         "nl": "spelen",
+         "doel": "play",
+         "voorbeeld": "He played outside."
+        },
+        {
+         "nl": "wandelen",
+         "doel": "walk",
+         "voorbeeld": "We walked to the park."
+        },
+        {
+         "nl": "werken",
+         "doel": "work",
+         "voorbeeld": "My dad worked late."
+        },
+        {
+         "nl": "studeren",
+         "doel": "study",
+         "voorbeeld": "I studied for the test."
+        },
+        {
+         "nl": "stoppen",
+         "doel": "stop",
+         "voorbeeld": "The bus stopped."
+        },
+        {
+         "nl": "bellen",
+         "doel": "call",
+         "voorbeeld": "She called her friend."
+        },
+        {
+         "nl": "helpen",
+         "doel": "help",
+         "voorbeeld": "I helped my mum."
+        },
+        {
+         "nl": "dansen",
+         "doel": "dance",
+         "voorbeeld": "We danced at the party."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Past simple van 'walk':",
+         "opties": [
+          "walkt",
+          "walking",
+          "walked"
+         ],
+         "antwoord": 2,
+         "uitleg": "Regelmatig: stam + -ed."
+        },
+        {
+         "vraag": "Past simple van 'study':",
+         "opties": [
+          "studied",
+          "studyed",
+          "studed"
+         ],
+         "antwoord": 0,
+         "uitleg": "Medeklinker + y wordt -ied."
+        },
+        {
+         "vraag": "Past simple van 'stop':",
+         "opties": [
+          "stoped",
+          "stopped",
+          "stopted"
+         ],
+         "antwoord": 1,
+         "uitleg": "Korte klinker + medeklinker: medeklinker verdubbelt."
+        },
+        {
+         "vraag": "Kies: Did you ___ TV last night?",
+         "opties": [
+          "watched",
+          "watching",
+          "watch"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na 'did' komt de stam."
+        },
+        {
+         "vraag": "Maak de ontkenning: She played tennis.",
+         "opties": [
+          "She didn't play tennis.",
+          "She didn't played tennis.",
+          "She not played tennis."
+         ],
+         "antwoord": 0,
+         "uitleg": "didn't + stam, zonder -ed."
+        }
+       ]
+      },
+      {
+       "id": "j2-past-irregular",
+       "titel": "Past simple: onregelmatige werkwoorden",
+       "uitleg": "Onregelmatige werkwoorden krijgen geen -ed maar een eigen vorm. Je moet ze leren, zoals bij 'zwemmen - zwom'.\n\nVeelvoorkomend: be - was/were, have - had, go - went, see - saw, eat - ate, drink - drank, buy - bought, make - made, take - took, come - came, get - got, write - wrote, read - read (uitspraak 'red'), sleep - slept, give - gave.\n\nWas/were: I/he/she/it was, you/we/they were. Ontkenning: wasn't/weren't. Vraag: Was he...? Were you...? (zonder did!)\n\nBij alle andere onregelmatige werkwoorden gebruik je did voor ontkenning en vraag, met de stam: I didn't go. Did you see the film? - Yes, I did.",
+       "woorden": [
+        {
+         "nl": "gaan",
+         "doel": "go - went",
+         "voorbeeld": "We went to the beach."
+        },
+        {
+         "nl": "zien",
+         "doel": "see - saw",
+         "voorbeeld": "I saw a film."
+        },
+        {
+         "nl": "eten",
+         "doel": "eat - ate",
+         "voorbeeld": "She ate a sandwich."
+        },
+        {
+         "nl": "drinken",
+         "doel": "drink - drank",
+         "voorbeeld": "He drank some water."
+        },
+        {
+         "nl": "kopen",
+         "doel": "buy - bought",
+         "voorbeeld": "I bought a T-shirt."
+        },
+        {
+         "nl": "maken",
+         "doel": "make - made",
+         "voorbeeld": "Mum made a cake."
+        },
+        {
+         "nl": "nemen",
+         "doel": "take - took",
+         "voorbeeld": "We took the train."
+        },
+        {
+         "nl": "komen",
+         "doel": "come - came",
+         "voorbeeld": "They came by bus."
+        },
+        {
+         "nl": "schrijven",
+         "doel": "write - wrote",
+         "voorbeeld": "I wrote a postcard."
+        },
+        {
+         "nl": "slapen",
+         "doel": "sleep - slept",
+         "voorbeeld": "I slept well."
+        },
+        {
+         "nl": "hebben",
+         "doel": "have - had",
+         "voorbeeld": "We had fun."
+        },
+        {
+         "nl": "zijn",
+         "doel": "be - was/were",
+         "voorbeeld": "It was great."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Past simple van 'go':",
+         "opties": [
+          "goed",
+          "went",
+          "gone"
+         ],
+         "antwoord": 1,
+         "uitleg": "Go is onregelmatig: went."
+        },
+        {
+         "vraag": "Past simple van 'buy':",
+         "opties": [
+          "buyed",
+          "boughted",
+          "bought"
+         ],
+         "antwoord": 2,
+         "uitleg": "Buy - bought."
+        },
+        {
+         "vraag": "Kies: We ___ in Spain last summer.",
+         "opties": [
+          "were",
+          "was",
+          "are"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij we gebruik je 'were' in het verleden."
+        },
+        {
+         "vraag": "Kies: Did you ___ the match?",
+         "opties": [
+          "saw",
+          "see",
+          "seen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Na 'did' komt de stam: see."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "I didn't ate breakfast.",
+          "I not ate breakfast.",
+          "I didn't eat breakfast."
+         ],
+         "antwoord": 2,
+         "uitleg": "didn't + stam (eat), niet ate."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-reizen",
+     "titel": "Reizen en vakantie",
+     "samenvatting": "Vervoer, vakantieplaatsen, luchthaven en hotel, en een kaartje schrijven.",
+     "lessen": [
+      {
+       "id": "j2-transport",
+       "titel": "Vervoer en reisvoorzetsels",
+       "uitleg": "Vervoersmiddelen: car, bus, train, tram, plane, bike, ship, taxi, underground.\n\nJe reist 'by' + vervoer: by bus, by train, by car, by plane. Maar te voet = on foot. Je stapt 'on' de bus/train/plane op en 'off' af; bij auto en taxi: get in / get out of.\n\nVragen: How do you go to school? - I go by bike. How long does it take? - It takes twenty minutes. How far is it? - It's five kilometres.\n\nVoorzetsels van beweging: to (naar), from (van), into (in), out of (uit), through (door), across (over), along (langs).",
+       "woorden": [
+        {
+         "nl": "trein",
+         "doel": "train",
+         "voorbeeld": "We go by train."
+        },
+        {
+         "nl": "vliegtuig",
+         "doel": "plane",
+         "voorbeeld": "The plane is late."
+        },
+        {
+         "nl": "bus",
+         "doel": "bus",
+         "voorbeeld": "I take the bus to school."
+        },
+        {
+         "nl": "tram",
+         "doel": "tram",
+         "voorbeeld": "The tram stops here."
+        },
+        {
+         "nl": "taxi",
+         "doel": "taxi",
+         "voorbeeld": "We took a taxi."
+        },
+        {
+         "nl": "fiets",
+         "doel": "bike",
+         "voorbeeld": "I go to school by bike."
+        },
+        {
+         "nl": "boot",
+         "doel": "ship",
+         "voorbeeld": "The ship leaves at nine."
+        },
+        {
+         "nl": "te voet",
+         "doel": "on foot",
+         "voorbeeld": "He goes to school on foot."
+        },
+        {
+         "nl": "treinstation",
+         "doel": "train station",
+         "voorbeeld": "The train station is near."
+        },
+        {
+         "nl": "kaartje",
+         "doel": "ticket",
+         "voorbeeld": "One ticket, please."
+        },
+        {
+         "nl": "vertrekken",
+         "doel": "leave",
+         "voorbeeld": "The train leaves at ten."
+        },
+        {
+         "nl": "aankomen",
+         "doel": "arrive",
+         "voorbeeld": "We arrive at noon."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe gaat Tom naar school? (met de bus)",
+         "opties": [
+          "He goes by bus.",
+          "He goes with bus.",
+          "He goes on bus."
+         ],
+         "antwoord": 0,
+         "uitleg": "Vervoer: by + vervoermiddel."
+        },
+        {
+         "vraag": "Hoe zeg je 'te voet'?",
+         "opties": [
+          "by foot",
+          "on foot",
+          "with foot"
+         ],
+         "antwoord": 1,
+         "uitleg": "Vaste uitdrukking: on foot."
+        },
+        {
+         "vraag": "Hoe vraag je hoe lang een reis duurt?",
+         "opties": [
+          "How much does it take?",
+          "How far does it take?",
+          "How long does it take?"
+         ],
+         "antwoord": 2,
+         "uitleg": "How long = hoe lang (duur)."
+        },
+        {
+         "vraag": "Wat betekent 'arrive'?",
+         "opties": [
+          "aankomen",
+          "vertrekken",
+          "wachten"
+         ],
+         "antwoord": 0,
+         "uitleg": "Arrive = aankomen."
+        },
+        {
+         "vraag": "Wat is 'a ticket'?",
+         "opties": [
+          "een koffer",
+          "een ticket",
+          "een paspoort"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ticket = ticket/kaartje."
+        }
+       ]
+      },
+      {
+       "id": "j2-holiday",
+       "titel": "Op vakantie: luchthaven, hotel, postkaart",
+       "uitleg": "Aan de luchthaven (airport): check in, passport, suitcase, boarding pass, gate, flight. In het hotel: reception, single/double room, key, breakfast included.\n\nNuttige zinnen: I have a reservation. / Can I have a double room, please? / What time is breakfast? / Where is the beach? / How much is it per night?\n\nEen postkaart schrijf je in korte zinnen, met de past simple voor wat je deed en de present simple/continuous voor nu: Dear Gran, We are having a great time in Italy! Yesterday we visited Rome. The weather is sunny. See you soon, Anna.\n\nMooie bijvoeglijke naamwoorden: lovely, amazing, boring, delicious, crowded (druk).",
+       "woorden": [
+        {
+         "nl": "luchthaven",
+         "doel": "airport",
+         "voorbeeld": "We arrive at the airport."
+        },
+        {
+         "nl": "paspoort",
+         "doel": "passport",
+         "voorbeeld": "Show your passport."
+        },
+        {
+         "nl": "koffer",
+         "doel": "suitcase",
+         "voorbeeld": "My suitcase is heavy."
+        },
+        {
+         "nl": "vlucht",
+         "doel": "flight",
+         "voorbeeld": "The flight takes two hours."
+        },
+        {
+         "nl": "hotel",
+         "doel": "hotel",
+         "voorbeeld": "The hotel is by the sea."
+        },
+        {
+         "nl": "kamer",
+         "doel": "room",
+         "voorbeeld": "A double room, please."
+        },
+        {
+         "nl": "strand",
+         "doel": "beach",
+         "voorbeeld": "We played on the beach."
+        },
+        {
+         "nl": "zee",
+         "doel": "sea",
+         "voorbeeld": "The sea is blue."
+        },
+        {
+         "nl": "zonnebrandcrème",
+         "doel": "sun cream",
+         "voorbeeld": "Don't forget your sun cream."
+        },
+        {
+         "nl": "postkaart",
+         "doel": "postcard",
+         "voorbeeld": "I sent a postcard."
+        },
+        {
+         "nl": "reservatie",
+         "doel": "reservation",
+         "voorbeeld": "I have a reservation."
+        },
+        {
+         "nl": "heerlijk",
+         "doel": "delicious",
+         "voorbeeld": "The pizza was delicious."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waar check je in voor een vlucht?",
+         "opties": [
+          "at the bakery",
+          "at the library",
+          "at the airport"
+         ],
+         "antwoord": 2,
+         "uitleg": "Je checkt in op de luchthaven."
+        },
+        {
+         "vraag": "Hoe vraag je een kamer?",
+         "opties": [
+          "Can I have a double room, please?",
+          "I take room you.",
+          "Give room now."
+         ],
+         "antwoord": 0,
+         "uitleg": "Beleefde vraag met 'Can I have...?'."
+        },
+        {
+         "vraag": "Kies: Last summer we ___ to Italy.",
+         "opties": [
+          "go",
+          "went",
+          "goed"
+         ],
+         "antwoord": 1,
+         "uitleg": "Verleden tijd van go."
+        },
+        {
+         "vraag": "Welk woord past bij een postkaart?",
+         "opties": [
+          "Dear Gran?",
+          "Gran dear!",
+          "Dear Gran,"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een kaart begint met 'Dear...'."
+        },
+        {
+         "vraag": "Wat betekent 'crowded'?",
+         "opties": [
+          "druk (veel mensen)",
+          "leeg",
+          "warm"
+         ],
+         "antwoord": 0,
+         "uitleg": "Crowded = vol mensen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-gezondheid",
+     "titel": "Gezondheid en lichaam",
+     "samenvatting": "Lichaamsdelen, ziek zijn, advies geven met should en regels met must.",
+     "lessen": [
+      {
+       "id": "j2-body-ill",
+       "titel": "Lichaam en ziek zijn",
+       "uitleg": "Lichaamsdelen: head, eye, ear, nose, mouth, neck, shoulder, arm, hand, finger, leg, knee, foot (meervoud: feet), tooth (meervoud: teeth).\n\nZiek zijn: I've got a headache / toothache / stomachache / sore throat / cold / cough / fever. Of: My head hurts. Of: I feel sick.\n\nBij de dokter: What's the matter? - I've got a sore throat. Take this medicine. You should stay in bed.\n\nLet op: foot - feet, tooth - teeth, man - men zijn onregelmatige meervouden.",
+       "woorden": [
+        {
+         "nl": "hoofd",
+         "doel": "head",
+         "voorbeeld": "My head hurts."
+        },
+        {
+         "nl": "oog",
+         "doel": "eye",
+         "voorbeeld": "She has blue eyes."
+        },
+        {
+         "nl": "oor",
+         "doel": "ear",
+         "voorbeeld": "My ear hurts."
+        },
+        {
+         "nl": "neus",
+         "doel": "nose",
+         "voorbeeld": "I have a runny nose."
+        },
+        {
+         "nl": "mond",
+         "doel": "mouth",
+         "voorbeeld": "Open your mouth."
+        },
+        {
+         "nl": "arm",
+         "doel": "arm",
+         "voorbeeld": "He broke his arm."
+        },
+        {
+         "nl": "been",
+         "doel": "leg",
+         "voorbeeld": "My leg hurts."
+        },
+        {
+         "nl": "voet",
+         "doel": "foot",
+         "voorbeeld": "My foot is sore."
+        },
+        {
+         "nl": "hoofdpijn",
+         "doel": "headache",
+         "voorbeeld": "I've got a headache."
+        },
+        {
+         "nl": "buikpijn",
+         "doel": "stomachache",
+         "voorbeeld": "He's got a stomachache."
+        },
+        {
+         "nl": "verkoudheid",
+         "doel": "a cold",
+         "voorbeeld": "She has a cold."
+        },
+        {
+         "nl": "koorts",
+         "doel": "fever",
+         "voorbeeld": "He has a fever."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Meervoud van 'foot':",
+         "opties": [
+          "foots",
+          "feet",
+          "feets"
+         ],
+         "antwoord": 1,
+         "uitleg": "Foot - feet is onregelmatig."
+        },
+        {
+         "vraag": "Hoe zeg je 'Ik heb hoofdpijn'?",
+         "opties": [
+          "I am headache.",
+          "I have head pain me.",
+          "I've got a headache."
+         ],
+         "antwoord": 2,
+         "uitleg": "have got + ziekte."
+        },
+        {
+         "vraag": "Wat vraagt de dokter?",
+         "opties": [
+          "What's the matter?",
+          "What's your name?",
+          "Where is it?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zo vraagt de dokter wat er scheelt."
+        },
+        {
+         "vraag": "Wat is 'stomachache'?",
+         "opties": [
+          "hoofdpijn",
+          "buikpijn",
+          "tandpijn"
+         ],
+         "antwoord": 1,
+         "uitleg": "Stomach = maag/buik."
+        },
+        {
+         "vraag": "Meervoud van 'tooth':",
+         "opties": [
+          "tooths",
+          "teeths",
+          "teeth"
+         ],
+         "antwoord": 2,
+         "uitleg": "Tooth - teeth."
+        }
+       ]
+      },
+      {
+       "id": "j2-should-must",
+       "titel": "Should en must",
+       "uitleg": "'Should' gebruik je voor advies (je zou moeten): You should drink water. 'Shouldn't' is je zou niet moeten: You shouldn't eat too many sweets.\n\n'Must' gebruik je voor een verplichting of regel: You must wear a helmet. 'Mustn't' betekent het is VERBODEN: You mustn't run in the corridor.\n\nLet op: 'mustn't' (verboden) is iets anders dan 'don't have to' (niet verplicht, het mag wel). You don't have to come, but you can.\n\nNet als can staan should en must altijd met de stam zonder 'to' en zonder -s: She should rest.\n\nVraag: Should I take a pill? Must I wear a uniform?",
+       "woorden": [
+        {
+         "nl": "moeten (advies)",
+         "doel": "should",
+         "voorbeeld": "You should sleep more."
+        },
+        {
+         "nl": "niet moeten (advies)",
+         "doel": "shouldn't",
+         "voorbeeld": "You shouldn't eat sweets."
+        },
+        {
+         "nl": "moeten (verplicht)",
+         "doel": "must",
+         "voorbeeld": "You must wear a seatbelt."
+        },
+        {
+         "nl": "verboden",
+         "doel": "mustn't",
+         "voorbeeld": "You mustn't smoke here."
+        },
+        {
+         "nl": "niet hoeven",
+         "doel": "don't have to",
+         "voorbeeld": "You don't have to come."
+        },
+        {
+         "nl": "rusten",
+         "doel": "rest",
+         "voorbeeld": "You should rest."
+        },
+        {
+         "nl": "gezond",
+         "doel": "healthy",
+         "voorbeeld": "Fruit is healthy."
+        },
+        {
+         "nl": "ongezond",
+         "doel": "unhealthy",
+         "voorbeeld": "Chips are unhealthy."
+        },
+        {
+         "nl": "medicijn",
+         "doel": "medicine",
+         "voorbeeld": "Take your medicine."
+        },
+        {
+         "nl": "helm",
+         "doel": "helmet",
+         "voorbeeld": "Wear a helmet."
+        },
+        {
+         "nl": "water drinken",
+         "doel": "drink water",
+         "voorbeeld": "You should drink water."
+        },
+        {
+         "nl": "vroeg naar bed gaan",
+         "doel": "go to bed early",
+         "voorbeeld": "You should go to bed early."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: You ___ eat more fruit. (advies)",
+         "opties": [
+          "should",
+          "must not",
+          "can't"
+         ],
+         "antwoord": 0,
+         "uitleg": "Should geeft advies."
+        },
+        {
+         "vraag": "Wat betekent 'You mustn't run here'?",
+         "opties": [
+          "Je hoeft niet te rennen.",
+          "Je mag hier niet rennen.",
+          "Je moet rennen."
+         ],
+         "antwoord": 1,
+         "uitleg": "Mustn't = verboden."
+        },
+        {
+         "vraag": "Wat betekent 'You don't have to come'?",
+         "opties": [
+          "Je mag niet komen.",
+          "Je moet komen.",
+          "Je moet niet komen (het hoeft niet)."
+         ],
+         "antwoord": 2,
+         "uitleg": "Don't have to = niet verplicht."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "She should rest.",
+          "She should to rest.",
+          "She shoulds rest."
+         ],
+         "antwoord": 0,
+         "uitleg": "should + stam, geen 'to', geen -s."
+        },
+        {
+         "vraag": "Jij hebt keelpijn. Wat is een goed advies?",
+         "opties": [
+          "You mustn't drink tea.",
+          "You should drink warm tea.",
+          "You can't be ill."
+         ],
+         "antwoord": 1,
+         "uitleg": "Should geeft een zinvol advies."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-weer-toekomst",
+     "titel": "Weer, seizoenen en plannen",
+     "samenvatting": "Het weer en de seizoenen beschrijven en plannen maken met going to.",
+     "lessen": [
+      {
+       "id": "j2-weather",
+       "titel": "Het weer en de seizoenen",
+       "uitleg": "Het weer: It's sunny / rainy / cloudy / windy / foggy / snowy / stormy. Ook: It's hot / warm / cool / cold / freezing. Je begint met 'it' (it's raining, it's cold).\n\nVraag: What's the weather like? - It's sunny and warm. What's the temperature? - It's 20 degrees.\n\nSeizoenen: spring (lente), summer (zomer), autumn (herfst), winter. Voorzetsel: in spring, in summer.\n\nMet de present continuous: It is raining now. Met present simple: It often rains in autumn. Met past simple: It was sunny yesterday.",
+       "woorden": [
+        {
+         "nl": "zonnig",
+         "doel": "sunny",
+         "voorbeeld": "It's sunny today."
+        },
+        {
+         "nl": "regenachtig",
+         "doel": "rainy",
+         "voorbeeld": "It was rainy yesterday."
+        },
+        {
+         "nl": "bewolkt",
+         "doel": "cloudy",
+         "voorbeeld": "The sky is cloudy."
+        },
+        {
+         "nl": "winderig",
+         "doel": "windy",
+         "voorbeeld": "It's windy at the coast."
+        },
+        {
+         "nl": "mistig",
+         "doel": "foggy",
+         "voorbeeld": "It's foggy this morning."
+        },
+        {
+         "nl": "sneeuwen",
+         "doel": "snow",
+         "voorbeeld": "It snows in winter."
+        },
+        {
+         "nl": "heet",
+         "doel": "hot",
+         "voorbeeld": "It's very hot in July."
+        },
+        {
+         "nl": "koud",
+         "doel": "cold",
+         "voorbeeld": "It's cold in January."
+        },
+        {
+         "nl": "lente",
+         "doel": "spring",
+         "voorbeeld": "Flowers grow in spring."
+        },
+        {
+         "nl": "zomer",
+         "doel": "summer",
+         "voorbeeld": "We swim in summer."
+        },
+        {
+         "nl": "herfst",
+         "doel": "autumn",
+         "voorbeeld": "Leaves fall in autumn."
+        },
+        {
+         "nl": "paraplu",
+         "doel": "umbrella",
+         "voorbeeld": "Take an umbrella."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe vraag je naar het weer?",
+         "opties": [
+          "How is the weather you?",
+          "Which weather is it?",
+          "What's the weather like?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vaste vraag: What's the weather like?"
+        },
+        {
+         "vraag": "Kies: ___ is raining.",
+         "opties": [
+          "It",
+          "He",
+          "They"
+         ],
+         "antwoord": 0,
+         "uitleg": "Bij het weer gebruik je 'it'."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "It's cold at winter.",
+          "It's cold in winter.",
+          "It's cold on winter."
+         ],
+         "antwoord": 1,
+         "uitleg": "Seizoen: in."
+        },
+        {
+         "vraag": "Wat is 'autumn'?",
+         "opties": [
+          "lente",
+          "zomer",
+          "herfst"
+         ],
+         "antwoord": 2,
+         "uitleg": "Autumn = herfst."
+        },
+        {
+         "vraag": "Wat neem je mee als het regent?",
+         "opties": [
+          "an umbrella",
+          "sun cream",
+          "sunglasses"
+         ],
+         "antwoord": 0,
+         "uitleg": "Umbrella = paraplu."
+        }
+       ]
+      },
+      {
+       "id": "j2-going-to",
+       "titel": "Going to: plannen voor de toekomst",
+       "uitleg": "Met 'going to' praat je over plannen en voornemens (iets wat je al beslist hebt) en over iets dat duidelijk gaat gebeuren.\n\nVorm: am/is/are + going to + stam. I am going to visit my aunt. She is going to buy a bike. They are going to play football.\n\nOntkenning: I'm not going to go. He isn't going to come. Vraag: Are you going to travel? - Yes, I am. / No, I'm not.\n\nSignaalwoorden: tomorrow, next week, next year, tonight, in two days, this weekend.\n\nAls je het ziet aankomen: Look at those clouds! It's going to rain.",
+       "woorden": [
+        {
+         "nl": "morgen",
+         "doel": "tomorrow",
+         "voorbeeld": "I'm going to rest tomorrow."
+        },
+        {
+         "nl": "vanavond",
+         "doel": "tonight",
+         "voorbeeld": "We're going to cook tonight."
+        },
+        {
+         "nl": "volgende week",
+         "doel": "next week",
+         "voorbeeld": "She's going to visit us next week."
+        },
+        {
+         "nl": "volgend jaar",
+         "doel": "next year",
+         "voorbeeld": "We're going to move next year."
+        },
+        {
+         "nl": "dit weekend",
+         "doel": "this weekend",
+         "voorbeeld": "What are you going to do this weekend?"
+        },
+        {
+         "nl": "plan",
+         "doel": "plan",
+         "voorbeeld": "What's your plan?"
+        },
+        {
+         "nl": "bezoeken",
+         "doel": "visit",
+         "voorbeeld": "I'm going to visit Paris."
+        },
+        {
+         "nl": "organiseren",
+         "doel": "organise",
+         "voorbeeld": "They're going to organise a party."
+        },
+        {
+         "nl": "beginnen",
+         "doel": "start",
+         "voorbeeld": "The film is going to start."
+        },
+        {
+         "nl": "logeren",
+         "doel": "stay",
+         "voorbeeld": "We're going to stay in a hotel."
+        },
+        {
+         "nl": "verhuizen",
+         "doel": "move",
+         "voorbeeld": "They are going to move."
+        },
+        {
+         "nl": "later",
+         "doel": "later",
+         "voorbeeld": "See you later!"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: I ___ going to study tonight.",
+         "opties": [
+          "is",
+          "am",
+          "do"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij I hoort 'am'."
+        },
+        {
+         "vraag": "Kies: They are going to ___ tomorrow.",
+         "opties": [
+          "travelling",
+          "travels",
+          "travel"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na 'going to' staat de stam."
+        },
+        {
+         "vraag": "Vraag: 'Ga je morgen voetballen?'",
+         "opties": [
+          "Are you going to play football tomorrow?",
+          "Do you going to play football tomorrow?",
+          "You going to play football tomorrow?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Are + onderwerp + going to + stam."
+        },
+        {
+         "vraag": "Kijk naar donkere wolken. Wat zeg je?",
+         "opties": [
+          "It rained.",
+          "It's going to rain.",
+          "It is rain."
+         ],
+         "antwoord": 1,
+         "uitleg": "Je ziet iets aankomen: going to."
+        },
+        {
+         "vraag": "Ontkenning: She is going to come.",
+         "opties": [
+          "She doesn't going to come.",
+          "She not going come.",
+          "She isn't going to come."
+         ],
+         "antwoord": 2,
+         "uitleg": "is + not + going to."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-vergelijken",
+     "titel": "Vergelijken",
+     "samenvatting": "Mensen, dieren en dingen vergelijken met de vergelijkende en overtreffende trap.",
+     "lessen": [
+      {
+       "id": "j2-comparatives",
+       "titel": "De vergelijkende trap (comparative)",
+       "uitleg": "Met de vergelijkende trap vergelijk je twee dingen: groter dan, sneller dan.\n\nKorte bijvoeglijke naamwoorden (een lettergreep): + -er + than. tall - taller than, fast - faster than. Eindigt op -e: alleen -r (nice - nicer). Korte klinker + medeklinker: verdubbel (big - bigger, hot - hotter). Eindigt op -y: -ier (happy - happier).\n\nLange bijvoeglijke naamwoorden (twee of meer lettergrepen): more + woord + than. interesting - more interesting than, expensive - more expensive than.\n\nOnregelmatig: good - better, bad - worse, far - further.\n\nZin: A cheetah is faster than a lion. English is more difficult than maths for me.\n\nGelijk: as ... as. Tom is as tall as Ben. Niet gelijk: not as ... as.",
+       "woorden": [
+        {
+         "nl": "groot",
+         "doel": "big - bigger",
+         "voorbeeld": "An elephant is bigger than a horse."
+        },
+        {
+         "nl": "klein",
+         "doel": "small - smaller",
+         "voorbeeld": "A mouse is smaller than a cat."
+        },
+        {
+         "nl": "snel",
+         "doel": "fast - faster",
+         "voorbeeld": "A car is faster than a bike."
+        },
+        {
+         "nl": "lang",
+         "doel": "tall - taller",
+         "voorbeeld": "Tom is taller than me."
+        },
+        {
+         "nl": "oud",
+         "doel": "old - older",
+         "voorbeeld": "My brother is older than me."
+        },
+        {
+         "nl": "gelukkig",
+         "doel": "happy - happier",
+         "voorbeeld": "I'm happier today."
+        },
+        {
+         "nl": "duur",
+         "doel": "expensive - more expensive",
+         "voorbeeld": "Gold is more expensive than silver."
+        },
+        {
+         "nl": "moeilijk",
+         "doel": "difficult - more difficult",
+         "voorbeeld": "Chinese is more difficult than Dutch."
+        },
+        {
+         "nl": "interessant",
+         "doel": "interesting - more interesting",
+         "voorbeeld": "History is more interesting."
+        },
+        {
+         "nl": "goed",
+         "doel": "good - better",
+         "voorbeeld": "This film is better."
+        },
+        {
+         "nl": "slecht",
+         "doel": "bad - worse",
+         "voorbeeld": "The weather is worse today."
+        },
+        {
+         "nl": "gevaarlijk",
+         "doel": "dangerous - more dangerous",
+         "voorbeeld": "Lions are more dangerous."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Comparative van 'tall':",
+         "opties": [
+          "taller",
+          "more tall",
+          "tallest"
+         ],
+         "antwoord": 0,
+         "uitleg": "Kort woord: + -er."
+        },
+        {
+         "vraag": "Comparative van 'big':",
+         "opties": [
+          "biger",
+          "bigger",
+          "more big"
+         ],
+         "antwoord": 1,
+         "uitleg": "Korte klinker + medeklinker: g verdubbelt."
+        },
+        {
+         "vraag": "Comparative van 'interesting':",
+         "opties": [
+          "interestinger",
+          "most interesting",
+          "more interesting"
+         ],
+         "antwoord": 2,
+         "uitleg": "Lang woord: more + woord."
+        },
+        {
+         "vraag": "Kies: My sister is ___ than me.",
+         "opties": [
+          "older",
+          "oldest",
+          "more old"
+         ],
+         "antwoord": 0,
+         "uitleg": "Old - older, met than."
+        },
+        {
+         "vraag": "Comparative van 'good':",
+         "opties": [
+          "gooder",
+          "better",
+          "more good"
+         ],
+         "antwoord": 1,
+         "uitleg": "Good - better is onregelmatig."
+        }
+       ]
+      },
+      {
+       "id": "j2-superlatives",
+       "titel": "De overtreffende trap (superlative)",
+       "uitleg": "De overtreffende trap gebruik je als iets de allermeeste is van een groep: de grootste, de snelste. Je zet altijd 'the' voor.\n\nKorte woorden: the + -est. tall - the tallest, fast - the fastest, big - the biggest, happy - the happiest.\nLange woorden: the most + woord. the most interesting, the most expensive.\nOnregelmatig: good - the best, bad - the worst, far - the furthest.\n\nZin: Mount Everest is the highest mountain in the world. She is the most intelligent pupil in our class.\n\nNa een overtreffende trap gebruik je 'in' met een plaats of groep: the biggest city IN Belgium, the best player IN the team.",
+       "woorden": [
+        {
+         "nl": "het hoogste",
+         "doel": "the highest",
+         "voorbeeld": "It's the highest mountain."
+        },
+        {
+         "nl": "het langste",
+         "doel": "the longest",
+         "voorbeeld": "The Nile is the longest river."
+        },
+        {
+         "nl": "het grootste",
+         "doel": "the biggest",
+         "voorbeeld": "Russia is the biggest country."
+        },
+        {
+         "nl": "het kleinste",
+         "doel": "the smallest",
+         "voorbeeld": "He is the smallest in class."
+        },
+        {
+         "nl": "het snelste",
+         "doel": "the fastest",
+         "voorbeeld": "A cheetah is the fastest animal."
+        },
+        {
+         "nl": "het beste",
+         "doel": "the best",
+         "voorbeeld": "This is the best pizza."
+        },
+        {
+         "nl": "het slechtste",
+         "doel": "the worst",
+         "voorbeeld": "It was the worst day."
+        },
+        {
+         "nl": "het duurste",
+         "doel": "the most expensive",
+         "voorbeeld": "That's the most expensive bag."
+        },
+        {
+         "nl": "het mooiste",
+         "doel": "the most beautiful",
+         "voorbeeld": "The most beautiful beach."
+        },
+        {
+         "nl": "het gevaarlijkste",
+         "doel": "the most dangerous",
+         "voorbeeld": "The most dangerous animal."
+        },
+        {
+         "nl": "rivier",
+         "doel": "river",
+         "voorbeeld": "The river is long."
+        },
+        {
+         "nl": "berg",
+         "doel": "mountain",
+         "voorbeeld": "The mountain is high."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Superlative van 'tall':",
+         "opties": [
+          "the most tall",
+          "the taller",
+          "the tallest"
+         ],
+         "antwoord": 2,
+         "uitleg": "Kort woord: the + -est."
+        },
+        {
+         "vraag": "Superlative van 'beautiful':",
+         "opties": [
+          "the most beautiful",
+          "the beautifulest",
+          "the more beautiful"
+         ],
+         "antwoord": 0,
+         "uitleg": "Lang woord: the most + woord."
+        },
+        {
+         "vraag": "Superlative van 'good':",
+         "opties": [
+          "the goodest",
+          "the best",
+          "the most good"
+         ],
+         "antwoord": 1,
+         "uitleg": "Good - the best."
+        },
+        {
+         "vraag": "Kies: Brussels is the biggest city ___ Belgium.",
+         "opties": [
+          "of",
+          "than",
+          "in"
+         ],
+         "antwoord": 2,
+         "uitleg": "Na een overtreffende trap volgt 'in' + plaats."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "Anna is the happiest girl in class.",
+          "Anna is happiest girl in class.",
+          "Anna is the happyest girl in class."
+         ],
+         "antwoord": 0,
+         "uitleg": "Met 'the' en happy wordt happiest."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-winkelen",
+     "titel": "Winkelen en geld",
+     "samenvatting": "Winkelen in een kledingzaak, prijzen en hoeveelheden met much en many.",
+     "lessen": [
+      {
+       "id": "j2-shopping",
+       "titel": "In de winkel",
+       "uitleg": "In de winkel: Can I help you? - Yes, I'm looking for a jumper. What size are you? - I'm a medium. Can I try it on? - Of course, the changing room is over there. How much is it? - It's twenty-five euros. I'll take it.\n\nMaten: small (S), medium (M), large (L). Prijzen: £5.50 = five pounds fifty; 3 euros = three euros. Het Verenigd Koninkrijk gebruikt het pond (pound).\n\nAanbieden en bedanken: Here you are. / Thank you, that's all. / Can I pay by card? Je betaalt cash of by card.\n\nUitverkoop = sale. Goedkoop = cheap. Duur = expensive.",
+       "woorden": [
+        {
+         "nl": "winkel",
+         "doel": "shop",
+         "voorbeeld": "The shop closes at six."
+        },
+        {
+         "nl": "uitverkoop",
+         "doel": "sale",
+         "voorbeeld": "There is a sale in town."
+        },
+        {
+         "nl": "goedkoop",
+         "doel": "cheap",
+         "voorbeeld": "These socks are cheap."
+        },
+        {
+         "nl": "duur",
+         "doel": "expensive",
+         "voorbeeld": "That coat is too expensive."
+        },
+        {
+         "nl": "passen (kleding)",
+         "doel": "try on",
+         "voorbeeld": "Can I try it on?"
+        },
+        {
+         "nl": "paskamer",
+         "doel": "changing room",
+         "voorbeeld": "The changing room is there."
+        },
+        {
+         "nl": "maat",
+         "doel": "size",
+         "voorbeeld": "What size are you?"
+        },
+        {
+         "nl": "kassa",
+         "doel": "checkout",
+         "voorbeeld": "Pay at the checkout."
+        },
+        {
+         "nl": "betalen",
+         "doel": "pay",
+         "voorbeeld": "Can I pay by card?"
+        },
+        {
+         "nl": "contant",
+         "doel": "cash",
+         "voorbeeld": "I pay in cash."
+        },
+        {
+         "nl": "wisselgeld",
+         "doel": "change",
+         "voorbeeld": "Here is your change."
+        },
+        {
+         "nl": "ik neem het",
+         "doel": "I'll take it",
+         "voorbeeld": "It fits, I'll take it."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat zeg je als je een jas wil passen?",
+         "opties": [
+          "Can I try on?",
+          "Can I try it on?",
+          "Can I wear it for free?"
+         ],
+         "antwoord": 1,
+         "uitleg": "Try it on = passen."
+        },
+        {
+         "vraag": "Wat is 'cheap'?",
+         "opties": [
+          "duur",
+          "mooi",
+          "goedkoop"
+         ],
+         "antwoord": 2,
+         "uitleg": "Cheap = goedkoop."
+        },
+        {
+         "vraag": "Wat betekent 'sale'?",
+         "opties": [
+          "uitverkoop",
+          "verkoper",
+          "winkelwagen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Sale = uitverkoop (op de borden in de winkel)."
+        },
+        {
+         "vraag": "Hoe vraag je naar de prijs?",
+         "opties": [
+          "How many is it?",
+          "How much is it?",
+          "What price you?"
+         ],
+         "antwoord": 1,
+         "uitleg": "Prijs: how much."
+        },
+        {
+         "vraag": "Hoe betaal je met een kaartje?",
+         "opties": [
+          "with card by",
+          "on card",
+          "by card"
+         ],
+         "antwoord": 2,
+         "uitleg": "Betalen met kaart = by card."
+        }
+       ]
+      },
+      {
+       "id": "j2-much-many",
+       "titel": "Much, many, a lot of, a few, a little",
+       "uitleg": "Voor tellbare woorden (apples, books) gebruik je many en a few. Voor niet-tellbare woorden (water, money, time) gebruik je much en a little.\n\n'A lot of' / 'lots of' werkt bij allebei: a lot of apples, a lot of water.\n\nIn vragen en ontkenningen: How many books have you got? I haven't got many books. How much money have you got? I haven't got much money. In bevestigende zinnen zeg je liever 'a lot of': I have a lot of friends.\n\nA few = enkele (genoeg): I have a few friends. A little = een beetje: I have a little time.\n\nToo much/too many = te veel: too much sugar, too many cars. Not enough = te weinig.",
+       "woorden": [
+        {
+         "nl": "veel (tellbaar)",
+         "doel": "many",
+         "voorbeeld": "There are many students."
+        },
+        {
+         "nl": "veel (niet-tellbaar)",
+         "doel": "much",
+         "voorbeeld": "There isn't much time."
+        },
+        {
+         "nl": "veel (beide)",
+         "doel": "a lot of",
+         "voorbeeld": "She has a lot of friends."
+        },
+        {
+         "nl": "enkele",
+         "doel": "a few",
+         "voorbeeld": "I have a few books."
+        },
+        {
+         "nl": "een beetje",
+         "doel": "a little",
+         "voorbeeld": "Add a little sugar."
+        },
+        {
+         "nl": "te veel",
+         "doel": "too much / too many",
+         "voorbeeld": "Too many cars!"
+        },
+        {
+         "nl": "genoeg",
+         "doel": "enough",
+         "voorbeeld": "Is there enough milk?"
+        },
+        {
+         "nl": "niet genoeg",
+         "doel": "not enough",
+         "voorbeeld": "There aren't enough chairs."
+        },
+        {
+         "nl": "geld",
+         "doel": "money",
+         "voorbeeld": "I have a little money."
+        },
+        {
+         "nl": "tijd",
+         "doel": "time",
+         "voorbeeld": "I haven't got much time."
+        },
+        {
+         "nl": "suiker",
+         "doel": "sugar",
+         "voorbeeld": "Too much sugar is unhealthy."
+        },
+        {
+         "nl": "auto's",
+         "doel": "cars",
+         "voorbeeld": "Too many cars on the road."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: How ___ money have you got?",
+         "opties": [
+          "much",
+          "many",
+          "few"
+         ],
+         "antwoord": 0,
+         "uitleg": "Money is niet-tellbaar: much."
+        },
+        {
+         "vraag": "Kies: How ___ books do you have?",
+         "opties": [
+          "much",
+          "many",
+          "little"
+         ],
+         "antwoord": 1,
+         "uitleg": "Books zijn tellbaar: many."
+        },
+        {
+         "vraag": "Kies: I have ___ friends. (enkele)",
+         "opties": [
+          "a little",
+          "much",
+          "a few"
+         ],
+         "antwoord": 2,
+         "uitleg": "Friends zijn tellbaar: a few."
+        },
+        {
+         "vraag": "Kies: There is too ___ sugar in this tea.",
+         "opties": [
+          "much",
+          "many",
+          "few"
+         ],
+         "antwoord": 0,
+         "uitleg": "Sugar is niet-tellbaar."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "I don't have many time.",
+          "I don't have much time.",
+          "I don't have a few time."
+         ],
+         "antwoord": 1,
+         "uitleg": "Time is niet-tellbaar: much."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-toekomst-regels",
+     "titel": "Voorspellingen en regels",
+     "samenvatting": "Voorspellingen en spontane beslissingen met will en regels met have to.",
+     "lessen": [
+      {
+       "id": "j2-will",
+       "titel": "Will: voorspellingen en beslissingen",
+       "uitleg": "'Will' gebruik je voor een voorspelling (wat je denkt dat zal gebeuren), een belofte en een beslissing op het moment zelf.\n\nVorm: will + stam, voor alle personen: I will, she will, they will. Verkort: I'll, she'll. Ontkenning: will not = won't. Vraag: Will you come? - Yes, I will. / No, I won't.\n\nVoorspelling: I think it will rain tomorrow. In 2050 people will live on Mars.\nBelofte: I'll help you. I won't be late.\nSpontane beslissing: The phone is ringing. - I'll answer it.\n\nVerschil met going to: going to is een plan dat je al gemaakt hebt (I'm going to study tonight). Will is een spontane beslissing of voorspelling.",
+       "woorden": [
+        {
+         "nl": "denken",
+         "doel": "think",
+         "voorbeeld": "I think it will rain."
+        },
+        {
+         "nl": "misschien",
+         "doel": "maybe",
+         "voorbeeld": "Maybe she will come."
+        },
+        {
+         "nl": "waarschijnlijk",
+         "doel": "probably",
+         "voorbeeld": "He will probably win."
+        },
+        {
+         "nl": "zeker",
+         "doel": "definitely",
+         "voorbeeld": "It will definitely be fun."
+        },
+        {
+         "nl": "in de toekomst",
+         "doel": "in the future",
+         "voorbeeld": "Cars will fly in the future."
+        },
+        {
+         "nl": "belofte",
+         "doel": "promise",
+         "voorbeeld": "I promise I'll help."
+        },
+        {
+         "nl": "helpen",
+         "doel": "help",
+         "voorbeeld": "I'll help you with that."
+        },
+        {
+         "nl": "vergeten",
+         "doel": "forget",
+         "voorbeeld": "I won't forget."
+        },
+        {
+         "nl": "laat zijn",
+         "doel": "be late",
+         "voorbeeld": "I won't be late."
+        },
+        {
+         "nl": "robot",
+         "doel": "robot",
+         "voorbeeld": "Robots will help us."
+        },
+        {
+         "nl": "volgend jaar",
+         "doel": "next year",
+         "voorbeeld": "Next year I'll be thirteen."
+        },
+        {
+         "nl": "nooit",
+         "doel": "never",
+         "voorbeeld": "I will never forget this."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: I think it ___ rain tomorrow.",
+         "opties": [
+          "is",
+          "does",
+          "will"
+         ],
+         "antwoord": 2,
+         "uitleg": "Voorspelling: will."
+        },
+        {
+         "vraag": "Ontkenning van 'will':",
+         "opties": [
+          "won't",
+          "willn't",
+          "don't will"
+         ],
+         "antwoord": 0,
+         "uitleg": "will not = won't."
+        },
+        {
+         "vraag": "Kies: 'The door is open.' - 'I ___ close it.'",
+         "opties": [
+          "closed",
+          "'ll",
+          "am closing to"
+         ],
+         "antwoord": 1,
+         "uitleg": "Spontane beslissing: I'll."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "She will helps us.",
+          "She wills help us.",
+          "She will help us."
+         ],
+         "antwoord": 2,
+         "uitleg": "will + stam."
+        },
+        {
+         "vraag": "Vraag: 'Zal jij komen?'",
+         "opties": [
+          "Will you come?",
+          "Do you will come?",
+          "Will you to come?"
+         ],
+         "antwoord": 0,
+         "uitleg": "Will + onderwerp + stam."
+        }
+       ]
+      },
+      {
+       "id": "j2-have-to",
+       "titel": "Have to en regels",
+       "uitleg": "'Have to' betekent ook moeten (een verplichting, vaak van buitenaf). I have to wear a uniform. She has to get up early. (Bij he, she en it: has to.)\n\nOntkenning: don't/doesn't have to = je hoeft niet. I don't have to wear a tie.\nVraag: Do you have to wear a uniform? - Yes, I do.\nVerleden: had to. Yesterday I had to clean my room.\n\nRegels op school: You must be on time. You mustn't use your phone. You have to bring your books. You can't eat in class.\n\nVergeet niet: 'mustn't' = verboden, 'don't have to' = niet verplicht.",
+       "woorden": [
+        {
+         "nl": "regel",
+         "doel": "rule",
+         "voorbeeld": "The rule is simple."
+        },
+        {
+         "nl": "uniform",
+         "doel": "uniform",
+         "voorbeeld": "We don't wear a uniform."
+        },
+        {
+         "nl": "op tijd zijn",
+         "doel": "be on time",
+         "voorbeeld": "You must be on time."
+        },
+        {
+         "nl": "telefoon",
+         "doel": "phone",
+         "voorbeeld": "Don't use your phone."
+        },
+        {
+         "nl": "stil zijn",
+         "doel": "be quiet",
+         "voorbeeld": "You must be quiet."
+        },
+        {
+         "nl": "luisteren",
+         "doel": "listen",
+         "voorbeeld": "Listen to the teacher."
+        },
+        {
+         "nl": "afval",
+         "doel": "rubbish",
+         "voorbeeld": "Put rubbish in the bin."
+        },
+        {
+         "nl": "huiswerk",
+         "doel": "homework",
+         "voorbeeld": "I have to do my homework."
+        },
+        {
+         "nl": "opruimen",
+         "doel": "tidy up",
+         "voorbeeld": "I have to tidy up my room."
+        },
+        {
+         "nl": "vroeg",
+         "doel": "early",
+         "voorbeeld": "She has to get up early."
+        },
+        {
+         "nl": "verplicht",
+         "doel": "compulsory",
+         "voorbeeld": "PE is compulsory."
+        },
+        {
+         "nl": "verboden",
+         "doel": "forbidden",
+         "voorbeeld": "Smoking is forbidden."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: She ___ to get up early.",
+         "opties": [
+          "have",
+          "has",
+          "must"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij she hoort 'has to'."
+        },
+        {
+         "vraag": "Kies: We ___ wear a uniform. (niet verplicht)",
+         "opties": [
+          "mustn't",
+          "can't",
+          "don't have to"
+         ],
+         "antwoord": 2,
+         "uitleg": "Niet verplicht = don't have to."
+        },
+        {
+         "vraag": "Verleden van 'have to':",
+         "opties": [
+          "had to",
+          "have to",
+          "haved to"
+         ],
+         "antwoord": 0,
+         "uitleg": "Verleden: had to."
+        },
+        {
+         "vraag": "Wat betekent 'You mustn't use your phone'?",
+         "opties": [
+          "Je hoeft je gsm niet te gebruiken.",
+          "Je mag je gsm niet gebruiken.",
+          "Je moet je gsm gebruiken."
+         ],
+         "antwoord": 1,
+         "uitleg": "Mustn't = verboden."
+        },
+        {
+         "vraag": "Vraag: 'Moet jij een uniform dragen?'",
+         "opties": [
+          "Have you to wear a uniform?",
+          "Do you must wear a uniform?",
+          "Do you have to wear a uniform?"
+         ],
+         "antwoord": 2,
+         "uitleg": "Do you have to...?"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-vragen-gewoontes",
+     "titel": "Vragen stellen en gewoontes",
+     "samenvatting": "Vraagwoorden, present simple en continuous naast elkaar en vragen over jezelf.",
+     "lessen": [
+      {
+       "id": "j2-question-words",
+       "titel": "Vraagwoorden",
+       "uitleg": "Vraagwoorden: who (wie), what (wat), where (waar), when (wanneer), why (waarom), how (hoe), which (welk), whose (van wie).\n\nSamengesteld: how old (hoe oud), how many (hoeveel, tellbaar), how much (hoeveel, niet-tellbaar), how often (hoe vaak), how long (hoe lang), what time (hoe laat).\n\nWoordvolgorde: vraagwoord + hulpwerkwoord + onderwerp + werkwoord. Where do you live? What does she eat? Why did you go? Bij to be en can: Where is he? How can I help?\n\nUitzondering: bij 'who' als onderwerp heb je geen do: Who lives here? (Wie woont hier?)\n\nAntwoord op why begint met because: Why are you late? - Because I missed the bus.",
+       "woorden": [
+        {
+         "nl": "wie",
+         "doel": "who",
+         "voorbeeld": "Who is your teacher?"
+        },
+        {
+         "nl": "wat",
+         "doel": "what",
+         "voorbeeld": "What is your name?"
+        },
+        {
+         "nl": "waar",
+         "doel": "where",
+         "voorbeeld": "Where do you live?"
+        },
+        {
+         "nl": "wanneer",
+         "doel": "when",
+         "voorbeeld": "When is the test?"
+        },
+        {
+         "nl": "waarom",
+         "doel": "why",
+         "voorbeeld": "Why are you laughing?"
+        },
+        {
+         "nl": "hoe",
+         "doel": "how",
+         "voorbeeld": "How do you spell it?"
+        },
+        {
+         "nl": "welke",
+         "doel": "which",
+         "voorbeeld": "Which bag is yours?"
+        },
+        {
+         "nl": "van wie",
+         "doel": "whose",
+         "voorbeeld": "Whose pen is this?"
+        },
+        {
+         "nl": "hoe vaak",
+         "doel": "how often",
+         "voorbeeld": "How often do you swim?"
+        },
+        {
+         "nl": "hoe lang",
+         "doel": "how long",
+         "voorbeeld": "How long is the film?"
+        },
+        {
+         "nl": "hoe oud",
+         "doel": "how old",
+         "voorbeeld": "How old are you?"
+        },
+        {
+         "nl": "omdat",
+         "doel": "because",
+         "voorbeeld": "Because I was tired."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: ___ do you live? - In Leuven.",
+         "opties": [
+          "Where",
+          "When",
+          "Who"
+         ],
+         "antwoord": 0,
+         "uitleg": "In Leuven = plaats: where."
+        },
+        {
+         "vraag": "Kies: ___ is your birthday? - In June.",
+         "opties": [
+          "Where",
+          "When",
+          "How"
+         ],
+         "antwoord": 1,
+         "uitleg": "In June = tijdstip: when."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "What she eats for lunch?",
+          "What does she eats for lunch?",
+          "What does she eat for lunch?"
+         ],
+         "antwoord": 2,
+         "uitleg": "does + onderwerp + stam."
+        },
+        {
+         "vraag": "Antwoord op 'Why are you late?'",
+         "opties": [
+          "Because I missed the bus.",
+          "Because of nine.",
+          "At the bus."
+         ],
+         "antwoord": 0,
+         "uitleg": "Why vraagt een reden: because."
+        },
+        {
+         "vraag": "Kies: ___ often do you play football?",
+         "opties": [
+          "What",
+          "How",
+          "Which"
+         ],
+         "antwoord": 1,
+         "uitleg": "How often = hoe vaak."
+        }
+       ]
+      },
+      {
+       "id": "j2-simple-vs-continuous",
+       "titel": "Present simple of present continuous?",
+       "uitleg": "Present simple: gewoontes, feiten, vaste planningen. I go to school by bike. Water boils at 100 degrees. De school begint om acht uur. Signaalwoorden: always, usually, often, sometimes, never, every day, on Mondays.\n\nPresent continuous: nu bezig of tijdelijk. I am doing my homework now. He is staying with his aunt this week. Signaalwoorden: now, at the moment, today, this week, Look!\n\nSommige werkwoorden gebruik je meestal NIET in de continuous: like, love, hate, want, know, need, understand, have (bezitten). Je zegt: I know the answer (niet: I am knowing).\n\nTest: gebeurt het nu bezig of is het een gewoonte? Gewoonte = simple, nu bezig = continuous.",
+       "woorden": [
+        {
+         "nl": "elke dag",
+         "doel": "every day",
+         "voorbeeld": "I study every day."
+        },
+        {
+         "nl": "altijd",
+         "doel": "always",
+         "voorbeeld": "He always smiles."
+        },
+        {
+         "nl": "vaak",
+         "doel": "often",
+         "voorbeeld": "We often play cards."
+        },
+        {
+         "nl": "op dit moment",
+         "doel": "at the moment",
+         "voorbeeld": "I'm reading at the moment."
+        },
+        {
+         "nl": "deze week",
+         "doel": "this week",
+         "voorbeeld": "She is working this week."
+        },
+        {
+         "nl": "weten",
+         "doel": "know",
+         "voorbeeld": "I know the answer."
+        },
+        {
+         "nl": "willen",
+         "doel": "want",
+         "voorbeeld": "I want a drink."
+        },
+        {
+         "nl": "nodig hebben",
+         "doel": "need",
+         "voorbeeld": "We need help."
+        },
+        {
+         "nl": "houden van",
+         "doel": "love",
+         "voorbeeld": "I love this song."
+        },
+        {
+         "nl": "haten",
+         "doel": "hate",
+         "voorbeeld": "I hate spiders."
+        },
+        {
+         "nl": "begrijpen",
+         "doel": "understand",
+         "voorbeeld": "I understand you."
+        },
+        {
+         "nl": "logeren",
+         "doel": "stay",
+         "voorbeeld": "He is staying with us."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Kies: I ___ the answer.",
+         "opties": [
+          "am knowing",
+          "knowing",
+          "know"
+         ],
+         "antwoord": 2,
+         "uitleg": "Know gebruik je niet in de continuous."
+        },
+        {
+         "vraag": "Kies: Look! It ___ .",
+         "opties": [
+          "is snowing",
+          "snows",
+          "snow"
+         ],
+         "antwoord": 0,
+         "uitleg": "'Look!' = nu: present continuous."
+        },
+        {
+         "vraag": "Kies: She ___ to school by bus every day.",
+         "opties": [
+          "is going",
+          "goes",
+          "go"
+         ],
+         "antwoord": 1,
+         "uitleg": "'Every day' = gewoonte; bij she komt -es."
+        },
+        {
+         "vraag": "Kies: I ___ my homework at the moment.",
+         "opties": [
+          "do",
+          "does",
+          "am doing"
+         ],
+         "antwoord": 2,
+         "uitleg": "'At the moment' = continuous."
+        },
+        {
+         "vraag": "Welke zin is juist?",
+         "opties": [
+          "He doesn't like fish.",
+          "He isn't liking fish.",
+          "He doesn't likes fish."
+         ],
+         "antwoord": 0,
+         "uitleg": "Like gebruik je in de present simple; na doesn't komt de stam."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
