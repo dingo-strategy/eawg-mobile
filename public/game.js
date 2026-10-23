@@ -1115,12 +1115,16 @@ function loadS() {
 function saveS() { try { localStorage.setItem('goalrush2', JSON.stringify(S)); } catch (e) {} }
 // Munten uit de leer-app (public/leren) komen via een brievenbus binnen, zodat twee open tabbladen elkaar niet overschrijven.
 let lerenToast = null;
-function claimLeren() {
+function claimLeren() {   // tegoed = teller die alleen stijgt; wij onthouden hoeveel we al hebben opgehaald (geen verlies, geen dubbel tellen)
   try {
-    const o = JSON.parse(localStorage.getItem('leren-tegoed'));
-    if (!o || !(o.coins > 0) || !S) return;
-    localStorage.setItem('leren-tegoed', JSON.stringify({ coins: 0 }));
-    S.coins += o.coins; saveS(); lerenToast = { n: o.coins, t: performance.now() };
+    if (!S) return;
+    const o = JSON.parse(localStorage.getItem('leren-tegoed')) || {};
+    const t = Math.max(0, o.totaal || 0), g = Math.max(0, +localStorage.getItem('leren-gehaald') || 0), oud = Math.max(0, o.coins || 0);
+    const n = Math.max(0, t - g) + oud;
+    if (!(n > 0)) return;
+    S.coins += n; saveS(); lerenToast = { n, t: performance.now() };
+    localStorage.setItem('leren-gehaald', String(Math.max(t, g)));
+    if (oud) { o.coins = 0; localStorage.setItem('leren-tegoed', JSON.stringify(o)); }
   } catch (e) {}
 }
 document.addEventListener('visibilitychange', () => { if (!document.hidden) claimLeren(); });

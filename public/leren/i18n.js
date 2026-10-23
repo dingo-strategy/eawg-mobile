@@ -1,6 +1,18 @@
 // Vertalingen van de app (sleutel = de Nederlandse tekst).
 window.LEREN_I18N = {
  "fr": {
+  "Haal minstens 2 van 5 juist om munten en een dag op je reeks te krijgen.": "Réussis au moins 2 sur 5 pour gagner des pièces et un jour de série.",
+  "🪙 Mijn munten": "🪙 Mes pièces",
+  "{n} verdiend met leren": "{n} gagnées en apprenant",
+  "vandaag {n}/{m}": "aujourd'hui {n}/{m}",
+  "{n} wachten op je in het spel": "{n} t'attendent dans le jeu",
+  "Nog {n} dag leren en je krijgt een bonus van +{m}": "Encore {n} jour d'apprentissage et tu reçois un bonus de +{m}",
+  "Nog {n} dagen leren en je krijgt een bonus van +{m}": "Encore {n} jours d'apprentissage et tu reçois un bonus de +{m}",
+  "Een les geeft 10 tot 40 munten (max. {a} lessen en {m} munten per dag). Elke dag leren geeft een bonus: 3 dagen +30, 7 dagen +75, 14 dagen +150, 30 dagen +300.": "Une leçon rapporte 10 à 40 pièces (max. {a} leçons et {m} pièces par jour). Apprendre chaque jour donne un bonus : 3 jours +30, 7 jours +75, 14 jours +150, 30 jours +300.",
+  "⚽ Naar het spel": "⚽ Vers le jeu",
+  "{n} vraag om te herhalen": "{n} question à réviser",
+  "Typ je pincode om hem te verwijderen": "Tape ton code PIN pour le supprimer",
+  "Opslag is geblokkeerd in deze browser: je voortgang verdwijnt als je de app sluit. Maak een back-upcode bij Profiel → Toon mijn code.": "Le stockage est bloqué dans ce navigateur : ta progression disparaît quand tu fermes l'app. Crée un code de sauvegarde dans Profil → Afficher mon code.",
   "Inloggen": "Se connecter",
   "Kies wie je bent.": "Choisis qui tu es.",
   "Typ je pincode van 4 cijfers.": "Tape ton code PIN à 4 chiffres.",
@@ -220,6 +232,18 @@ window.LEREN_I18N = {
   "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte et rien n'est envoyé."
  },
  "en": {
+  "Haal minstens 2 van 5 juist om munten en een dag op je reeks te krijgen.": "Get at least 2 out of 5 right to earn coins and a day on your streak.",
+  "🪙 Mijn munten": "🪙 My coins",
+  "{n} verdiend met leren": "{n} earned by learning",
+  "vandaag {n}/{m}": "today {n}/{m}",
+  "{n} wachten op je in het spel": "{n} are waiting for you in the game",
+  "Nog {n} dag leren en je krijgt een bonus van +{m}": "{n} more day of learning and you get a +{m} bonus",
+  "Nog {n} dagen leren en je krijgt een bonus van +{m}": "{n} more days of learning and you get a +{m} bonus",
+  "Een les geeft 10 tot 40 munten (max. {a} lessen en {m} munten per dag). Elke dag leren geeft een bonus: 3 dagen +30, 7 dagen +75, 14 dagen +150, 30 dagen +300.": "A lesson gives 10 to 40 coins (max. {a} lessons and {m} coins per day). Learning every day gives a bonus: 3 days +30, 7 days +75, 14 days +150, 30 days +300.",
+  "⚽ Naar het spel": "⚽ To the game",
+  "{n} vraag om te herhalen": "{n} question to review",
+  "Typ je pincode om hem te verwijderen": "Type your PIN to remove it",
+  "Opslag is geblokkeerd in deze browser: je voortgang verdwijnt als je de app sluit. Maak een back-upcode bij Profiel → Toon mijn code.": "Storage is blocked in this browser: your progress disappears when you close the app. Make a backup code under Profile → Show my code.",
   "Inloggen": "Log in",
   "Kies wie je bent.": "Choose who you are.",
   "Typ je pincode van 4 cijfers.": "Type your 4-digit PIN.",

@@ -14,9 +14,75 @@
   var data = {};   // vak+reeks -> geladen leerstof (of null als ze nog niet bestaat)
   var KL = { klassen: [], vakken: {} };   // uit data/klassen.json
 
-  // Alles blijft op dit toestel: profielen en voortgang staan in de browser, er is geen server.
-  function lees(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
-  function schrijf(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  // Opslag: eerst in het geheugen en in de browser van dit toestel. Draait de app als claude.ai-pagina, dan wordt alles ook
+  // bewaard in de eigen database van jouw claude.ai-account, zodat het terugkomt als de browser de lokale opslag wist.
+  var Opslag = (function () {
+    var mem = {};            // 1) geheugen: werkt altijd binnen de sessie
+    var lsOk = false;        // 2) localStorage: probe-resultaat
+    var db = null, uid = null, dbKlaar = false, dbSchrijfbaar = true;
+    var vuil = {}, timer = null, bezig = false;
+    var PREFIX = 'leren-';
+
+    try { localStorage.setItem('leren-probe', '1'); lsOk = localStorage.getItem('leren-probe') === '1'; localStorage.removeItem('leren-probe'); } catch (e) { lsOk = false; }
+
+    function rauw(k) { if (k in mem) return mem[k]; if (!lsOk) return null; try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function lees(k) { try { return JSON.parse(rauw(k)); } catch (e) { return null; } }
+    function zetLokaal(k, s) { mem[k] = s; if (lsOk) { try { localStorage.setItem(k, s); } catch (e) { lsOk = false; } } }
+    function schrijf(k, v) {
+      var s = JSON.stringify(v); zetLokaal(k, s);
+      if (dbKlaar) { vuil[k] = s; plan(); }
+    }
+    function wis(k) { delete mem[k]; try { localStorage.removeItem(k); } catch (e) {} if (dbKlaar) { vuil[k] = null; plan(); } }
+
+    // ---- spiegelen naar db: 1 document per sleutel, gebundeld en 1 schrijfactie tegelijk ----
+    function ref(k) { return db.collection('data/users/' + uid).doc(k); }   // 4 segmenten = document
+    function plan() { if (timer) return; timer = setTimeout(function () { timer = null; leegmaken(); }, 800); }
+    function leegmaken() {
+      if (bezig || !db || !dbSchrijfbaar) return;
+      var k = Object.keys(vuil)[0]; if (!k) return;
+      var s = vuil[k]; delete vuil[k]; bezig = true;
+      var p = s === null ? ref(k).delete() : ref(k).set({ v: s, t: Date.now() });
+      p.then(function () { bezig = false; leegmaken(); }, function (e) {
+        bezig = false;
+        if (e && (e.code === 'invalid_argument' || e.code === 'revoked' || e.code === 'not_granted')) { dbSchrijfbaar = false; return; }   // viewer mag niet schrijven
+        if (!(k in vuil)) vuil[k] = s; plan();                                                                                            // tijdelijk: later opnieuw
+      });
+    }
+    window.addEventListener('pagehide', function () { leegmaken(); });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) leegmaken(); });
+
+    // ---- opstart: db openen en ontbrekende sleutels herstellen ----
+    // Geeft Promise<{hersteld:boolean, status:'lokaal+db'|'alleen-lokaal'|'alleen-geheugen'}>. Nooit rejecten, nooit blokkeren > ms.
+    function init(maxMs) {
+      var klaarBericht = function (h) { return { hersteld: h, status: db ? (lsOk ? 'lokaal+db' : 'db+geheugen') : (lsOk ? 'alleen-lokaal' : 'alleen-geheugen') }; };
+      var echt = new Promise(function (res) {
+        if (!window.claude || !window.claude.use) return res(klaarBericht(false));
+        window.claude.use('db').then(function (d) {
+          if (!d) return res(klaarBericht(false));
+          return window.claude.use('user').then(function (u) { return u ? u.id() : null; }).then(function (id) {
+            if (!id) return res(klaarBericht(false));
+            db = d; uid = id;
+            return db.collection('data/users/' + uid).get().then(function (snap) {
+              var hersteld = false;
+              snap.docs.forEach(function (doc) {
+                var k = doc.id, x = doc.data(); if (!x || typeof x.v !== 'string' || k.indexOf(PREFIX) !== 0) return;
+                if (rauw(k) == null) { zetLokaal(k, x.v); hersteld = true; }       // lokaal leeg -> uit db terugzetten
+              });
+              dbKlaar = true;
+              // lokaal aanwezig maar db leeg/achter: eenmalig opduwen
+              Object.keys(mem).concat(lsKeys()).forEach(function (k) { if (k.indexOf(PREFIX) === 0 && k !== 'leren-probe' && rauw(k) != null) vuil[k] = rauw(k); });
+              plan(); res(klaarBericht(hersteld));
+            });
+          });
+        }).then(null, function () { res(klaarBericht(false)); });
+      });
+      var tijd = new Promise(function (res) { setTimeout(function () { res(klaarBericht(false)); }, maxMs || 2500); });
+      return Promise.race([echt, tijd]);
+    }
+    function lsKeys() { var r = []; try { for (var i = 0; i < localStorage.length; i++) r.push(localStorage.key(i)); } catch (e) {} return r; }
+    return { lees: lees, schrijf: schrijf, wis: wis, init: init, lsOk: function () { return lsOk; } };
+  })();
+  var lees = Opslag.lees, schrijf = Opslag.schrijf;
   var PR = lees(PKEY) || { lijst: [], actief: null };
 
   // ---------- instellingen en taal ----------
@@ -81,7 +147,7 @@
 
   // ---------- beloningen (munten voor het voetbalspel) ----------
   // Cijfers volgen het advies van de onderzoeker; het zijn gekalibreerde gokken, na enkele weken bijsturen.
-  var TRAPPEN = [[0.9, 40], [0.7, 30], [0.5, 20], [0, 10]];   // [minimumscore, munten]
+  var TRAPPEN = [[0.9, 40], [0.7, 30], [0.5, 20], [0.4, 10]];   // [minimumscore, munten]
   var MAX_LESSEN_DAG = 3, CAP_DAG = 100, FREEZES_PER_WEEK = 2;
   var MIJLPALEN = { 3: 30, 7: 75, 14: 150, 30: 300 }, NA_30 = 200;
 
@@ -91,12 +157,19 @@
   function vandaag() { return dag(new Date()); }
   function muntenVandaag() { return (S.dagen[vandaag()] || {}).munten || 0; }
 
+  function wachtOpSpel() {
+    try {
+      var o = JSON.parse(localStorage.getItem('leren-tegoed')) || {}, g = +localStorage.getItem('leren-gehaald') || 0;
+      return Math.max(0, (o.totaal || 0) - g) + Math.max(0, o.coins || 0);
+    } catch (e) { return 0; }
+  }
   // Brievenbus: het voetbalspel haalt dit op en telt het bij zijn munten.
   function stortMunten(n) {
     if (n <= 0) return;
-    try {
+    try {   // teller die alleen stijgt; het spel onthoudt zelf hoeveel het al heeft opgehaald
       var o = JSON.parse(localStorage.getItem('leren-tegoed')) || {};
-      localStorage.setItem('leren-tegoed', JSON.stringify({ coins: (o.coins || 0) + n }));
+      o.totaal = (o.totaal || 0) + n;
+      localStorage.setItem('leren-tegoed', JSON.stringify(o));
     } catch (e) {}
     S.totaalMunten = (S.totaalMunten || 0) + n;
   }
@@ -131,11 +204,13 @@
   // Berekent en betaalt de beloning voor een afgeronde les.
   function beloon(sleutel, score, tePlezig) {
     var res = { munten: 0, reden: '', reeks: 0, mijl: 0, msg: '' };
-    var rk = bijwerkenReeks(); res.reeks = S.reeksLes; res.msg = rk.msg; res.mijl = rk.extra;
     var trap = 0; TRAPPEN.some(function (t) { if (score >= t[0]) { trap = t[1]; return true; } });
+    var rk = (!tePlezig && trap > 0) ? bijwerkenReeks() : { msg: '', extra: 0 };   // te snel of bijna alles fout telt niet mee voor je reeks
+    res.reeks = S.reeksLes || 0; res.msg = rk.msg; res.mijl = rk.extra;
     var d = S.dagen[vandaag()] = S.dagen[vandaag()] || { lessen: 0, munten: 0 };
     var eerder = S.betaald[sleutel] || 0, verschil = Math.max(0, trap - eerder);
     if (tePlezig) res.reden = 'snel';
+    else if (trap === 0) res.reden = 'laag';
     else if (verschil === 0) res.reden = 'herhaling';
     else if (d.lessen >= MAX_LESSEN_DAG || d.munten >= CAP_DAG) res.reden = 'cap';
     else {
@@ -223,6 +298,17 @@
   function terug(hash, tekst) { return knop('back', '← ' + (tekst || Tr('Terug')), function () { location.hash = hash; }); }
 
   // ---------- schermen ----------
+  function muntenKaart() {
+    var k = el('div', 'muntenkaart'), wacht = wachtOpSpel(), r = S.reeksLes || 0, vol = null;
+    k.appendChild(el('strong', '', Tr('🪙 Mijn munten')));
+    k.appendChild(el('span', '', Tr('{n} verdiend met leren', { n: S.totaalMunten || 0 }) + ' · ' + Tr('vandaag {n}/{m}', { n: muntenVandaag(), m: CAP_DAG })));
+    if (wacht > 0) k.appendChild(el('span', '', Tr('{n} wachten op je in het spel', { n: wacht })));
+    Object.keys(MIJLPALEN).map(Number).sort(function (a, b) { return a - b; }).some(function (m) { if (m > r) { vol = m; return true; } });
+    if (vol) { var nog = vol - r; k.appendChild(el('span', '', Tr(nog === 1 ? 'Nog {n} dag leren en je krijgt een bonus van +{m}' : 'Nog {n} dagen leren en je krijgt een bonus van +{m}', { n: nog, m: MIJLPALEN[vol] }))); }
+    k.appendChild(el('small', '', Tr('Een les geeft 10 tot 40 munten (max. {a} lessen en {m} munten per dag). Elke dag leren geeft een bonus: 3 dagen +30, 7 dagen +75, 14 dagen +150, 30 dagen +300.', { a: MAX_LESSEN_DAG, m: CAP_DAG })));
+    if (/\/leren\/(index\.html)?$/.test(location.pathname)) { var a = el('a', 'terugspel', Tr('⚽ Naar het spel')); a.href = '../'; k.appendChild(a); }
+    return k;
+  }
   function home() {
     leeg();
     root.appendChild(merkRegel());
@@ -248,11 +334,12 @@
       root.appendChild(h);
     }
 
+    root.appendChild(muntenKaart());
     var tehe = teHerhalen().length;
     if (tehe) {
       var hk = knop('herhaling', '', function () { location.hash = '#/herhaling'; });
       hk.appendChild(el('strong', '', Tr('🔁 Herhaling van vandaag')));
-      hk.appendChild(el('span', '', Tr('{n} vragen om te herhalen', { n: Math.min(tehe, HERHALING_MAX) })));
+      hk.appendChild(el('span', '', Tr(Math.min(tehe, HERHALING_MAX) === 1 ? '{n} vraag om te herhalen' : '{n} vragen om te herhalen', { n: Math.min(tehe, HERHALING_MAX) })));
       root.appendChild(hk);
     }
     var nl = S.eigen.length, dichtst = null;
@@ -466,6 +553,7 @@
         h.appendChild(el('p', 'uitleg', Tr(score === 1 ? 'Klaar! {j} van {n} juist – perfect! 🎉' : 'Klaar! {j} van {n} juist.', { j: juist, n: n })));
         if (br.munten > 0) h.appendChild(el('div', 'beloning', Tr('🪙 +{n} munten voor EAWG Mobile!', { n: br.munten })));
         else h.appendChild(el('p', 'sub', {
+          laag: Tr('Haal minstens 2 van 5 juist om munten en een dag op je reeks te krijgen.'),
           snel: Tr('Neem even de tijd om de vragen te lezen, dan krijg je munten.'),
           herhaling: Tr('Oefenen, geen extra munten meer voor deze les. Goed bezig!'),
           cap: Tr('Vandaag zijn je lesmunten op. Leren mag altijd, morgen weer munten!')
@@ -552,7 +640,7 @@
     schud(idx).forEach(function (i) {
       var b = knop('kop', schoon(paren[i].doel), function () {
         if (b.disabled || !gekozen) return;
-        if (gekozen.i === i) {
+        if (schoon(paren[gekozen.i].doel) === schoon(paren[i].doel)) {
           gekozen.btn.classList.remove('gekozen'); gekozen.btn.classList.add('gevonden'); gekozen.btn.disabled = true;
           b.classList.add('gevonden'); b.disabled = true; gekozen = null; gevonden++;
           if (gevonden === paren.length) {
@@ -567,7 +655,7 @@
   }
 
   // Typen is sterker dan kiezen: je moet het echt uit je geheugen halen.
-  function norm(t) { return schoon(t).toLowerCase().replace(/’/g, "'").normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function norm(t) { return schoon(t).toLowerCase().replace(/’/g, "'").normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+([?!:;,.])/g, '$1').replace(/\s+/g, ' '); }
   function aanvaard(doel) {
     var lijst = [];
     schoon(doel).split('/').forEach(function (a) {
@@ -587,7 +675,7 @@
       }
       var w = kies[i], ok = aanvaard(w.doel), klaar = false;
       host.appendChild(el('p', 'teller', Tr('Woord {i} van {n}', { i: i + 1, n: kies.length })));
-      host.appendChild(el('p', 'vraag', Tr('Hoe zeg je: {w}?', { w: w.nl })));
+      host.appendChild(el('p', 'vraag', Tr('Hoe zeg je: {w}?', { w: String(w.nl).replace(/[?!.\s]+$/, '') })));
       var inp = el('input', 'invul');
       inp.type = 'text'; inp.setAttribute('autocapitalize', 'off'); inp.setAttribute('autocomplete', 'off');
       inp.setAttribute('autocorrect', 'off'); inp.setAttribute('spellcheck', 'false'); inp.setAttribute('aria-label', Tr('Jouw antwoord'));
@@ -663,7 +751,8 @@
     });
     start.disabled = true;
     function pinOk() { return !pin.value || /^\d{4}$/.test(pin.value); }
-    function check() { start.disabled = !(naam.value.trim() && gekozen && pinOk()); }
+    var pinHint = el('p', 'sub'); pin.parentNode.insertBefore(pinHint, pin.nextSibling);
+    function check() { start.disabled = !(naam.value.trim() && gekozen && pinOk()); pinHint.textContent = pinOk() ? '' : Tr('Een pincode heeft precies 4 cijfers.'); }
     naam.addEventListener('input', check); pin.addEventListener('input', check);
     klasKiezer(kz, null, function (id) { gekozen = id; check(); });
     root.appendChild(kz); root.appendChild(start);
@@ -718,7 +807,7 @@
       if (!stap) { wis.appendChild(knop('btn zacht', Tr('Verwijder dit profiel'), function () { toonWis(1); })); return; }
       wis.appendChild(el('p', 'sub', Tr('Zeker? Alle voortgang van dit profiel verdwijnt van dit toestel.')));
       wis.appendChild(knop('btn gevaar', Tr('Ja, verwijderen'), function () {
-        try { localStorage.removeItem('leren-p-' + PR.actief); } catch (e) {}
+        Opslag.wis('leren-p-' + PR.actief);
         PR.lijst = PR.lijst.filter(function (x) { return x.id !== PR.actief; });
         PR.actief = null; savePR();
         S = {}; vulS();
@@ -1096,7 +1185,15 @@
       root.appendChild(el('h2', '', Tr('Pincode')));
       if (pf.pin) {
         root.appendChild(el('p', 'sub', Tr('Je profiel is beveiligd met een pincode.')));
-        root.appendChild(knop('btn zacht', Tr('Pincode verwijderen'), function () { delete pf.pin; savePR(); instellingenScherm(); }));
+        var vp = el('input', 'invul'); vp.type = 'password'; vp.maxLength = 4; vp.setAttribute('inputmode', 'numeric'); vp.setAttribute('autocomplete', 'off');
+        vp.placeholder = Tr('Typ je pincode om hem te verwijderen'); vp.setAttribute('aria-label', Tr('Pincode'));
+        var vm = el('p', 'sub');
+        root.appendChild(vp);
+        root.appendChild(knop('btn zacht', Tr('Pincode verwijderen'), function () {
+          if (pinHash(vp.value) !== pf.pin) { vm.textContent = Tr('Verkeerde pincode. Probeer opnieuw.'); vp.value = ''; return; }
+          delete pf.pin; savePR(); instellingenScherm();
+        }));
+        root.appendChild(vm);
       } else {
         var np = el('input', 'invul'); np.type = 'password'; np.maxLength = 4; np.setAttribute('inputmode', 'numeric'); np.setAttribute('autocomplete', 'off');
         np.placeholder = Tr('Pincode (4 cijfers)'); np.setAttribute('aria-label', Tr('Pincode'));
@@ -1118,7 +1215,7 @@
   }
 
   function route() {
-    var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+    var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(function (x) { try { return decodeURIComponent(x); } catch (e) { return x; } });
     if (!INST.taalGekozen) return taalScherm();
     if (p[0] === 'instellingen') return instellingenScherm();
     if (p[0] === 'nieuw') return nieuwProfiel();
@@ -1128,17 +1225,29 @@
     if (!klas()) return profielScherm();
     if (!p.length) return home();
     if (p[0] === 'herhaling') return herhalingScherm();
-    if (!vak(p[0]) || vak(p[0]).binnenkort) return home();
+    if (!vak(p[0]) || vak(p[0]).binnenkort || (klas().vakken || []).indexOf(p[0]) < 0) return home();
     if (p.length === 1) return vakScherm(p[0]);
     if (p.length === 2) return themaScherm(p[0], p[1]);
     return lesScherm(p[0], p[1], p[2]);
   }
   window.addEventListener('hashchange', route);
   pasInstToe();
+  function toonOpslagWaarschuwing() {
+    var w = el('div', 'opslagwaarschuwing', Tr('Opslag is geblokkeerd in deze browser: je voortgang verdwijnt als je de app sluit. Maak een back-upcode bij Profiel → Toon mijn code.'));
+    w.setAttribute('role', 'alert'); document.body.insertBefore(w, document.body.firstChild);
+  }
+  Opslag.init(2500).then(function (o) {
+    if (o.hersteld) {   // lokale opslag was leeg: profielen en instellingen komen uit de database van je account terug
+      PR = lees(PKEY) || PR; INST = lees(IKEY) || INST; LANG = INST.taal || standaardTaal();
+      if (!INST.taalGekozen && PR.lijst.length) { INST.taal = INST.taal || 'nl'; LANG = INST.taal; INST.taalGekozen = true; }
+      pasInstToe();
+    }
+    if (o.status === 'alleen-geheugen') toonOpslagWaarschuwing();
   haal('klassen').then(function (k) {
-    if (k) KL = k;
-    if (PR.actief && PR.lijst.some(function (x) { return x.id === PR.actief; })) activeer(PR.actief); else PR.actief = null;
-    route();
-    verbergSplash();
+      if (k) KL = k;
+      if (PR.actief && PR.lijst.some(function (x) { return x.id === PR.actief; })) activeer(PR.actief); else PR.actief = null;
+      route();
+      verbergSplash();
+    });
   });
 })();

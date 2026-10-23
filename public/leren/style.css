@@ -192,3 +192,10 @@ html.groot{font-size:122%}
 @keyframes splash-in{from{transform:scale(.55) translateY(12px);opacity:0}to{transform:none;opacity:1}}
 @keyframes splash-tekst{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){#splash .logo,#splash b{animation:none}#splash{transition:none}}
+
+.woord{min-width:0;overflow-wrap:anywhere}
+.muntenkaart{display:grid;gap:4px;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin:12px 0}
+.muntenkaart small{color:var(--muted);font-size:.8rem;line-height:1.35}
+.muntenkaart .terugspel{justify-self:start;font-weight:700;color:var(--accent);text-decoration:none;padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
+.opslagwaarschuwing{background:#fde3e3;color:#7a1c1c;border-bottom:2px solid #d64545;padding:10px 14px;font-size:.9rem;position:sticky;top:0;z-index:50}
+.back{min-height:44px}
