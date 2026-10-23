@@ -1,6 +1,12 @@
 // Vertalingen van de app (sleutel = de Nederlandse tekst).
 window.LEREN_I18N = {
  "fr": {
+  "Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile": "Encore {n} leçon aujourd'hui pour ton code de {m} pièces dans EAWG Mobile",
+  "Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile": "Encore {n} leçons aujourd'hui pour ton code de {m} pièces dans EAWG Mobile",
+  "🎁 Je code van vandaag: {m} munten": "🎁 Ton code du jour : {m} pièces",
+  "Kopieer code": "Copier le code",
+  "Gekopieerd!": "Copié !",
+  "Open EAWG Mobile, tik op 🎁 Code en typ of plak deze code. Hij werkt 1 keer en nog 3 dagen.": "Ouvre EAWG Mobile, touche 🎁 Code et tape ou colle ce code. Il fonctionne 1 fois et encore 3 jours.",
   "Haal minstens 2 van 5 juist om munten en een dag op je reeks te krijgen.": "Réussis au moins 2 sur 5 pour gagner des pièces et un jour de série.",
   "🪙 Mijn munten": "🪙 Mes pièces",
   "{n} verdiend met leren": "{n} gagnées en apprenant",
@@ -232,6 +238,12 @@ window.LEREN_I18N = {
   "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte et rien n'est envoyé."
  },
  "en": {
+  "Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile": "{n} more lesson today for your code worth {m} coins in EAWG Mobile",
+  "Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile": "{n} more lessons today for your code worth {m} coins in EAWG Mobile",
+  "🎁 Je code van vandaag: {m} munten": "🎁 Your code for today: {m} coins",
+  "Kopieer code": "Copy code",
+  "Gekopieerd!": "Copied!",
+  "Open EAWG Mobile, tik op 🎁 Code en typ of plak deze code. Hij werkt 1 keer en nog 3 dagen.": "Open EAWG Mobile, tap 🎁 Code and type or paste this code. It works once and for 3 more days.",
   "Haal minstens 2 van 5 juist om munten en een dag op je reeks te krijgen.": "Get at least 2 out of 5 right to earn coins and a day on your streak.",
   "🪙 Mijn munten": "🪙 My coins",
   "{n} verdiend met leren": "{n} earned by learning",

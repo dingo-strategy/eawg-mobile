@@ -199,3 +199,7 @@ html.groot{font-size:122%}
 .muntenkaart .terugspel{justify-self:start;font-weight:700;color:var(--accent);text-decoration:none;padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
 .opslagwaarschuwing{background:#fde3e3;color:#7a1c1c;border-bottom:2px solid #d64545;padding:10px 14px;font-size:.9rem;position:sticky;top:0;z-index:50}
 .back{min-height:44px}
+
+.codekaart{display:grid;gap:6px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:16px;padding:12px 14px;margin:10px 0}
+.codekaart .code{font:700 1.5rem/1.2 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;word-break:break-all}
+.codekaart small{color:var(--muted);font-size:.8rem;line-height:1.35}

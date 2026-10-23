@@ -1115,6 +1115,27 @@ function loadS() {
 function saveS() { try { localStorage.setItem('goalrush2', JSON.stringify(S)); } catch (e) {} }
 // Munten uit de leer-app (public/leren) komen via een brievenbus binnen, zodat twee open tabbladen elkaar niet overschrijven.
 let lerenToast = null;
+const AB = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', GEHEIM = 'leerliga-eawg-75-v1', DAG0 = 19723;
+function b32(n, len) { var s = ''; for (let i = 0; i < len; i++) { s = AB.charAt(n % 32) + s; n = Math.floor(n / 32); } return s; }
+function h32(s) { var h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0; } return h; }
+
+function dagIdxNu() { const n = new Date(); return Math.round(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()) / 864e5) - DAG0; }
+// Code uit Leerliga (na 2 lessen op een dag): 1 keer bruikbaar, geldig 3 dagen, goed voor 75 munten.
+function inwisselCode(raw) {
+  const c = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (c.length !== 11) return { ok: false, m: 'Dat is geen geldige code.' };
+  const p = c.slice(0, 4), d = c.slice(4, 7), ck = c.slice(7);
+  if (b32(h32(GEHEIM + '|' + p + '|' + d) % 1048576, 4) !== ck) return { ok: false, m: 'Dat is geen geldige code.' };
+  let idx = 0; for (let i = 0; i < 3; i++) idx = idx * 32 + AB.indexOf(d.charAt(i));
+  const nu = dagIdxNu();
+  if (idx > nu + 1) return { ok: false, m: 'Deze code is nog niet geldig.' };
+  if (nu - idx > 3) return { ok: false, m: 'Deze code is verlopen.' };
+  let used = []; try { used = JSON.parse(localStorage.getItem('leren-codes')) || []; } catch (e) {}
+  if (used.indexOf(c) >= 0) return { ok: false, m: 'Deze code heb je al gebruikt.' };
+  used.push(c); try { localStorage.setItem('leren-codes', JSON.stringify(used.slice(-60))); } catch (e) {}
+  S.coins += 75; saveS(); lerenToast = { n: 75, t: performance.now() };
+  return { ok: true, m: 'Gelukt! +75 munten.' };
+}
 function claimLeren() {   // tegoed = teller die alleen stijgt; wij onthouden hoeveel we al hebben opgehaald (geen verlies, geen dubbel tellen)
   try {
     if (!S) return;
@@ -1929,7 +1950,17 @@ function applyComp(i) {
   COMPS[i].teams.forEach((t, j) => { KITS[j] = { name: String(t.name).slice(0, 24), code: String(t.code || t.name).slice(0, 3).toUpperCase(), shirt: t.shirt, shorts: t.shorts || '#ffffff', sock: t.sock || t.shirt, trim: t.trim || '#ffffff' }; if (t.ts > 40 && t.ts < 95) TS[j] = t.ts; });
   applyKits();
 }
-const insBtn = document.getElementById('install'), leerLink = document.getElementById('leerlink');
+const insBtn = document.getElementById('install'), leerLink = document.getElementById('leerlink'), codeBtn = document.getElementById('codebtn');
+{
+  const box = document.getElementById('codebox'), inp = document.getElementById('codeinp'), msg = document.getElementById('codemsg');
+  if (codeBtn && box) {
+    codeBtn.addEventListener('click', () => { box.style.display = 'block'; msg.textContent = ''; inp.value = ''; inp.focus(); });
+    document.getElementById('codex').addEventListener('click', () => { box.style.display = 'none'; });
+    const go = () => { const r = inwisselCode(inp.value); msg.textContent = r.m; msg.style.color = r.ok ? '#7dffa8' : '#ff9a9a'; if (r.ok) setTimeout(() => { box.style.display = 'none'; }, 1200); };
+    document.getElementById('codego').addEventListener('click', go);
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  }
+}
 function degrade() {
   if (dprCap > 1 && (window.devicePixelRatio || 1) > 1) { dprCap = Math.max(1, dprCap - 0.5); resize(); }
   else if (Q < 2) { Q++; TXL = [2, 1.3, 1][Q]; resize(); buildGrass(); }
@@ -1946,7 +1977,7 @@ function loop(now) {
   const vis = SW / 2 / (zoom * (SF + SN) / 2);
   const target = Math.max(vis - 70, Math.min(W - vis + 70, ball.x + ball.vx * 0.22));
   camX += (target - camX) * Math.min(1, 4 * dt);
-  const sh = state === 'play' || state === 'goal'; bS.classList.toggle('hide', !sh); bP.classList.toggle('hide', !sh); if (insBtn) insBtn.classList.toggle('hide', sh); if (leerLink) leerLink.classList.toggle('hide', sh);
+  const sh = state === 'play' || state === 'goal'; bS.classList.toggle('hide', !sh); bP.classList.toggle('hide', !sh); if (insBtn) insBtn.classList.toggle('hide', sh); if (leerLink) leerLink.classList.toggle('hide', sh); if (codeBtn) codeBtn.classList.toggle('hide', sh);
   if (state === 'play' && document.body.classList.contains('portrait')) state = 'pause';
   { const lb = (ctrl && ball && ball.owner !== ctrl) ? 'TAKEL' : 'PASS'; if (lb !== pLab) { pLab = lb; bP.textContent = lb; } }
   { const ch = charging ? Math.min(1, charge / 0.7) : 0, v = Math.round(ch * 10); if (v !== bsV) { bsV = v; bS.style.boxShadow = v ? '0 0 0 ' + (3 + v) + 'px rgba(255,212,0,' + (0.5 + ch * 0.5) + ')' : ''; } }

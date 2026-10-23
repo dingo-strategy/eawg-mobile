@@ -149,8 +149,32 @@
   // Cijfers volgen het advies van de onderzoeker; het zijn gekalibreerde gokken, na enkele weken bijsturen.
   var TRAPPEN = [[0.9, 40], [0.7, 30], [0.5, 20], [0.4, 10]];   // [minimumscore, munten]
   var MAX_LESSEN_DAG = 3, CAP_DAG = 100, FREEZES_PER_WEEK = 2;
+  var CODE_MUNTEN = 75, CODE_LESSEN = 2;   // na 2 lessen op een dag krijg je een code voor 75 munten in EAWG Mobile
   var MIJLPALEN = { 3: 30, 7: 75, 14: 150, 30: 300 }, NA_30 = 200;
 
+  var AB = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', GEHEIM = 'leerliga-eawg-75-v1', DAG0 = 19723;   // DAG0 = dagnummer van 1 jan 2024
+  function b32(n, len) { var s = ''; for (var i = 0; i < len; i++) { s = AB.charAt(n % 32) + s; n = Math.floor(n / 32); } return s; }
+  function h32(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0; } return h; }
+  function maakCode(pid, dagIdx) { var p = b32(h32('p|' + pid) % 1048576, 4), d = b32(dagIdx, 3); return p + '-' + d + '-' + b32(h32(GEHEIM + '|' + p + '|' + d) % 1048576, 4); }
+  function dagIdxNu() { return Math.round(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) / 864e5) - DAG0; }
+  function lessenGeteld() { var d = S.dagen[vandaag()]; return d && d.klaar ? d.klaar.length : 0; }
+  function dagCode() { return lessenGeteld() >= CODE_LESSEN && PR.actief ? maakCode(PR.actief, dagIdxNu()) : null; }
+  function codeKaart() {
+    var k = el('div', 'codekaart'), c = dagCode();
+    if (!c) {
+      var nog = CODE_LESSEN - lessenGeteld();
+      k.appendChild(el('span', '', Tr(nog === 1 ? 'Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile' : 'Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile', { n: nog, m: CODE_MUNTEN })));
+      return k;
+    }
+    k.appendChild(el('strong', '', Tr('🎁 Je code van vandaag: {m} munten', { m: CODE_MUNTEN })));
+    k.appendChild(el('div', 'code', c));
+    var b = knop('btn zacht', Tr('Kopieer code'), function () {
+      try { navigator.clipboard.writeText(c).then(function () { b.textContent = Tr('Gekopieerd!'); }, function () { b.textContent = c; }); } catch (e) { b.textContent = c; }
+    });
+    k.appendChild(b);
+    k.appendChild(el('small', '', Tr('Open EAWG Mobile, tik op 🎁 Code en typ of plak deze code. Hij werkt 1 keer en nog 3 dagen.')));
+    return k;
+  }
   function dag(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
   function dagNr(key) { var p = key.split('-'); return Date.UTC(+p[0], p[1] - 1, +p[2]) / 864e5; }
   function weekKey(d) { var m = new Date(d); m.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return dag(m); }
@@ -208,6 +232,8 @@
     var rk = (!tePlezig && trap > 0) ? bijwerkenReeks() : { msg: '', extra: 0 };   // te snel of bijna alles fout telt niet mee voor je reeks
     res.reeks = S.reeksLes || 0; res.msg = rk.msg; res.mijl = rk.extra;
     var d = S.dagen[vandaag()] = S.dagen[vandaag()] || { lessen: 0, munten: 0 };
+    d.klaar = d.klaar || [];
+    if (!tePlezig && trap > 0 && d.klaar.indexOf(sleutel) < 0) d.klaar.push(sleutel);   // telt mee voor de code van vandaag
     var eerder = S.betaald[sleutel] || 0, verschil = Math.max(0, trap - eerder);
     if (tePlezig) res.reden = 'snel';
     else if (trap === 0) res.reden = 'laag';
@@ -305,6 +331,7 @@
     if (wacht > 0) k.appendChild(el('span', '', Tr('{n} wachten op je in het spel', { n: wacht })));
     Object.keys(MIJLPALEN).map(Number).sort(function (a, b) { return a - b; }).some(function (m) { if (m > r) { vol = m; return true; } });
     if (vol) { var nog = vol - r; k.appendChild(el('span', '', Tr(nog === 1 ? 'Nog {n} dag leren en je krijgt een bonus van +{m}' : 'Nog {n} dagen leren en je krijgt een bonus van +{m}', { n: nog, m: MIJLPALEN[vol] }))); }
+    k.appendChild(codeKaart());
     k.appendChild(el('small', '', Tr('Een les geeft 10 tot 40 munten (max. {a} lessen en {m} munten per dag). Elke dag leren geeft een bonus: 3 dagen +30, 7 dagen +75, 14 dagen +150, 30 dagen +300.', { a: MAX_LESSEN_DAG, m: CAP_DAG })));
     if (/\/leren\/(index\.html)?$/.test(location.pathname)) { var a = el('a', 'terugspel', Tr('⚽ Naar het spel')); a.href = '../'; k.appendChild(a); }
     return k;
@@ -558,6 +585,7 @@
           herhaling: Tr('Oefenen, geen extra munten meer voor deze les. Goed bezig!'),
           cap: Tr('Vandaag zijn je lesmunten op. Leren mag altijd, morgen weer munten!')
         }[br.reden] || ''));
+        h.appendChild(codeKaart());
         if (br.mijl > 0) h.appendChild(el('div', 'beloning', Tr('🔥 {r} dagen op rij! Bonus +{m} munten', { r: br.reeks, m: br.mijl })));
         else if (br.msg) h.appendChild(el('p', 'sub', br.msg));
         if (juist < n) h.appendChild(el('p', 'sub', Tr('De vragen die fout waren, komen morgen terug bij "Herhaling".')));
