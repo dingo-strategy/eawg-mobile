@@ -1,0 +1,2 @@
+Tesseract.js (Apache-2.0), tesseract.js-core (Apache-2.0) en de taalmodellen @tesseract.js-data (Apache-2.0).
+Gebruikt voor het lezen van tekst uit foto op het toestel zelf.

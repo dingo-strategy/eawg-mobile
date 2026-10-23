@@ -1,0 +1,1809 @@
+{
+ "vak": "wiskunde",
+ "naam": "Wiskunde",
+ "niveau": "B",
+ "bronnen": [
+  {
+   "titel": "Eindtermen eerste graad A-stroom (Vlaamse overheid, decreet 5 december 2018; geraadpleegd via zoekresultaten, volledige tekst niet opvraagbaar)",
+   "url": "https://themis.vlaanderen.be/files/1c4821b0-d653-11e9-99f3-0242ac1b0003/download"
+  },
+  {
+   "titel": "Eindtermenselectie wiskunde SO2 2024-2025 (Vlaams departement Onderwijs)",
+   "url": "https://data-onderwijs.vlaanderen.be/documenten/bestanden/eindtermenselectie-wiskunde-SO2-2024-2025.pdf"
+  },
+  {
+   "titel": "Eindtermen wiskunde 2SO (Vlaamse overheid)",
+   "url": "https://assets.vlaanderen.be/image/upload/v1717005726/Eindtermen_wiskunde_2SO_ma4u1b.pdf"
+  },
+  {
+   "titel": "GO! leerplan Basisvorming eerste graad A-stroom (2024/1A/BAS)",
+   "url": "https://pro.g-o.be/download/GOPRO-1830562155-27333/GO! SO 1ste graad A-stroom - leerplan Basisvorming"
+  }
+ ],
+ "dekking": "Dit is een vereenvoudigde versie voor de B-stroom (1B en 2e jaar beroepsvoorbereidend), afgeleid van de A-stroomversie. Ze bevat enkel de kern en praktische rekenvaardigheden en is niet getoetst aan de B-stroom-leerplannen. Abstracte onderdelen (priemgetallen, ggd/kgv, machten en wortels, letterrekenen, verzamelingen) zijn weggelaten. Controleer de indeling nog tegen het leerplan van jouw net.",
+ "leerjaren": [
+  {
+   "jaar": 1,
+   "themas": [
+    {
+     "id": "j1-deelbaarheid",
+     "titel": "Deelbaarheid",
+     "samenvatting": "Je ziet snel of een getal in gelijke delen te verdelen is.",
+     "lessen": [
+      {
+       "id": "j1-deelbaarheidskenmerken",
+       "titel": "Deelbaarheidskenmerken",
+       "uitleg": "Een getal is deelbaar door een ander getal als je zonder rest kan delen. 12 is deelbaar door 4, want 12 : 4 = 3.\n\nSnelle regels. Deelbaar door 2: het laatste cijfer is 0, 2, 4, 6 of 8. Deelbaar door 5: het laatste cijfer is 0 of 5. Deelbaar door 10: het laatste cijfer is 0.\n\nVoor 3 tel je alle cijfers op. Dat noem je de cijfersom. Is de cijfersom deelbaar door 3? Dan is het getal deelbaar door 3. Voorbeeld 252. Stap 1: 2 + 5 + 2 = 9. Stap 2: 9 is deelbaar door 3. Dus 252 ook.",
+       "woorden": [
+        {
+         "nl": "rest",
+         "doel": "Wat overblijft na een deling.",
+         "voorbeeld": "13 : 4 = 3 rest 1"
+        },
+        {
+         "nl": "cijfersom",
+         "doel": "Alle cijfers van een getal opgeteld.",
+         "voorbeeld": "De cijfersom van 252 is 9."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk getal is deelbaar door 5?",
+         "opties": [
+          "135",
+          "134",
+          "132"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het laatste cijfer is 5."
+        },
+        {
+         "vraag": "Welk getal is deelbaar door 2?",
+         "opties": [
+          "147",
+          "149",
+          "148"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het laatste cijfer 8 is even."
+        },
+        {
+         "vraag": "Welk getal is deelbaar door 3?",
+         "opties": [
+          "124",
+          "123",
+          "125"
+         ],
+         "antwoord": 1,
+         "uitleg": "Cijfersom 1 + 2 + 3 = 6, en 6 is deelbaar door 3."
+        },
+        {
+         "vraag": "Welk getal is deelbaar door 10?",
+         "opties": [
+          "240",
+          "245",
+          "242"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het laatste cijfer is 0."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-gehele-getallen",
+     "titel": "Positieve en negatieve getallen",
+     "samenvatting": "Je rekent met getallen boven en onder nul.",
+     "lessen": [
+      {
+       "id": "j1-optellen-aftrekken-gehele",
+       "titel": "Optellen en aftrekken",
+       "uitleg": "Een negatief getal ligt onder nul. Denk aan -3 graden of aan een schuld.\n\nOptellen: ga naar rechts op de getallenlijn. Aftrekken: ga naar links. Voorbeeld -2 + 5. Stap 1: begin bij -2. Stap 2: ga 5 stappen naar rechts. Je komt op 3.\n\nMin min is plus. Voorbeeld 4 - (-3). Stap 1: schrijf 4 + 3. Stap 2: reken uit. Het antwoord is 7.",
+       "woorden": [
+        {
+         "nl": "negatief getal",
+         "doel": "Een getal kleiner dan nul.",
+         "voorbeeld": "-4 graden"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is -2 + 5?",
+         "opties": [
+          "-7",
+          "3",
+          "7"
+         ],
+         "antwoord": 1,
+         "uitleg": "Begin bij -2 en ga 5 naar rechts: 3."
+        },
+        {
+         "vraag": "Het is -4 graden. Het wordt 6 graden warmer. Hoeveel graden is het dan?",
+         "opties": [
+          "2",
+          "10",
+          "-10"
+         ],
+         "antwoord": 0,
+         "uitleg": "-4 + 6 = 2."
+        },
+        {
+         "vraag": "Wat is 4 - (-3)?",
+         "opties": [
+          "1",
+          "-1",
+          "7"
+         ],
+         "antwoord": 2,
+         "uitleg": "Min min is plus: 4 + 3 = 7."
+        },
+        {
+         "vraag": "Wat is -3 - 4?",
+         "opties": [
+          "7",
+          "-7",
+          "1"
+         ],
+         "antwoord": 1,
+         "uitleg": "Je gaat 4 naar links vanaf -3: -7."
+        }
+       ]
+      },
+      {
+       "id": "j1-vermenigvuldigen-delen-gehele",
+       "titel": "Vermenigvuldigen en delen",
+       "uitleg": "Bij x en : let je op het teken. Zelfde tekens geven plus. Verschillende tekens geven min.\n\nVoorbeelden. (-5) x (-2) = 10, want min x min is plus. (-3) x 4 = -12, want verschillend is min. -12 : 3 = -4.\n\nRekenvolgorde: eerst x en :, dan pas + en -. Voorbeeld 2 + 3 x 4. Stap 1: 3 x 4 = 12. Stap 2: 2 + 12 = 14.",
+       "woorden": [
+        {
+         "nl": "rekenvolgorde",
+         "doel": "De volgorde waarin je een som uitrekent.",
+         "voorbeeld": "Eerst x, dan +"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is (-3) x 4?",
+         "opties": [
+          "12",
+          "-7",
+          "-12"
+         ],
+         "antwoord": 2,
+         "uitleg": "Verschillende tekens geven min: 3 x 4 = 12, dus -12."
+        },
+        {
+         "vraag": "Wat is (-5) x (-2)?",
+         "opties": [
+          "-10",
+          "10",
+          "-7"
+         ],
+         "antwoord": 1,
+         "uitleg": "Min x min is plus: 5 x 2 = 10."
+        },
+        {
+         "vraag": "Wat is -12 : 3?",
+         "opties": [
+          "-4",
+          "4",
+          "-9"
+         ],
+         "antwoord": 0,
+         "uitleg": "12 : 3 = 4 en de tekens verschillen, dus -4."
+        },
+        {
+         "vraag": "Wat is 2 + 3 x 4?",
+         "opties": [
+          "20",
+          "24",
+          "14"
+         ],
+         "antwoord": 2,
+         "uitleg": "Eerst 3 x 4 = 12, dan 2 + 12 = 14."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-breuken",
+     "titel": "Breuken",
+     "samenvatting": "Je rekent met delen van een geheel.",
+     "lessen": [
+      {
+       "id": "j1-breuken-optellen",
+       "titel": "Vereenvoudigen en optellen",
+       "uitleg": "Een breuk is een deel van een geheel. Bij 3/4 is de noemer 4 (in hoeveel stukken) en de teller 3 (hoeveel stukken je neemt).\n\nVereenvoudigen: deel teller en noemer door hetzelfde getal. Voorbeeld 4/8. Stap 1: deel boven en onder door 4. Stap 2: je krijgt 1/2.\n\nOptellen met gelijke noemer: tel enkel de tellers op. 1/5 + 2/5 = 3/5. Verschillende noemers? Maak ze eerst gelijk. 1/2 = 2/4, dus 1/2 + 1/4 = 2/4 + 1/4 = 3/4.",
+       "woorden": [
+        {
+         "nl": "teller",
+         "doel": "Het getal boven de breukstreep.",
+         "voorbeeld": "Bij 3/4 is 3 de teller."
+        },
+        {
+         "nl": "noemer",
+         "doel": "Het getal onder de breukstreep.",
+         "voorbeeld": "Bij 3/4 is 4 de noemer."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Vereenvoudig 4/8 zo ver mogelijk.",
+         "opties": [
+          "1/2",
+          "3/8",
+          "1/4"
+         ],
+         "antwoord": 0,
+         "uitleg": "Deel boven en onder door 4: 1/2."
+        },
+        {
+         "vraag": "Wat is 2/7 + 3/7?",
+         "opties": [
+          "5/14",
+          "6/7",
+          "5/7"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zelfde noemer: 2 + 3 = 5, dus 5/7."
+        },
+        {
+         "vraag": "Wat is 1/2 + 1/4?",
+         "opties": [
+          "2/6",
+          "3/4",
+          "1/6"
+         ],
+         "antwoord": 1,
+         "uitleg": "1/2 is 2/4, en 2/4 + 1/4 = 3/4."
+        },
+        {
+         "vraag": "Vereenvoudig 6/9.",
+         "opties": [
+          "2/3",
+          "3/6",
+          "1/3"
+         ],
+         "antwoord": 0,
+         "uitleg": "Deel boven en onder door 3: 2/3."
+        }
+       ]
+      },
+      {
+       "id": "j1-breuken-vermenigvuldigen",
+       "titel": "Breuk van een hoeveelheid",
+       "uitleg": "Wil je 3/4 van 20 weten? Deel eerst door de noemer. Vermenigvuldig dan met de teller.\n\nVoorbeeld 3/4 van 20. Stap 1: 20 : 4 = 5. Stap 2: 5 x 3 = 15. Dus 3/4 van 20 is 15.\n\nTwee breuken vermenigvuldigen kan ook. Tellers keer tellers, noemers keer noemers. 1/2 x 1/3 = 1/6.",
+       "oefeningen": [
+        {
+         "vraag": "Wat is 3/4 van 20?",
+         "opties": [
+          "5",
+          "15",
+          "12"
+         ],
+         "antwoord": 1,
+         "uitleg": "20 : 4 = 5 en 5 x 3 = 15."
+        },
+        {
+         "vraag": "Wat is 2/5 van 30?",
+         "opties": [
+          "12",
+          "6",
+          "15"
+         ],
+         "antwoord": 0,
+         "uitleg": "30 : 5 = 6 en 6 x 2 = 12."
+        },
+        {
+         "vraag": "Van 24 leerlingen is 1/3 afwezig. Hoeveel zijn afwezig?",
+         "opties": [
+          "12",
+          "6",
+          "8"
+         ],
+         "antwoord": 2,
+         "uitleg": "24 : 3 = 8."
+        },
+        {
+         "vraag": "Wat is 1/2 x 1/3?",
+         "opties": [
+          "2/5",
+          "1/6",
+          "1/5"
+         ],
+         "antwoord": 1,
+         "uitleg": "1 x 1 = 1 en 2 x 3 = 6, dus 1/6."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-decimaal-procent",
+     "titel": "Kommagetallen en procent",
+     "samenvatting": "Je rekent met geld, kommagetallen en procenten.",
+     "lessen": [
+      {
+       "id": "j1-decimale-getallen",
+       "titel": "Kommagetallen",
+       "uitleg": "Een kommagetal heeft cijfers na de komma, zoals 2,50 euro. Je ziet ze vaak bij geld.\n\nOptellen en aftrekken: zet de komma onder de komma. Voorbeeld 2,40 + 1,35. Stap 1: zet de getallen onder elkaar met komma onder komma. Stap 2: tel op. Je krijgt 3,75.\n\nx 10: de komma gaat 1 plaats naar rechts. 3,4 x 10 = 34. : 10: de komma gaat 1 plaats naar links. 4,5 : 10 = 0,45.",
+       "woorden": [
+        {
+         "nl": "komma",
+         "doel": "Het teken dat hele getallen en delen scheidt.",
+         "voorbeeld": "In 3,75 staat de komma na de 3."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is 2,40 + 1,35?",
+         "opties": [
+          "3,65",
+          "3,85",
+          "3,75"
+         ],
+         "antwoord": 2,
+         "uitleg": "2,40 + 1,35 = 3,75."
+        },
+        {
+         "vraag": "Je betaalt met 10 euro. Je koopt voor 3,60 euro. Hoeveel krijg je terug?",
+         "opties": [
+          "7,40",
+          "6,40",
+          "6,60"
+         ],
+         "antwoord": 1,
+         "uitleg": "10 - 3,60 = 6,40."
+        },
+        {
+         "vraag": "Wat is 3,4 x 10?",
+         "opties": [
+          "34",
+          "3,40",
+          "340"
+         ],
+         "antwoord": 0,
+         "uitleg": "De komma gaat 1 plaats naar rechts: 34."
+        },
+        {
+         "vraag": "Wat is 4,5 : 10?",
+         "opties": [
+          "0,045",
+          "45",
+          "0,45"
+         ],
+         "antwoord": 2,
+         "uitleg": "De komma gaat 1 plaats naar links: 0,45."
+        }
+       ]
+      },
+      {
+       "id": "j1-procent",
+       "titel": "Procent",
+       "uitleg": "Procent betekent per honderd. 50% is de helft. 25% is een kwart. 10% is delen door 10.\n\nVoorbeeld 20% van 60. Stap 1: 10% van 60 is 6. Stap 2: 20% is twee keer zoveel, dus 12.\n\nKorting is een deel van de prijs dat er af gaat. Een jas kost 80 euro met 25% korting. Stap 1: 25% van 80 is 20. Stap 2: 80 - 20 = 60. Je betaalt 60 euro.",
+       "woorden": [
+        {
+         "nl": "procent",
+         "doel": "Zoveel per honderd.",
+         "voorbeeld": "50% is 50 op 100."
+        },
+        {
+         "nl": "korting",
+         "doel": "Een bedrag dat van de prijs af gaat.",
+         "voorbeeld": "10% korting op 40 euro"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is 10% van 50?",
+         "opties": [
+          "5",
+          "10",
+          "50"
+         ],
+         "antwoord": 0,
+         "uitleg": "10% is delen door 10: 50 : 10 = 5."
+        },
+        {
+         "vraag": "Wat is 50% van 80?",
+         "opties": [
+          "50",
+          "20",
+          "40"
+         ],
+         "antwoord": 2,
+         "uitleg": "50% is de helft: 80 : 2 = 40."
+        },
+        {
+         "vraag": "Een trui kost 40 euro. Je krijgt 10% korting. Wat betaal je?",
+         "opties": [
+          "4 euro",
+          "36 euro",
+          "30 euro"
+         ],
+         "antwoord": 1,
+         "uitleg": "10% van 40 is 4. Dan 40 - 4 = 36."
+        },
+        {
+         "vraag": "In een klas van 20 leerlingen zijn 50% meisjes. Hoeveel meisjes zijn dat?",
+         "opties": [
+          "10",
+          "5",
+          "50"
+         ],
+         "antwoord": 0,
+         "uitleg": "De helft van 20 is 10."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-verhoudingen",
+     "titel": "Verhoudingen en evenredigheid",
+     "samenvatting": "Je vergelijkt hoeveelheden en leest een schaal.",
+     "lessen": [
+      {
+       "id": "j1-verhoudingen-schaal",
+       "titel": "Verhoudingen en schaal",
+       "uitleg": "Een verhouding vergelijkt twee hoeveelheden. Bij 1 : 4 hoort op 1 deel siroop 4 delen water.\n\nEen schaal zegt hoeveel kleiner een tekening is. Schaal 1 : 100 betekent: 1 cm op de tekening is 100 cm echt. Dat is 1 m.\n\nVoorbeeld: 5 cm op het plan, schaal 1 : 100. Stap 1: 5 x 100 = 500 cm. Stap 2: 500 cm is 5 m.",
+       "woorden": [
+        {
+         "nl": "schaal",
+         "doel": "Zegt hoeveel kleiner de tekening is dan echt.",
+         "voorbeeld": "1 : 100"
+        },
+        {
+         "nl": "verhouding",
+         "doel": "Een vergelijking tussen twee hoeveelheden.",
+         "voorbeeld": "1 : 4"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Schaal 1 : 100. Op het plan is een muur 3 cm. Hoe lang is de muur echt?",
+         "opties": [
+          "30 m",
+          "3 m",
+          "300 m"
+         ],
+         "antwoord": 1,
+         "uitleg": "3 x 100 = 300 cm en dat is 3 m."
+        },
+        {
+         "vraag": "Een mengsel is 1 deel siroop op 4 delen water. Je gebruikt 2 dl siroop. Hoeveel water?",
+         "opties": [
+          "8 dl",
+          "6 dl",
+          "4 dl"
+         ],
+         "antwoord": 0,
+         "uitleg": "2 x 4 = 8 dl."
+        },
+        {
+         "vraag": "Schaal 1 : 50. Op het plan is een tafel 4 cm. Hoe lang is de tafel echt?",
+         "opties": [
+          "20 cm",
+          "4 m",
+          "2 m"
+         ],
+         "antwoord": 2,
+         "uitleg": "4 x 50 = 200 cm = 2 m."
+        },
+        {
+         "vraag": "Voor 2 liter verf heb je 3 liter water nodig. Hoeveel water voor 4 liter verf?",
+         "opties": [
+          "5 liter",
+          "6 liter",
+          "7 liter"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dubbel zoveel verf: 2 x 3 = 6 liter water."
+        }
+       ]
+      },
+      {
+       "id": "j1-recht-evenredig",
+       "titel": "Recht evenredig",
+       "uitleg": "Twee dingen zijn recht evenredig als het ene dubbel wordt en het andere ook. Meer broodjes betekent meer geld.\n\nVoorbeeld: 3 appels kosten 6 euro. Wat kosten 5 appels? Stap 1: zoek de prijs van 1 appel. 6 : 3 = 2 euro. Stap 2: reken voor 5 appels. 5 x 2 = 10 euro.\n\nZo werk je altijd. Eerst naar 1, dan naar het gevraagde aantal.",
+       "woorden": [
+        {
+         "nl": "recht evenredig",
+         "doel": "Dubbel zoveel van het ene geeft dubbel zoveel van het andere.",
+         "voorbeeld": "Dubbel zoveel appels, dubbele prijs"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "4 broodjes kosten 8 euro. Wat kosten 7 broodjes?",
+         "opties": [
+          "12 euro",
+          "15 euro",
+          "14 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een broodje kost 2 euro. 7 x 2 = 14."
+        },
+        {
+         "vraag": "2 kg aardappelen kosten 5 euro. Wat kosten 6 kg?",
+         "opties": [
+          "10 euro",
+          "15 euro",
+          "12 euro"
+         ],
+         "antwoord": 1,
+         "uitleg": "6 kg is 3 keer 2 kg. 3 x 5 = 15."
+        },
+        {
+         "vraag": "Een auto rijdt 60 km per uur. Hoeveel km in 3 uur?",
+         "opties": [
+          "180 km",
+          "120 km",
+          "63 km"
+         ],
+         "antwoord": 0,
+         "uitleg": "3 x 60 = 180 km."
+        },
+        {
+         "vraag": "5 potloden kosten 10 euro. Wat kosten 3 potloden?",
+         "opties": [
+          "5 euro",
+          "8 euro",
+          "6 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een potlood kost 2 euro. 3 x 2 = 6."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-meetkunde-figuren",
+     "titel": "Hoeken, driehoeken en vierhoeken",
+     "samenvatting": "Je herkent hoeken en vormen en rekent een onbekende hoek uit.",
+     "lessen": [
+      {
+       "id": "j1-hoeken",
+       "titel": "Hoeken",
+       "uitleg": "Een hoek meet je in graden. Een rechte hoek is 90 graden, zoals een hoek van een blad papier. Een gestrekte hoek is 180 graden en lijkt op een rechte lijn.\n\nEen scherpe hoek is kleiner dan 90 graden. Een stompe hoek is groter dan 90 en kleiner dan 180 graden.\n\nIn elke driehoek zijn de drie hoeken samen 180 graden. Voorbeeld: twee hoeken zijn 50 en 60 graden. Stap 1: 50 + 60 = 110. Stap 2: 180 - 110 = 70. De derde hoek is 70 graden.",
+       "woorden": [
+        {
+         "nl": "graden",
+         "doel": "De eenheid waarmee je hoeken meet.",
+         "voorbeeld": "Een rechte hoek is 90 graden."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet een hoek van 120 graden?",
+         "opties": [
+          "Stomp",
+          "Scherp",
+          "Recht"
+         ],
+         "antwoord": 0,
+         "uitleg": "Meer dan 90 en minder dan 180 graden is stomp."
+        },
+        {
+         "vraag": "Een driehoek heeft hoeken van 50 en 60 graden. Hoe groot is de derde hoek?",
+         "opties": [
+          "80 graden",
+          "110 graden",
+          "70 graden"
+         ],
+         "antwoord": 2,
+         "uitleg": "50 + 60 = 110 en 180 - 110 = 70."
+        },
+        {
+         "vraag": "Hoe groot is een rechte hoek?",
+         "opties": [
+          "180 graden",
+          "90 graden",
+          "45 graden"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een rechte hoek is altijd 90 graden."
+        },
+        {
+         "vraag": "Twee hoeken vormen samen een gestrekte hoek. Een hoek is 130 graden. Hoe groot is de andere?",
+         "opties": [
+          "50 graden",
+          "40 graden",
+          "60 graden"
+         ],
+         "antwoord": 0,
+         "uitleg": "180 - 130 = 50."
+        }
+       ]
+      },
+      {
+       "id": "j1-driehoeken-vierhoeken",
+       "titel": "Driehoeken en vierhoeken",
+       "uitleg": "Een gelijkzijdige driehoek heeft drie gelijke zijden. Een gelijkbenige driehoek heeft minstens twee gelijke zijden. Een rechthoekige driehoek heeft een rechte hoek.\n\nBij een vierhoek zijn de vier hoeken samen 360 graden. Een rechthoek heeft vier rechte hoeken. Een ruit heeft vier gelijke zijden.\n\nVoorbeeld: een vierhoek heeft hoeken van 90, 90 en 100 graden. Stap 1: 90 + 90 + 100 = 280. Stap 2: 360 - 280 = 80. De vierde hoek is 80 graden.",
+       "woorden": [
+        {
+         "nl": "ruit",
+         "doel": "Een vierhoek met vier gelijke zijden.",
+         "voorbeeld": "Een ruit lijkt op een schuin vierkant."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet een driehoek met drie gelijke zijden?",
+         "opties": [
+          "Ongelijkzijdig",
+          "Gelijkzijdig",
+          "Rechthoekig"
+         ],
+         "antwoord": 1,
+         "uitleg": "Drie gelijke zijden: gelijkzijdig."
+        },
+        {
+         "vraag": "Hoeveel graden tellen de hoeken van een vierhoek samen?",
+         "opties": [
+          "360",
+          "180",
+          "270"
+         ],
+         "antwoord": 0,
+         "uitleg": "In elke vierhoek is de som 360 graden."
+        },
+        {
+         "vraag": "Een vierhoek heeft hoeken van 90, 90 en 100 graden. Hoe groot is de vierde hoek?",
+         "opties": [
+          "90 graden",
+          "70 graden",
+          "80 graden"
+         ],
+         "antwoord": 2,
+         "uitleg": "90 + 90 + 100 = 280 en 360 - 280 = 80."
+        },
+        {
+         "vraag": "Een driehoek heeft een hoek van 90 en een van 30 graden. Hoe groot is de derde hoek?",
+         "opties": [
+          "50 graden",
+          "60 graden",
+          "120 graden"
+         ],
+         "antwoord": 1,
+         "uitleg": "90 + 30 = 120 en 180 - 120 = 60."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-meten-oppervlakte-volume",
+     "titel": "Omtrek, oppervlakte en eenheden",
+     "samenvatting": "Je meet en rekent met lengte, oppervlakte en inhoud.",
+     "lessen": [
+      {
+       "id": "j1-omtrek-oppervlakte",
+       "titel": "Omtrek en oppervlakte",
+       "uitleg": "De omtrek is de afstand rondom een figuur. Denk aan een hek rond een tuin. De oppervlakte is de plaats binnenin. Denk aan de vloer.\n\nRechthoek: omtrek = 2 x (lengte + breedte). Oppervlakte = lengte x breedte. Vierkant: omtrek = 4 x zijde. Oppervlakte = zijde x zijde.\n\nVoorbeeld: een tuin van 8 m bij 5 m. Stap 1: omtrek is 2 x (8 + 5) = 26 m. Stap 2: oppervlakte is 8 x 5 = 40 m2. Een driehoek heeft oppervlakte = basis x hoogte : 2. Basis 6 cm en hoogte 4 cm: 6 x 4 = 24 en 24 : 2 = 12 cm2.",
+       "woorden": [
+        {
+         "nl": "omtrek",
+         "doel": "De afstand helemaal rond een figuur.",
+         "voorbeeld": "Een hek rond een tuin"
+        },
+        {
+         "nl": "oppervlakte",
+         "doel": "De plaats binnen een figuur, in m2.",
+         "voorbeeld": "Een vloer van 40 m2"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de omtrek van een rechthoek van 6 m bij 4 m?",
+         "opties": [
+          "24 m",
+          "10 m",
+          "20 m"
+         ],
+         "antwoord": 2,
+         "uitleg": "2 x (6 + 4) = 20 m."
+        },
+        {
+         "vraag": "Wat is de oppervlakte van een rechthoek van 7 m bij 3 m?",
+         "opties": [
+          "20 m2",
+          "21 m2",
+          "10 m2"
+         ],
+         "antwoord": 1,
+         "uitleg": "7 x 3 = 21 m2."
+        },
+        {
+         "vraag": "Een vierkant heeft zijde 5 m. Wat is de oppervlakte?",
+         "opties": [
+          "25 m2",
+          "20 m2",
+          "10 m2"
+         ],
+         "antwoord": 0,
+         "uitleg": "5 x 5 = 25 m2."
+        },
+        {
+         "vraag": "Een driehoek heeft basis 6 cm en hoogte 4 cm. Wat is de oppervlakte?",
+         "opties": [
+          "24 cm2",
+          "10 cm2",
+          "12 cm2"
+         ],
+         "antwoord": 2,
+         "uitleg": "6 x 4 = 24 en 24 : 2 = 12 cm2."
+        }
+       ]
+      },
+      {
+       "id": "j1-volume-eenheden",
+       "titel": "Volume en eenheden",
+       "uitleg": "Eenheden omzetten gaat vlot met deze lijst. 1 m = 100 cm. 1 cm = 10 mm. 1 km = 1000 m. 1 kg = 1000 g. 1 l = 1000 ml.\n\nVolume is de ruimte in een voorwerp. Voor een doos (balk) geldt: volume = lengte x breedte x hoogte.\n\nVoorbeeld: een doos van 5 cm, 4 cm en 2 cm. Stap 1: 5 x 4 = 20. Stap 2: 20 x 2 = 40. Het volume is 40 cm3.",
+       "woorden": [
+        {
+         "nl": "volume",
+         "doel": "De ruimte die iets inneemt.",
+         "voorbeeld": "Een doos van 40 cm3"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoeveel cm is 3 m?",
+         "opties": [
+          "300 cm",
+          "30 cm",
+          "3000 cm"
+         ],
+         "antwoord": 0,
+         "uitleg": "1 m is 100 cm, dus 3 x 100 = 300."
+        },
+        {
+         "vraag": "Hoeveel kg is 2500 g?",
+         "opties": [
+          "25 kg",
+          "0,25 kg",
+          "2,5 kg"
+         ],
+         "antwoord": 2,
+         "uitleg": "2500 : 1000 = 2,5."
+        },
+        {
+         "vraag": "Hoeveel ml is 2 liter?",
+         "opties": [
+          "200 ml",
+          "2000 ml",
+          "20 ml"
+         ],
+         "antwoord": 1,
+         "uitleg": "2 x 1000 = 2000."
+        },
+        {
+         "vraag": "Wat is het volume van een doos van 5 cm bij 4 cm bij 2 cm?",
+         "opties": [
+          "40 cm3",
+          "11 cm3",
+          "20 cm3"
+         ],
+         "antwoord": 0,
+         "uitleg": "5 x 4 x 2 = 40 cm3."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j1-statistiek",
+     "titel": "Statistiek",
+     "samenvatting": "Je leest tabellen en grafieken en rekent een gemiddelde uit.",
+     "lessen": [
+      {
+       "id": "j1-centrummaten",
+       "titel": "Gemiddelde, mediaan en modus",
+       "uitleg": "Het gemiddelde: tel alles op en deel door het aantal. De mediaan is het middelste getal als je ze van klein naar groot zet. De modus is het getal dat het meest voorkomt.\n\nVoorbeeld: punten 4, 6, 6, 8, 11. Stap 1: gemiddelde is (4 + 6 + 6 + 8 + 11) : 5 = 35 : 5 = 7. Stap 2: de mediaan is het middelste getal, dus 6. Stap 3: de modus is 6, want 6 komt twee keer voor.",
+       "woorden": [
+        {
+         "nl": "gemiddelde",
+         "doel": "Alles optellen en delen door het aantal.",
+         "voorbeeld": "Het gemiddelde van 2 en 4 is 3."
+        },
+        {
+         "nl": "modus",
+         "doel": "Het getal dat het vaakst voorkomt.",
+         "voorbeeld": "Bij 2, 3, 3 is de modus 3."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het gemiddelde van 2, 4 en 6?",
+         "opties": [
+          "6",
+          "4",
+          "12"
+         ],
+         "antwoord": 1,
+         "uitleg": "2 + 4 + 6 = 12 en 12 : 3 = 4."
+        },
+        {
+         "vraag": "Wat is de mediaan van 3, 9 en 5?",
+         "opties": [
+          "5",
+          "9",
+          "3"
+         ],
+         "antwoord": 0,
+         "uitleg": "Van klein naar groot: 3, 5, 9. Het midden is 5."
+        },
+        {
+         "vraag": "Wat is de modus van 2, 3, 3, 5, 3, 7?",
+         "opties": [
+          "5",
+          "7",
+          "3"
+         ],
+         "antwoord": 2,
+         "uitleg": "De 3 komt drie keer voor."
+        },
+        {
+         "vraag": "Wat is het gemiddelde van 5, 8, 7, 4 en 6?",
+         "opties": [
+          "5",
+          "6",
+          "7"
+         ],
+         "antwoord": 1,
+         "uitleg": "5 + 8 + 7 + 4 + 6 = 30 en 30 : 5 = 6."
+        }
+       ]
+      },
+      {
+       "id": "j1-diagrammen",
+       "titel": "Tabellen en grafieken lezen",
+       "uitleg": "Een staafdiagram toont aantallen met balken. Een lijngrafiek toont hoe iets verandert in de tijd. Een cirkeldiagram toont delen van een geheel. De hele cirkel is 100%.\n\nVoorbeeld: in een klas zijn er 8 honden, 6 katten en 3 vissen. Stap 1: kijk naar de hoogste balk. Dat is de hond. Stap 2: totaal is 8 + 6 + 3 = 17 huisdieren.\n\nLees de titel en de assen altijd eerst. Zo weet je waarover de grafiek gaat.",
+       "woorden": [
+        {
+         "nl": "staafdiagram",
+         "doel": "Een grafiek met balken.",
+         "voorbeeld": "Hoeveel honden en katten?"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Een staafdiagram toont 8 honden, 6 katten en 3 vissen. Hoeveel dieren zijn er samen?",
+         "opties": [
+          "14",
+          "11",
+          "17"
+         ],
+         "antwoord": 2,
+         "uitleg": "8 + 6 + 3 = 17."
+        },
+        {
+         "vraag": "Zelfde diagram. Hoeveel honden zijn er méér dan katten?",
+         "opties": [
+          "14",
+          "2",
+          "3"
+         ],
+         "antwoord": 1,
+         "uitleg": "8 - 6 = 2."
+        },
+        {
+         "vraag": "Een lijngrafiek toont maandag 10 graden en woensdag 15 graden. Hoeveel is het gestegen?",
+         "opties": [
+          "5 graden",
+          "25 graden",
+          "15 graden"
+         ],
+         "antwoord": 0,
+         "uitleg": "15 - 10 = 5."
+        },
+        {
+         "vraag": "In een cirkeldiagram is 50% voetbal en 25% zwemmen. Hoeveel procent is de rest?",
+         "opties": [
+          "75%",
+          "50%",
+          "25%"
+         ],
+         "antwoord": 2,
+         "uitleg": "100 - 50 - 25 = 25."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "jaar": 2,
+   "themas": [
+    {
+     "id": "j2-rationale-getallen",
+     "titel": "Negatieve getallen, kommagetallen en rekenvolgorde",
+     "samenvatting": "Je rekent met negatieve getallen en kommagetallen in de juiste volgorde.",
+     "lessen": [
+      {
+       "id": "j2-rationale-rekenen",
+       "titel": "Negatieve getallen en kommagetallen",
+       "uitleg": "Je kent al negatieve getallen. Nu rekenen we ook met kommagetallen en breuken, zoals -0,5 of -1/2.\n\nDe regels blijven gelijk. Zelfde tekens bij x of : geven plus. Verschillende tekens geven min. Voorbeeld -0,5 x 4. Stap 1: reken 0,5 x 4 = 2. Stap 2: de tekens verschillen, dus -2.\n\nBij optellen helpt een bankrekening. Je staat -20 euro en je stort 35 euro. Dan heb je -20 + 35 = 15 euro.",
+       "woorden": [
+        {
+         "nl": "rationaal getal",
+         "doel": "Een getal dat je als breuk kan schrijven.",
+         "voorbeeld": "-0,5 is gelijk aan -1/2"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is -0,5 x 4?",
+         "opties": [
+          "-2",
+          "2",
+          "-0,2"
+         ],
+         "antwoord": 0,
+         "uitleg": "0,5 x 4 = 2 en de tekens verschillen: -2."
+        },
+        {
+         "vraag": "Je staat -20 euro op je rekening. Je stort 35 euro. Hoeveel staat er dan?",
+         "opties": [
+          "-15 euro",
+          "55 euro",
+          "15 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "-20 + 35 = 15."
+        },
+        {
+         "vraag": "Wat is -3,5 + 1?",
+         "opties": [
+          "2,5",
+          "-2,5",
+          "-4,5"
+         ],
+         "antwoord": 1,
+         "uitleg": "Begin bij -3,5 en ga 1 naar rechts: -2,5."
+        },
+        {
+         "vraag": "Wat is 1/2 + (-1/4)?",
+         "opties": [
+          "1/4",
+          "3/4",
+          "-1/4"
+         ],
+         "antwoord": 0,
+         "uitleg": "1/2 = 2/4 en 2/4 - 1/4 = 1/4."
+        }
+       ]
+      },
+      {
+       "id": "j2-rationale-volgorde",
+       "titel": "Rekenvolgorde en haakjes",
+       "uitleg": "Bij een som met meerdere bewerkingen is de volgorde belangrijk. Zo doe je het.\n\nStap 1: werk eerst wat tussen haakjes staat uit. Stap 2: doe x en :. Stap 3: doe als laatste + en -.\n\nVoorbeeld 20 - 2 x 5. Stap 1: 2 x 5 = 10. Stap 2: 20 - 10 = 10. Met haakjes is het anders: (3 + 4) x 2 = 7 x 2 = 14.",
+       "woorden": [
+        {
+         "nl": "haakjes",
+         "doel": "Rond dit deel reken je eerst.",
+         "voorbeeld": "(3 + 4) x 2"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is 3 + 4 x 2?",
+         "opties": [
+          "14",
+          "11",
+          "10"
+         ],
+         "antwoord": 1,
+         "uitleg": "Eerst 4 x 2 = 8, dan 3 + 8 = 11."
+        },
+        {
+         "vraag": "Wat is (3 + 4) x 2?",
+         "opties": [
+          "14",
+          "11",
+          "24"
+         ],
+         "antwoord": 0,
+         "uitleg": "Eerst haakjes: 7, dan 7 x 2 = 14."
+        },
+        {
+         "vraag": "Wat is 20 - 2 x 5?",
+         "opties": [
+          "90",
+          "30",
+          "10"
+         ],
+         "antwoord": 2,
+         "uitleg": "Eerst 2 x 5 = 10, dan 20 - 10 = 10."
+        },
+        {
+         "vraag": "Wat is 18 : (1 + 2)?",
+         "opties": [
+          "19",
+          "6",
+          "9"
+         ],
+         "antwoord": 1,
+         "uitleg": "Eerst haakjes: 3, dan 18 : 3 = 6."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-vergelijkingen",
+     "titel": "Vergelijkingen",
+     "samenvatting": "Je zoekt een onbekend getal met een eenvoudige vergelijking.",
+     "lessen": [
+      {
+       "id": "j2-vergelijkingen-oplossen",
+       "titel": "Een vergelijking oplossen",
+       "uitleg": "Een vergelijking is een som met een onbekend getal. Dat getal noemen we x. 2x betekent 2 keer x. Denk aan een weegschaal. Links en rechts moet in evenwicht blijven.\n\nDoe dus links en rechts hetzelfde. Voorbeeld x + 3 = 10. Stap 1: trek aan beide kanten 3 af. Stap 2: x = 7.\n\nVoorbeeld 2x + 1 = 9. Stap 1: trek 1 af, dan 2x = 8. Stap 2: deel door 2, dan x = 4. Controleer altijd: 2 x 4 + 1 = 9. Klopt.",
+       "woorden": [
+        {
+         "nl": "onbekende",
+         "doel": "Het getal dat je zoekt. Meestal x.",
+         "voorbeeld": "In x + 3 = 10 is x de onbekende."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Los op: x + 3 = 10",
+         "opties": [
+          "x = 13",
+          "x = 30",
+          "x = 7"
+         ],
+         "antwoord": 2,
+         "uitleg": "Trek 3 af: 10 - 3 = 7."
+        },
+        {
+         "vraag": "Los op: 2x = 12",
+         "opties": [
+          "x = 24",
+          "x = 6",
+          "x = 10"
+         ],
+         "antwoord": 1,
+         "uitleg": "Deel door 2: 12 : 2 = 6."
+        },
+        {
+         "vraag": "Los op: 2x + 1 = 9",
+         "opties": [
+          "x = 4",
+          "x = 5",
+          "x = 8"
+         ],
+         "antwoord": 0,
+         "uitleg": "Eerst 9 - 1 = 8, dan 8 : 2 = 4."
+        },
+        {
+         "vraag": "Los op: x - 5 = 3",
+         "opties": [
+          "x = -2",
+          "x = 2",
+          "x = 8"
+         ],
+         "antwoord": 2,
+         "uitleg": "Tel 5 op: 3 + 5 = 8."
+        }
+       ]
+      },
+      {
+       "id": "j2-vraagstukken",
+       "titel": "Vraagstukken",
+       "uitleg": "Een vraagstuk is een verhaaltje met een som. Zo pak je het aan.\n\nStap 1: kies een letter voor wat je zoekt, bijvoorbeeld x. Stap 2: schrijf het verhaal als vergelijking. Stap 3: los op. Stap 4: lees de vraag opnieuw en controleer.\n\nVoorbeeld: een taxi vraagt 3 euro start en 2 euro per km. De rit kost 11 euro. Vergelijking: 3 + 2x = 11. Dus 2x = 8 en x = 4. De rit is 4 km.",
+       "oefeningen": [
+        {
+         "vraag": "Ik denk aan een getal. Ik verdubbel het en tel 3 op. Ik krijg 11. Welk getal is het?",
+         "opties": [
+          "4",
+          "7",
+          "14"
+         ],
+         "antwoord": 0,
+         "uitleg": "2x + 3 = 11, dus 2x = 8 en x = 4."
+        },
+        {
+         "vraag": "3 pennen kosten samen 6 euro. Wat kost 1 pen?",
+         "opties": [
+          "3 euro",
+          "18 euro",
+          "2 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "3x = 6, dus x = 2."
+        },
+        {
+         "vraag": "Taxi: 4 euro start en 3 euro per km. De rit kost 13 euro. Hoeveel km?",
+         "opties": [
+          "5 km",
+          "3 km",
+          "4 km"
+         ],
+         "antwoord": 1,
+         "uitleg": "4 + 3x = 13, dus 3x = 9 en x = 3."
+        },
+        {
+         "vraag": "Ik denk aan een getal. Ik tel er 5 bij op. Ik krijg 12. Welk getal?",
+         "opties": [
+          "7",
+          "17",
+          "8"
+         ],
+         "antwoord": 0,
+         "uitleg": "x + 5 = 12, dus x = 7."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-procent-evenredigheid",
+     "titel": "Procenten in het dagelijks leven",
+     "samenvatting": "Je rekent met korting, stijging, btw en interest.",
+     "lessen": [
+      {
+       "id": "j2-procentberekeningen",
+       "titel": "Korting en stijging",
+       "uitleg": "Een percentage van een bedrag: deel door 100 en vermenigvuldig met het percentage. 15% van 200 is 200 : 100 x 15 = 30.\n\nKorting: reken de korting uit en trek ze af. Voorbeeld: schoenen van 60 euro met 20% korting. Stap 1: 20% van 60 is 12. Stap 2: 60 - 12 = 48 euro.\n\nStijging in procent: deel de stijging door de beginwaarde. Prijs van 50 naar 55 euro. Stap 1: stijging is 5. Stap 2: 5 : 50 = 0,10, dus 10%.",
+       "woorden": [
+        {
+         "nl": "stijging",
+         "doel": "Hoeveel iets meer wordt.",
+         "voorbeeld": "Van 50 naar 55 is een stijging van 5."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is 15% van 200?",
+         "opties": [
+          "15",
+          "30",
+          "300"
+         ],
+         "antwoord": 1,
+         "uitleg": "200 : 100 x 15 = 30."
+        },
+        {
+         "vraag": "Schoenen kosten 60 euro. Je krijgt 20% korting. Wat betaal je?",
+         "opties": [
+          "48 euro",
+          "12 euro",
+          "40 euro"
+         ],
+         "antwoord": 0,
+         "uitleg": "20% van 60 is 12. Dan 60 - 12 = 48."
+        },
+        {
+         "vraag": "Een prijs stijgt van 50 naar 55 euro. Hoeveel procent is dat?",
+         "opties": [
+          "5%",
+          "55%",
+          "10%"
+         ],
+         "antwoord": 2,
+         "uitleg": "Stijging 5 en 5 : 50 = 0,10 = 10%."
+        },
+        {
+         "vraag": "Een loon van 1000 euro stijgt met 5%. Wat is het nieuwe loon?",
+         "opties": [
+          "1005 euro",
+          "1050 euro",
+          "1500 euro"
+         ],
+         "antwoord": 1,
+         "uitleg": "5% van 1000 is 50. 1000 + 50 = 1050."
+        }
+       ]
+      },
+      {
+       "id": "j2-btw-interest",
+       "titel": "Btw en interest",
+       "uitleg": "Btw is een belasting op wat je koopt. In België is dat vaak 21%. De prijs zonder btw noemen we de prijs excl. btw.\n\nVoorbeeld: een fiets kost 200 euro excl. btw. Stap 1: btw is 21% van 200 = 42 euro. Stap 2: 200 + 42 = 242 euro.\n\nInterest is het geld dat de bank je geeft voor je spaargeld. Voorbeeld: 500 euro met 3% interest per jaar. Stap 1: 500 : 100 x 3 = 15. Je krijgt 15 euro per jaar.",
+       "woorden": [
+        {
+         "nl": "btw",
+         "doel": "Belasting op een aankoop.",
+         "voorbeeld": "21% btw op een fiets"
+        },
+        {
+         "nl": "interest",
+         "doel": "Beloning van de bank voor je spaargeld.",
+         "voorbeeld": "3% per jaar"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Een prijs is 100 euro excl. btw. De btw is 21%. Wat is de btw?",
+         "opties": [
+          "12 euro",
+          "121 euro",
+          "21 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "21% van 100 is 21."
+        },
+        {
+         "vraag": "Een fiets kost 200 euro excl. btw. Btw is 21%. Wat betaal je in totaal?",
+         "opties": [
+          "221 euro",
+          "242 euro",
+          "421 euro"
+         ],
+         "antwoord": 1,
+         "uitleg": "21% van 200 is 42 en 200 + 42 = 242."
+        },
+        {
+         "vraag": "Je spaart 100 euro aan 2% per jaar. Hoeveel interest krijg je na 1 jaar?",
+         "opties": [
+          "2 euro",
+          "20 euro",
+          "102 euro"
+         ],
+         "antwoord": 0,
+         "uitleg": "100 : 100 x 2 = 2."
+        },
+        {
+         "vraag": "Je spaart 500 euro aan 3% per jaar. Hoeveel interest krijg je na 1 jaar?",
+         "opties": [
+          "30 euro",
+          "150 euro",
+          "15 euro"
+         ],
+         "antwoord": 2,
+         "uitleg": "500 : 100 x 3 = 15."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-coördinaten-verbanden",
+     "titel": "Coördinaten en grafieken",
+     "samenvatting": "Je leest punten en rechte grafieken in een assenstelsel.",
+     "lessen": [
+      {
+       "id": "j2-assenstelsel",
+       "titel": "Het assenstelsel",
+       "uitleg": "Een assenstelsel heeft twee lijnen. De x-as ligt horizontaal. De y-as ligt verticaal. Ze kruisen in (0, 0). Dat punt heet de oorsprong.\n\nEen punt schrijf je als (x, y). Eerst x, dan y. Voorbeeld (4, 1). Stap 1: ga 4 naar rechts. Stap 2: ga 1 omhoog.\n\nNegatieve getallen liggen links van de y-as of onder de x-as. Het punt (-2, 3) ligt dus 2 naar links en 3 omhoog.",
+       "woorden": [
+        {
+         "nl": "coordinaat",
+         "doel": "De twee getallen die een punt vastleggen.",
+         "voorbeeld": "(4, 1)"
+        },
+        {
+         "nl": "oorsprong",
+         "doel": "Het punt waar de assen kruisen: (0, 0).",
+         "voorbeeld": "(0, 0)"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe vind je het punt (4, 1)?",
+         "opties": [
+          "4 naar rechts, 1 omhoog",
+          "1 naar rechts, 4 omhoog",
+          "4 omhoog, 1 naar links"
+         ],
+         "antwoord": 0,
+         "uitleg": "Eerst x (rechts), dan y (omhoog)."
+        },
+        {
+         "vraag": "Welk punt ligt op de x-as?",
+         "opties": [
+          "(0, 5)",
+          "(5, 5)",
+          "(5, 0)"
+         ],
+         "antwoord": 2,
+         "uitleg": "Op de x-as is y gelijk aan 0."
+        },
+        {
+         "vraag": "Wat zijn de coördinaten van de oorsprong?",
+         "opties": [
+          "(1, 1)",
+          "(0, 0)",
+          "(0, 1)"
+         ],
+         "antwoord": 1,
+         "uitleg": "De oorsprong is waar de assen kruisen: (0, 0)."
+        },
+        {
+         "vraag": "Waar ligt het punt (-2, 3)?",
+         "opties": [
+          "Links en boven",
+          "Rechts en boven",
+          "Links en onder"
+         ],
+         "antwoord": 0,
+         "uitleg": "x is negatief (links) en y is positief (boven)."
+        }
+       ]
+      },
+      {
+       "id": "j2-rechte-verbanden",
+       "titel": "Rechte verbanden en grafieken",
+       "uitleg": "Een verband toont hoe twee dingen samenhangen. Soms is dat een rechte lijn. Voorbeeld: een fiets huren kost 5 euro per uur. Dan is de prijs = 5 x aantal uren.\n\nIn een formule noem je het aantal uren x en de prijs y. Dan staat er y = 5x. Voor x = 4 geldt y = 5 x 4 = 20.\n\nEen tabel toont dit ook. Bij 1 uur 5 euro, bij 2 uur 10 euro, bij 3 uur 15 euro. Zet je de punten in een assenstelsel, dan liggen ze op een rechte lijn.",
+       "woorden": [
+        {
+         "nl": "formule",
+         "doel": "Een regel met letters om iets uit te rekenen.",
+         "voorbeeld": "y = 5x"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Er geldt y = 3x. Wat is y als x = 4?",
+         "opties": [
+          "7",
+          "12",
+          "34"
+         ],
+         "antwoord": 1,
+         "uitleg": "y = 3 x 4 = 12."
+        },
+        {
+         "vraag": "Een fiets huren kost 5 euro per uur. Wat kost 4 uur?",
+         "opties": [
+          "20 euro",
+          "9 euro",
+          "45 euro"
+         ],
+         "antwoord": 0,
+         "uitleg": "4 x 5 = 20."
+        },
+        {
+         "vraag": "Een lijn gaat door (0, 0), (1, 2) en (2, 4). Welke formule hoort erbij?",
+         "opties": [
+          "y = x + 2",
+          "y = 4x",
+          "y = 2x"
+         ],
+         "antwoord": 2,
+         "uitleg": "Elke y is 2 keer x."
+        },
+        {
+         "vraag": "Er geldt y = 2x. Wat is y als x = 5?",
+         "opties": [
+          "7",
+          "10",
+          "25"
+         ],
+         "antwoord": 1,
+         "uitleg": "y = 2 x 5 = 10."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-pythagoras",
+     "titel": "De stelling van Pythagoras",
+     "samenvatting": "Je rekent een zijde van een rechthoekige driehoek uit.",
+     "lessen": [
+      {
+       "id": "j2-stelling",
+       "titel": "De stelling van Pythagoras",
+       "uitleg": "Een rechthoekige driehoek heeft een rechte hoek. De langste zijde ligt tegenover die hoek. Dat is de schuine zijde.\n\nDe stelling zegt: a x a + b x b = c x c. Hierbij zijn a en b de twee korte zijden en c de schuine zijde. Voorbeeld met 3 cm en 4 cm. Stap 1: 3 x 3 + 4 x 4 = 9 + 16 = 25. Stap 2: de wortel van 25 is 5. Dus c = 5 cm.\n\nIs de schuine zijde gegeven? Trek dan af. Schuine zijde 10, korte zijde 6. Stap 1: 100 - 36 = 64. Stap 2: de wortel van 64 is 8.",
+       "woorden": [
+        {
+         "nl": "schuine zijde",
+         "doel": "De langste zijde, tegenover de rechte hoek.",
+         "voorbeeld": "c in a^2 + b^2 = c^2"
+        },
+        {
+         "nl": "wortel",
+         "doel": "Het getal dat je met zichzelf vermenigvuldigt.",
+         "voorbeeld": "De wortel van 25 is 5, want 5 x 5 = 25."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Korte zijden 3 cm en 4 cm. Hoe lang is de schuine zijde?",
+         "opties": [
+          "7 cm",
+          "25 cm",
+          "5 cm"
+         ],
+         "antwoord": 2,
+         "uitleg": "9 + 16 = 25 en de wortel van 25 is 5."
+        },
+        {
+         "vraag": "Korte zijden 6 cm en 8 cm. Hoe lang is de schuine zijde?",
+         "opties": [
+          "14 cm",
+          "10 cm",
+          "100 cm"
+         ],
+         "antwoord": 1,
+         "uitleg": "36 + 64 = 100 en de wortel van 100 is 10."
+        },
+        {
+         "vraag": "Korte zijden 5 cm en 12 cm. Hoe lang is de schuine zijde?",
+         "opties": [
+          "13 cm",
+          "17 cm",
+          "169 cm"
+         ],
+         "antwoord": 0,
+         "uitleg": "25 + 144 = 169 en de wortel van 169 is 13."
+        },
+        {
+         "vraag": "Schuine zijde 10 cm en een korte zijde 6 cm. Hoe lang is de andere zijde?",
+         "opties": [
+          "4 cm",
+          "16 cm",
+          "8 cm"
+         ],
+         "antwoord": 2,
+         "uitleg": "100 - 36 = 64 en de wortel van 64 is 8."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-transformaties-gelijkvormig",
+     "titel": "Symmetrie en vergroten",
+     "samenvatting": "Je spiegelt en verschuift figuren en vergroot met een factor.",
+     "lessen": [
+      {
+       "id": "j2-transformaties",
+       "titel": "Spiegelen, verschuiven en symmetrie",
+       "uitleg": "Spiegelen: een figuur klapt om over een spiegellijn. Verschuiven: een figuur schuift naar een andere plaats, zonder te draaien. De vorm en grootte blijven gelijk.\n\nVoorbeeld met het punt (3, 2). Verschuif 2 naar rechts: (5, 2). Spiegel in de x-as: (3, -2). De y-waarde krijgt een ander teken.\n\nEen figuur is symmetrisch als je hem kan vouwen en beide helften passen. De vouwlijn heet symmetrieas. Een vierkant heeft er 4. Een rechthoek heeft er 2.",
+       "woorden": [
+        {
+         "nl": "symmetrieas",
+         "doel": "Een vouwlijn waarbij beide helften op elkaar passen.",
+         "voorbeeld": "Een vierkant heeft 4 symmetrieassen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Verschuif (3, 2) twee naar rechts. Wat wordt het punt?",
+         "opties": [
+          "(5, 2)",
+          "(3, 4)",
+          "(1, 2)"
+         ],
+         "antwoord": 0,
+         "uitleg": "Rechts verschuiven telt 2 op bij x: (5, 2)."
+        },
+        {
+         "vraag": "Spiegel (3, 2) in de x-as. Wat wordt het punt?",
+         "opties": [
+          "(-3, 2)",
+          "(2, 3)",
+          "(3, -2)"
+         ],
+         "antwoord": 2,
+         "uitleg": "Bij spiegelen in de x-as krijgt y een ander teken."
+        },
+        {
+         "vraag": "Hoeveel symmetrieassen heeft een vierkant?",
+         "opties": [
+          "2",
+          "4",
+          "1"
+         ],
+         "antwoord": 1,
+         "uitleg": "Twee door de zijden en twee door de hoeken: 4."
+        },
+        {
+         "vraag": "Hoeveel symmetrieassen heeft een rechthoek (geen vierkant)?",
+         "opties": [
+          "2",
+          "4",
+          "1"
+         ],
+         "antwoord": 0,
+         "uitleg": "Alleen de twee lijnen door het midden van de zijden."
+        }
+       ]
+      },
+      {
+       "id": "j2-gelijkvormigheid",
+       "titel": "Vergroten en verkleinen",
+       "uitleg": "Bij vergroten blijft de vorm gelijk, maar de grootte verandert. Elke zijde wordt met dezelfde factor vermenigvuldigd. Dat getal noem je de vergrotingsfactor.\n\nVoorbeeld: een rechthoek van 2 cm bij 3 cm, factor 2. Stap 1: 2 x 2 = 4 cm. Stap 2: 3 x 2 = 6 cm. De nieuwe rechthoek is 4 cm bij 6 cm.\n\nDe hoeken blijven gelijk. Twee figuren met dezelfde vorm heten gelijkvormig.",
+       "woorden": [
+        {
+         "nl": "factor",
+         "doel": "Het getal waarmee je alle zijden vermenigvuldigt.",
+         "voorbeeld": "Factor 2 maakt alles dubbel zo lang."
+        },
+        {
+         "nl": "gelijkvormig",
+         "doel": "Dezelfde vorm, maar niet altijd dezelfde grootte.",
+         "voorbeeld": "Een foto en een vergrote foto"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Een zijde van 4 cm wordt vergroot met factor 3. Hoe lang is ze dan?",
+         "opties": [
+          "7 cm",
+          "12 cm",
+          "1 cm"
+         ],
+         "antwoord": 1,
+         "uitleg": "4 x 3 = 12."
+        },
+        {
+         "vraag": "Een rechthoek van 2 cm bij 3 cm wordt vergroot met factor 2. Wat zijn de nieuwe maten?",
+         "opties": [
+          "4 cm bij 6 cm",
+          "4 cm bij 5 cm",
+          "3 cm bij 4 cm"
+         ],
+         "antwoord": 0,
+         "uitleg": "2 x 2 = 4 en 3 x 2 = 6."
+        },
+        {
+         "vraag": "Welke rechthoek is gelijkvormig met een rechthoek van 2 bij 4?",
+         "opties": [
+          "3 bij 5",
+          "4 bij 5",
+          "3 bij 6"
+         ],
+         "antwoord": 2,
+         "uitleg": "Beide maten x 1,5: 3 en 6."
+        },
+        {
+         "vraag": "Een zijde van 2 cm wordt 10 cm. Wat is de factor?",
+         "opties": [
+          "8",
+          "5",
+          "20"
+         ],
+         "antwoord": 1,
+         "uitleg": "10 : 2 = 5."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-cirkel-ruimtefiguren",
+     "titel": "Cirkel en ruimtefiguren",
+     "samenvatting": "Je rekent omtrek en oppervlakte van een cirkel en het volume van een doos.",
+     "lessen": [
+      {
+       "id": "j2-cirkel-veelhoeken",
+       "titel": "De cirkel",
+       "uitleg": "De straal is de afstand van het middelpunt tot de rand. De diameter gaat dwars door het middelpunt. Dus diameter = 2 x straal.\n\nOmtrek = pi x diameter. Oppervlakte = pi x straal x straal. We rekenen met pi = 3,14.\n\nVoorbeeld: een cirkel met diameter 10 cm. Omtrek: 3,14 x 10 = 31,4 cm. Voorbeeld: straal 2 cm. Oppervlakte: 3,14 x 2 x 2 = 12,56 cm2.",
+       "woorden": [
+        {
+         "nl": "straal",
+         "doel": "De afstand van het middelpunt tot de rand.",
+         "voorbeeld": "Bij diameter 10 cm is de straal 5 cm."
+        },
+        {
+         "nl": "pi",
+         "doel": "Een vast getal bij cirkels. Ongeveer 3,14.",
+         "voorbeeld": "pi is ongeveer 3,14"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "De diameter van een cirkel is 12 cm. Hoe groot is de straal?",
+         "opties": [
+          "24 cm",
+          "12 cm",
+          "6 cm"
+         ],
+         "antwoord": 2,
+         "uitleg": "Straal = diameter : 2 = 6."
+        },
+        {
+         "vraag": "Wat is de omtrek van een cirkel met diameter 10 cm? (pi = 3,14)",
+         "opties": [
+          "62,8 cm",
+          "31,4 cm",
+          "314 cm"
+         ],
+         "antwoord": 1,
+         "uitleg": "3,14 x 10 = 31,4."
+        },
+        {
+         "vraag": "Wat is de oppervlakte van een cirkel met straal 2 cm? (pi = 3,14)",
+         "opties": [
+          "12,56 cm2",
+          "6,28 cm2",
+          "25,12 cm2"
+         ],
+         "antwoord": 0,
+         "uitleg": "3,14 x 2 x 2 = 12,56."
+        },
+        {
+         "vraag": "Een regelmatige zeshoek heeft zijde 3 cm. Wat is de omtrek?",
+         "opties": [
+          "9 cm",
+          "12 cm",
+          "18 cm"
+         ],
+         "antwoord": 2,
+         "uitleg": "6 zijden x 3 = 18."
+        }
+       ]
+      },
+      {
+       "id": "j2-ruimtefiguren",
+       "titel": "Volume en oppervlakte van ruimtefiguren",
+       "uitleg": "Een kubus heeft zes gelijke vierkante zijvlakken. De ribbe is de lengte van een rand. Volume kubus = ribbe x ribbe x ribbe. Volume balk = lengte x breedte x hoogte.\n\nVoorbeeld: een kubus met ribbe 3 cm. Volume: 3 x 3 x 3 = 27 cm3. De oppervlakte van alle zijvlakken samen is 6 x 3 x 3 = 54 cm2.\n\nOmzetten: 1 liter is 1000 cm3. Een aquarium van 50 cm bij 30 cm bij 20 cm heeft volume 50 x 30 x 20 = 30 000 cm3. Dat is 30 liter.",
+       "woorden": [
+        {
+         "nl": "ribbe",
+         "doel": "Een rand van een kubus of balk.",
+         "voorbeeld": "Een kubus heeft 12 ribben."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het volume van een kubus met ribbe 3 cm?",
+         "opties": [
+          "27 cm3",
+          "9 cm3",
+          "18 cm3"
+         ],
+         "antwoord": 0,
+         "uitleg": "3 x 3 x 3 = 27."
+        },
+        {
+         "vraag": "Wat is het volume van een balk van 4 cm bij 3 cm bij 2 cm?",
+         "opties": [
+          "9 cm3",
+          "14 cm3",
+          "24 cm3"
+         ],
+         "antwoord": 2,
+         "uitleg": "4 x 3 x 2 = 24."
+        },
+        {
+         "vraag": "Een kubus heeft ribbe 2 cm. Wat is de oppervlakte van alle zijvlakken samen?",
+         "opties": [
+          "8 cm2",
+          "24 cm2",
+          "12 cm2"
+         ],
+         "antwoord": 1,
+         "uitleg": "6 vlakken van 2 x 2 = 4. 6 x 4 = 24."
+        },
+        {
+         "vraag": "Een aquarium heeft volume 30 000 cm3. Hoeveel liter is dat?",
+         "opties": [
+          "30 liter",
+          "3 liter",
+          "300 liter"
+         ],
+         "antwoord": 0,
+         "uitleg": "1000 cm3 is 1 liter. 30 000 : 1000 = 30."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "j2-statistiek-kansen",
+     "titel": "Statistiek en kansen",
+     "samenvatting": "Je leest gegevens en berekent een eenvoudige kans.",
+     "lessen": [
+      {
+       "id": "j2-statistiek-verwerken",
+       "titel": "Gegevens verwerken",
+       "uitleg": "Met een tabel of grafiek geef je gegevens weer. Bereken er het gemiddelde, de mediaan en de modus mee. Het bereik zegt hoe ver de gegevens uit elkaar liggen. Bereik = grootste - kleinste.\n\nVoorbeeld: punten 6, 6, 8, 8, 8. Stap 1: som is 36. Stap 2: gemiddelde is 36 : 5 = 7,2. Stap 3: modus is 8, want 8 komt het vaakst voor.\n\nBij een cirkeldiagram hoort 100% bij het totaal. 25% van 200 leerlingen is 200 : 4 = 50 leerlingen.",
+       "woorden": [
+        {
+         "nl": "bereik",
+         "doel": "Het verschil tussen grootste en kleinste getal.",
+         "voorbeeld": "Bij 3 en 9 is het bereik 6."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het gemiddelde van 6, 6, 8, 8, 8?",
+         "opties": [
+          "8",
+          "7,2",
+          "7"
+         ],
+         "antwoord": 1,
+         "uitleg": "6 + 6 + 8 + 8 + 8 = 36 en 36 : 5 = 7,2."
+        },
+        {
+         "vraag": "Wat is de modus van 6, 6, 8, 8, 8?",
+         "opties": [
+          "8",
+          "6",
+          "7,2"
+         ],
+         "antwoord": 0,
+         "uitleg": "De 8 komt drie keer voor."
+        },
+        {
+         "vraag": "Het grootste getal is 9 en het kleinste is 3. Wat is het bereik?",
+         "opties": [
+          "12",
+          "3",
+          "6"
+         ],
+         "antwoord": 2,
+         "uitleg": "9 - 3 = 6."
+        },
+        {
+         "vraag": "In een cirkeldiagram is 25% van 200 leerlingen voetballer. Hoeveel leerlingen zijn dat?",
+         "opties": [
+          "25",
+          "50",
+          "75"
+         ],
+         "antwoord": 1,
+         "uitleg": "200 : 4 = 50."
+        }
+       ]
+      },
+      {
+       "id": "j2-kansen",
+       "titel": "Kansen",
+       "uitleg": "Een kans zegt hoe waarschijnlijk het is dat iets gebeurt. Kans = aantal gunstige uitkomsten : aantal alle uitkomsten.\n\nVoorbeeld met een dobbelsteen. Er zijn 6 uitkomsten. Kans op een 6: 1 gunstige, dus 1/6. Kans op een even getal: 2, 4 en 6, dus 3/6 = 1/2.\n\nEen kans ligt tussen 0 en 1. Een kans van 0 betekent onmogelijk. Een kans van 1 betekent zeker.",
+       "woorden": [
+        {
+         "nl": "kans",
+         "doel": "Hoe groot de kans is dat iets gebeurt.",
+         "voorbeeld": "Kans op kop bij een munt is 1/2."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Je gooit een dobbelsteen. Wat is de kans op een 6?",
+         "opties": [
+          "6/1",
+          "1/2",
+          "1/6"
+         ],
+         "antwoord": 2,
+         "uitleg": "1 gunstige uitkomst op 6 mogelijke: 1/6."
+        },
+        {
+         "vraag": "Je gooit een dobbelsteen. Wat is de kans op een even getal?",
+         "opties": [
+          "1/3",
+          "1/2",
+          "1/6"
+         ],
+         "antwoord": 1,
+         "uitleg": "Even: 2, 4, 6. Dus 3/6 = 1/2."
+        },
+        {
+         "vraag": "Een zak heeft 3 rode en 2 blauwe ballen. Wat is de kans op een rode bal?",
+         "opties": [
+          "3/5",
+          "2/5",
+          "3/2"
+         ],
+         "antwoord": 0,
+         "uitleg": "3 rode op 5 ballen in totaal: 3/5."
+        },
+        {
+         "vraag": "Wat betekent een kans van 0?",
+         "opties": [
+          "Het gebeurt zeker",
+          "Het is 50 procent",
+          "Het kan niet gebeuren"
+         ],
+         "antwoord": 2,
+         "uitleg": "Kans 0 is onmogelijk."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "name": "Leerliga",
+ "short_name": "Leerliga",
+ "description": "Leren, oefenen en winnen: Nederlands, Frans, Engels, wiskunde, aardrijkskunde en geschiedenis.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#1f3fbf",
+ "theme_color": "#2f5bea",
+ "lang": "nl-BE",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any maskable"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}

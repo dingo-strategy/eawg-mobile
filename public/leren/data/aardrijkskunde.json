@@ -1,0 +1,2537 @@
+{
+ "vak": "aardrijkskunde",
+ "naam": "Aardrijkskunde",
+ "bronnen": [
+  {
+   "titel": "GO! leerplan Aardrijkskunde 1e graad A-stroom (2015/003), beschrijving via catalogus",
+   "url": "https://glotrec.wdi-testing.gei.de/Record/gei1689703520"
+  },
+  {
+   "titel": "Leerplan aardrijkskunde GO! 1e graad (2010), gedigitaliseerd door GEI",
+   "url": "https://edumedia-depot.gei.de/bitstream/handle/11163/2163/794205224_2010_A.pdf?sequence=2"
+  }
+ ],
+ "dekking": "Thema's volgen de gangbare leerplanstructuur (kaartlezen, coördinaten, klimaat, reliëf, plaattektoniek, rivieren, bevolking, steden, landbouw, energie, duurzaamheid, natuurrampen, België/Europa). De officiële eindtermen en het KOV-leerplan 2019 waren online niet raadpleegbaar; inhoud is zelf geschreven met stabiele feiten. Ontbreken: Azië/Afrika/Amerika per land, gedetailleerde kaartoefeningen (afbeeldingen), verdieping wereldhandel en ontwikkeling.",
+ "leerjaren": [
+  {
+   "jaar": 1,
+   "themas": [
+    {
+     "id": "kaartlezen",
+     "titel": "Kaartlezen en kompas",
+     "samenvatting": "Je leert een kaart gebruiken: legende, schaal, kompas en windrichtingen.",
+     "lessen": [
+      {
+       "id": "kaart-legende-schaal",
+       "titel": "Kaart, legende en schaal",
+       "uitleg": "Een kaart is een verkleinde voorstelling van een stuk van de aarde, gezien van boven. Een kaart gebruikt symbolen en kleuren om iets te tonen.\n\nDe legende is het kader met uitleg bij die symbolen en kleuren. Zonder legende weet je niet wat een blauw vlak, een rode lijn of een zwart bolletje betekent.\n\nDe schaal vertelt hoeveel de werkelijkheid verkleind is. Bij schaal 1 : 100 000 is 1 cm op de kaart gelijk aan 100 000 cm in werkelijkheid, dus 1 km. Een kaart met een grote schaal (bv. 1 : 10 000) toont weinig terrein maar met veel details. Een kaart met een kleine schaal (bv. 1 : 10 000 000) toont veel terrein met weinig details.\n\nEen schaallijn is een kleine lijn op de kaart waarop je rechtstreeks de afstand kunt aflezen. Een titel vertelt je waarover de kaart gaat.",
+       "woorden": [
+        {
+         "nl": "kaart",
+         "doel": "verkleinde voorstelling van de aarde, gezien van boven",
+         "voorbeeld": "Een plattegrond van je school."
+        },
+        {
+         "nl": "legende",
+         "doel": "uitleg bij de symbolen op een kaart",
+         "voorbeeld": "Blauw = water."
+        },
+        {
+         "nl": "schaal",
+         "doel": "verhouding tussen afstand op de kaart en in werkelijkheid",
+         "voorbeeld": "1 : 100 000"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waarvoor dient de legende van een kaart?",
+         "opties": [
+          "Om het noorden aan te duiden",
+          "Om de afstand te meten",
+          "Om uit te leggen wat de symbolen en kleuren betekenen"
+         ],
+         "antwoord": 2,
+         "uitleg": "De legende verklaart de symbolen en kleuren."
+        },
+        {
+         "vraag": "Op een kaart met schaal 1 : 100 000 meet je 3 cm. Hoeveel is dat in werkelijkheid?",
+         "opties": [
+          "30 km",
+          "300 m",
+          "3 km"
+         ],
+         "antwoord": 2,
+         "uitleg": "1 cm is 1 km, dus 3 cm is 3 km."
+        },
+        {
+         "vraag": "Welke kaart toont het meeste detail?",
+         "opties": [
+          "Schaal 1 : 1 000 000",
+          "Schaal 1 : 50 000 000",
+          "Schaal 1 : 10 000"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hoe kleiner het getal onder de breuk, hoe groter de schaal en hoe meer detail."
+        },
+        {
+         "vraag": "Wat betekent schaal 1 : 50 000?",
+         "opties": [
+          "50 000 cm op de kaart is 1 cm in werkelijkheid",
+          "1 cm op de kaart is 50 000 cm in werkelijkheid",
+          "1 cm op de kaart is 50 cm in werkelijkheid"
+         ],
+         "antwoord": 1,
+         "uitleg": "De schaal geeft aan hoeveel keer de werkelijkheid verkleind is."
+        },
+        {
+         "vraag": "Op een kaart met schaal 1 : 200 000 is 5 cm gelijk aan:",
+         "opties": [
+          "10 km",
+          "1 km",
+          "100 km"
+         ],
+         "antwoord": 0,
+         "uitleg": "5 x 200 000 cm = 1 000 000 cm = 10 km."
+        }
+       ]
+      },
+      {
+       "id": "kompas-windrichtingen",
+       "titel": "Kompas en windrichtingen",
+       "uitleg": "Met een kompas kun je de richting bepalen. De naald van een kompas wijst naar het (magnetische) noorden. Een windroos is het sterretje met de windrichtingen op een kaart of kompas.\n\nDe vier hoofdwindrichtingen zijn noord (N), oost (O), zuid (Z) en west (W). Ertussen liggen de tussenwindrichtingen: noordoost (NO), zuidoost (ZO), zuidwest (ZW) en noordwest (NW).\n\nOp de meeste kaarten ligt het noorden bovenaan. Als je naar het noorden kijkt, ligt het oosten rechts, het westen links en het zuiden achter je.\n\nIn Vlaanderen ligt de Noordzee in het noordwesten van het land en liggen de Ardennen ten zuidoosten van Vlaanderen. Antwerpen ligt ten noorden van Brussel.",
+       "woorden": [
+        {
+         "nl": "kompas",
+         "doel": "toestel dat het noorden aanwijst",
+         "voorbeeld": "Een wandelaar gebruikt een kompas."
+        },
+        {
+         "nl": "windroos",
+         "doel": "figuur met de windrichtingen",
+         "voorbeeld": "Het sterretje op een kaart."
+        },
+        {
+         "nl": "windrichting",
+         "doel": "richting waarin je kijkt of waaruit de wind komt",
+         "voorbeeld": "Zuidwest"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Waar ligt het noorden meestal op een kaart?",
+         "opties": [
+          "Bovenaan",
+          "Rechts",
+          "Onderaan"
+         ],
+         "antwoord": 0,
+         "uitleg": "Standaard ligt het noorden bovenaan."
+        },
+        {
+         "vraag": "Welke windrichting ligt tussen noord en oost?",
+         "opties": [
+          "Noordwest",
+          "Noordoost",
+          "Zuidoost"
+         ],
+         "antwoord": 1,
+         "uitleg": "Tussen N en O ligt NO."
+        },
+        {
+         "vraag": "Wat ligt tegenover het westen?",
+         "opties": [
+          "Zuiden",
+          "Noorden",
+          "Oosten"
+         ],
+         "antwoord": 2,
+         "uitleg": "Oost en west liggen recht tegenover elkaar."
+        },
+        {
+         "vraag": "Antwerpen ligt ten opzichte van Brussel in het:",
+         "opties": [
+          "Westen",
+          "Noorden",
+          "Zuiden"
+         ],
+         "antwoord": 1,
+         "uitleg": "Antwerpen ligt ten noorden van Brussel."
+        },
+        {
+         "vraag": "Waar wijst de naald van een kompas naartoe?",
+         "opties": [
+          "Naar het zuiden",
+          "Naar de zon",
+          "Naar het noorden"
+         ],
+         "antwoord": 2,
+         "uitleg": "De kompasnaald wijst naar het noorden."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "coordinaten",
+     "titel": "Coördinaten en ligging op aarde",
+     "samenvatting": "Je leert plaatsen vinden met breedte- en lengtegraden.",
+     "lessen": [
+      {
+       "id": "graden-net",
+       "titel": "Breedtegraden en lengtegraden",
+       "uitleg": "Om een plaats op aarde nauwkeurig te beschrijven, gebruiken we een gradennet: een net van denkbeeldige lijnen op de aarde.\n\nBreedtecirkels lopen oost-west rond de aarde. De evenaar is de langste breedtecirkel en ligt op 0 graden. Hij verdeelt de aarde in het noordelijk en het zuidelijk halfrond. De noordpool ligt op 90 graden noorderbreedte en de zuidpool op 90 graden zuiderbreedte.\n\nMeridianen (lengtecirkels) lopen van de noordpool naar de zuidpool. De nulmeridiaan loopt door Greenwich bij Londen en is 0 graden. Hij verdeelt de aarde in het oostelijk en het westelijk halfrond. Lengtegraden gaan tot 180 graden oost en 180 graden west.\n\nDe coördinaten van een plaats bestaan uit de breedtegraad en de lengtegraad. België ligt ongeveer op 51 graden noorderbreedte en 4 graden oosterlengte; dat is afgerond.",
+       "woorden": [
+        {
+         "nl": "evenaar",
+         "doel": "breedtecirkel op 0 graden",
+         "voorbeeld": "De evenaar verdeelt de aarde in noord en zuid."
+        },
+        {
+         "nl": "nulmeridiaan",
+         "doel": "lengtecirkel op 0 graden, door Greenwich",
+         "voorbeeld": "Hij loopt door Londen."
+        },
+        {
+         "nl": "coördinaten",
+         "doel": "getallen die de ligging van een plaats aangeven",
+         "voorbeeld": "51° N, 4° O"
+        },
+        {
+         "nl": "halfrond",
+         "doel": "de helft van de aarde",
+         "voorbeeld": "Noordelijk halfrond"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet de breedtecirkel van 0 graden?",
+         "opties": [
+          "Evenaar",
+          "Keerkring",
+          "Nulmeridiaan"
+         ],
+         "antwoord": 0,
+         "uitleg": "De evenaar is 0 graden breedte."
+        },
+        {
+         "vraag": "Welke lijnen lopen van noordpool naar zuidpool?",
+         "opties": [
+          "Breedtecirkels",
+          "Meridianen",
+          "De evenaar"
+         ],
+         "antwoord": 1,
+         "uitleg": "Meridianen of lengtecirkels lopen van pool tot pool."
+        },
+        {
+         "vraag": "In welk halfrond ligt België?",
+         "opties": [
+          "Zuidelijk en oostelijk",
+          "Noordelijk en oostelijk",
+          "Zuidelijk en westelijk"
+         ],
+         "antwoord": 1,
+         "uitleg": "België ligt ten noorden van de evenaar en ten oosten van Greenwich."
+        },
+        {
+         "vraag": "Wat is de maximale noorderbreedte?",
+         "opties": [
+          "180 graden",
+          "360 graden",
+          "90 graden"
+         ],
+         "antwoord": 2,
+         "uitleg": "De noordpool ligt op 90 graden noorderbreedte."
+        },
+        {
+         "vraag": "Door welke plaats loopt de nulmeridiaan?",
+         "opties": [
+          "Parijs",
+          "Brussel",
+          "Greenwich bij Londen"
+         ],
+         "antwoord": 2,
+         "uitleg": "De nulmeridiaan loopt door Greenwich."
+        }
+       ]
+      },
+      {
+       "id": "halfronden-ligging",
+       "titel": "Plaatsen opzoeken en ligging beschrijven",
+       "uitleg": "Een plaats opzoeken met coördinaten doe je in twee stappen. Eerst zoek je de breedtegraad (noord of zuid van de evenaar), daarna de lengtegraad (oost of west van de nulmeridiaan). Waar de twee lijnen kruisen, ligt de plaats.\n\nJe schrijft de breedtegraad altijd met noorderbreedte (NB) of zuiderbreedte (ZB), en de lengtegraad met oosterlengte (OL) of westerlengte (WL).\n\nJe kunt een ligging ook in woorden beschrijven: met de windrichting, het werelddeel en de buren. Bijvoorbeeld: Brussel ligt in het midden van België, ten zuiden van Antwerpen. Ook kun je de afstand tot de evenaar gebruiken om te weten of een plaats warm of koud zal zijn: hoe dichter bij de evenaar, hoe warmer het meestal is.\n\nHet noordelijk en het zuidelijk halfrond hebben tegengestelde seizoenen. Als het zomer is in België, is het winter in Australië.",
+       "woorden": [
+        {
+         "nl": "noorderbreedte",
+         "doel": "afstand in graden ten noorden van de evenaar",
+         "voorbeeld": "51° NB"
+        },
+        {
+         "nl": "oosterlengte",
+         "doel": "afstand in graden ten oosten van de nulmeridiaan",
+         "voorbeeld": "4° OL"
+        },
+        {
+         "nl": "ligging",
+         "doel": "plaats van iets ten opzichte van andere plaatsen",
+         "voorbeeld": "Brussel ligt ten zuiden van Antwerpen."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Een plaats ligt op 40 graden ZB. Waar ligt ze?",
+         "opties": [
+          "Ten zuiden van de evenaar",
+          "Op de evenaar",
+          "Ten noorden van de evenaar"
+         ],
+         "antwoord": 0,
+         "uitleg": "ZB = zuiderbreedte, dus ten zuiden van de evenaar."
+        },
+        {
+         "vraag": "Een plaats op 10 graden WL ligt:",
+         "opties": [
+          "Ten westen van de nulmeridiaan",
+          "Ten oosten van de nulmeridiaan",
+          "Op de evenaar"
+         ],
+         "antwoord": 0,
+         "uitleg": "WL = westerlengte."
+        },
+        {
+         "vraag": "Waar is het meestal het warmst?",
+         "opties": [
+          "Dicht bij de polen",
+          "Dicht bij de evenaar",
+          "Op 60 graden noorderbreedte"
+         ],
+         "antwoord": 1,
+         "uitleg": "Bij de evenaar valt het zonlicht het meest recht in."
+        },
+        {
+         "vraag": "Het is zomer in België. Wat is het dan in Australië?",
+         "opties": [
+          "Winter",
+          "Lente",
+          "Ook zomer"
+         ],
+         "antwoord": 0,
+         "uitleg": "De halfronden hebben tegengestelde seizoenen."
+        },
+        {
+         "vraag": "Wat gebruik je om een ligging in woorden te beschrijven?",
+         "opties": [
+          "Alleen de legende",
+          "Alleen de schaal",
+          "Windrichting en buren"
+         ],
+         "antwoord": 2,
+         "uitleg": "Je zegt waar iets ligt ten opzichte van andere plaatsen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wereldbeeld",
+     "titel": "Onze wereld: continenten en oceanen",
+     "samenvatting": "Je leert de werelddelen en oceanen kennen en hoe de aarde beweegt.",
+     "lessen": [
+      {
+       "id": "continenten-oceanen",
+       "titel": "Continenten en oceanen",
+       "uitleg": "Op aarde onderscheiden we zeven continenten (werelddelen): Azië, Afrika, Noord-Amerika, Zuid-Amerika, Antarctica, Europa en Oceanië (Australië). Azië is het grootste continent en Europa ligt in het noordwesten van het grote landblok Eurazië.\n\nTussen de continenten liggen de oceanen. We tellen vijf oceanen: de Grote of Stille Oceaan, de Atlantische Oceaan, de Indische Oceaan, de Zuidelijke Oceaan en de Noordelijke IJszee. De Grote Oceaan is de grootste.\n\nOngeveer 71 procent van de aarde is bedekt met water en ongeveer 29 procent is land; dat is afgerond. Daarom heet de aarde soms de blauwe planeet.\n\nBelgië ligt in Europa en grenst aan de Noordzee, die een randzee is van de Atlantische Oceaan.",
+       "woorden": [
+        {
+         "nl": "continent",
+         "doel": "groot stuk land op aarde",
+         "voorbeeld": "Afrika"
+        },
+        {
+         "nl": "oceaan",
+         "doel": "zeer grote zoutwatermassa tussen de continenten",
+         "voorbeeld": "Atlantische Oceaan"
+        },
+        {
+         "nl": "randzee",
+         "doel": "zee aan de rand van een oceaan",
+         "voorbeeld": "Noordzee"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoeveel continenten onderscheiden we hier?",
+         "opties": [
+          "Zeven",
+          "Vijf",
+          "Negen"
+         ],
+         "antwoord": 0,
+         "uitleg": "We tellen zeven continenten."
+        },
+        {
+         "vraag": "Welke oceaan is de grootste?",
+         "opties": [
+          "Atlantische Oceaan",
+          "Indische Oceaan",
+          "Grote of Stille Oceaan"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Grote Oceaan is de grootste."
+        },
+        {
+         "vraag": "In welk continent ligt België?",
+         "opties": [
+          "Europa",
+          "Azië",
+          "Afrika"
+         ],
+         "antwoord": 0,
+         "uitleg": "België ligt in Europa."
+        },
+        {
+         "vraag": "Welk continent ligt rond de zuidpool?",
+         "opties": [
+          "Antarctica",
+          "Zuid-Amerika",
+          "Oceanië"
+         ],
+         "antwoord": 0,
+         "uitleg": "Antarctica ligt rond de zuidpool."
+        },
+        {
+         "vraag": "Ongeveer hoeveel van de aarde is water (afgerond)?",
+         "opties": [
+          "Een kwart",
+          "Ongeveer 10 procent",
+          "Ongeveer 71 procent"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ruim zeventig procent van het oppervlak is water."
+        }
+       ]
+      },
+      {
+       "id": "aarde-beweging",
+       "titel": "Dag, nacht en seizoenen",
+       "uitleg": "De aarde draait rond haar eigen as. Die draaiing duurt ongeveer 24 uur en veroorzaakt dag en nacht. De kant van de aarde die naar de zon gekeerd is, heeft dag; de andere kant heeft nacht.\n\nDe aarde draait ook rond de zon. Die omwenteling duurt ongeveer 365 dagen, een jaar.\n\nDe aardas staat schuin. Daardoor valt het zonlicht niet altijd even recht op dezelfde plaats en krijgen we seizoenen: lente, zomer, herfst en winter. Als het noordelijk halfrond naar de zon gekanteld is, is het daar zomer en op het zuidelijk halfrond winter.\n\nRond de evenaar zijn er nauwelijks seizoenen met grote temperatuurverschillen, want daar schijnt de zon het hele jaar vrij recht.",
+       "woorden": [
+        {
+         "nl": "rotatie",
+         "doel": "draaiing van de aarde om haar eigen as",
+         "voorbeeld": "Dag en nacht"
+        },
+        {
+         "nl": "omwenteling",
+         "doel": "draaiing van de aarde rond de zon",
+         "voorbeeld": "Een jaar"
+        },
+        {
+         "nl": "aardas",
+         "doel": "denkbeeldige lijn door noord- en zuidpool",
+         "voorbeeld": "De aardas staat schuin."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat veroorzaakt dag en nacht?",
+         "opties": [
+          "De draaiing van de aarde om haar as",
+          "De draaiing van de aarde rond de zon",
+          "De maan"
+         ],
+         "antwoord": 0,
+         "uitleg": "De rotatie zorgt voor dag en nacht."
+        },
+        {
+         "vraag": "Hoe lang duurt een omwenteling rond de zon ongeveer?",
+         "opties": [
+          "Een dag",
+          "Een jaar",
+          "Een maand"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een omwenteling duurt ongeveer 365 dagen."
+        },
+        {
+         "vraag": "Waarom hebben we seizoenen?",
+         "opties": [
+          "De aarde is rond",
+          "De zon is groot",
+          "De aardas staat schuin"
+         ],
+         "antwoord": 2,
+         "uitleg": "De schuine stand van de aardas veroorzaakt seizoenen."
+        },
+        {
+         "vraag": "Wanneer is het zomer op het noordelijk halfrond?",
+         "opties": [
+          "Als het van de zon weggekanteld is",
+          "Als het naar de zon gekanteld is",
+          "Altijd"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dan valt het zonlicht er steiler en langer."
+        },
+        {
+         "vraag": "Rond de evenaar zijn de seizoenen:",
+         "opties": [
+          "Omgekeerd aan die van België",
+          "Nauwelijks uitgesproken",
+          "Zeer uitgesproken"
+         ],
+         "antwoord": 1,
+         "uitleg": "De zon schijnt er het hele jaar vrij recht."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "weer-klimaat",
+     "titel": "Weer en klimaat",
+     "samenvatting": "Je leert het verschil tussen weer en klimaat en de klimaatzones op aarde.",
+     "lessen": [
+      {
+       "id": "weer-en-klimaat",
+       "titel": "Weer en klimaat",
+       "uitleg": "Het weer is hoe de lucht op een bepaald moment en op een bepaalde plaats is: warm of koud, droog of nat, winderig of windstil. Het klimaat is het gemiddelde weer over een lange periode, meestal dertig jaar.\n\nWeerelementen zijn de dingen die we meten: temperatuur, neerslag (regen, sneeuw, hagel), wind, luchtdruk en bewolking. Temperatuur meten we met een thermometer, neerslag met een regenmeter en wind met een windmeter.\n\nIn Vlaanderen hebben we een gematigd zeeklimaat: milde winters, niet te hete zomers en het hele jaar door neerslag. De zee werkt als een verwarming in de winter en een koeler in de zomer.\n\nOm een klimaat voor te stellen gebruiken we een klimatogram. Daarop zie je met een lijn de gemiddelde temperatuur per maand en met staven de gemiddelde neerslag per maand.",
+       "woorden": [
+        {
+         "nl": "weer",
+         "doel": "toestand van de lucht op een moment",
+         "voorbeeld": "Vandaag regent het."
+        },
+        {
+         "nl": "klimaat",
+         "doel": "gemiddeld weer over een lange periode",
+         "voorbeeld": "In België heerst een zeeklimaat."
+        },
+        {
+         "nl": "neerslag",
+         "doel": "water dat uit de lucht valt",
+         "voorbeeld": "Regen, sneeuw"
+        },
+        {
+         "nl": "klimatogram",
+         "doel": "grafiek met temperatuur en neerslag per maand",
+         "voorbeeld": "Lijn en staven"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is het klimaat?",
+         "opties": [
+          "Het weer van vandaag",
+          "Het gemiddelde weer over een lange periode",
+          "Alleen de wind"
+         ],
+         "antwoord": 1,
+         "uitleg": "Klimaat is langetermijngemiddelde."
+        },
+        {
+         "vraag": "Wat meet je met een regenmeter?",
+         "opties": [
+          "Neerslag",
+          "Temperatuur",
+          "Wind"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een regenmeter meet neerslag."
+        },
+        {
+         "vraag": "Welk klimaat heeft Vlaanderen?",
+         "opties": [
+          "Poolklimaat",
+          "Woestijnklimaat",
+          "Gematigd zeeklimaat"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vlaanderen heeft een gematigd zeeklimaat."
+        },
+        {
+         "vraag": "Wat zie je op een klimatogram?",
+         "opties": [
+          "Bevolking per stad",
+          "Temperatuur en neerslag per maand",
+          "Hoogte en diepte"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een klimatogram toont temperatuur (lijn) en neerslag (staven)."
+        },
+        {
+         "vraag": "'Het regent vandaag in Gent' gaat over:",
+         "opties": [
+          "Het landschap",
+          "Het weer",
+          "Het klimaat"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het gaat om een toestand op één moment."
+        }
+       ]
+      },
+      {
+       "id": "klimaatzones",
+       "titel": "Klimaatzones op aarde",
+       "uitleg": "Het klimaat verandert van de evenaar naar de polen, omdat de zon rond de evenaar veel rechter schijnt dan bij de polen. We onderscheiden grofweg drie grote zones.\n\nDe tropische zone ligt rond de evenaar. Daar is het het hele jaar warm en vaak nat, zoals in het regenwoud van het Amazonegebied.\n\nDe gematigde zone ligt tussen de tropen en de poolgebieden. Daar zijn er vier seizoenen, zoals in België.\n\nDe polaire zone ligt rond de polen. Daar is het het hele jaar koud en er is veel ijs, zoals op Antarctica.\n\nNaast de afstand tot de evenaar spelen ook de hoogte, de ligging bij de zee en de zeestromingen een rol. In bergen wordt het kouder naarmate je hoger komt.",
+       "woorden": [
+        {
+         "nl": "tropen",
+         "doel": "warme zone rond de evenaar",
+         "voorbeeld": "Amazonegebied"
+        },
+        {
+         "nl": "gematigd",
+         "doel": "niet te warm en niet te koud, met vier seizoenen",
+         "voorbeeld": "België"
+        },
+        {
+         "nl": "polair",
+         "doel": "zeer koud, bij de polen",
+         "voorbeeld": "Antarctica"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welke klimaatzone ligt België?",
+         "opties": [
+          "Polaire zone",
+          "Gematigde zone",
+          "Tropische zone"
+         ],
+         "antwoord": 1,
+         "uitleg": "België heeft vier seizoenen en ligt in de gematigde zone."
+        },
+        {
+         "vraag": "Waar is het het hele jaar warm?",
+         "opties": [
+          "Op hoge bergtoppen",
+          "Rond de evenaar",
+          "Rond de polen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Rond de evenaar schijnt de zon het meest recht."
+        },
+        {
+         "vraag": "Wat gebeurt er met de temperatuur als je hoger in de bergen komt?",
+         "opties": [
+          "Ze stijgt",
+          "Ze daalt",
+          "Ze blijft gelijk"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het wordt kouder met de hoogte."
+        },
+        {
+         "vraag": "Welke zone ligt rond de zuidpool?",
+         "opties": [
+          "Gematigde",
+          "Tropische",
+          "Polaire"
+         ],
+         "antwoord": 2,
+         "uitleg": "Rond de polen heerst een polair klimaat."
+        },
+        {
+         "vraag": "Waarom is het bij de polen koud?",
+         "opties": [
+          "De zon schijnt er schuin",
+          "Er is geen zee",
+          "De zon schijnt er recht"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het zonlicht valt er schuin en verwarmt weinig."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reliëf",
+     "titel": "Reliëf en landschappen",
+     "samenvatting": "Je leert hoogteverschillen lezen en landschapstypes herkennen.",
+     "lessen": [
+      {
+       "id": "hoogte-reliëf",
+       "titel": "Hoogte en reliëf",
+       "uitleg": "Reliëf zijn de hoogteverschillen in een landschap. Hoogte meten we ten opzichte van de zeespiegel. Die ligt op 0 meter.\n\nLaagland is vlak land tot ongeveer 200 meter hoogte. Hoogland ligt hoger. Een heuvel is een lage verhevenheid, een berg is hoog en steil, en een gebergte is een groep bergen. Een vallei is een laagte tussen hoogten, vaak met een rivier. Een plateau is een hoge, vrij vlakke vlakte.\n\nOp kaarten tonen we hoogte met kleuren (bv. groen voor laag, bruin voor hoog) en met hoogtelijnen. Hoogtelijnen verbinden punten met dezelfde hoogte. Staan de lijnen dicht bij elkaar, dan is de helling steil.\n\nVlaanderen is vooral laag en vlak. De Ardennen in het zuidoosten van België zijn hoger.",
+       "woorden": [
+        {
+         "nl": "reliëf",
+         "doel": "hoogteverschillen in een landschap",
+         "voorbeeld": "Vlaanderen heeft weinig reliëf."
+        },
+        {
+         "nl": "hoogtelijn",
+         "doel": "lijn die punten van gelijke hoogte verbindt",
+         "voorbeeld": "Dicht bij elkaar = steil."
+        },
+        {
+         "nl": "vallei",
+         "doel": "laagte tussen hogere gebieden",
+         "voorbeeld": "De Maasvallei"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Ten opzichte waarvan meten we hoogte?",
+         "opties": [
+          "De zeespiegel",
+          "De top van de berg",
+          "De evenaar"
+         ],
+         "antwoord": 0,
+         "uitleg": "De zeespiegel is het nulpunt."
+        },
+        {
+         "vraag": "Wat betekent het als hoogtelijnen dicht bij elkaar liggen?",
+         "opties": [
+          "Een vlakke streek",
+          "Een steile helling",
+          "Een rivier"
+         ],
+         "antwoord": 1,
+         "uitleg": "Veel hoogteverschil op korte afstand betekent een steile helling."
+        },
+        {
+         "vraag": "Wat is een vallei?",
+         "opties": [
+          "Een hoge berg",
+          "Een eiland",
+          "Een laagte tussen hoogten"
+         ],
+         "antwoord": 2,
+         "uitleg": "Een vallei is een laagte, vaak met een rivier."
+        },
+        {
+         "vraag": "Welk deel van België is het hoogst?",
+         "opties": [
+          "De kust",
+          "De polders",
+          "De Ardennen"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Ardennen zijn het hoogste deel van België."
+        },
+        {
+         "vraag": "Wat is een gebergte?",
+         "opties": [
+          "Een lage heuvel",
+          "Een groep bergen",
+          "Een diepe zee"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een gebergte bestaat uit meerdere bergen bij elkaar."
+        }
+       ]
+      },
+      {
+       "id": "landschappen-bg",
+       "titel": "Landschappen in België",
+       "uitleg": "Een landschap is het uitzicht van een gebied, met natuurlijke en menselijke kenmerken. België heeft verschillende landschapstypes.\n\nAan de kust vind je zand, duinen en strand. Daarachter liggen de polders: laag land dat vroeger zeebodem was, met dijken, sloten en weilanden. Verder landinwaarts liggen de zandstreken met droge, zandige bodem (zoals Zandig Vlaanderen en de Kempen), de leemstreek met vruchtbare leembodem, en daarna de heuvelachtige landschappen. In het zuiden liggen de Ardennen met bossen, plateaus en diepe valleien.\n\nDe bodem bepaalt mee wat er kan groeien. Leem is erg vruchtbaar en wordt gebruikt voor akkerbouw. Op zandgrond groeien vaak dennenbossen en heide.\n\nMensen veranderen landschappen met huizen, wegen, industrie en landbouw.",
+       "woorden": [
+        {
+         "nl": "polder",
+         "doel": "laag land dat op de zee veroverd is",
+         "voorbeeld": "De Westerscheldepolders"
+        },
+        {
+         "nl": "duin",
+         "doel": "heuvel van zand langs de kust",
+         "voorbeeld": "De duinen bij De Panne"
+        },
+        {
+         "nl": "leem",
+         "doel": "vruchtbare bodem van fijne grond",
+         "voorbeeld": "Leemstreek in Vlaams-Brabant"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een polder?",
+         "opties": [
+          "Een bos",
+          "Laag land dat vroeger zeebodem was",
+          "Hoog bergland"
+         ],
+         "antwoord": 1,
+         "uitleg": "Polders zijn op de zee veroverd."
+        },
+        {
+         "vraag": "Welke bodem is erg vruchtbaar voor akkerbouw?",
+         "opties": [
+          "Leem",
+          "Strand",
+          "Rots"
+         ],
+         "antwoord": 0,
+         "uitleg": "Leembodem is vruchtbaar."
+        },
+        {
+         "vraag": "Welk landschap vind je in het zuiden van België?",
+         "opties": [
+          "Ardennen",
+          "Polders",
+          "Duinen"
+         ],
+         "antwoord": 0,
+         "uitleg": "De Ardennen liggen in het zuiden."
+        },
+        {
+         "vraag": "Wat is een menselijk kenmerk van een landschap?",
+         "opties": [
+          "Een rivier",
+          "Een dijk",
+          "Een berg"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een dijk werd door mensen gebouwd."
+        },
+        {
+         "vraag": "Welke streek hoort bij zandgrond?",
+         "opties": [
+          "De Ardennen",
+          "De kuststrook met polders",
+          "De Kempen"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Kempen hebben een zandige bodem."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "plaattektoniek",
+     "titel": "Plaattektoniek",
+     "samenvatting": "Je leert hoe de aarde is opgebouwd en waarom bergen, vulkanen en aardbevingen ontstaan.",
+     "lessen": [
+      {
+       "id": "opbouw-platen",
+       "titel": "De opbouw van de aarde en de platen",
+       "uitleg": "De aarde is opgebouwd uit lagen. Helemaal buiten ligt de aardkorst, een dunne harde laag waarop wij leven. Daaronder ligt de mantel, een dikke laag hete rots die heel traag kan vloeien. In het midden zit de kern, die erg heet is.\n\nDe aardkorst is gebroken in grote stukken: de tektonische platen. Zij drijven heel langzaam, ongeveer enkele centimeters per jaar, op de mantel. Dat gaat zo traag dat we het niet voelen.\n\nWaar platen botsen, schuiven, of uit elkaar gaan, ontstaan bijzondere verschijnselen. Als twee platen op elkaar botsen, kunnen gebergten ontstaan, zoals de Alpen en de Himalaya. Bij een plaatrand schuift soms een plaat onder een andere.\n\nDe theorie dat continenten bewegen heet de platentektoniek.",
+       "woorden": [
+        {
+         "nl": "aardkorst",
+         "doel": "de harde buitenste laag van de aarde",
+         "voorbeeld": "Wij leven op de aardkorst."
+        },
+        {
+         "nl": "mantel",
+         "doel": "dikke laag hete rots onder de korst",
+         "voorbeeld": "De mantel zit tussen korst en kern."
+        },
+        {
+         "nl": "tektonische plaat",
+         "doel": "groot stuk van de aardkorst",
+         "voorbeeld": "De Euraziatische plaat"
+        },
+        {
+         "nl": "plaatrand",
+         "doel": "grens waar platen elkaar raken",
+         "voorbeeld": "Botsende platen"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet de buitenste laag van de aarde?",
+         "opties": [
+          "Kern",
+          "Mantel",
+          "Aardkorst"
+         ],
+         "antwoord": 2,
+         "uitleg": "De aardkorst is de buitenste laag."
+        },
+        {
+         "vraag": "Hoe snel bewegen platen ongeveer?",
+         "opties": [
+          "Enkele meters per dag",
+          "Enkele centimeters per jaar",
+          "Enkele kilometers per uur"
+         ],
+         "antwoord": 1,
+         "uitleg": "Platen bewegen zeer traag."
+        },
+        {
+         "vraag": "Wat kan ontstaan als twee platen botsen?",
+         "opties": [
+          "Een rivier",
+          "Een gebergte",
+          "Een woestijn"
+         ],
+         "antwoord": 1,
+         "uitleg": "Botsing duwt rots omhoog tot gebergten, zoals de Alpen."
+        },
+        {
+         "vraag": "Wat ligt onder de aardkorst?",
+         "opties": [
+          "De oceaan",
+          "De atmosfeer",
+          "De mantel"
+         ],
+         "antwoord": 2,
+         "uitleg": "Onder de korst ligt de mantel."
+        },
+        {
+         "vraag": "Waaruit is de aardkorst gebroken?",
+         "opties": [
+          "Windzones",
+          "Stroomgebieden",
+          "Tektonische platen"
+         ],
+         "antwoord": 2,
+         "uitleg": "De korst bestaat uit platen."
+        }
+       ]
+      },
+      {
+       "id": "vulkanen-aardbevingen",
+       "titel": "Vulkanen en aardbevingen",
+       "uitleg": "Aan de randen van de platen zijn er veel vulkanen en aardbevingen. Een vulkaan is een opening in de aardkorst waaruit gesmolten gesteente (magma) naar boven komt. Op het aardoppervlak heet dat magma lava.\n\nEen aardbeving is een schok in de aardkorst, die ontstaat als platen plots schuiven of verhaken. De plaats onder de grond waar de schok begint, noemen we het haardpunt. Het punt erboven aan het oppervlak is het epicentrum. De kracht wordt gemeten met een schaal, bijvoorbeeld de schaal van Richter of de momentmagnitude.\n\nRond de Grote Oceaan ligt een gebied met veel vulkanen en aardbevingen, de Ring van Vuur. In België zijn aardbevingen zeldzaam en meestal zwak.\n\nBij een aardbeving onder de zee kan een tsunami ontstaan: een grote golf die de kust kan overspoelen.",
+       "woorden": [
+        {
+         "nl": "vulkaan",
+         "doel": "opening waaruit magma omhoog komt",
+         "voorbeeld": "De Etna"
+        },
+        {
+         "nl": "magma",
+         "doel": "gesmolten gesteente onder de grond",
+         "voorbeeld": "Magma wordt lava aan de oppervlakte."
+        },
+        {
+         "nl": "epicentrum",
+         "doel": "punt aan het oppervlak boven het haardpunt van een aardbeving",
+         "voorbeeld": "Het epicentrum ligt boven het haardpunt."
+        },
+        {
+         "nl": "tsunami",
+         "doel": "grote golf na een aardbeving onder zee",
+         "voorbeeld": "Een tsunami treft kusten."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet gesmolten gesteente op het aardoppervlak?",
+         "opties": [
+          "Magma",
+          "As",
+          "Lava"
+         ],
+         "antwoord": 2,
+         "uitleg": "Onder de grond heet het magma, erbuiten lava."
+        },
+        {
+         "vraag": "Waar zijn de meeste vulkanen en aardbevingen?",
+         "opties": [
+          "Overal evenveel",
+          "Aan de randen van platen",
+          "In het midden van de oceaan altijd"
+         ],
+         "antwoord": 1,
+         "uitleg": "Vooral aan de plaatranden."
+        },
+        {
+         "vraag": "Wat is het epicentrum?",
+         "opties": [
+          "De rand van de plaat",
+          "De top van de vulkaan",
+          "Het punt aan het oppervlak boven het haardpunt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het epicentrum ligt recht boven het haardpunt."
+        },
+        {
+         "vraag": "Waardoor kan een tsunami ontstaan?",
+         "opties": [
+          "Door een aardbeving onder zee",
+          "Door een droge zomer",
+          "Door veel regen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een aardbeving onder zee kan water in beweging brengen."
+        },
+        {
+         "vraag": "Hoe is de kans op zware aardbevingen in België?",
+         "opties": [
+          "Het gebeurt elke dag",
+          "Klein",
+          "Zeer groot"
+         ],
+         "antwoord": 1,
+         "uitleg": "België ligt ver van de grote plaatranden."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rivieren",
+     "titel": "Water en rivieren",
+     "samenvatting": "Je leert de waterkringloop en hoe rivieren werken.",
+     "lessen": [
+      {
+       "id": "waterkringloop",
+       "titel": "De waterkringloop",
+       "uitleg": "Water gaat steeds rond in een kringloop. De zon verwarmt water in zeeën, meren en rivieren, waardoor het verdampt: het wordt waterdamp in de lucht. Hoog in de lucht koelt de waterdamp af en condenseert tot kleine druppels. Zo ontstaan wolken.\n\nUit de wolken valt neerslag als regen, sneeuw of hagel. Dat water stroomt over de grond naar rivieren (afvoer) of zakt in de bodem (infiltratie) en wordt grondwater. Uiteindelijk komt het weer in zee.\n\nPlanten nemen water op met hun wortels en geven het via hun bladeren terug aan de lucht. Dat heet verdamping door planten.\n\nDe hoeveelheid zoet water op aarde is beperkt. Daarom is zuinig omgaan met water belangrijk.",
+       "woorden": [
+        {
+         "nl": "verdamping",
+         "doel": "water wordt waterdamp",
+         "voorbeeld": "Een plas droogt op."
+        },
+        {
+         "nl": "condensatie",
+         "doel": "waterdamp wordt vloeibaar water",
+         "voorbeeld": "Wolken vormen zich."
+        },
+        {
+         "nl": "grondwater",
+         "doel": "water dat in de bodem zit",
+         "voorbeeld": "Een put haalt grondwater op."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat gebeurt er bij verdamping?",
+         "opties": [
+          "Water wordt waterdamp",
+          "Waterdamp wordt regen",
+          "Water vriest"
+         ],
+         "antwoord": 0,
+         "uitleg": "Verdampen = van vloeistof naar damp."
+        },
+        {
+         "vraag": "Hoe ontstaan wolken?",
+         "opties": [
+          "Waterdamp condenseert tot druppels",
+          "Sneeuw smelt",
+          "Wind blaast zand"
+         ],
+         "antwoord": 0,
+         "uitleg": "Condensatie geeft kleine waterdruppels."
+        },
+        {
+         "vraag": "Welke energiebron drijft de waterkringloop vooral aan?",
+         "opties": [
+          "De zon",
+          "Aardbevingen",
+          "De maan"
+         ],
+         "antwoord": 0,
+         "uitleg": "De zon verwarmt het water zodat het verdampt."
+        },
+        {
+         "vraag": "Wat is neerslag?",
+         "opties": [
+          "Water in een rivier",
+          "Water in de bodem",
+          "Water dat uit de lucht valt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Regen, sneeuw en hagel zijn neerslag."
+        },
+        {
+         "vraag": "Waar komt het regenwater uiteindelijk vaak terecht?",
+         "opties": [
+          "In de wolken voor altijd",
+          "In de mantel",
+          "Weer in zee"
+         ],
+         "antwoord": 2,
+         "uitleg": "Via rivieren of grondwater gaat het weer naar zee."
+        }
+       ]
+      },
+      {
+       "id": "rivier-schelde-maas",
+       "titel": "Rivieren: bron, loop en monding",
+       "uitleg": "Een rivier begint bij de bron en eindigt bij de monding, waar ze in zee, een meer of een andere rivier uitkomt. Kleinere rivieren die in een grotere stromen, heten zijrivieren. Alle zijrivieren samen met de hoofdrivier vormen het stroomgebied: het hele gebied waarvan het water naar die rivier stroomt.\n\nIn de bovenloop (dicht bij de bron) is de rivier smal, snel en snijdt ze diep in het land. In de middenloop wordt ze breder. In de benedenloop stroomt ze traag en breed door vlak land. Daar zet ze zand en slib af. Bij de monding kan een delta of een trechtervormige riviermonding (estuarium) ontstaan.\n\nTwee belangrijke rivieren in België zijn de Schelde, die door Vlaanderen stroomt en bij Antwerpen een belangrijke haven heeft, en de Maas in Wallonië en Limburg. De Schelde mondt uit in de Noordzee in Nederland.\n\nBij veel regen kan een rivier overstromen. Daarom bouwt men dijken en overstromingsgebieden.",
+       "woorden": [
+        {
+         "nl": "bron",
+         "doel": "plaats waar een rivier begint",
+         "voorbeeld": "De Schelde ontspringt in Frankrijk."
+        },
+        {
+         "nl": "monding",
+         "doel": "plaats waar een rivier eindigt",
+         "voorbeeld": "De Schelde mondt in zee uit."
+        },
+        {
+         "nl": "zijrivier",
+         "doel": "kleinere rivier die in een grotere uitmondt",
+         "voorbeeld": "De Leie is een zijrivier van de Schelde."
+        },
+        {
+         "nl": "stroomgebied",
+         "doel": "gebied waarvan het water naar één rivier stroomt",
+         "voorbeeld": "Het Scheldebekken"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Hoe heet de plaats waar een rivier begint?",
+         "opties": [
+          "Bron",
+          "Delta",
+          "Monding"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een rivier begint bij de bron."
+        },
+        {
+         "vraag": "Wat is een zijrivier?",
+         "opties": [
+          "Een kanaal",
+          "Een kleine rivier die in een grotere uitmondt",
+          "Een meer"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zijrivieren voeden de hoofdrivier."
+        },
+        {
+         "vraag": "In de benedenloop stroomt een rivier meestal:",
+         "opties": [
+          "Onder de grond",
+          "Smal en razend snel",
+          "Traag en breed"
+         ],
+         "antwoord": 2,
+         "uitleg": "In het vlakke land stroomt de rivier traag."
+        },
+        {
+         "vraag": "Aan welke rivier ligt Antwerpen?",
+         "opties": [
+          "De Schelde",
+          "De Maas",
+          "De Rijn"
+         ],
+         "antwoord": 0,
+         "uitleg": "Antwerpen ligt aan de Schelde."
+        },
+        {
+         "vraag": "Wat is een stroomgebied?",
+         "opties": [
+          "Het gebied waarvan het water naar één rivier stroomt",
+          "Een stuw",
+          "De monding van de rivier"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het omvat de rivier en al haar zijrivieren."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "belgie-vlaanderen",
+     "titel": "België en Vlaanderen",
+     "samenvatting": "Je leert de ligging, gewesten en provincies van België kennen.",
+     "lessen": [
+      {
+       "id": "belgie-ligging-gewesten",
+       "titel": "Ligging en gewesten van België",
+       "uitleg": "België ligt in West-Europa. Het grenst aan Nederland in het noorden, Duitsland en Luxemburg in het oosten, Frankrijk in het zuiden en zuidwesten, en de Noordzee in het noordwesten. De hoofdstad van België is Brussel.\n\nBelgië is een federale staat. Het bestaat uit drie gewesten: het Vlaams Gewest in het noorden, het Waals Gewest in het zuiden en het Brussels Hoofdstedelijk Gewest in het midden. Daarnaast bestaan er drie gemeenschappen op basis van taal: de Vlaamse, de Franstalige en de Duitstalige Gemeenschap.\n\nBelgië is klein maar dicht bevolkt en heeft een centrale ligging in Europa, met veel wegen, kanalen en spoorlijnen. Dat is gunstig voor handel en transport.\n\nBrussel is ook de hoofdstad van Vlaanderen en een belangrijke zetel van Europese instellingen.",
+       "woorden": [
+        {
+         "nl": "grens",
+         "doel": "scheidingslijn tussen landen",
+         "voorbeeld": "België grenst aan vier landen."
+        },
+        {
+         "nl": "gewest",
+         "doel": "gebied met een eigen bestuur",
+         "voorbeeld": "Het Vlaams Gewest"
+        },
+        {
+         "nl": "hoofdstad",
+         "doel": "belangrijkste stad van een land met de regering",
+         "voorbeeld": "Brussel"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk land ligt ten noorden van België?",
+         "opties": [
+          "Frankrijk",
+          "Duitsland",
+          "Nederland"
+         ],
+         "antwoord": 2,
+         "uitleg": "Nederland ligt in het noorden."
+        },
+        {
+         "vraag": "Hoeveel gewesten heeft België?",
+         "opties": [
+          "Twee",
+          "Vier",
+          "Drie"
+         ],
+         "antwoord": 2,
+         "uitleg": "Vlaams, Waals en Brussels Hoofdstedelijk Gewest."
+        },
+        {
+         "vraag": "Wat is de hoofdstad van België?",
+         "opties": [
+          "Antwerpen",
+          "Luik",
+          "Brussel"
+         ],
+         "antwoord": 2,
+         "uitleg": "Brussel is de hoofdstad."
+        },
+        {
+         "vraag": "Aan welk land grenst België NIET?",
+         "opties": [
+          "Luxemburg",
+          "Spanje",
+          "Duitsland"
+         ],
+         "antwoord": 1,
+         "uitleg": "Spanje grenst niet aan België."
+        },
+        {
+         "vraag": "Waarom is de ligging van België gunstig voor handel?",
+         "opties": [
+          "Centraal in Europa met veel verbindingen",
+          "Veel hoge bergen",
+          "Heel afgelegen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Centrale ligging en goede verbindingen."
+        }
+       ]
+      },
+      {
+       "id": "provincies-hoofdsteden",
+       "titel": "De provincies en hun hoofdsteden",
+       "uitleg": "België is verdeeld in tien provincies, plus het Brussels Hoofdstedelijk Gewest dat geen provincie is. Elke provincie heeft een hoofdplaats.\n\nIn Vlaanderen liggen vijf provincies: West-Vlaanderen (hoofdplaats Brugge), Oost-Vlaanderen (Gent), Antwerpen (Antwerpen), Vlaams-Brabant (Leuven) en Limburg (Hasselt).\n\nIn Wallonië liggen ook vijf provincies: Waals-Brabant (Waver), Henegouwen (Bergen), Namen (Namen), Luik (Luik) en Luxemburg (Aarlen).\n\nDe kuststad Oostende ligt in West-Vlaanderen. Mechelen ligt in de provincie Antwerpen en Kortrijk in West-Vlaanderen.",
+       "woorden": [
+        {
+         "nl": "provincie",
+         "doel": "deel van een land met eigen bestuur",
+         "voorbeeld": "Limburg"
+        },
+        {
+         "nl": "hoofdplaats",
+         "doel": "belangrijkste stad van een provincie",
+         "voorbeeld": "Gent"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de hoofdplaats van Oost-Vlaanderen?",
+         "opties": [
+          "Brugge",
+          "Aalst",
+          "Gent"
+         ],
+         "antwoord": 2,
+         "uitleg": "Gent is de hoofdplaats van Oost-Vlaanderen."
+        },
+        {
+         "vraag": "Hoeveel provincies heeft Vlaanderen?",
+         "opties": [
+          "Tien",
+          "Vijf",
+          "Zes"
+         ],
+         "antwoord": 1,
+         "uitleg": "Vlaanderen heeft vijf provincies."
+        },
+        {
+         "vraag": "Welke stad is de hoofdplaats van Limburg?",
+         "opties": [
+          "Genk",
+          "Tongeren",
+          "Hasselt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hasselt is de hoofdplaats van Limburg."
+        },
+        {
+         "vraag": "In welke provincie ligt Leuven?",
+         "opties": [
+          "Antwerpen",
+          "Waals-Brabant",
+          "Vlaams-Brabant"
+         ],
+         "antwoord": 2,
+         "uitleg": "Leuven is de hoofdplaats van Vlaams-Brabant."
+        },
+        {
+         "vraag": "Welke provincie hoort bij Wallonië?",
+         "opties": [
+          "Antwerpen",
+          "West-Vlaanderen",
+          "Namen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Namen ligt in Wallonië."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "jaar": 2,
+   "themas": [
+    {
+     "id": "europa",
+     "titel": "Europa",
+     "samenvatting": "Ligging, natuur en landen van Europa.",
+     "lessen": [
+      {
+       "id": "europa-natuur",
+       "titel": "Europa: ligging en natuurlijke kenmerken",
+       "uitleg": "Europa is een continent in het noordwesten van het grote landblok Eurazië. Het wordt begrensd door de Noordelijke IJszee in het noorden, de Atlantische Oceaan in het westen en de Middellandse Zee in het zuiden. In het oosten loopt de grens ruwweg langs het Oeralgebergte.\n\nBelangrijke gebergten zijn de Alpen in het midden-zuiden en de Pyreneeën tussen Spanje en Frankrijk. Grote rivieren zijn de Rijn, de Donau, de Seine en de Rhône. De Donau is een van de langste rivieren van Europa en stroomt door meerdere landen.\n\nNoord-Europa heeft veel meren en bossen (zoals Finland en Zweden), met het Scandinavisch Gebergte in Noorwegen, Zuid-Europa is bergachtig met warme, droge zomers. Het Noord-Europese laagland loopt van Frankrijk door België en Nederland naar Polen.\n\nEuropa heeft een lange kustlijn met veel schiereilanden, zoals het Iberisch schiereiland (Spanje en Portugal).",
+       "woorden": [
+        {
+         "nl": "schiereiland",
+         "doel": "land dat bijna helemaal door water omgeven is",
+         "voorbeeld": "Italië"
+        },
+        {
+         "nl": "gebergte",
+         "doel": "reeks bergen",
+         "voorbeeld": "De Alpen"
+        },
+        {
+         "nl": "kustlijn",
+         "doel": "grens tussen land en zee",
+         "voorbeeld": "Europa heeft een lange kustlijn."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke zee ligt ten zuiden van Europa?",
+         "opties": [
+          "Oostzee",
+          "Noordzee",
+          "Middellandse Zee"
+         ],
+         "antwoord": 2,
+         "uitleg": "De Middellandse Zee ligt ten zuiden."
+        },
+        {
+         "vraag": "Welk gebergte ligt tussen Spanje en Frankrijk?",
+         "opties": [
+          "Oeral",
+          "Pyreneeën",
+          "Alpen"
+         ],
+         "antwoord": 1,
+         "uitleg": "De Pyreneeën vormen de natuurlijke grens."
+        },
+        {
+         "vraag": "Welke rivier stroomt door meerdere landen en mondt uit in de Zwarte Zee?",
+         "opties": [
+          "Schelde",
+          "Donau",
+          "Seine"
+         ],
+         "antwoord": 1,
+         "uitleg": "De Donau eindigt in de Zwarte Zee."
+        },
+        {
+         "vraag": "Wat zijn Spanje en Portugal samen?",
+         "opties": [
+          "Een eiland",
+          "Een delta",
+          "Het Iberisch schiereiland"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het Iberisch schiereiland."
+        },
+        {
+         "vraag": "Welk gebergte begrenst Europa grofweg in het oosten?",
+         "opties": [
+          "De Himalaya",
+          "De Oeral",
+          "De Andes"
+         ],
+         "antwoord": 1,
+         "uitleg": "De Oeral wordt als oostgrens gezien."
+        }
+       ]
+      },
+      {
+       "id": "europa-landen",
+       "titel": "Landen en hoofdsteden van Europa",
+       "uitleg": "Europa telt tientallen landen. Een aantal grote of bekende landen met hun hoofdstad zijn: Frankrijk (Parijs), Duitsland (Berlijn), Nederland (Amsterdam), Spanje (Madrid), Portugal (Lissabon), Italië (Rome), Polen (Warschau), Oostenrijk (Wenen), Zweden (Stockholm), Noorwegen (Oslo), Griekenland (Athene), Ierland (Dublin) en het Verenigd Koninkrijk (Londen).\n\nDe Europese Unie (EU) is een samenwerking tussen Europese landen. Belgische steden zoals Brussel zijn belangrijk voor Europese instellingen. Veel landen gebruiken dezelfde munt, de euro.\n\nNederland is de noordelijke buur van België, Frankrijk de zuidelijke. Samen met Luxemburg vormen België en Nederland de Benelux.",
+       "woorden": [
+        {
+         "nl": "Europese Unie",
+         "doel": "samenwerking tussen Europese landen",
+         "voorbeeld": "Brussel is een centrum van de EU."
+        },
+        {
+         "nl": "euro",
+         "doel": "gemeenschappelijke munt van veel EU-landen",
+         "voorbeeld": "Betalen met euro in Frankrijk."
+        },
+        {
+         "nl": "Benelux",
+         "doel": "samenwerking tussen België, Nederland en Luxemburg",
+         "voorbeeld": "Drie buurlanden."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is de hoofdstad van Spanje?",
+         "opties": [
+          "Madrid",
+          "Barcelona",
+          "Lissabon"
+         ],
+         "antwoord": 0,
+         "uitleg": "Madrid is de hoofdstad."
+        },
+        {
+         "vraag": "Wat is de hoofdstad van Italië?",
+         "opties": [
+          "Napels",
+          "Milaan",
+          "Rome"
+         ],
+         "antwoord": 2,
+         "uitleg": "Rome is de hoofdstad."
+        },
+        {
+         "vraag": "Wat is de hoofdstad van Polen?",
+         "opties": [
+          "Praag",
+          "Wenen",
+          "Warschau"
+         ],
+         "antwoord": 2,
+         "uitleg": "Warschau."
+        },
+        {
+         "vraag": "Welke hoofdstad hoort bij Oostenrijk?",
+         "opties": [
+          "Berlijn",
+          "Bern",
+          "Wenen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Wenen is de hoofdstad van Oostenrijk."
+        },
+        {
+         "vraag": "Welke landen vormen de Benelux?",
+         "opties": [
+          "Nederland, Duitsland, Denemarken",
+          "België, Frankrijk, Duitsland",
+          "België, Nederland, Luxemburg"
+         ],
+         "antwoord": 2,
+         "uitleg": "Benelux = België, Nederland, Luxemburg."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "klimaten-landschappen",
+     "titel": "Klimaten en landschappen op aarde",
+     "samenvatting": "Je leert de belangrijkste klimaattypes met hun natuur.",
+     "lessen": [
+      {
+       "id": "warme-klimaten",
+       "titel": "Warme klimaten: regenwoud, savanne en woestijn",
+       "uitleg": "In het tropisch regenwoud is het het hele jaar warm en erg nat. Er groeit een dicht woud met een enorme variatie aan planten en dieren, zoals in het Amazonegebied en het Congobekken.\n\nIn de savanne zijn er een regentijd en een droge tijd. Er groeit vooral gras met verspreide bomen, zoals in Oost-Afrika.\n\nIn de woestijn valt zeer weinig neerslag. Overdag is het vaak heet, 's nachts kan het koud worden. Een grote woestijn is de Sahara in Noord-Afrika. In een oase is er water en groeien er planten.\n\nPlanten en dieren zijn aangepast aan hun klimaat. Cactussen bewaren water, regenwoudbomen hebben grote bladeren.",
+       "woorden": [
+        {
+         "nl": "regenwoud",
+         "doel": "dicht bos in een warm en nat klimaat",
+         "voorbeeld": "Het Amazonewoud"
+        },
+        {
+         "nl": "savanne",
+         "doel": "grasland met verspreide bomen",
+         "voorbeeld": "Serengeti"
+        },
+        {
+         "nl": "oase",
+         "doel": "plaats in de woestijn met water",
+         "voorbeeld": "Palmen bij een bron"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "In welk klimaat valt het hele jaar veel regen en is het warm?",
+         "opties": [
+          "Woestijn",
+          "Toendra",
+          "Tropisch regenwoud"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat is het regenwoud."
+        },
+        {
+         "vraag": "Wat kenmerkt een savanne?",
+         "opties": [
+          "Geen planten",
+          "Regentijd en droge tijd",
+          "Altijd sneeuw"
+         ],
+         "antwoord": 1,
+         "uitleg": "Savannes kennen twee periodes."
+        },
+        {
+         "vraag": "Welke grote woestijn ligt in Noord-Afrika?",
+         "opties": [
+          "Namib",
+          "Sahara",
+          "Gobi"
+         ],
+         "antwoord": 1,
+         "uitleg": "De Sahara ligt in Noord-Afrika."
+        },
+        {
+         "vraag": "Hoe zijn cactussen aangepast?",
+         "opties": [
+          "Ze bewaren water",
+          "Ze groeien onder water",
+          "Ze hebben grote bladeren"
+         ],
+         "antwoord": 0,
+         "uitleg": "Cactussen slaan water op."
+        },
+        {
+         "vraag": "Wat is een oase?",
+         "opties": [
+          "Een plaats in de woestijn met water",
+          "Een berg",
+          "Een soort regenwoud"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een oase ligt waar water aan de oppervlakte komt."
+        }
+       ]
+      },
+      {
+       "id": "gematigd-en-koud",
+       "titel": "Gematigde en koude klimaten",
+       "uitleg": "In de gematigde zone zijn er vier seizoenen. Het gematigd zeeklimaat (zoals in West-Europa en België) heeft milde winters, frisse zomers en neerslag het hele jaar. Het landklimaat, dieper in een continent, heeft koudere winters en warmere zomers.\n\nHet middellandse-zeeklimaat (rond de Middellandse Zee) heeft droge, hete zomers en milde, natte winters. Daar groeien olijfbomen en wijnstokken.\n\nIn de koude zones vind je het toendraklimaat met een korte zomer, waar de ondergrond vaak bevroren is en alleen mossen, lage planten en struiken groeien. Rond de polen ligt het poolklimaat met ijs en sneeuw, zoals op Antarctica.\n\nIn hoge bergen wordt het kouder naarmate je hoger gaat, waardoor je andere planten ziet op verschillende hoogtes.",
+       "woorden": [
+        {
+         "nl": "toendra",
+         "doel": "koud gebied met alleen lage planten",
+         "voorbeeld": "Noord-Siberië"
+        },
+        {
+         "nl": "zeeklimaat",
+         "doel": "gematigd klimaat dicht bij de zee",
+         "voorbeeld": "België"
+        },
+        {
+         "nl": "middellandse-zeeklimaat",
+         "doel": "droge hete zomers, milde natte winters",
+         "voorbeeld": "Zuid-Spanje"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welk klimaat heeft België?",
+         "opties": [
+          "Toendra",
+          "Savanne",
+          "Gematigd zeeklimaat"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat is het gematigd zeeklimaat."
+        },
+        {
+         "vraag": "Wat kenmerkt het middellandse-zeeklimaat?",
+         "opties": [
+          "Altijd regen",
+          "Altijd sneeuw",
+          "Hete droge zomers"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zomers zijn droog en heet."
+        },
+        {
+         "vraag": "Welke planten groeien in de toendra?",
+         "opties": [
+          "Mossen en lage planten",
+          "Hoge regenwoudbomen",
+          "Palmen"
+         ],
+         "antwoord": 0,
+         "uitleg": "De kou laat alleen lage planten toe."
+        },
+        {
+         "vraag": "Welk gewas past bij een middellandse-zeeklimaat?",
+         "opties": [
+          "Banaan in het poolgebied",
+          "Olijven",
+          "Rijst in de tropen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Olijfbomen houden van droge, hete zomers."
+        },
+        {
+         "vraag": "Waar vind je poolklimaat?",
+         "opties": [
+          "Sahara",
+          "Antarctica",
+          "Amazonegebied"
+         ],
+         "antwoord": 1,
+         "uitleg": "Antarctica heeft een poolklimaat."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "bevolking",
+     "titel": "Bevolking",
+     "samenvatting": "Je leert hoe mensen over de aarde verspreid zijn en waarom ze verhuizen.",
+     "lessen": [
+      {
+       "id": "bevolking-spreiding",
+       "titel": "Bevolkingsspreiding en bevolkingsdichtheid",
+       "uitleg": "De bevolking is niet gelijk verdeeld over de aarde. De bevolkingsdichtheid is het aantal inwoners per vierkante kilometer. Een dichtbevolkt gebied heeft veel inwoners per km², een dunbevolkt gebied weinig.\n\nMensen wonen graag waar het klimaat aangenaam is, de bodem vruchtbaar is, er water is en waar er werk is. Daarom wonen veel mensen in rivierdalen, aan kusten en in steden. Woestijnen, hoge bergen en poolgebieden zijn dunbevolkt.\n\nOp aarde wonen ruim acht miljard mensen (afgerond). Veel mensen wonen in Azië.\n\nBelgië is een van de dichtbevolkte landen van Europa, en Vlaanderen is dichter bevolkt dan Wallonië.",
+       "woorden": [
+        {
+         "nl": "bevolkingsdichtheid",
+         "doel": "aantal inwoners per km²",
+         "voorbeeld": "Hoge dichtheid in steden."
+        },
+        {
+         "nl": "dunbevolkt",
+         "doel": "met weinig inwoners per km²",
+         "voorbeeld": "De Sahara"
+        },
+        {
+         "nl": "inwoner",
+         "doel": "iemand die ergens woont",
+         "voorbeeld": "Een Gentenaar"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is bevolkingsdichtheid?",
+         "opties": [
+          "Aantal steden",
+          "Aantal geboortes",
+          "Inwoners per vierkante kilometer"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het is een verhouding per km²."
+        },
+        {
+         "vraag": "Welk gebied is dunbevolkt?",
+         "opties": [
+          "Rivierdelta",
+          "Grote kuststad",
+          "Woestijn"
+         ],
+         "antwoord": 2,
+         "uitleg": "In woestijnen wonen weinig mensen."
+        },
+        {
+         "vraag": "Waarom wonen veel mensen in rivierdalen?",
+         "opties": [
+          "Vruchtbare bodem en water",
+          "Er is veel sneeuw",
+          "Het is er te koud"
+         ],
+         "antwoord": 0,
+         "uitleg": "Water en vruchtbare grond helpen."
+        },
+        {
+         "vraag": "Op welk continent wonen de meeste mensen?",
+         "opties": [
+          "Antarctica",
+          "Azië",
+          "Oceanië"
+         ],
+         "antwoord": 1,
+         "uitleg": "Azië heeft de meeste inwoners."
+        },
+        {
+         "vraag": "Welk gewest van België is dichter bevolkt?",
+         "opties": [
+          "Vlaanderen",
+          "Wallonië",
+          "Geen verschil"
+         ],
+         "antwoord": 0,
+         "uitleg": "Vlaanderen is dichter bevolkt dan Wallonië."
+        }
+       ]
+      },
+      {
+       "id": "bevolking-groei-migratie",
+       "titel": "Bevolkingsgroei en migratie",
+       "uitleg": "De bevolking verandert door geboorten, sterfgevallen en migratie. Het geboortecijfer zegt hoeveel kinderen geboren worden, het sterftecijfer hoeveel mensen sterven. Het verschil is de natuurlijke aangroei.\n\nMigratie is verhuizen naar een andere plaats of een ander land. Een emigrant verlaat een land, een immigrant komt een land binnen. Redenen voor migratie zijn werk, studie, familie, veiligheid of oorlog. Wie vlucht voor oorlog of vervolging is een vluchteling.\n\nIn veel rijke landen worden de mensen ouder, doordat er minder kinderen geboren worden en de zorg beter is. We spreken van vergrijzing. In sommige arme landen is de bevolking erg jong.\n\nEen bevolkingspiramide is een grafiek met het aantal mensen per leeftijdsgroep.",
+       "woorden": [
+        {
+         "nl": "migratie",
+         "doel": "verhuizen naar een andere plaats",
+         "voorbeeld": "Van Spanje naar Vlaanderen."
+        },
+        {
+         "nl": "emigrant",
+         "doel": "iemand die een land verlaat",
+         "voorbeeld": "Een Belg die naar Canada verhuist."
+        },
+        {
+         "nl": "vergrijzing",
+         "doel": "aandeel ouderen stijgt",
+         "voorbeeld": "Meer 65-plussers."
+        },
+        {
+         "nl": "vluchteling",
+         "doel": "iemand die vlucht voor oorlog of vervolging",
+         "voorbeeld": "Mensen op de vlucht."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een immigrant?",
+         "opties": [
+          "Iemand die een land binnenkomt",
+          "Iemand die een land verlaat",
+          "Iemand die op reis is"
+         ],
+         "antwoord": 0,
+         "uitleg": "Immigrant = binnenkomen."
+        },
+        {
+         "vraag": "Wat is vergrijzing?",
+         "opties": [
+          "Mensen verhuizen",
+          "Er zijn meer kinderen",
+          "De bevolking wordt ouder"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het aandeel ouderen stijgt."
+        },
+        {
+         "vraag": "Welke reden voor migratie is er NIET?",
+         "opties": [
+          "Het weer van vandaag",
+          "Oorlog",
+          "Werk"
+         ],
+         "antwoord": 0,
+         "uitleg": "Een kort weerbericht is geen migratiereden."
+        },
+        {
+         "vraag": "Wat toont een bevolkingspiramide?",
+         "opties": [
+          "Reliëf",
+          "Leeftijdsopbouw",
+          "Regenval"
+         ],
+         "antwoord": 1,
+         "uitleg": "Leeftijd en aantallen."
+        },
+        {
+         "vraag": "Wat is natuurlijke aangroei?",
+         "opties": [
+          "Immigratie",
+          "Geboorten minus sterfgevallen",
+          "Aantal steden"
+         ],
+         "antwoord": 1,
+         "uitleg": "Dat is het verschil tussen geboorten en sterfgevallen."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "steden-ruimte",
+     "titel": "Steden en ruimtegebruik",
+     "samenvatting": "Je leert wat een stad is en hoe Vlaanderen zijn ruimte gebruikt.",
+     "lessen": [
+      {
+       "id": "stad-verstedelijking",
+       "titel": "Steden en verstedelijking",
+       "uitleg": "Een stad is een plaats met veel inwoners, huizen dicht bij elkaar en veel voorzieningen. Een stad heeft meerdere functies: wonen, werken, winkelen, onderwijs, cultuur, zorg en verkeer.\n\nVerstedelijking betekent dat steeds meer mensen in steden wonen. Vandaag woont meer dan de helft van de wereldbevolking in steden. Een metropool is een zeer grote stad met veel inwoners en een uitgestrekt gebied rond de stad.\n\nIn de stad vind je vaak het centrum met winkels, daarrond woonwijken en aan de rand industrie en nieuwe woonwijken. De rand van de stad noemen we de stadsrand of rand.\n\nSteden hebben ook problemen: files, vervuiling, hoge woonprijzen en weinig groen.",
+       "woorden": [
+        {
+         "nl": "verstedelijking",
+         "doel": "steeds meer mensen wonen in steden",
+         "voorbeeld": "Meer stadsbewoners."
+        },
+        {
+         "nl": "functie",
+         "doel": "taak van een plaats",
+         "voorbeeld": "Wonen en werken"
+        },
+        {
+         "nl": "metropool",
+         "doel": "zeer grote stad",
+         "voorbeeld": "Parijs"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat betekent verstedelijking?",
+         "opties": [
+          "Mensen verhuizen naar het platteland",
+          "Steden worden kleiner",
+          "Meer mensen wonen in steden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Steeds meer mensen wonen in de stad."
+        },
+        {
+         "vraag": "Welke is GEEN stadsfunctie?",
+         "opties": [
+          "Winkelen",
+          "Wonen",
+          "Vulkanen laten uitbarsten"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat is geen functie van een stad."
+        },
+        {
+         "vraag": "Wat is een probleem in grote steden?",
+         "opties": [
+          "Te veel bomen",
+          "Te veel stilte",
+          "Files"
+         ],
+         "antwoord": 2,
+         "uitleg": "Verkeer is een groot probleem."
+        },
+        {
+         "vraag": "Wat is een metropool?",
+         "opties": [
+          "Een haven",
+          "Een zeer grote stad",
+          "Een klein dorp"
+         ],
+         "antwoord": 1,
+         "uitleg": "Een metropool is groot."
+        },
+        {
+         "vraag": "Waar liggen vaak winkels in een stad?",
+         "opties": [
+          "Op de berg",
+          "Alleen aan de rand",
+          "In het centrum"
+         ],
+         "antwoord": 2,
+         "uitleg": "Winkels zitten vaak in het centrum."
+        }
+       ]
+      },
+      {
+       "id": "ruimte-vlaanderen",
+       "titel": "Ruimte in Vlaanderen",
+       "uitleg": "Vlaanderen is dicht bebouwd. Huizen, bedrijven, wegen en landbouwgrond vragen allemaal plaats. Ruimtelijke ordening is het plannen van hoe we de ruimte gebruiken: waar wonen, werken, natuur en landbouw komen.\n\nDe Vlaamse ruit is het gebied tussen Brussel, Antwerpen, Gent en Leuven, waar veel mensen wonen en werken. Daar zijn veel wegen en spoorlijnen.\n\nLintbebouwing is het bouwen van huizen langs steenwegen. Dat zorgt voor versnipperde ruimte. Ook verharding (beton, asfalt) neemt ruimte weg waar water in de grond kan zakken, waardoor het risico op overstroming stijgt.\n\nOm ruimte te sparen kiest men voor compact bouwen, meer groen in de stad en hergebruik van oude bedrijfsterreinen.",
+       "woorden": [
+        {
+         "nl": "ruimtelijke ordening",
+         "doel": "plannen hoe we de ruimte gebruiken",
+         "voorbeeld": "Een nieuw wijkplan."
+        },
+        {
+         "nl": "lintbebouwing",
+         "doel": "huizen op een rij langs een weg",
+         "voorbeeld": "Langs een steenweg."
+        },
+        {
+         "nl": "verharding",
+         "doel": "bodem bedekt met beton of asfalt",
+         "voorbeeld": "Parkeerterrein"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is ruimtelijke ordening?",
+         "opties": [
+          "Plannen hoe we de ruimte gebruiken",
+          "Regen meten",
+          "Kaarten tekenen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het ordent wonen, werken en natuur."
+        },
+        {
+         "vraag": "Welke steden horen bij de Vlaamse ruit?",
+         "opties": [
+          "Hasselt, Genk, Tongeren",
+          "Oostende, Brugge, Veurne",
+          "Brussel, Antwerpen, Gent, Leuven"
+         ],
+         "antwoord": 2,
+         "uitleg": "Dat zijn de vier hoekpunten."
+        },
+        {
+         "vraag": "Wat is lintbebouwing?",
+         "opties": [
+          "Huizen langs een weg",
+          "Natuurreservaat",
+          "Woontorens"
+         ],
+         "antwoord": 0,
+         "uitleg": "Huizen op een rij langs steenwegen."
+        },
+        {
+         "vraag": "Wat is een gevolg van veel verharding?",
+         "opties": [
+          "Meer duinen",
+          "Meer kans op wateroverlast",
+          "Meer grondwater"
+         ],
+         "antwoord": 1,
+         "uitleg": "Water kan niet in de bodem zakken."
+        },
+        {
+         "vraag": "Welke maatregel spaart ruimte?",
+         "opties": [
+          "Lintbebouwing",
+          "Meer verharden",
+          "Compact bouwen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Compact bouwen gebruikt minder ruimte."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "landbouw",
+     "titel": "Landbouw en voedsel",
+     "samenvatting": "Hoe wordt ons voedsel geproduceerd en welke gevolgen heeft dat?",
+     "lessen": [
+      {
+       "id": "landbouwtypes",
+       "titel": "Soorten landbouw",
+       "uitleg": "Landbouw is het telen van planten (akkerbouw) en het houden van dieren (veeteelt) voor voedsel en grondstoffen. Akkerbouw gaat over graan, aardappelen, suikerbieten of groenten. Tuinbouw gaat over groenten, fruit en bloemen.\n\nIntensieve landbouw haalt veel productie uit een kleine oppervlakte met machines, meststoffen en veel dieren. Extensieve landbouw gebruikt veel ruimte voor een lagere productie per hectare, bijvoorbeeld grote graslanden met weinig dieren.\n\nBij biologische landbouw gebruikt men geen synthetische bestrijdingsmiddelen en kunstmest. Bij zelfvoorzienende landbouw produceert een gezin vooral voor eigen gebruik.\n\nIn Vlaanderen is de landbouw vaak intensief, met veel groenten, aardappelen en veeteelt. De grond is beperkt, daarom is landbouw er sterk gespecialiseerd.",
+       "woorden": [
+        {
+         "nl": "akkerbouw",
+         "doel": "het telen van gewassen op velden",
+         "voorbeeld": "Graan"
+        },
+        {
+         "nl": "veeteelt",
+         "doel": "het houden van dieren voor voedsel",
+         "voorbeeld": "Koeien"
+        },
+        {
+         "nl": "intensief",
+         "doel": "veel productie op kleine oppervlakte",
+         "voorbeeld": "Kassen"
+        },
+        {
+         "nl": "biologisch",
+         "doel": "zonder chemische middelen",
+         "voorbeeld": "Bio-groenten"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is veeteelt?",
+         "opties": [
+          "Bomen kappen",
+          "Planten telen",
+          "Dieren houden voor voedsel"
+         ],
+         "antwoord": 2,
+         "uitleg": "Veeteelt = dieren."
+        },
+        {
+         "vraag": "Wat kenmerkt intensieve landbouw?",
+         "opties": [
+          "Geen machines",
+          "Weinig productie op veel ruimte",
+          "Veel productie op weinig ruimte"
+         ],
+         "antwoord": 2,
+         "uitleg": "Hoge opbrengst per hectare."
+        },
+        {
+         "vraag": "Wat is biologische landbouw?",
+         "opties": [
+          "Alleen met machines",
+          "Altijd met kassen",
+          "Zonder kunstmest en chemische middelen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Bio vermijdt chemische middelen."
+        },
+        {
+         "vraag": "Wat is zelfvoorzienende landbouw?",
+         "opties": [
+          "Alles exporteren",
+          "Produceren voor eigen gebruik",
+          "Alleen bloemen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Het gezin eet zelf wat het teelt."
+        },
+        {
+         "vraag": "Welk gewas past bij akkerbouw?",
+         "opties": [
+          "Graan",
+          "Schaap",
+          "Koe"
+         ],
+         "antwoord": 0,
+         "uitleg": "Graan is een akkergewas."
+        }
+       ]
+      },
+      {
+       "id": "landbouw-gevolgen",
+       "titel": "Landbouw en milieu",
+       "uitleg": "Landbouw heeft gevolgen voor de natuur. Kunstmest en mest kunnen in het grondwater en in rivieren terechtkomen en het water vervuilen. Bestrijdingsmiddelen kunnen insecten en andere dieren schaden. Veehouderij stoot broeikasgassen uit, zoals methaan.\n\nAan de andere kant zorgt landbouw voor ons voedsel en onderhoudt ze het landschap.\n\nDuurzame landbouw zoekt een evenwicht: minder bestrijdingsmiddelen, wisselteelt (elk jaar een ander gewas), meer lokale producten en minder voedselverspilling. Consumenten kunnen helpen door seizoensgroenten en lokale producten te kiezen en minder eten weg te gooien.\n\nIn sommige delen van de wereld zorgt droogte voor slechte oogsten. Dan kan er hongersnood ontstaan.",
+       "woorden": [
+        {
+         "nl": "kunstmest",
+         "doel": "fabrieksmatige meststof",
+         "voorbeeld": "Wordt op akkers gestrooid."
+        },
+        {
+         "nl": "wisselteelt",
+         "doel": "elk jaar een ander gewas op hetzelfde veld",
+         "voorbeeld": "Aardappelen, dan graan."
+        },
+        {
+         "nl": "hongersnood",
+         "doel": "groot tekort aan voedsel",
+         "voorbeeld": "Na droogte"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat kan te veel mest veroorzaken?",
+         "opties": [
+          "Meer bergen",
+          "Vervuild water",
+          "Minder wolken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Mest spoelt uit naar water."
+        },
+        {
+         "vraag": "Wat is wisselteelt?",
+         "opties": [
+          "Altijd hetzelfde gewas",
+          "Elk jaar een ander gewas",
+          "Alleen kassen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zo blijft de bodem gezond."
+        },
+        {
+         "vraag": "Hoe kun je als consument helpen?",
+         "opties": [
+          "Altijd importeren",
+          "Seizoensgroenten kiezen",
+          "Meer eten weggooien"
+         ],
+         "antwoord": 1,
+         "uitleg": "Seizoens- en lokale producten zijn duurzamer."
+        },
+        {
+         "vraag": "Welk broeikasgas stoot veeteelt uit?",
+         "opties": [
+          "Zuurstof",
+          "Methaan",
+          "Helium"
+         ],
+         "antwoord": 1,
+         "uitleg": "Koeien stoten methaan uit."
+        },
+        {
+         "vraag": "Wat kan droogte veroorzaken?",
+         "opties": [
+          "Slechte oogst",
+          "Meer vulkanen",
+          "Betere oogst"
+         ],
+         "antwoord": 0,
+         "uitleg": "Zonder water groeien gewassen slecht."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "energie",
+     "titel": "Energie",
+     "samenvatting": "Waar halen we energie vandaan en wat zijn de gevolgen?",
+     "lessen": [
+      {
+       "id": "energiebronnen",
+       "titel": "Energiebronnen",
+       "uitleg": "Energie gebruiken we voor verwarming, verlichting, vervoer en industrie. Fossiele brandstoffen zijn steenkool, aardolie en aardgas. Ze zijn miljoenen jaren geleden uit planten en dieren ontstaan en raken ooit op. Bij verbranding komt CO2 vrij.\n\nHernieuwbare energie komt uit bronnen die niet opraken: zonne-energie, windenergie, waterkracht en biomassa. Kernenergie gebruikt splijtstof zoals uranium en stoot bij gebruik geen CO2 uit, maar levert radioactief afval op.\n\nIn België is er een mix van energiebronnen, met onder meer windparken op zee in de Noordzee, zonnepanelen, kernenergie en aardgas.\n\nDe plaatsen waar fossiele brandstoffen gewonnen worden, liggen vaak ver van waar ze gebruikt worden, zodat ze per schip of pijpleiding vervoerd worden.",
+       "woorden": [
+        {
+         "nl": "fossiele brandstof",
+         "doel": "energiebron uit oude planten en dieren",
+         "voorbeeld": "Aardolie"
+        },
+        {
+         "nl": "hernieuwbaar",
+         "doel": "raakt niet op",
+         "voorbeeld": "Zonne-energie"
+        },
+        {
+         "nl": "CO2",
+         "doel": "gas dat vrijkomt bij verbranding",
+         "voorbeeld": "Uitlaatgas"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke is een fossiele brandstof?",
+         "opties": [
+          "Zon",
+          "Wind",
+          "Aardgas"
+         ],
+         "antwoord": 2,
+         "uitleg": "Aardgas is fossiel."
+        },
+        {
+         "vraag": "Welke bron is hernieuwbaar?",
+         "opties": [
+          "Steenkool",
+          "Aardolie",
+          "Windenergie"
+         ],
+         "antwoord": 2,
+         "uitleg": "Wind raakt niet op."
+        },
+        {
+         "vraag": "Wat komt vrij bij het verbranden van fossiele brandstoffen?",
+         "opties": [
+          "Alleen water",
+          "CO2",
+          "Niets"
+         ],
+         "antwoord": 1,
+         "uitleg": "CO2 versterkt het broeikaseffect."
+        },
+        {
+         "vraag": "Waar staan de Belgische windparken op zee?",
+         "opties": [
+          "In de Sahara",
+          "In de Noordzee",
+          "In de Alpen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Belgische windparken staan op zee."
+        },
+        {
+         "vraag": "Wat is een nadeel van kernenergie?",
+         "opties": [
+          "Veel CO2-uitstoot",
+          "Weinig energie",
+          "Radioactief afval"
+         ],
+         "antwoord": 2,
+         "uitleg": "Het afval is lang gevaarlijk."
+        }
+       ]
+      },
+      {
+       "id": "energie-besparen",
+       "titel": "Energie besparen en overschakelen",
+       "uitleg": "We kunnen minder energie gebruiken door isolatie van huizen, zuinige apparaten en minder autoverkeer. Dat noemen we energiebesparing. Energie-efficiënt betekent dat je met minder energie hetzelfde resultaat bereikt.\n\nTegelijk zoeken landen naar meer hernieuwbare energie: zonnepanelen op daken, windturbines en warmtepompen. Een energietransitie is de overgang van fossiele naar hernieuwbare energie.\n\nVoordelen: minder CO2, minder afhankelijkheid van invoer en schonere lucht. Uitdagingen: opslag van energie als het niet waait of niet zonnig is, en de kost van de omschakeling.\n\nOok ons gedrag telt: lichten uitdoen, fietsen en met het openbaar vervoer reizen.",
+       "woorden": [
+        {
+         "nl": "isolatie",
+         "doel": "bescherming tegen warmteverlies",
+         "voorbeeld": "Dakisolatie"
+        },
+        {
+         "nl": "energietransitie",
+         "doel": "overgang naar hernieuwbare energie",
+         "voorbeeld": "Meer zonnepanelen."
+        },
+        {
+         "nl": "warmtepomp",
+         "doel": "toestel dat warmte uit de omgeving gebruikt voor verwarming",
+         "voorbeeld": "Alternatief voor een gasketel"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is isolatie?",
+         "opties": [
+          "Een soort brandstof",
+          "Een windmolen",
+          "Bescherming tegen warmteverlies"
+         ],
+         "antwoord": 2,
+         "uitleg": "Isolatie houdt warmte binnen."
+        },
+        {
+         "vraag": "Wat is een energietransitie?",
+         "opties": [
+          "De overgang naar hernieuwbare energie",
+          "Meer olie",
+          "Minder schooldagen"
+         ],
+         "antwoord": 0,
+         "uitleg": "Het is de verschuiving."
+        },
+        {
+         "vraag": "Wat is een uitdaging van zonne- en windenergie?",
+         "opties": [
+          "Ze raken op",
+          "Opslag",
+          "Ze veroorzaken CO2"
+         ],
+         "antwoord": 1,
+         "uitleg": "Niet altijd zon of wind."
+        },
+        {
+         "vraag": "Welk gedrag bespaart energie?",
+         "opties": [
+          "Lichten uitdoen",
+          "Verwarming open met open raam",
+          "Altijd auto"
+         ],
+         "antwoord": 0,
+         "uitleg": "Overbodig licht uit."
+        },
+        {
+         "vraag": "Wat is een voordeel van hernieuwbare energie?",
+         "opties": [
+          "Minder CO2",
+          "Meer afval",
+          "Altijd goedkoop"
+         ],
+         "antwoord": 0,
+         "uitleg": "Minder uitstoot."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "duurzaamheid",
+     "titel": "Klimaat en duurzaamheid",
+     "samenvatting": "Het broeikaseffect, klimaatverandering en duurzame keuzes.",
+     "lessen": [
+      {
+       "id": "broeikaseffect",
+       "titel": "Het broeikaseffect en klimaatverandering",
+       "uitleg": "De atmosfeer is de laag gas rond de aarde. Sommige gassen, zoals CO2 en methaan, houden warmte vast. Dat is het natuurlijke broeikaseffect en zorgt ervoor dat het op aarde bewoonbaar is.\n\nDoor het verbranden van fossiele brandstoffen en het kappen van bossen komt er extra CO2 in de lucht. Daardoor ontstaat het versterkte broeikaseffect en warmt de aarde op. Dat noemen we de opwarming van de aarde of klimaatverandering.\n\nGevolgen zijn smeltend ijs, stijgende zeespiegel, meer hittegolven, droogte en hevige regen. Een stijgende zeespiegel is gevaarlijk voor kustgebieden zoals de Belgische kust.\n\nOm de opwarming te beperken moeten landen minder broeikasgassen uitstoten.",
+       "woorden": [
+        {
+         "nl": "broeikasgas",
+         "doel": "gas dat warmte vasthoudt",
+         "voorbeeld": "CO2"
+        },
+        {
+         "nl": "atmosfeer",
+         "doel": "laag lucht rond de aarde",
+         "voorbeeld": "Hier vindt het weer plaats."
+        },
+        {
+         "nl": "zeespiegelstijging",
+         "doel": "stijgend zeeniveau",
+         "voorbeeld": "Door smeltend ijs"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is een broeikasgas?",
+         "opties": [
+          "Een gas dat koelt",
+          "Een soort regen",
+          "Een gas dat warmte vasthoudt"
+         ],
+         "antwoord": 2,
+         "uitleg": "Zoals CO2."
+        },
+        {
+         "vraag": "Wat veroorzaakt extra CO2?",
+         "opties": [
+          "Meer bomen planten",
+          "Meer fietsen",
+          "Verbranden van fossiele brandstoffen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Extra uitstoot."
+        },
+        {
+         "vraag": "Wat is een gevolg van smeltend ijs?",
+         "opties": [
+          "Dalende zeespiegel",
+          "Stijgende zeespiegel",
+          "Meer vulkanen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Meer water in de zee."
+        },
+        {
+         "vraag": "Waarom is het natuurlijke broeikaseffect nodig?",
+         "opties": [
+          "Het vernietigt de aarde",
+          "Het maakt de aarde bewoonbaar",
+          "Het veroorzaakt aardbevingen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zonder zou het veel te koud zijn."
+        },
+        {
+         "vraag": "Welke regio is vooral bedreigd door stijgende zeespiegel?",
+         "opties": [
+          "Woestijn",
+          "Kustgebieden",
+          "Hoge bergen"
+         ],
+         "antwoord": 1,
+         "uitleg": "Laag gelegen kusten."
+        }
+       ]
+      },
+      {
+       "id": "duurzame-ontwikkeling",
+       "titel": "Duurzame ontwikkeling",
+       "uitleg": "Duurzame ontwikkeling betekent dat we nu goed leven zonder dat toekomstige generaties daar nadeel van hebben. Het gaat om drie dingen: mensen (sociaal), natuur (ecologisch) en welvaart (economisch).\n\nDe Verenigde Naties hebben de Duurzame Ontwikkelingsdoelen (SDG's) opgesteld, zoals geen armoede, schoon water, betaalbare en schone energie en klimaatactie.\n\nJe kunt zelf bijdragen: afval sorteren, minder weggooien, de fiets of trein nemen, lokale producten kopen en spullen hergebruiken. Dat heet circulair denken: grondstoffen blijven zo lang mogelijk in gebruik.\n\nDe ecologische voetafdruk meet hoeveel ruimte en grondstoffen iemand gebruikt. Hoe kleiner, hoe beter voor de aarde.",
+       "woorden": [
+        {
+         "nl": "duurzaam",
+         "doel": "zo dat het ook voor de toekomst werkt",
+         "voorbeeld": "Fietsen i.p.v. auto."
+        },
+        {
+         "nl": "SDG",
+         "doel": "duurzame ontwikkelingsdoelen van de VN",
+         "voorbeeld": "Schoon water"
+        },
+        {
+         "nl": "voetafdruk",
+         "doel": "hoeveel ruimte en grondstoffen je gebruikt",
+         "voorbeeld": "Een kleine voetafdruk is beter."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat is duurzame ontwikkeling?",
+         "opties": [
+          "Zo veel mogelijk verbruiken",
+          "Alleen natuur beschermen",
+          "Nu goed leven zonder de toekomst te schaden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Ook toekomstige generaties tellen."
+        },
+        {
+         "vraag": "Wat is een kleine ecologische voetafdruk?",
+         "opties": [
+          "Geen verschil",
+          "Weinig ruimte en grondstoffen gebruiken",
+          "Veel gebruiken"
+         ],
+         "antwoord": 1,
+         "uitleg": "Hoe kleiner, hoe beter."
+        },
+        {
+         "vraag": "Welke keuze is duurzaam?",
+         "opties": [
+          "Elke dag een korte autorit",
+          "Afval sorteren",
+          "Alles in een vuilbak gooien"
+         ],
+         "antwoord": 1,
+         "uitleg": "Sorteren helpt hergebruik."
+        },
+        {
+         "vraag": "Wat zijn de SDG's?",
+         "opties": [
+          "VN-doelen voor een duurzame wereld",
+          "Een Belgische wet",
+          "Een kaartschaal"
+         ],
+         "antwoord": 0,
+         "uitleg": "Doelen van de Verenigde Naties."
+        },
+        {
+         "vraag": "Wat betekent circulair denken?",
+         "opties": [
+          "Grondstoffen zo lang mogelijk gebruiken",
+          "Alleen nieuwe producten kopen",
+          "Alles weggooien"
+         ],
+         "antwoord": 0,
+         "uitleg": "Hergebruiken en recycleren."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "natuurrampen",
+     "titel": "Natuurrampen en risico's",
+     "samenvatting": "Je leert verschillende natuurrampen en hoe mensen zich beschermen.",
+     "lessen": [
+      {
+       "id": "soorten-natuurrampen",
+       "titel": "Soorten natuurrampen",
+       "uitleg": "Een natuurramp is een natuurverschijnsel dat veel schade of slachtoffers veroorzaakt. Sommige komen door de bewegingen van de platen: aardbevingen, vulkaanuitbarstingen en tsunami's.\n\nAndere komen door weer en water: overstromingen, stormen en orkanen, droogte, hittegolven en bosbranden. Een orkaan (ook cycloon of tyfoon genoemd) is een zeer zware tropische storm boven warme oceanen.\n\nIn Vlaanderen komen vooral overstromingen en stormen voor. De Belgische kust is gevoelig voor stormvloed, wanneer de zee bij storm en springtij heel hoog komt.\n\nHoe erg een ramp is, hangt af van de natuurkracht, maar ook van hoe dicht mensen wonen en hoe goed ze voorbereid zijn.",
+       "woorden": [
+        {
+         "nl": "natuurramp",
+         "doel": "natuurverschijnsel met veel schade",
+         "voorbeeld": "Een aardbeving"
+        },
+        {
+         "nl": "orkaan",
+         "doel": "zeer zware tropische storm",
+         "voorbeeld": "Boven warme oceanen"
+        },
+        {
+         "nl": "stormvloed",
+         "doel": "zeer hoog water aan de kust bij storm",
+         "voorbeeld": "De Noordzee bij storm"
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Welke ramp komt door plaatbewegingen?",
+         "opties": [
+          "Hittegolf",
+          "Stormvloed",
+          "Aardbeving"
+         ],
+         "antwoord": 2,
+         "uitleg": "Platen schuiven."
+        },
+        {
+         "vraag": "Wat is een orkaan?",
+         "opties": [
+          "Een zeer zware tropische storm",
+          "Een vulkaan",
+          "Een berg"
+         ],
+         "antwoord": 0,
+         "uitleg": "Boven warme zee."
+        },
+        {
+         "vraag": "Welke ramp komt vaker voor in Vlaanderen?",
+         "opties": [
+          "Overstroming",
+          "Lawine",
+          "Vulkaanuitbarsting"
+         ],
+         "antwoord": 0,
+         "uitleg": "Vlaanderen is laag en nat."
+        },
+        {
+         "vraag": "Wat is een stormvloed?",
+         "opties": [
+          "Een vulkaanwolk",
+          "Extreem hoog zeewater bij storm",
+          "Een droogte"
+         ],
+         "antwoord": 1,
+         "uitleg": "Zee- en windkracht samen."
+        },
+        {
+         "vraag": "Waar hangt de ernst van een ramp van af?",
+         "opties": [
+          "Alleen van de wind",
+          "Natuurkracht en voorbereiding",
+          "Alleen van de zon"
+         ],
+         "antwoord": 1,
+         "uitleg": "Ook mensen spelen een rol."
+        }
+       ]
+      },
+      {
+       "id": "risicos-beschermen",
+       "titel": "Risico's en bescherming",
+       "uitleg": "Een risico is de kans dat een ramp schade doet. Mensen kunnen het risico verkleinen met preventie (voorkomen) en voorbereiding.\n\nBij aardbevingen bouwt men gebouwen die kunnen meebewegen. Voor tsunami's bestaan waarschuwingssystemen. Bij overstromingen gebruikt men dijken, stuwen, overstromingsgebieden en natuurlijke bufferzones. Aan de Belgische kust beschermen duinen en dijken tegen de zee.\n\nVoor stormen zijn er weersvoorspellingen, voor vulkanen meetnetwerken, en voor beide evacuatieplannen. Mensen die dichtbij een vulkaan wonen, moeten weten waar ze naartoe moeten.\n\nOok in je dagelijks leven kun je je voorbereiden: weten wie je moet bellen (het noodnummer 112), een noodpakket klaarzetten en luisteren naar de waarschuwingen.",
+       "woorden": [
+        {
+         "nl": "risico",
+         "doel": "kans op schade",
+         "voorbeeld": "Overstromingsrisico"
+        },
+        {
+         "nl": "preventie",
+         "doel": "voorkomen dat iets gebeurt",
+         "voorbeeld": "Een dijk bouwen."
+        },
+        {
+         "nl": "evacuatie",
+         "doel": "mensen in veiligheid brengen",
+         "voorbeeld": "Weg uit een overstroomd gebied."
+        }
+       ],
+       "oefeningen": [
+        {
+         "vraag": "Wat beschermt de Belgische kust?",
+         "opties": [
+          "Gebergten",
+          "Duinen en dijken",
+          "Savannes"
+         ],
+         "antwoord": 1,
+         "uitleg": "Duinen en dijken houden de zee tegen."
+        },
+        {
+         "vraag": "Wat is preventie?",
+         "opties": [
+          "Vluchten",
+          "Voorkomen dat een ramp gebeurt of de schade klein houden",
+          "Wachten tot het gebeurt"
+         ],
+         "antwoord": 1,
+         "uitleg": "Voorbereid zijn."
+        },
+        {
+         "vraag": "Welk noodnummer geldt in Europa?",
+         "opties": [
+          "999",
+          "112",
+          "911"
+         ],
+         "antwoord": 1,
+         "uitleg": "112 is het Europese noodnummer."
+        },
+        {
+         "vraag": "Wat is een evacuatie?",
+         "opties": [
+          "Een gebouw bouwen",
+          "Water meten",
+          "Mensen in veiligheid brengen"
+         ],
+         "antwoord": 2,
+         "uitleg": "Weg uit het gevaar."
+        },
+        {
+         "vraag": "Wat helpt bij overstromingsgevaar?",
+         "opties": [
+          "Geen waarschuwingen",
+          "Meer beton",
+          "Overstromingsgebieden"
+         ],
+         "antwoord": 2,
+         "uitleg": "Overstromingsgebieden slaan water tijdelijk op."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
