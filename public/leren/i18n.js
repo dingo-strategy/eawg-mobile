@@ -1,6 +1,13 @@
 // Vertalingen van de app (sleutel = de Nederlandse tekst).
 window.LEREN_I18N = {
  "fr": {
+  "Code ophalen…": "Récupération du code…",
+  "De code kon niet opgehaald worden. Controleer je internet en probeer opnieuw.": "Le code n'a pas pu être récupéré. Vérifie ta connexion et réessaie.",
+  "Probeer opnieuw": "Réessayer",
+  "▶ Open EAWG Mobile en wissel in": "▶ Ouvre EAWG Mobile et utilise le code",
+  "Je code werkt 1 keer en 30 dagen. Log in bij EAWG Mobile om hem in te wisselen.": "Ton code fonctionne 1 fois et 30 jours. Connecte-toi à EAWG Mobile pour l'utiliser.",
+  "Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel. Alleen voor de muntcode van EAWG Mobile gaat een willekeurig nummer (geen naam) naar de server van het spel.": "Crée ton profil. Utilise un pseudo et pas ton vrai nom. Tout reste sur cet appareil. Seul un numéro aléatoire (pas de nom) est envoyé au serveur du jeu pour le code de pièces d'EAWG Mobile.",
+  "Alles wat je doet blijft op dit toestel. Er is geen account. Alleen als je 2 lessen op een dag klaar hebt, vraagt Leerliga een muntcode aan de server van EAWG Mobile. Daarbij gaan een willekeurig nummer (geen naam) en het aantal lessen van vandaag mee.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte. Seulement quand tu as fini 2 leçons dans une journée, Leerliga demande un code de pièces au serveur d'EAWG Mobile. Un numéro aléatoire (pas de nom) et le nombre de leçons du jour sont envoyés.",
   "Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile": "Encore {n} leçon aujourd'hui pour ton code de {m} pièces dans EAWG Mobile",
   "Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile": "Encore {n} leçons aujourd'hui pour ton code de {m} pièces dans EAWG Mobile",
   "🎁 Je code van vandaag: {m} munten": "🎁 Ton code du jour : {m} pièces",
@@ -238,6 +245,13 @@ window.LEREN_I18N = {
   "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte et rien n'est envoyé."
  },
  "en": {
+  "Code ophalen…": "Getting your code…",
+  "De code kon niet opgehaald worden. Controleer je internet en probeer opnieuw.": "The code could not be fetched. Check your internet and try again.",
+  "Probeer opnieuw": "Try again",
+  "▶ Open EAWG Mobile en wissel in": "▶ Open EAWG Mobile and redeem",
+  "Je code werkt 1 keer en 30 dagen. Log in bij EAWG Mobile om hem in te wisselen.": "Your code works once and for 30 days. Log in to EAWG Mobile to redeem it.",
+  "Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel. Alleen voor de muntcode van EAWG Mobile gaat een willekeurig nummer (geen naam) naar de server van het spel.": "Make your profile. Use a nickname, not your real name. Everything stays on this device. Only for the EAWG Mobile coin code, a random number (no name) goes to the game's server.",
+  "Alles wat je doet blijft op dit toestel. Er is geen account. Alleen als je 2 lessen op een dag klaar hebt, vraagt Leerliga een muntcode aan de server van EAWG Mobile. Daarbij gaan een willekeurig nummer (geen naam) en het aantal lessen van vandaag mee.": "Everything you do stays on this device. There is no account. Only when you finish 2 lessons in a day does Leerliga ask the EAWG Mobile server for a coin code. A random number (no name) and today's lesson count are sent.",
   "Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile": "{n} more lesson today for your code worth {m} coins in EAWG Mobile",
   "Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile": "{n} more lessons today for your code worth {m} coins in EAWG Mobile",
   "🎁 Je code van vandaag: {m} munten": "🎁 Your code for today: {m} coins",

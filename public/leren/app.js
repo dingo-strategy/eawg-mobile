@@ -152,27 +152,60 @@
   var CODE_MUNTEN = 75, CODE_LESSEN = 2;   // na 2 lessen op een dag krijg je een code voor 75 munten in EAWG Mobile
   var MIJLPALEN = { 3: 30, 7: 75, 14: 150, 30: 300 }, NA_30 = 200;
 
-  var AB = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', GEHEIM = 'leerliga-eawg-75-v1', DAG0 = 19723;   // DAG0 = dagnummer van 1 jan 2024
-  function b32(n, len) { var s = ''; for (var i = 0; i < len; i++) { s = AB.charAt(n % 32) + s; n = Math.floor(n / 32); } return s; }
-  function h32(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0; } return h; }
-  function maakCode(pid, dagIdx) { var p = b32(h32('p|' + pid) % 1048576, 4), d = b32(dagIdx, 3); return p + '-' + d + '-' + b32(h32(GEHEIM + '|' + p + '|' + d) % 1048576, 4); }
-  function dagIdxNu() { return Math.round(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) / 864e5) - DAG0; }
-  function lessenGeteld() { var d = S.dagen[vandaag()]; return d && d.klaar ? d.klaar.length : 0; }
-  function dagCode() { return lessenGeteld() >= CODE_LESSEN && PR.actief ? maakCode(PR.actief, dagIdxNu()) : null; }
-  function codeKaart() {
-    var k = el('div', 'codekaart'), c = dagCode();
-    if (!c) {
-      var nog = CODE_LESSEN - lessenGeteld();
-      k.appendChild(el('span', '', Tr(nog === 1 ? 'Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile' : 'Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile', { n: nog, m: CODE_MUNTEN })));
-      return k;
+  // Muntcode: de server van EAWG Mobile maakt en controleert de code. Wij sturen alleen een willekeurig nummer (geen naam) en het aantal lessen van vandaag.
+  var CODE_URL = 'https://eawg-mobile.jordyseyssens.workers.dev/api/leer/uitgeven', SPEL_URL = 'https://eawg-mobile.jordyseyssens.workers.dev/';
+  var codeBezig = false, codeFout = false, codeWachters = [];
+  function leerId() {
+    if (!S.leerId) {
+      var a = '';
+      try { var u = new Uint8Array(12); crypto.getRandomValues(u); for (var i = 0; i < u.length; i++) a += ('0' + u[i].toString(16)).slice(-2); } catch (e) { for (var k = 0; k < 24; k++) a += Math.floor(Math.random() * 16).toString(16); }
+      S.leerId = a; save();
     }
-    k.appendChild(el('strong', '', Tr('🎁 Je code van vandaag: {m} munten', { m: CODE_MUNTEN })));
-    k.appendChild(el('div', 'code', c));
-    var b = knop('btn zacht', Tr('Kopieer code'), function () {
-      try { navigator.clipboard.writeText(c).then(function () { b.textContent = Tr('Gekopieerd!'); }, function () { b.textContent = c; }); } catch (e) { b.textContent = c; }
-    });
-    k.appendChild(b);
-    k.appendChild(el('small', '', Tr('Open EAWG Mobile, tik op 🎁 Code en typ of plak deze code. Hij werkt 1 keer en nog 3 dagen.')));
+    return S.leerId;
+  }
+  function lessenGeteld() { var d = S.dagen[vandaag()]; return d && d.klaar ? d.klaar.length : 0; }
+  function dagCode() { S.codes = S.codes || {}; return S.codes[vandaag()] || null; }
+  function haalCode(klaar) {
+    if (klaar) codeWachters.push(klaar);
+    if (codeBezig || dagCode() || lessenGeteld() < CODE_LESSEN || !PR.actief) return;
+    codeBezig = true; codeFout = false;
+    var dagNu = vandaag(), actief = PR.actief, ctl = window.AbortController ? new AbortController() : null;
+    var stop = setTimeout(function () { if (ctl) ctl.abort(); }, 10000);
+    fetch(CODE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leerId: leerId(), lessons: lessenGeteld() }), signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
+      .then(function (j) {
+        if (!j || typeof j.code !== 'string' || !/^[0-9A-Za-z._-]{8,100}$/.test(j.code)) throw new Error('vorm');
+        if (PR.actief !== actief) return;
+        S.codes = S.codes || {}; S.codes[dagNu] = { code: j.code, amount: +j.amount || CODE_MUNTEN }; save();
+      })
+      .then(null, function () { codeFout = true; })
+      .then(function () { clearTimeout(stop); codeBezig = false; var w = codeWachters; codeWachters = []; w.forEach(function (f) { try { f(); } catch (e) {} }); });
+  }
+  function codeKaart() {
+    var k = el('div', 'codekaart');
+    function teken() {
+      k.textContent = '';
+      var c = dagCode();
+      if (!c) {
+        if (lessenGeteld() < CODE_LESSEN) {
+          var nog = CODE_LESSEN - lessenGeteld();
+          k.appendChild(el('span', '', Tr(nog === 1 ? 'Nog {n} les vandaag voor je code van {m} munten in EAWG Mobile' : 'Nog {n} lessen vandaag voor je code van {m} munten in EAWG Mobile', { n: nog, m: CODE_MUNTEN })));
+        } else if (codeFout && !codeBezig) {
+          k.appendChild(el('span', '', Tr('De code kon niet opgehaald worden. Controleer je internet en probeer opnieuw.')));
+          k.appendChild(knop('btn zacht', Tr('Probeer opnieuw'), function () { codeFout = false; haalCode(teken); teken(); }));
+        } else { k.appendChild(el('span', '', Tr('Code ophalen…'))); haalCode(teken); }
+        return;
+      }
+      k.appendChild(el('strong', '', Tr('🎁 Je code van vandaag: {m} munten', { m: c.amount })));
+      k.appendChild(el('div', 'code', c.code));
+      var b = knop('btn zacht', Tr('Kopieer code'), function () {
+        try { navigator.clipboard.writeText(c.code).then(function () { b.textContent = Tr('Gekopieerd!'); }, function () { b.textContent = c.code; }); } catch (e) { b.textContent = c.code; }
+      });
+      k.appendChild(b);
+      var a = el('a', 'btn', Tr('▶ Open EAWG Mobile en wissel in')); a.href = SPEL_URL + '#munten=' + c.code; a.target = '_blank'; a.rel = 'noopener'; k.appendChild(a);
+      k.appendChild(el('small', '', Tr('Je code werkt 1 keer en 30 dagen. Log in bij EAWG Mobile om hem in te wisselen.')));
+    }
+    teken();
     return k;
   }
   function dag(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
@@ -750,7 +783,7 @@
     var eerste = !PR.lijst.length;
     if (!eerste) root.appendChild(PR.actief ? terug('#/profiel', Tr('Profiel')) : terug('#/', Tr('Inloggen')));
     root.appendChild(el('h1', '', eerste ? Tr('Welkom bij Leerliga! 👋') : Tr('Nieuw profiel')));
-    root.appendChild(el('p', 'sub', Tr('Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel; er wordt niets naar een server gestuurd.')));
+    root.appendChild(el('p', 'sub', Tr('Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel. Alleen voor de muntcode van EAWG Mobile gaat een willekeurig nummer (geen naam) naar de server van het spel.')));
     var naam = el('input', 'invul'); naam.type = 'text'; naam.maxLength = 16; naam.id = 'bijnaam';
     naam.setAttribute('autocomplete', 'off'); naam.setAttribute('aria-label', Tr('Bijnaam')); naam.placeholder = Tr('Bijnaam');
     root.appendChild(naam);
@@ -1239,7 +1272,7 @@
     }
     root.appendChild(el('h2', '', Tr('Over Leerliga')));
     root.appendChild(el('p', 'sub', Tr('Leerliga is gemaakt met hulp van AI. De lessen zijn nog niet nagekeken door een leerkracht en kunnen fouten bevatten. Twijfel je? Vraag het aan je leerkracht of in je cursus.')));
-    root.appendChild(el('p', 'sub', Tr('Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.')));
+    root.appendChild(el('p', 'sub', Tr('Alles wat je doet blijft op dit toestel. Er is geen account. Alleen als je 2 lessen op een dag klaar hebt, vraagt Leerliga een muntcode aan de server van EAWG Mobile. Daarbij gaan een willekeurig nummer (geen naam) en het aantal lessen van vandaag mee.')));
   }
 
   function route() {
