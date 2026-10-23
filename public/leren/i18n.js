@@ -1,6 +1,11 @@
 // Vertalingen van de app (sleutel = de Nederlandse tekst).
 window.LEREN_I18N = {
  "fr": {
+  "✨ Maak oefeningen van mijn foto's": "✨ Faire des exercices avec mes photos",
+  "Klaar! Tik op \"Maak oefeningen\". De tekst nakijken mag, maar hoeft niet.": "Terminé ! Touche « Faire des exercices ». Relire le texte est possible, mais pas obligatoire.",
+  "✍️ Tekst bekijken of zelf plakken (mag, hoeft niet)": "✍️ Voir le texte ou le coller toi-même (facultatif)",
+  "Er is te weinig tekst herkend op de foto. Neem een scherpere foto met meer licht, of typ of plak de tekst hieronder.": "Trop peu de texte reconnu sur la photo. Prends une photo plus nette avec plus de lumière, ou tape ou colle le texte ci-dessous.",
+  "Neem een foto van de bladzijde (goed licht, recht boven de tekst). De app leest de tekst op je toestel en maakt er zelf oefeningen van; er wordt niets verstuurd. De tekst nakijken hoeft niet, maar lezen is nooit helemaal perfect, zeker bij handschrift.": "Prends une photo de la page (bonne lumière, bien au-dessus du texte). L'app lit le texte sur ton appareil et crée elle-même des exercices ; rien n'est envoyé. Relire le texte n'est pas obligatoire, mais la lecture n'est jamais parfaite, surtout pour l'écriture manuscrite.",
   "Code ophalen…": "Récupération du code…",
   "De code kon niet opgehaald worden. Controleer je internet en probeer opnieuw.": "Le code n'a pas pu être récupéré. Vérifie ta connexion et réessaie.",
   "Probeer opnieuw": "Réessayer",
@@ -245,6 +250,11 @@ window.LEREN_I18N = {
   "Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.": "Tout ce que tu fais reste sur cet appareil. Il n'y a pas de compte et rien n'est envoyé."
  },
  "en": {
+  "✨ Maak oefeningen van mijn foto's": "✨ Make exercises from my photos",
+  "Klaar! Tik op \"Maak oefeningen\". De tekst nakijken mag, maar hoeft niet.": "Done! Tap \"Make exercises\". Checking the text is allowed but not required.",
+  "✍️ Tekst bekijken of zelf plakken (mag, hoeft niet)": "✍️ View the text or paste it yourself (optional)",
+  "Er is te weinig tekst herkend op de foto. Neem een scherpere foto met meer licht, of typ of plak de tekst hieronder.": "Too little text was recognised in the photo. Take a sharper photo with more light, or type or paste the text below.",
+  "Neem een foto van de bladzijde (goed licht, recht boven de tekst). De app leest de tekst op je toestel en maakt er zelf oefeningen van; er wordt niets verstuurd. De tekst nakijken hoeft niet, maar lezen is nooit helemaal perfect, zeker bij handschrift.": "Take a photo of the page (good light, straight above the text). The app reads the text on your device and makes exercises itself; nothing is sent. Checking the text is not required, but reading is never perfect, especially with handwriting.",
   "Code ophalen…": "Getting your code…",
   "De code kon niet opgehaald worden. Controleer je internet en probeer opnieuw.": "The code could not be fetched. Check your internet and try again.",
   "Probeer opnieuw": "Try again",

@@ -1062,7 +1062,7 @@
     // --- foto's ---
     var fotos = [], dF = el('details'); dF.open = true;
     dF.appendChild(el('summary', '', Tr('📷 Foto van je cursus')));
-    dF.appendChild(el('p', 'sub', Tr('Neem een foto van de bladzijde (goed licht, recht boven de tekst). De app leest de tekst op je toestel; er wordt niets verstuurd. Controleer daarna de tekst hieronder: lezen is nooit helemaal perfect, zeker bij handschrift.')));
+    dF.appendChild(el('p', 'sub', Tr('Neem een foto van de bladzijde (goed licht, recht boven de tekst). De app leest de tekst op je toestel en maakt er zelf oefeningen van; er wordt niets verstuurd. De tekst nakijken hoeft niet, maar lezen is nooit helemaal perfect, zeker bij handschrift.')));
     var tl = el('select', 'invul'); tl.id = 'foto-taal'; tl.setAttribute('aria-label', Tr('Taal van de tekst'));
     [['nld', 'Tekst in het Nederlands'], ['eng', 'Tekst in het Engels'], ['fra', 'Tekst in het Frans']].forEach(function (x) { var o = el('option', '', Tr(x[1])); o.value = x[0]; tl.appendChild(o); });
     vs.addEventListener('change', function () { tl.value = taalVanVak(vs.value); });
@@ -1078,8 +1078,11 @@
     dF.appendChild(fk); dF.appendChild(inNemen); dF.appendChild(inKies);
     var strook = el('div', 'fotostrook'), fstatus = el('p', 'sub'); fstatus.setAttribute('role', 'status');
     dF.appendChild(strook); dF.appendChild(fstatus);
+    var bezigFoto = 0, fotoMaak = knop('btn', Tr('✨ Maak oefeningen van mijn foto\'s'), function () { maakUitTekst(); });
+    function updateFotoKnop() { fotoMaak.disabled = bezigFoto > 0 || !ta.value.trim(); fotoMaak.hidden = !fotos.length; }
+    fotoMaak.hidden = true; dF.appendChild(fotoMaak);
     function verwerk(bestanden) {
-      var rij = Promise.resolve();
+      var rij = Promise.resolve(); bezigFoto += bestanden.length; updateFotoKnop();
       bestanden.forEach(function (f, n) {
         rij = rij.then(function () {
           fstatus.textContent = Tr('Foto {i} van {n} voorbereiden…', { i: n + 1, n: bestanden.length });
@@ -1092,28 +1095,29 @@
               var t = schoonOcr(r.data && r.data.text);
               if (!t) { fstatus.textContent = Tr('Er is geen tekst herkend in foto {i}. Probeer een scherpere foto met meer licht.', { i: n + 1 }); return; }
               ta.value = (ta.value.trim() ? ta.value.trim() + '\n\n' : '') + t;
-              fstatus.textContent = Tr('Klaar. Controleer de tekst hieronder en verbeter wat fout gelezen is.');
-              ta.focus();
+              fstatus.textContent = Tr('Klaar! Tik op "Maak oefeningen". De tekst nakijken mag, maar hoeft niet.');
             }, function () {
               fstatus.textContent = Tr('Tekst lezen lukt hier niet (de foto is wel bewaard). Typ of plak de tekst zelf, of stuur de foto aan Claude voor de beste kwaliteit.');
             });
           }, function () { fstatus.textContent = Tr('Die foto kan ik niet openen. Probeer een andere foto.'); });
-        });
+        }).then(function () { bezigFoto--; updateFotoKnop(); }, function () { bezigFoto--; updateFotoKnop(); });
       });
     }
     root.appendChild(dF);
 
-    var d1 = el('details'); d1.open = true; d1.appendChild(el('summary', '', Tr('✍️ Tekst controleren of plakken (de app maakt de oefeningen)')));
+    var d1 = el('details'); d1.appendChild(el('summary', '', Tr('✍️ Tekst bekijken of zelf plakken (mag, hoeft niet)')));
     d1.appendChild(el('p', 'sub', Tr('Foto van je cursus? Houd je vinger op de tekst in de foto en kies kopiëren (iPhone: Live Text, Android: Google Lens). Plak ze hier. Regels als "begrip: uitleg" worden woordkaartjes.')));
     var ta = el('textarea', 'code tekstveld'); ta.id = 'les-tekst'; ta.placeholder = Tr('Plak of typ hier de tekst van je les'); ta.setAttribute('aria-label', Tr('Tekst van je les'));
     d1.appendChild(ta);
-    d1.appendChild(knop('btn', Tr('Maak oefeningen'), function () {
-      if (ta.value.trim().length < 80) { melding.textContent = Tr('Plak wat meer tekst (minstens een paar zinnen).'); return; }
+    function maakUitTekst() {
+      if (ta.value.trim().length < 80) { melding.textContent = fotos.length ? Tr('Er is te weinig tekst herkend op de foto. Neem een scherpere foto met meer licht, of typ of plak de tekst hieronder.') : Tr('Plak wat meer tekst (minstens een paar zinnen).'); return; }
       var les = maakLes(titel.value.trim(), ta.value);
       if (les.oefeningen.length < 3) { melding.textContent = Tr('Uit deze tekst kon ik te weinig oefeningen maken. Plak meer tekst, schrijf begrippen als "begrip: uitleg", of laat Claude de oefeningen maken en plak de code hieronder.'); return; }
       les.titel = titel.value.trim() || Tr('Mijn les');
       bewaar(les);
-    }));
+    }
+    ta.addEventListener('input', updateFotoKnop);
+    d1.appendChild(knop('btn', Tr('Maak oefeningen'), maakUitTekst));
     root.appendChild(d1);
 
     var d2 = el('details'); d2.appendChild(el('summary', '', Tr('🤖 Code van Claude plakken (beste kwaliteit)')));
