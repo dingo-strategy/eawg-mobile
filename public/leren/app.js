@@ -46,6 +46,38 @@
   }
   function activeer(id) { PR.actief = id; savePR(); S = lees('leren-p-' + id) || {}; vulS(); }
   vulS();
+  function pinHash(c) { var h = 5381, t = 'leerliga:' + c; for (var i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) | 0; return String(h); }
+
+  // ---------- inloggen en afmelden (lokaal op dit toestel; je blijft ingelogd tot je afmeldt) ----------
+  function doeLogin(x) { activeer(x.id); location.hash = '#/'; route(); }
+  function pinScherm(x, terugFn) {
+    leeg();
+    root.appendChild(knop('back', '← ' + Tr('Terug'), terugFn));
+    root.appendChild(el('h1', '', x.avatar + ' ' + x.naam));
+    root.appendChild(el('p', 'sub', Tr('Typ je pincode van 4 cijfers.')));
+    var inp = el('input', 'invul'); inp.type = 'password'; inp.maxLength = 4; inp.id = 'pincode';
+    inp.setAttribute('inputmode', 'numeric'); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('aria-label', Tr('Pincode'));
+    var mel = el('p', 'sub');
+    function probeer() {
+      if (pinHash(inp.value) === x.pin) { doeLogin(x); return; }
+      mel.textContent = Tr('Verkeerde pincode. Probeer opnieuw.'); inp.value = ''; inp.focus();
+    }
+    inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') probeer(); });
+    root.appendChild(inp); root.appendChild(knop('btn', Tr('Inloggen'), probeer)); root.appendChild(mel);
+    inp.focus();
+  }
+  function inlogScherm() {
+    leeg();
+    root.appendChild(el('h1', '', Tr('Inloggen')));
+    root.appendChild(el('p', 'sub', Tr('Kies wie je bent.')));
+    var rij = el('div', 'chiprij');
+    PR.lijst.forEach(function (x) {
+      rij.appendChild(knop('keuze', x.avatar + ' ' + x.naam + (x.pin ? ' 🔒' : ''), function () { if (x.pin) pinScherm(x, inlogScherm); else doeLogin(x); }));
+    });
+    root.appendChild(rij);
+    root.appendChild(knop('btn zacht', Tr('＋ Nieuw profiel'), function () { location.hash = '#/nieuw'; }));
+  }
+  function afmelden() { PR.actief = null; savePR(); S = {}; vulS(); location.hash = '#/'; route(); }
 
   // ---------- beloningen (munten voor het voetbalspel) ----------
   // Cijfers volgen het advies van de onderzoeker; het zijn gekalibreerde gokken, na enkele weken bijsturen.
@@ -600,12 +632,16 @@
   function nieuwProfiel() {
     leeg();
     var eerste = !PR.lijst.length;
-    if (!eerste) root.appendChild(terug('#/profiel', Tr('Profiel')));
+    if (!eerste) root.appendChild(PR.actief ? terug('#/profiel', Tr('Profiel')) : terug('#/', Tr('Inloggen')));
     root.appendChild(el('h1', '', eerste ? Tr('Welkom bij Leerliga! 👋') : Tr('Nieuw profiel')));
     root.appendChild(el('p', 'sub', Tr('Maak je profiel. Gebruik een bijnaam en geen echte naam. Alles blijft op dit toestel; er wordt niets naar een server gestuurd.')));
     var naam = el('input', 'invul'); naam.type = 'text'; naam.maxLength = 16; naam.id = 'bijnaam';
     naam.setAttribute('autocomplete', 'off'); naam.setAttribute('aria-label', Tr('Bijnaam')); naam.placeholder = Tr('Bijnaam');
     root.appendChild(naam);
+    root.appendChild(el('p', 'groep', Tr('Pincode (4 cijfers, mag je overslaan)')));
+    var pin = el('input', 'invul'); pin.type = 'password'; pin.maxLength = 4; pin.id = 'nieuwepin';
+    pin.setAttribute('inputmode', 'numeric'); pin.setAttribute('autocomplete', 'off'); pin.setAttribute('aria-label', Tr('Pincode'));
+    root.appendChild(pin);
     root.appendChild(el('p', 'groep', Tr('Kies een figuurtje')));
     var av = AVATARS[0], avRij = el('div', 'chiprij');
     function tekenAv() {
@@ -619,15 +655,16 @@
     tekenAv(); root.appendChild(avRij);
     root.appendChild(el('h2', '', Tr('In welke klas zit je?')));
     var kz = el('div'), gekozen = null, start = knop('btn', Tr('Starten'), function () {
-      var n = naam.value.trim(); if (!n || !gekozen) return;
+      var n = naam.value.trim(); if (!n || !gekozen || !pinOk()) return;
       var id = 'p' + Date.now().toString(36);
-      PR.lijst.push({ id: id, naam: n, avatar: av });
+      var pf0 = { id: id, naam: n, avatar: av }; if (pin.value) pf0.pin = pinHash(pin.value); PR.lijst.push(pf0);
       if (eerste) { var oud = lees(LEGACY); if (oud) schrijf('leren-p-' + id, oud); }   // voortgang van vroeger meenemen
       activeer(id); S.klas = gekozen; save(); location.hash = '#/'; route();
     });
     start.disabled = true;
-    function check() { start.disabled = !(naam.value.trim() && gekozen); }
-    naam.addEventListener('input', check);
+    function pinOk() { return !pin.value || /^\d{4}$/.test(pin.value); }
+    function check() { start.disabled = !(naam.value.trim() && gekozen && pinOk()); }
+    naam.addEventListener('input', check); pin.addEventListener('input', check);
     klasKiezer(kz, null, function (id) { gekozen = id; check(); });
     root.appendChild(kz); root.appendChild(start);
   }
@@ -646,7 +683,7 @@
       var rij = el('div', 'chiprij');
       PR.lijst.forEach(function (x) {
         if (x.id === PR.actief) return;
-        rij.appendChild(knop('keuze', x.avatar + ' ' + x.naam, function () { activeer(x.id); location.hash = '#/'; route(); }));
+        rij.appendChild(knop('keuze', x.avatar + ' ' + x.naam + (x.pin ? ' 🔒' : ''), function () { if (x.pin) pinScherm(x, profielScherm); else doeLogin(x); }));
       });
       root.appendChild(rij);
     }
@@ -684,7 +721,7 @@
         try { localStorage.removeItem('leren-p-' + PR.actief); } catch (e) {}
         PR.lijst = PR.lijst.filter(function (x) { return x.id !== PR.actief; });
         PR.actief = null; savePR();
-        if (PR.lijst.length) activeer(PR.lijst[0].id); else { S = {}; vulS(); }
+        S = {}; vulS();
         location.hash = '#/'; route();
       }));
       wis.appendChild(knop('btn zacht', Tr('Annuleren'), function () { toonWis(0); }));
@@ -1052,7 +1089,29 @@
     gr.setAttribute('aria-pressed', INST.groot ? 'true' : 'false');
     root.appendChild(gr);
     root.appendChild(el('h2', '', Tr('Profiel')));
-    root.appendChild(knop('btn zacht', Tr('Mijn profiel en klas'), function () { location.hash = '#/profiel'; }));
+    if (PR.actief) {
+      var pf = PR.lijst.filter(function (x) { return x.id === PR.actief; })[0];
+      root.appendChild(el('p', 'sub', Tr('Ingelogd als {naam}. Je blijft ingelogd tot je afmeldt.', { naam: pf.avatar + ' ' + pf.naam })));
+      root.appendChild(knop('btn zacht', Tr('Mijn profiel en klas'), function () { location.hash = '#/profiel'; }));
+      root.appendChild(el('h2', '', Tr('Pincode')));
+      if (pf.pin) {
+        root.appendChild(el('p', 'sub', Tr('Je profiel is beveiligd met een pincode.')));
+        root.appendChild(knop('btn zacht', Tr('Pincode verwijderen'), function () { delete pf.pin; savePR(); instellingenScherm(); }));
+      } else {
+        var np = el('input', 'invul'); np.type = 'password'; np.maxLength = 4; np.setAttribute('inputmode', 'numeric'); np.setAttribute('autocomplete', 'off');
+        np.placeholder = Tr('Pincode (4 cijfers)'); np.setAttribute('aria-label', Tr('Pincode'));
+        var pm = el('p', 'sub');
+        root.appendChild(np);
+        root.appendChild(knop('btn zacht', Tr('Pincode instellen'), function () {
+          if (!/^\d{4}$/.test(np.value)) { pm.textContent = Tr('Een pincode heeft precies 4 cijfers.'); return; }
+          pf.pin = pinHash(np.value); savePR(); instellingenScherm();
+        }));
+        root.appendChild(pm);
+      }
+      root.appendChild(el('h2', '', Tr('Afmelden')));
+      root.appendChild(knop('btn gevaar', Tr('Afmelden'), afmelden));
+      root.appendChild(el('p', 'sub', Tr('Afmelden wist niets. Je voortgang blijft op dit toestel bewaard; je kiest straks opnieuw wie je bent.')));
+    }
     root.appendChild(el('h2', '', Tr('Over Leerliga')));
     root.appendChild(el('p', 'sub', Tr('Leerliga is gemaakt met hulp van AI. De lessen zijn nog niet nagekeken door een leerkracht en kunnen fouten bevatten. Twijfel je? Vraag het aan je leerkracht of in je cursus.')));
     root.appendChild(el('p', 'sub', Tr('Alles wat je doet blijft op dit toestel. Er is geen account en er wordt niets verstuurd.')));
@@ -1062,8 +1121,8 @@
     var p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if (!INST.taalGekozen) return taalScherm();
     if (p[0] === 'instellingen') return instellingenScherm();
-    if (!PR.actief) return nieuwProfiel();
     if (p[0] === 'nieuw') return nieuwProfiel();
+    if (!PR.actief) return PR.lijst.length ? inlogScherm() : nieuwProfiel();
     if (p[0] === 'profiel') return profielScherm();
     if (p[0] === 'mijn') return p[1] === 'nieuw' ? nieuweLes() : p[1] ? eigenLesScherm(p[1]) : mijnLijst();
     if (!klas()) return profielScherm();
